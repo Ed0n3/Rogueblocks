@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BossArtifactDefinition" format=3 uid="uid://drlqq5lmu6l32"]
+
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1_mq458"]
+[ext_resource type="Script" uid="uid://b785o7t8oc4c1" path="res://core/artifacts/boss_artifact_effect.gd" id="2"]
+[ext_resource type="Resource" uid="uid://xk0ess46vrwf" path="res://content/enemies/bosses/grid_warden.tres" id="2_mq458"]
+[ext_resource type="Script" uid="uid://dkidkboj4j8xd" path="res://core/artifacts/effects/momentum_lattice_effect.gd" id="3"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("3")
+
+[resource]
+script = ExtResource("1")
+display_name = "Momentum Lattice"
+description = "A combo survives one placement with no clear. Clear a line to restore this grace."
+benefit = "Each combo gains one grace placement."
+drawback = "A second placement with no clear ends the combo."
+boss_pool = Array[ExtResource("1_mq458")]([ExtResource("2_mq458")])
+effects = Array[ExtResource("2")]([SubResource("Effect")])
+accent_color = Color(0.4, 1, 0.75, 1)

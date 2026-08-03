@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="CounterDefinition" format=3 uid="uid://dotgcguqtx8nm"]
+
+[ext_resource type="Script" uid="uid://und1rcm8w6bq" path="res://core/counters/counter_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://dl5hxd8rp2ro0" path="res://core/effects/implementations/damage_effect.gd" id="3"]
+[ext_resource type="Script" uid="uid://btkip47lbquh4" path="res://core/effects/implementations/apply_status_effect.gd" id="4"]
+[ext_resource type="Resource" uid="uid://c7qa8vsvtt8s5" path="res://content/statuses/weakened.tres" id="5"]
+[ext_resource type="Resource" path="res://content/statuses/ward.tres" id="5_uogle"]
+
+[sub_resource type="Resource" id="FailureDamage"]
+script = ExtResource("3")
+amount = 15
+
+[sub_resource type="Resource" id="FailureWeaken"]
+script = ExtResource("4")
+status = ExtResource("5")
+duration_turns = 6
+
+[sub_resource type="Resource" id="SuccessDamage"]
+script = ExtResource("3")
+amount = 7
+target = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Impossible Geometry"
+description = "Complete a cross clear before the design resolves. Success deals 7 damage. Failure deals 15 damage and applies Weakened for six turns."
+counter_type = 5
+duration_turns = 3
+success_effects = Array[ExtResource("2")]([SubResource("SuccessDamage")])
+failure_effects = Array[ExtResource("2")]([SubResource("FailureDamage"), SubResource("FailureWeaken")])

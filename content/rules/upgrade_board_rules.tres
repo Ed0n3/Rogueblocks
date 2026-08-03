@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="UpgradeBoardRules" format=3 uid="uid://bwe5tyq6xb42e"]
+
+[ext_resource type="Script" uid="uid://d3h17m3lg2r4i" path="res://core/progression/upgrade_board/upgrade_board_rules.gd" id="1"]
+
+[resource]
+script = ExtResource("1")

@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3]
+
+[ext_resource type="Script" path="res://core/items/item_definition.gd" id="1_item"]
+[ext_resource type="Script" path="res://core/effects/gameplay_effect.gd" id="2_effect"]
+[ext_resource type="Script" path="res://core/effects/implementations/apply_status_effect.gd" id="3_status"]
+[ext_resource type="Script" path="res://core/effects/implementations/delay_enemy_attack_effect.gd" id="4_delay"]
+[ext_resource type="Resource" path="res://content/statuses/strength.tres" id="5_strength"]
+[ext_resource type="Texture2D" path="res://assets/icons/items/momentum_coil.png" id="6_icon"]
+
+[sub_resource type="Resource" id="ApplyStrength"]
+script = ExtResource("3_status")
+target = 0
+status = ExtResource("5_strength")
+duration_turns = 3
+
+[sub_resource type="Resource" id="Delay"]
+script = ExtResource("4_delay")
+target = 1
+placements = 1
+
+[resource]
+script = ExtResource("1_item")
+display_name = "Momentum Coil"
+description = "Cleared lines deal +1 damage for 3 turns. Delay the current enemy action by 1 placement."
+category = 1
+rarity = 1
+tags = Array[StringName]([&"buff", &"damage", &"delay"])
+base_shop_price = 38
+maximum_stack_size = 2
+charges_per_purchase = 1
+target_mode = 6
+effects = Array[ExtResource("2_effect")]([SubResource("ApplyStrength"), SubResource("Delay")])
+accent_color = Color(1, 0.7, 0.2, 1)
+icon = ExtResource("6_icon")

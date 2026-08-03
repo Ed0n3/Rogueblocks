@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://ct7ryagkccjs3"]
+
+[ext_resource type="Script" uid="uid://dx16brlbge1il" path="res://core/items/item_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_a7dfs"]
+[ext_resource type="Script" uid="uid://dl5hxd8rp2ro0" path="res://core/effects/implementations/damage_effect.gd" id="2"]
+[ext_resource type="Texture2D" path="res://assets/icons/items/phase_piercer_charge.png" id="3_icon"]
+
+[sub_resource type="Resource" id="Damage"]
+script = ExtResource("2")
+amount = 5
+ignores_shield = true
+target = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Phase-Piercer Charge"
+description = "Deal 5 damage that bypasses Shield."
+category = 3
+rarity = 2
+base_shop_price = 34
+target_mode = 1
+effects = Array[ExtResource("1_a7dfs")]([SubResource("Damage")])
+accent_color = Color(1, 0.8, 0.35, 1)
+icon = ExtResource("3_icon")

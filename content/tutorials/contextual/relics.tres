@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="TutorialDefinition" format=3 uid="uid://c7o8y3xrewkvb"]
+
+[ext_resource type="Script" uid="uid://dkv2565fajb13" path="res://core/tutorial/tutorial_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://ckd1yh07hkegy" path="res://core/tutorial/tutorial_condition.gd" id="1_vsjf2"]
+[ext_resource type="Script" uid="uid://c17d62lp1a4rs" path="res://core/tutorial/tutorial_step_definition.gd" id="2"]
+[ext_resource type="Script" uid="uid://cfxplkcvejy83" path="res://core/tutorial/tutorial_target.gd" id="3"]
+[ext_resource type="Script" uid="uid://bhh11bcngg5ia" path="res://core/tutorial/tutorial_action.gd" id="4_dwexw"]
+
+[sub_resource type="Resource" id="Target"]
+script = ExtResource("3")
+target_key = 24
+
+[sub_resource type="Resource" id="Step"]
+script = ExtResource("2")
+title = "Relics last for this run"
+body = "Relics grant powers for this run. You may take one reward. Read its trigger and any attached item before you choose. Elites drop better and unique relics."
+target = SubResource("Target")
+input_mode = 1
+wait_for_player_confirmation = true
+skippable = false
+
+[resource]
+script = ExtResource("1")
+display_name = "Relics and Rewards"
+description = "Relics and encounter rewards."
+category = 6
+replay_context = 3
+priority = 38
+activation_mode = 3
+activation_event = 38
+steps = Array[ExtResource("2")]([SubResource("Step")])
+blocks_gameplay = true

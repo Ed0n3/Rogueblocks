@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="RelicDefinition" format=3 uid="uid://41mmc4jc6u05"]
+
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="1_hn034"]
+[ext_resource type="Resource" uid="uid://d4ebblsq65jbo" path="res://content/piece_modifiers/small_brand.tres" id="2_hn034"]
+[ext_resource type="Script" uid="uid://c1xhhna4gdcjw" path="res://core/relics/piece_affinity_relic_effect.gd" id="3_13kd8"]
+[ext_resource type="Script" uid="uid://cy40q74iyy3gr" path="res://core/pieces/piece_definition.gd" id="4_o2758"]
+[ext_resource type="Script" uid="uid://dmqxettumo761" path="res://core/piece_modifiers/piece_target_request.gd" id="5_yucyy"]
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="6_icknv"]
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="7_unboy"]
+
+[sub_resource type="Resource" id="Target"]
+script = ExtResource("5_yucyy")
+selection_mode = 2
+candidate_count = 2
+
+[sub_resource type="Resource" id="Resource_4a2rx"]
+script = ExtResource("3_13kd8")
+modifier_definition = ExtResource("2_hn034")
+target_selection = SubResource("Target")
+
+[resource]
+script = ExtResource("7_unboy")
+display_name = "Small Brand"
+description = "Choose 1 of 2 Blocks. When it helps clear a line, apply 1 Burn for two turns."
+effect = SubResource("Resource_4a2rx")
+elite_defeat_reward_only = true

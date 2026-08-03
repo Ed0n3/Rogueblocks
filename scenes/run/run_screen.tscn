@@ -1,0 +1,1637 @@
+[gd_scene format=3 uid="uid://dqwfs6uhcm42d"]
+
+[ext_resource type="Script" uid="uid://oiavqu5h7fvy" path="res://scenes/run/run_screen.gd" id="1"]
+[ext_resource type="Theme" uid="uid://hay1hu5nk5gd" path="res://presentation/theme/game_theme.tres" id="1_urvcj"]
+[ext_resource type="Script" uid="uid://cwlle7eet70f3" path="res://ui/board_view.gd" id="2"]
+[ext_resource type="Script" uid="uid://cjhra02wukiwj" path="res://core/run/encounter_controller.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://nerrmcfo2k3l" path="res://assets/icons/empty_texture.tres" id="4"]
+[ext_resource type="PackedScene" uid="uid://dyi1evar6573g" path="res://presentation/combat/enemy_presentation.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://presentation/vfx/vfx_layer.tscn" id="9"]
+[ext_resource type="Script" uid="uid://c6dwq5tj40b0" path="res://presentation/combat/combat_presentation_controller.gd" id="10"]
+[ext_resource type="PackedScene" path="res://presentation/artifacts/artifact_combat_strip.tscn" id="11"]
+[ext_resource type="Script" uid="uid://cjxilmrpyrveb" path="res://presentation/combat/enemy_intent_view.gd" id="12"]
+[ext_resource type="PackedScene" path="res://presentation/combat/status_strip_view.tscn" id="13"]
+[ext_resource type="Script" uid="uid://c2t0k8myjwaue" path="res://presentation/combat/run_item_button.gd" id="14"]
+[ext_resource type="Resource" uid="uid://utx7tovyxl16" path="res://content/presentation/combat_visual_settings.tres" id="16"]
+[ext_resource type="Script" uid="uid://dtxch4f04hnih" path="res://presentation/controls/icon_action_button.gd" id="17"]
+[ext_resource type="PackedScene" path="res://presentation/combat/vault_piece_list.tscn" id="18"]
+[ext_resource type="PackedScene" path="res://presentation/combat/status_effect_info_overlay.tscn" id="19"]
+[ext_resource type="PackedScene" uid="uid://bm6kltjaa1qga" path="res://presentation/board/board_tile_map_renderer.tscn" id="20"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/reroll.png" id="23_reroll_piece"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/emergency.png" id="24_emergency_clear"]
+[ext_resource type="PackedScene" path="res://presentation/deck/piece_hand_view.tscn" id="25_hand"]
+[ext_resource type="PackedScene" path="res://presentation/deck/piece_pile_view.tscn" id="26_pile"]
+[ext_resource type="PackedScene" path="res://presentation/combat/status_health_bar.tscn" id="27_status_health"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/vault.png" id="28_vault"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/skip.png" id="29_skip"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/log.png" id="30_log"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/pause.png" id="31_pause"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/rotate_left.png" id="32_rotate_left"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/rotate_right.png" id="33_rotate_right"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/place.png" id="34_place"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/end_turn.png" id="35_end_turn"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/close.png" id="36_close"]
+
+[sub_resource type="StyleBoxFlat" id="DialogPanel"]
+content_margin_left = 20.0
+content_margin_top = 18.0
+content_margin_right = 20.0
+content_margin_bottom = 18.0
+bg_color = Color(0.094, 0.125, 0.224, 0.99)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.459, 0.843, 0.91, 0.82)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 12
+
+[sub_resource type="StyleBoxFlat" id="ButtonDisabled"]
+bg_color = Color(0.071, 0.09, 0.165, 0.5)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.188, 0.231, 0.365, 0.42)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[sub_resource type="StyleBoxFlat" id="ButtonHover"]
+bg_color = Color(0.133, 0.176, 0.302, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.459, 0.843, 0.91, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+shadow_color = Color(0.494, 0.906, 0.847, 0.22)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="ButtonNeutral"]
+content_margin_left = 16.0
+content_margin_top = 10.0
+content_margin_right = 16.0
+content_margin_bottom = 10.0
+bg_color = Color(0.094, 0.125, 0.224, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.188, 0.231, 0.365, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[sub_resource type="StyleBoxFlat" id="ButtonGhost"]
+bg_color = Color(0.071, 0.09, 0.165, 0.12)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.188, 0.231, 0.365, 0.5)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[sub_resource type="StyleBoxFlat" id="ButtonCompactDisabled"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.071, 0.09, 0.165, 0.5)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.188, 0.231, 0.365, 0.42)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[sub_resource type="StyleBoxFlat" id="ButtonCompactPrimaryHover"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.145, 0.49, 0.47, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7, 1, 0.94, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+shadow_color = Color(0.494, 0.906, 0.847, 0.38)
+shadow_size = 7
+
+[sub_resource type="StyleBoxFlat" id="ButtonCompactPrimary"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.114, 0.38, 0.38, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.494, 0.906, 0.847, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+shadow_color = Color(0.494, 0.906, 0.847, 0.28)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="ButtonDanger"]
+bg_color = Color(0.42, 0.14, 0.16, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.47, 0.44, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[sub_resource type="StyleBoxFlat" id="PanelElevated"]
+content_margin_left = 20.0
+content_margin_top = 18.0
+content_margin_right = 20.0
+content_margin_bottom = 18.0
+bg_color = Color(0.094, 0.125, 0.224, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.188, 0.231, 0.365, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0, 0, 0.42)
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="PanelInset"]
+content_margin_left = 12.0
+content_margin_top = 10.0
+content_margin_right = 12.0
+content_margin_bottom = 10.0
+bg_color = Color(0.051, 0.067, 0.125, 0.92)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.13, 0.176, 0.302, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[sub_resource type="StyleBoxFlat" id="CardHover"]
+content_margin_left = 14.0
+content_margin_top = 12.0
+content_margin_right = 14.0
+content_margin_bottom = 12.0
+bg_color = Color(0.133, 0.176, 0.302, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.459, 0.843, 0.91, 1)
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
+shadow_color = Color(0.494, 0.906, 0.847, 0.26)
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="Card"]
+content_margin_left = 14.0
+content_margin_top = 12.0
+content_margin_right = 14.0
+content_margin_bottom = 12.0
+bg_color = Color(0.094, 0.125, 0.224, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.188, 0.231, 0.365, 1)
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 7
+
+[sub_resource type="StyleBoxFlat" id="ButtonPrimaryHover"]
+bg_color = Color(0.145, 0.49, 0.47, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7, 1, 0.94, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.494, 0.906, 0.847, 0.42)
+shadow_size = 12
+
+[sub_resource type="StyleBoxFlat" id="ButtonPrimary"]
+content_margin_left = 20.0
+content_margin_top = 12.0
+content_margin_right = 20.0
+content_margin_bottom = 12.0
+bg_color = Color(0.114, 0.38, 0.38, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.494, 0.906, 0.847, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.494, 0.906, 0.847, 0.28)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="PanelStandard"]
+content_margin_left = 16.0
+content_margin_top = 14.0
+content_margin_right = 16.0
+content_margin_bottom = 14.0
+bg_color = Color(0.071, 0.09, 0.165, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.188, 0.231, 0.365, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="Theme" id="Theme_urvcj"]
+default_font_size = 18
+AcceptDialog/constants/buttons_min_height = 48
+AcceptDialog/constants/buttons_min_width = 120
+AcceptDialog/constants/buttons_separation = 16
+AcceptDialog/styles/panel = SubResource("DialogPanel")
+BodyText/base_type = &"Label"
+BodyText/font_sizes/font_size = 18
+Button/colors/font_color = Color(0.914, 0.929, 0.98, 1)
+Button/colors/font_disabled_color = Color(0.384, 0.416, 0.51, 1)
+Button/colors/font_hover_color = Color(0.95, 1, 0.99, 1)
+Button/styles/disabled = SubResource("ButtonDisabled")
+Button/styles/focus = SubResource("ButtonHover")
+Button/styles/hover = SubResource("ButtonHover")
+Button/styles/normal = SubResource("ButtonNeutral")
+Button/styles/pressed = SubResource("ButtonHover")
+CompactButton/base_type = &"Button"
+CompactButton/font_sizes/font_size = 15
+CompactButton/styles/disabled = SubResource("ButtonDisabled")
+CompactButton/styles/focus = SubResource("ButtonHover")
+CompactButton/styles/hover = SubResource("ButtonHover")
+CompactButton/styles/normal = SubResource("ButtonGhost")
+CompactButton/styles/pressed = SubResource("ButtonHover")
+CompactPrimaryButton/base_type = &"Button"
+CompactPrimaryButton/font_sizes/font_size = 16
+CompactPrimaryButton/styles/disabled = SubResource("ButtonCompactDisabled")
+CompactPrimaryButton/styles/focus = SubResource("ButtonCompactPrimaryHover")
+CompactPrimaryButton/styles/hover = SubResource("ButtonCompactPrimaryHover")
+CompactPrimaryButton/styles/normal = SubResource("ButtonCompactPrimary")
+CompactPrimaryButton/styles/pressed = SubResource("ButtonCompactPrimaryHover")
+DangerButton/base_type = &"Button"
+DangerButton/styles/disabled = SubResource("ButtonDisabled")
+DangerButton/styles/focus = SubResource("ButtonHover")
+DangerButton/styles/hover = SubResource("ButtonHover")
+DangerButton/styles/normal = SubResource("ButtonDanger")
+DangerButton/styles/pressed = SubResource("ButtonHover")
+ElevatedPanel/base_type = &"PanelContainer"
+ElevatedPanel/styles/panel = SubResource("PanelElevated")
+GhostButton/base_type = &"Button"
+GhostButton/styles/disabled = SubResource("ButtonDisabled")
+GhostButton/styles/focus = SubResource("ButtonHover")
+GhostButton/styles/hover = SubResource("ButtonHover")
+GhostButton/styles/normal = SubResource("ButtonGhost")
+GhostButton/styles/pressed = SubResource("ButtonHover")
+HeadingLarge/base_type = &"Label"
+HeadingLarge/colors/font_color = Color(0.494, 0.906, 0.847, 1)
+HeadingLarge/font_sizes/font_size = 48
+HeadingMedium/base_type = &"Label"
+HeadingMedium/font_sizes/font_size = 30
+InsetPanel/base_type = &"PanelContainer"
+InsetPanel/styles/panel = SubResource("PanelInset")
+Label/colors/font_color = Color(0.914, 0.929, 0.98, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.35)
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+LineEdit/styles/normal = SubResource("ButtonNeutral")
+MutedText/base_type = &"Label"
+MutedText/colors/font_color = Color(0.639, 0.675, 0.773, 1)
+NumericDisplay/base_type = &"Label"
+NumericDisplay/colors/font_color = Color(0.494, 0.906, 0.847, 1)
+NumericDisplay/font_sizes/font_size = 24
+OptionButton/colors/font_color = Color(0.914, 0.929, 0.98, 1)
+OptionButton/colors/font_disabled_color = Color(0.384, 0.416, 0.51, 1)
+OptionButton/colors/font_hover_color = Color(0.95, 1, 0.99, 1)
+OptionButton/colors/font_pressed_color = Color(0.95, 1, 0.99, 1)
+OptionButton/constants/arrow_margin = 12
+OptionButton/styles/disabled = SubResource("ButtonDisabled")
+OptionButton/styles/focus = SubResource("ButtonHover")
+OptionButton/styles/hover = SubResource("ButtonHover")
+OptionButton/styles/normal = SubResource("ButtonNeutral")
+OptionButton/styles/pressed = SubResource("ButtonHover")
+PanelContainer/styles/panel = null
+PieceCard/base_type = &"Button"
+PieceCard/styles/disabled = SubResource("ButtonDisabled")
+PieceCard/styles/focus = SubResource("CardHover")
+PieceCard/styles/hover = SubResource("CardHover")
+PieceCard/styles/normal = SubResource("Card")
+PieceCard/styles/pressed = SubResource("CardHover")
+PopupMenu/colors/font_color = Color(0.914, 0.929, 0.98, 1)
+PopupMenu/colors/font_disabled_color = Color(0.384, 0.416, 0.51, 1)
+PopupMenu/colors/font_hover_color = Color(0.95, 1, 0.99, 1)
+PopupMenu/colors/font_separator_color = Color(0.639, 0.675, 0.773, 1)
+PopupMenu/styles/hover = SubResource("ButtonHover")
+PopupMenu/styles/panel = SubResource("PanelInset")
+PrimaryButton/base_type = &"Button"
+PrimaryButton/styles/disabled = SubResource("ButtonDisabled")
+PrimaryButton/styles/focus = SubResource("ButtonPrimaryHover")
+PrimaryButton/styles/hover = SubResource("ButtonPrimaryHover")
+PrimaryButton/styles/normal = SubResource("ButtonPrimary")
+PrimaryButton/styles/pressed = SubResource("ButtonPrimaryHover")
+RewardCard/base_type = &"Button"
+RewardCard/styles/disabled = SubResource("ButtonDisabled")
+RewardCard/styles/focus = SubResource("CardHover")
+RewardCard/styles/hover = SubResource("CardHover")
+RewardCard/styles/normal = SubResource("Card")
+RewardCard/styles/pressed = SubResource("CardHover")
+RouteNodeCard/base_type = &"Button"
+RouteNodeCard/styles/disabled = SubResource("ButtonDisabled")
+RouteNodeCard/styles/focus = SubResource("CardHover")
+RouteNodeCard/styles/hover = SubResource("CardHover")
+RouteNodeCard/styles/normal = SubResource("Card")
+RouteNodeCard/styles/pressed = SubResource("CardHover")
+SecondaryButton/base_type = &"Button"
+SecondaryButton/styles/disabled = SubResource("ButtonDisabled")
+SecondaryButton/styles/focus = SubResource("ButtonHover")
+SecondaryButton/styles/hover = SubResource("ButtonHover")
+SecondaryButton/styles/normal = SubResource("ButtonNeutral")
+SecondaryButton/styles/pressed = SubResource("ButtonHover")
+StandardPanel/base_type = &"PanelContainer"
+StandardPanel/styles/panel = SubResource("PanelStandard")
+StatCard/base_type = &"PanelContainer"
+StatCard/styles/panel = SubResource("PanelInset")
+TooltipPanel/base_type = &"PanelContainer"
+TooltipPanel/styles/panel = SubResource("PanelElevated")
+Window/colors/title_color = Color(0.494, 0.906, 0.847, 1)
+Window/colors/title_outline_modulate = Color(0, 0, 0, 0.55)
+Window/constants/title_height = 44
+Window/constants/title_outline_size = 1
+Window/font_sizes/title_font_size = 22
+Window/styles/embedded_border = SubResource("DialogPanel")
+Window/styles/embedded_unfocused_border = SubResource("DialogPanel")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lmwna"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urvcj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+
+[sub_resource type="Theme" id="Theme_lmwna"]
+default_font_size = 18
+AcceptDialog/constants/buttons_min_height = 48
+AcceptDialog/constants/buttons_min_width = 120
+AcceptDialog/constants/buttons_separation = 16
+AcceptDialog/styles/panel = SubResource("DialogPanel")
+BodyText/base_type = &"Label"
+BodyText/font_sizes/font_size = 18
+Button/colors/font_color = Color(0.914, 0.929, 0.98, 1)
+Button/colors/font_disabled_color = Color(0.384, 0.416, 0.51, 1)
+Button/colors/font_hover_color = Color(0.95, 1, 0.99, 1)
+Button/styles/disabled = SubResource("ButtonDisabled")
+Button/styles/focus = SubResource("ButtonHover")
+Button/styles/hover = SubResource("ButtonHover")
+Button/styles/normal = SubResource("ButtonNeutral")
+Button/styles/pressed = SubResource("ButtonHover")
+CompactButton/base_type = &"Button"
+CompactButton/font_sizes/font_size = 15
+CompactButton/styles/disabled = SubResource("ButtonDisabled")
+CompactButton/styles/focus = SubResource("ButtonHover")
+CompactButton/styles/hover = SubResource("ButtonHover")
+CompactButton/styles/normal = SubResource("ButtonGhost")
+CompactButton/styles/pressed = SubResource("ButtonHover")
+CompactPrimaryButton/base_type = &"Button"
+CompactPrimaryButton/font_sizes/font_size = 16
+CompactPrimaryButton/styles/disabled = SubResource("ButtonCompactDisabled")
+CompactPrimaryButton/styles/focus = SubResource("ButtonCompactPrimaryHover")
+CompactPrimaryButton/styles/hover = SubResource("ButtonCompactPrimaryHover")
+CompactPrimaryButton/styles/normal = SubResource("ButtonCompactPrimary")
+CompactPrimaryButton/styles/pressed = SubResource("ButtonCompactPrimaryHover")
+DangerButton/base_type = &"Button"
+DangerButton/styles/disabled = SubResource("ButtonDisabled")
+DangerButton/styles/focus = SubResource("ButtonHover")
+DangerButton/styles/hover = SubResource("ButtonHover")
+DangerButton/styles/normal = SubResource("ButtonDanger")
+DangerButton/styles/pressed = SubResource("ButtonHover")
+ElevatedPanel/base_type = &"PanelContainer"
+ElevatedPanel/styles/panel = SubResource("PanelElevated")
+GhostButton/base_type = &"Button"
+GhostButton/styles/disabled = SubResource("ButtonDisabled")
+GhostButton/styles/focus = SubResource("ButtonHover")
+GhostButton/styles/hover = SubResource("ButtonHover")
+GhostButton/styles/normal = SubResource("ButtonGhost")
+GhostButton/styles/pressed = SubResource("ButtonHover")
+HeadingLarge/base_type = &"Label"
+HeadingLarge/colors/font_color = Color(0.494, 0.906, 0.847, 1)
+HeadingLarge/font_sizes/font_size = 48
+HeadingMedium/base_type = &"Label"
+HeadingMedium/font_sizes/font_size = 30
+InsetPanel/base_type = &"PanelContainer"
+InsetPanel/styles/panel = SubResource("PanelInset")
+Label/colors/font_color = Color(0.914, 0.929, 0.98, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.35)
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+LineEdit/styles/normal = SubResource("ButtonNeutral")
+MutedText/base_type = &"Label"
+MutedText/colors/font_color = Color(0.639, 0.675, 0.773, 1)
+NumericDisplay/base_type = &"Label"
+NumericDisplay/colors/font_color = Color(0.494, 0.906, 0.847, 1)
+NumericDisplay/font_sizes/font_size = 24
+OptionButton/colors/font_color = Color(0.914, 0.929, 0.98, 1)
+OptionButton/colors/font_disabled_color = Color(0.384, 0.416, 0.51, 1)
+OptionButton/colors/font_hover_color = Color(0.95, 1, 0.99, 1)
+OptionButton/colors/font_pressed_color = Color(0.95, 1, 0.99, 1)
+OptionButton/constants/arrow_margin = 12
+OptionButton/styles/disabled = SubResource("ButtonDisabled")
+OptionButton/styles/focus = SubResource("ButtonHover")
+OptionButton/styles/hover = SubResource("ButtonHover")
+OptionButton/styles/normal = SubResource("ButtonNeutral")
+OptionButton/styles/pressed = SubResource("ButtonHover")
+PanelContainer/styles/panel = SubResource("PanelStandard")
+PieceCard/base_type = &"Button"
+PieceCard/styles/disabled = SubResource("ButtonDisabled")
+PieceCard/styles/focus = SubResource("CardHover")
+PieceCard/styles/hover = SubResource("CardHover")
+PieceCard/styles/normal = SubResource("Card")
+PieceCard/styles/pressed = SubResource("CardHover")
+PopupMenu/colors/font_color = Color(0.914, 0.929, 0.98, 1)
+PopupMenu/colors/font_disabled_color = Color(0.384, 0.416, 0.51, 1)
+PopupMenu/colors/font_hover_color = Color(0.95, 1, 0.99, 1)
+PopupMenu/colors/font_separator_color = Color(0.639, 0.675, 0.773, 1)
+PopupMenu/styles/hover = SubResource("ButtonHover")
+PopupMenu/styles/panel = SubResource("PanelInset")
+PrimaryButton/base_type = &"Button"
+PrimaryButton/styles/disabled = SubResource("ButtonDisabled")
+PrimaryButton/styles/focus = SubResource("ButtonPrimaryHover")
+PrimaryButton/styles/hover = SubResource("ButtonPrimaryHover")
+PrimaryButton/styles/normal = SubResource("ButtonPrimary")
+PrimaryButton/styles/pressed = SubResource("ButtonPrimaryHover")
+RewardCard/base_type = &"Button"
+RewardCard/styles/disabled = SubResource("ButtonDisabled")
+RewardCard/styles/focus = SubResource("CardHover")
+RewardCard/styles/hover = SubResource("CardHover")
+RewardCard/styles/normal = SubResource("Card")
+RewardCard/styles/pressed = SubResource("CardHover")
+RouteNodeCard/base_type = &"Button"
+RouteNodeCard/styles/disabled = SubResource("ButtonDisabled")
+RouteNodeCard/styles/focus = SubResource("CardHover")
+RouteNodeCard/styles/hover = SubResource("CardHover")
+RouteNodeCard/styles/normal = SubResource("Card")
+RouteNodeCard/styles/pressed = SubResource("CardHover")
+SecondaryButton/base_type = &"Button"
+SecondaryButton/styles/disabled = SubResource("ButtonDisabled")
+SecondaryButton/styles/focus = SubResource("ButtonHover")
+SecondaryButton/styles/hover = SubResource("ButtonHover")
+SecondaryButton/styles/normal = SubResource("ButtonNeutral")
+SecondaryButton/styles/pressed = SubResource("ButtonHover")
+StandardPanel/base_type = &"PanelContainer"
+StandardPanel/styles/panel = SubResource("PanelStandard")
+StatCard/base_type = &"PanelContainer"
+StatCard/styles/panel = SubResource("PanelInset")
+TooltipPanel/base_type = &"PanelContainer"
+TooltipPanel/styles/panel = SubResource("PanelElevated")
+Window/colors/title_color = Color(0.494, 0.906, 0.847, 1)
+Window/colors/title_outline_modulate = Color(0, 0, 0, 0.55)
+Window/constants/title_height = 44
+Window/constants/title_outline_size = 1
+Window/font_sizes/title_font_size = 22
+Window/styles/embedded_border = SubResource("DialogPanel")
+Window/styles/embedded_unfocused_border = SubResource("DialogPanel")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fh0lj"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.071, 0.09, 0.165, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.188, 0.231, 0.365, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="Theme" id="Theme_7a4l3"]
+default_font_size = 18
+AcceptDialog/constants/buttons_min_height = 48
+AcceptDialog/constants/buttons_min_width = 120
+AcceptDialog/constants/buttons_separation = 16
+AcceptDialog/styles/panel = SubResource("DialogPanel")
+BodyText/base_type = &"Label"
+BodyText/font_sizes/font_size = 18
+Button/colors/font_color = Color(0.914, 0.929, 0.98, 1)
+Button/colors/font_disabled_color = Color(0.384, 0.416, 0.51, 1)
+Button/colors/font_hover_color = Color(0.95, 1, 0.99, 1)
+Button/styles/disabled = SubResource("ButtonDisabled")
+Button/styles/focus = SubResource("ButtonHover")
+Button/styles/hover = SubResource("ButtonHover")
+Button/styles/normal = SubResource("ButtonNeutral")
+Button/styles/pressed = SubResource("ButtonHover")
+CompactButton/base_type = &"Button"
+CompactButton/font_sizes/font_size = 15
+CompactButton/styles/disabled = SubResource("ButtonDisabled")
+CompactButton/styles/focus = SubResource("ButtonHover")
+CompactButton/styles/hover = SubResource("ButtonHover")
+CompactButton/styles/normal = SubResource("ButtonGhost")
+CompactButton/styles/pressed = SubResource("ButtonHover")
+CompactPrimaryButton/base_type = &"Button"
+CompactPrimaryButton/font_sizes/font_size = 16
+CompactPrimaryButton/styles/disabled = SubResource("ButtonCompactDisabled")
+CompactPrimaryButton/styles/focus = SubResource("ButtonCompactPrimaryHover")
+CompactPrimaryButton/styles/hover = SubResource("ButtonCompactPrimaryHover")
+CompactPrimaryButton/styles/normal = SubResource("ButtonCompactPrimary")
+CompactPrimaryButton/styles/pressed = SubResource("ButtonCompactPrimaryHover")
+DangerButton/base_type = &"Button"
+DangerButton/styles/disabled = SubResource("ButtonDisabled")
+DangerButton/styles/focus = SubResource("ButtonHover")
+DangerButton/styles/hover = SubResource("ButtonHover")
+DangerButton/styles/normal = SubResource("ButtonDanger")
+DangerButton/styles/pressed = SubResource("ButtonHover")
+ElevatedPanel/base_type = &"PanelContainer"
+ElevatedPanel/styles/panel = SubResource("PanelElevated")
+GhostButton/base_type = &"Button"
+GhostButton/styles/disabled = SubResource("ButtonDisabled")
+GhostButton/styles/focus = SubResource("ButtonHover")
+GhostButton/styles/hover = SubResource("ButtonHover")
+GhostButton/styles/normal = SubResource("ButtonGhost")
+GhostButton/styles/pressed = SubResource("ButtonHover")
+HeadingLarge/base_type = &"Label"
+HeadingLarge/colors/font_color = Color(0.494, 0.906, 0.847, 1)
+HeadingLarge/font_sizes/font_size = 48
+HeadingMedium/base_type = &"Label"
+HeadingMedium/font_sizes/font_size = 30
+InsetPanel/base_type = &"PanelContainer"
+InsetPanel/styles/panel = SubResource("PanelInset")
+Label/colors/font_color = Color(0.914, 0.929, 0.98, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.35)
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+LineEdit/styles/normal = SubResource("ButtonNeutral")
+MutedText/base_type = &"Label"
+MutedText/colors/font_color = Color(0.639, 0.675, 0.773, 1)
+NumericDisplay/base_type = &"Label"
+NumericDisplay/colors/font_color = Color(0.494, 0.906, 0.847, 1)
+NumericDisplay/font_sizes/font_size = 24
+OptionButton/colors/font_color = Color(0.914, 0.929, 0.98, 1)
+OptionButton/colors/font_disabled_color = Color(0.384, 0.416, 0.51, 1)
+OptionButton/colors/font_hover_color = Color(0.95, 1, 0.99, 1)
+OptionButton/colors/font_pressed_color = Color(0.95, 1, 0.99, 1)
+OptionButton/constants/arrow_margin = 12
+OptionButton/styles/disabled = SubResource("ButtonDisabled")
+OptionButton/styles/focus = SubResource("ButtonHover")
+OptionButton/styles/hover = SubResource("ButtonHover")
+OptionButton/styles/normal = SubResource("ButtonNeutral")
+OptionButton/styles/pressed = SubResource("ButtonHover")
+PanelContainer/styles/panel = SubResource("PanelStandard")
+PieceCard/base_type = &"Button"
+PieceCard/styles/disabled = SubResource("ButtonDisabled")
+PieceCard/styles/focus = SubResource("CardHover")
+PieceCard/styles/hover = SubResource("CardHover")
+PieceCard/styles/normal = SubResource("Card")
+PieceCard/styles/pressed = SubResource("CardHover")
+PopupMenu/colors/font_color = Color(0.914, 0.929, 0.98, 1)
+PopupMenu/colors/font_disabled_color = Color(0.384, 0.416, 0.51, 1)
+PopupMenu/colors/font_hover_color = Color(0.95, 1, 0.99, 1)
+PopupMenu/colors/font_separator_color = Color(0.639, 0.675, 0.773, 1)
+PopupMenu/styles/hover = SubResource("ButtonHover")
+PopupMenu/styles/panel = SubResource("PanelInset")
+PrimaryButton/base_type = &"Button"
+PrimaryButton/styles/disabled = SubResource("ButtonDisabled")
+PrimaryButton/styles/focus = SubResource("ButtonPrimaryHover")
+PrimaryButton/styles/hover = SubResource("ButtonPrimaryHover")
+PrimaryButton/styles/normal = SubResource("ButtonPrimary")
+PrimaryButton/styles/pressed = SubResource("ButtonPrimaryHover")
+RewardCard/base_type = &"Button"
+RewardCard/styles/disabled = SubResource("ButtonDisabled")
+RewardCard/styles/focus = SubResource("CardHover")
+RewardCard/styles/hover = SubResource("CardHover")
+RewardCard/styles/normal = SubResource("Card")
+RewardCard/styles/pressed = SubResource("CardHover")
+RouteNodeCard/base_type = &"Button"
+RouteNodeCard/styles/disabled = SubResource("ButtonDisabled")
+RouteNodeCard/styles/focus = SubResource("CardHover")
+RouteNodeCard/styles/hover = SubResource("CardHover")
+RouteNodeCard/styles/normal = SubResource("Card")
+RouteNodeCard/styles/pressed = SubResource("CardHover")
+SecondaryButton/base_type = &"Button"
+SecondaryButton/styles/disabled = SubResource("ButtonDisabled")
+SecondaryButton/styles/focus = SubResource("ButtonHover")
+SecondaryButton/styles/hover = SubResource("ButtonHover")
+SecondaryButton/styles/normal = SubResource("ButtonNeutral")
+SecondaryButton/styles/pressed = SubResource("ButtonHover")
+StandardPanel/base_type = &"PanelContainer"
+StandardPanel/styles/panel = SubResource("PanelStandard")
+StatCard/base_type = &"PanelContainer"
+StatCard/styles/panel = SubResource("PanelInset")
+TooltipPanel/base_type = &"PanelContainer"
+TooltipPanel/styles/panel = SubResource("PanelElevated")
+Window/colors/title_color = Color(0.494, 0.906, 0.847, 1)
+Window/colors/title_outline_modulate = Color(0, 0, 0, 0.55)
+Window/constants/title_height = 44
+Window/constants/title_outline_size = 1
+Window/font_sizes/title_font_size = 22
+Window/styles/embedded_border = SubResource("DialogPanel")
+Window/styles/embedded_unfocused_border = SubResource("DialogPanel")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3psi"]
+bg_color = Color(0.071, 0.09, 0.165, 0.96)
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="RunScreen" type="Control" unique_id=555875409]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_urvcj")
+script = ExtResource("1")
+visual_settings = ExtResource("16")
+
+[node name="StatusEffectInfoOverlay" parent="." unique_id=1285027988 instance=ExtResource("19")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="MainMargin" type="MarginContainer" parent="." unique_id=1893667096]
+custom_maximum_size = Vector2(1280, 720)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="ScreenLayout" type="VBoxContainer" parent="MainMargin" unique_id=1917895656]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TopStatus" type="PanelContainer" parent="MainMargin/ScreenLayout" unique_id=971974022]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme = SubResource("Theme_urvcj")
+theme_override_styles/panel = SubResource("StyleBoxFlat_lmwna")
+
+[node name="StatusRow" type="HBoxContainer" parent="MainMargin/ScreenLayout/TopStatus" unique_id=1490616522]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="PlayerPanel" type="VBoxContainer" parent="MainMargin/ScreenLayout/TopStatus/StatusRow" unique_id=939030158]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(352, 0)
+layout_mode = 2
+
+[node name="PlayerHealthRow" type="HBoxContainer" parent="MainMargin/ScreenLayout/TopStatus/StatusRow/PlayerPanel" unique_id=1869486576]
+layout_mode = 2
+
+[node name="PlayerTitle" type="Label" parent="MainMargin/ScreenLayout/TopStatus/StatusRow/PlayerPanel/PlayerHealthRow" unique_id=1261178562]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+offset_transform_enabled = true
+theme_type_variation = &"MutedText"
+text = "CORE"
+
+[node name="PlayerHealthRow2" type="VBoxContainer" parent="MainMargin/ScreenLayout/TopStatus/StatusRow/PlayerPanel/PlayerHealthRow" unique_id=912703902]
+layout_mode = 2
+
+[node name="PlayerHealthBar" parent="MainMargin/ScreenLayout/TopStatus/StatusRow/PlayerPanel/PlayerHealthRow/PlayerHealthRow2" unique_id=1028467936 instance=ExtResource("27_status_health")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 18)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMargin/ScreenLayout/TopStatus/StatusRow/PlayerPanel/PlayerHealthRow/PlayerHealthRow2" unique_id=1207647868]
+layout_mode = 2
+
+[node name="PlayerHealth" type="Label" parent="MainMargin/ScreenLayout/TopStatus/StatusRow/PlayerPanel/PlayerHealthRow/PlayerHealthRow2/HBoxContainer" unique_id=110121909]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+text = "20 / 20"
+horizontal_alignment = 1
+
+[node name="PlayerStatuses" parent="MainMargin/ScreenLayout/TopStatus/StatusRow/PlayerPanel/PlayerHealthRow" unique_id=943701969 instance=ExtResource("13")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Combo" type="Label" parent="MainMargin/ScreenLayout/TopStatus/StatusRow" unique_id=800735939]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.490196, 0.862745, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "COMBO x0"
+
+[node name="Encounter" type="Label" parent="MainMargin/ScreenLayout/TopStatus/StatusRow" unique_id=1349160618]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_type_variation = &"HeadingMedium"
+theme_override_font_sizes/font_size = 14
+text = "E1"
+horizontal_alignment = 1
+
+[node name="ArtifactStrip" parent="MainMargin/ScreenLayout/TopStatus/StatusRow" unique_id=2146246999 instance=ExtResource("11")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShardBlock" type="VBoxContainer" parent="MainMargin/ScreenLayout/TopStatus/StatusRow" unique_id=1608908635]
+visible = false
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="ShardTitle" type="Label" parent="MainMargin/ScreenLayout/TopStatus/StatusRow/ShardBlock" unique_id=1296966477]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "SHARDS"
+
+[node name="Shards" type="Label" parent="MainMargin/ScreenLayout/TopStatus/StatusRow/ShardBlock" unique_id=831845261]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"NumericDisplay"
+text = "0"
+
+[node name="ArtifactActions" type="HBoxContainer" parent="MainMargin/ScreenLayout/TopStatus/StatusRow" unique_id=991735000]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="VaultButton" type="Button" parent="MainMargin/ScreenLayout/TopStatus/StatusRow/ArtifactActions" unique_id=1955833429]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Vault of Shapes"
+theme_type_variation = &"SecondaryButton"
+icon = ExtResource("4")
+script = ExtResource("17")
+action_icon = 7
+sprite_texture = ExtResource("28_vault")
+icon_size = 42.0
+
+[node name="TwinSkipButton" type="Button" parent="MainMargin/ScreenLayout/TopStatus/StatusRow/ArtifactActions" unique_id=1261944036]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Skip second placement"
+theme_type_variation = &"SecondaryButton"
+icon = ExtResource("4")
+script = ExtResource("17")
+action_icon = 8
+sprite_texture = ExtResource("29_skip")
+icon_size = 42.0
+
+[node name="Seed" type="Label" parent="MainMargin/ScreenLayout/TopStatus/StatusRow" unique_id=107507767]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Seed"
+
+[node name="LogButton" type="Button" parent="MainMargin/ScreenLayout/TopStatus/StatusRow" unique_id=1811876156 groups=["tutorial_input_passthrough"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+tooltip_text = "Combat log"
+theme_type_variation = &"CompactButton"
+toggle_mode = true
+icon = ExtResource("4")
+script = ExtResource("17")
+action_icon = 0
+sprite_texture = ExtResource("30_log")
+icon_size = 42.0
+
+[node name="PauseButton" type="Button" parent="MainMargin/ScreenLayout/TopStatus/StatusRow" unique_id=1611907062 groups=["tutorial_input_passthrough"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+tooltip_text = "Pause"
+theme_type_variation = &"FlatButton"
+icon = ExtResource("4")
+script = ExtResource("17")
+action_icon = 1
+sprite_texture = ExtResource("31_pause")
+icon_size = 42.0
+
+[node name="MainLayout" type="HBoxContainer" parent="MainMargin/ScreenLayout" unique_id=197450627]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 14
+
+[node name="BoardFrame" type="PanelContainer" parent="MainMargin/ScreenLayout/MainLayout" unique_id=1832032926]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ElevatedPanel"
+theme_override_styles/panel = SubResource("StyleBoxFlat_urvcj")
+
+[node name="BoardFrameLayout" type="Control" parent="MainMargin/ScreenLayout/MainLayout/BoardFrame" unique_id=2028598090]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="BoardAspect" type="AspectRatioContainer" parent="MainMargin/ScreenLayout/MainLayout/BoardFrame/BoardFrameLayout" unique_id=1190932582]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -110.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoardView" type="Control" parent="MainMargin/ScreenLayout/MainLayout/BoardFrame/BoardFrameLayout/BoardAspect" unique_id=697306040]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("2")
+
+[node name="TileMapRenderer" parent="MainMargin/ScreenLayout/MainLayout/BoardFrame/BoardFrameLayout/BoardAspect/BoardView" unique_id=1383414630 instance=ExtResource("20")]
+unique_name_in_owner = true
+
+[node name="ItemBelt" type="PanelContainer" parent="MainMargin/ScreenLayout/MainLayout/BoardFrame/BoardFrameLayout" unique_id=708902291]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -107.0
+offset_top = 5.0
+offset_right = 5.0
+offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_type_variation = &"InsetPanel"
+
+[node name="ItemBeltLayout" type="VBoxContainer" parent="MainMargin/ScreenLayout/MainLayout/BoardFrame/BoardFrameLayout/ItemBelt" unique_id=78888570]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ItemCaption" type="Label" parent="MainMargin/ScreenLayout/MainLayout/BoardFrame/BoardFrameLayout/ItemBelt/ItemBeltLayout" unique_id=1341625768]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "ITEMS"
+horizontal_alignment = 1
+
+[node name="BeltSlots" type="VBoxContainer" parent="MainMargin/ScreenLayout/MainLayout/BoardFrame/BoardFrameLayout/ItemBelt/ItemBeltLayout" unique_id=442598472]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Item1" type="Button" parent="MainMargin/ScreenLayout/MainLayout/BoardFrame/BoardFrameLayout/ItemBelt/ItemBeltLayout/BeltSlots" unique_id=1770228910]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+icon = ExtResource("4")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("14")
+
+[node name="Item2" type="Button" parent="MainMargin/ScreenLayout/MainLayout/BoardFrame/BoardFrameLayout/ItemBelt/ItemBeltLayout/BeltSlots" unique_id=1138332366]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "2"
+icon = ExtResource("4")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("14")
+
+[node name="Item3" type="Button" parent="MainMargin/ScreenLayout/MainLayout/BoardFrame/BoardFrameLayout/ItemBelt/ItemBeltLayout/BeltSlots" unique_id=379836454]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+icon = ExtResource("4")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("14")
+
+[node name="Item4" type="Button" parent="MainMargin/ScreenLayout/MainLayout/BoardFrame/BoardFrameLayout/ItemBelt/ItemBeltLayout/BeltSlots" unique_id=1614551914]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "4"
+icon = ExtResource("4")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("14")
+
+[node name="Item5" type="Button" parent="MainMargin/ScreenLayout/MainLayout/BoardFrame/BoardFrameLayout/ItemBelt/ItemBeltLayout/BeltSlots" unique_id=2110308770]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+icon = ExtResource("4")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("14")
+
+[node name="Item6" type="Button" parent="MainMargin/ScreenLayout/MainLayout/BoardFrame/BoardFrameLayout/ItemBelt/ItemBeltLayout/BeltSlots" unique_id=1105009570]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "6"
+icon = ExtResource("4")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("14")
+
+[node name="Item7" type="Button" parent="MainMargin/ScreenLayout/MainLayout/BoardFrame/BoardFrameLayout/ItemBelt/ItemBeltLayout/BeltSlots" unique_id=732878776]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "7"
+icon = ExtResource("4")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("14")
+
+[node name="Item8" type="Button" parent="MainMargin/ScreenLayout/MainLayout/BoardFrame/BoardFrameLayout/ItemBelt/ItemBeltLayout/BeltSlots" unique_id=810369122]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "8"
+icon = ExtResource("4")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("14")
+
+[node name="PileSpacer" type="Control" parent="MainMargin/ScreenLayout/MainLayout/BoardFrame/BoardFrameLayout/ItemBelt/ItemBeltLayout" unique_id=1463671050]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DrawPileView" parent="MainMargin/ScreenLayout/MainLayout/BoardFrame/BoardFrameLayout/ItemBelt/ItemBeltLayout" unique_id=2006377288 instance=ExtResource("26_pile")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(88, 86)
+layout_mode = 2
+
+[node name="DiscardPileView" parent="MainMargin/ScreenLayout/MainLayout/BoardFrame/BoardFrameLayout/ItemBelt/ItemBeltLayout" unique_id=1139512091 instance=ExtResource("26_pile")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(88, 86)
+layout_mode = 2
+pile_kind = 1
+
+[node name="RightCombatColumn" type="VBoxContainer" parent="MainMargin/ScreenLayout/MainLayout" unique_id=1342793424]
+custom_minimum_size = Vector2(440, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="EnemyStage" type="PanelContainer" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn" unique_id=1087301582]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(440, 260)
+layout_mode = 2
+theme = SubResource("Theme_lmwna")
+theme_override_styles/panel = SubResource("StyleBoxFlat_fh0lj")
+
+[node name="EnemyLayout" type="VBoxContainer" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/EnemyStage" unique_id=1340275167]
+layout_mode = 2
+
+[node name="EnemyName" type="Label" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/EnemyStage/EnemyLayout" unique_id=1937673461]
+unique_name_in_owner = true
+z_index = 1
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.77, 0.55, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "ENEMY"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="EnemyVisualArea" type="Control" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/EnemyStage/EnemyLayout" unique_id=1972968883]
+custom_minimum_size = Vector2(0, 126)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EnemyPresentation" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/EnemyStage/EnemyLayout/EnemyVisualArea" unique_id=10976834 instance=ExtResource("6")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_bottom = 50.0
+theme = ExtResource("1_urvcj")
+
+[node name="EnemyHealthRow" type="HBoxContainer" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/EnemyStage/EnemyLayout/EnemyVisualArea" unique_id=692224603]
+z_index = 1
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 221.0
+offset_bottom = 52.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/EnemyStage/EnemyLayout/EnemyVisualArea/EnemyHealthRow" unique_id=763706045]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EnemyHealthBar" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/EnemyStage/EnemyLayout/EnemyVisualArea/EnemyHealthRow/VBoxContainer" unique_id=765310561 instance=ExtResource("27_status_health")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(78, 18)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="EnemyHealth" type="Label" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/EnemyStage/EnemyLayout/EnemyVisualArea/EnemyHealthRow/VBoxContainer" unique_id=2049816060]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "12 / 12"
+
+[node name="EnemyStatuses" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/EnemyStage/EnemyLayout/EnemyVisualArea" unique_id=1427995658 instance=ExtResource("13")]
+unique_name_in_owner = true
+z_index = 1
+custom_minimum_size = Vector2(120, 42)
+layout_mode = 0
+offset_left = 241.0
+offset_top = 5.0
+offset_right = 361.0
+offset_bottom = 53.0
+
+[node name="IntentRow" type="HBoxContainer" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/EnemyStage/EnemyLayout" unique_id=382899989]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="EnemyIntentView" type="Control" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/EnemyStage/EnemyLayout/IntentRow" unique_id=1136747283]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+script = ExtResource("12")
+counter_indicator_color = Color(0.403922, 0.909804, 0.823529, 1)
+
+[node name="DamageFloat" type="Label" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/EnemyStage" unique_id=1232026698]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="DraftPanel" type="PanelContainer" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn" unique_id=1762144294]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_7a4l3")
+theme_type_variation = &"StandardPanel"
+theme_override_styles/panel = SubResource("StyleBoxFlat_j3psi")
+
+[node name="DraftLayout" type="VBoxContainer" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel" unique_id=1138960059]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="PieceHandView" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel/DraftLayout" unique_id=989475898 instance=ExtResource("25_hand")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VaultPieceList" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel/DraftLayout" unique_id=82738352 instance=ExtResource("18")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Rotation" type="HBoxContainer" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel/DraftLayout" unique_id=50845155]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="RotateLeft" type="Button" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel/DraftLayout/Rotation" unique_id=2009634409]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Rotate left (Q)"
+theme_type_variation = &"CompactButton"
+script = ExtResource("17")
+action_icon = 2
+sprite_texture = ExtResource("32_rotate_left")
+icon_size = 48.0
+
+[node name="TextureRect" type="TextureRect" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel/DraftLayout/Rotation/RotateLeft" unique_id=1209700066]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -19.0
+offset_right = 19.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel/DraftLayout/Rotation/RotateLeft" unique_id=1790975541]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PlaceButton" type="Button" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel/DraftLayout/Rotation" unique_id=2140769270]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Place Block"
+theme_type_variation = &"CompactPrimaryButton"
+disabled = true
+icon = ExtResource("4")
+script = ExtResource("17")
+sprite_texture = ExtResource("34_place")
+icon_size = 64.0
+
+[node name="RotateRight" type="Button" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel/DraftLayout/Rotation" unique_id=661430219]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Rotate right (E)"
+theme_type_variation = &"CompactButton"
+icon = ExtResource("4")
+script = ExtResource("17")
+action_icon = 3
+sprite_texture = ExtResource("33_rotate_right")
+icon_size = 48.0
+
+[node name="TextureRect" type="TextureRect" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel/DraftLayout/Rotation/RotateRight" unique_id=1245821919]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -19.0
+offset_right = 19.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel/DraftLayout/Rotation/RotateRight" unique_id=2003769603]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="UtilityActions" type="HBoxContainer" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel/DraftLayout" unique_id=1066423080]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_constants/separation = 7
+
+[node name="RerollButton" type="Button" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel/DraftLayout/UtilityActions" unique_id=1048342168]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Redraw all drawn pieces for 1 PM"
+theme_type_variation = &"SecondaryButton"
+icon = ExtResource("4")
+script = ExtResource("17")
+action_icon = 5
+sprite_texture = ExtResource("23_reroll_piece")
+icon_size = 44.0
+
+[node name="EndTurnButton" type="Button" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel/DraftLayout/UtilityActions" unique_id=2078872230]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "End the turn and discard remaining pieces"
+theme_type_variation = &"SecondaryButton"
+icon = ExtResource("4")
+script = ExtResource("17")
+action_icon = 9
+sprite_texture = ExtResource("35_end_turn")
+icon_size = 44.0
+
+[node name="EmergencyButton" type="Button" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel/DraftLayout/UtilityActions" unique_id=1071573573]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Emergency clear"
+theme_type_variation = &"DangerButton"
+icon = ExtResource("4")
+script = ExtResource("17")
+action_icon = 6
+sprite_texture = ExtResource("24_emergency_clear")
+icon_size = 44.0
+
+[node name="EventLogPanel" type="PanelContainer" parent="." unique_id=191305245]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 820.0
+offset_top = 80.0
+offset_right = 1240.0
+offset_bottom = 340.0
+theme_type_variation = &"ElevatedPanel"
+
+[node name="EventLog" type="RichTextLabel" parent="EventLogPanel" unique_id=816382998]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Toast" type="Label" parent="." unique_id=837855680]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -470.0
+offset_top = -620.0
+offset_right = 30.0
+offset_bottom = -582.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"MutedText"
+text = "Notification"
+horizontal_alignment = 1
+
+[node name="ClearBanner" type="Label" parent="." unique_id=1059760863]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -42.0
+offset_right = 260.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.51, 0.94, 0.67, 1)
+theme_override_font_sizes/font_size = 42
+text = "CLEAR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemInfoOverlay" type="Control" parent="." unique_id=987708938]
+unique_name_in_owner = true
+visible = false
+z_index = 30
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shade" type="ColorRect" parent="ItemInfoOverlay" unique_id=518657745]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.01, 0.02, 0.05, 0.78)
+
+[node name="Center" type="CenterContainer" parent="ItemInfoOverlay" unique_id=1489026072]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="ItemInfoOverlay/Center" unique_id=588622511]
+custom_minimum_size = Vector2(440, 260)
+layout_mode = 2
+theme_type_variation = &"ElevatedPanel"
+
+[node name="Layout" type="VBoxContainer" parent="ItemInfoOverlay/Center/Panel" unique_id=1549789947]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Header" type="HBoxContainer" parent="ItemInfoOverlay/Center/Panel/Layout" unique_id=2118253652]
+layout_mode = 2
+
+[node name="ItemInfoName" type="Label" parent="ItemInfoOverlay/Center/Panel/Layout/Header" unique_id=1806938352]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeadingMedium"
+text = "ITEM"
+
+[node name="ItemInfoClose" type="Button" parent="ItemInfoOverlay/Center/Panel/Layout/Header" unique_id=1866083330]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 2
+theme_type_variation = &"GhostButton"
+tooltip_text = "Close Item Details"
+icon = ExtResource("36_close")
+expand_icon = true
+icon_max_width = 34
+icon_alignment = 1
+
+[node name="ItemInfoMeta" type="Label" parent="ItemInfoOverlay/Center/Panel/Layout" unique_id=1211864066]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "Category  |  Target  |  Charges"
+autowrap_mode = 2
+
+[node name="ItemInfoEffects" type="Label" parent="ItemInfoOverlay/Center/Panel/Layout" unique_id=1743728567]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Effects"
+autowrap_mode = 2
+
+[node name="Hint" type="Label" parent="ItemInfoOverlay/Center/Panel/Layout" unique_id=2094814965]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "Tap an item to use it. Hold an item to inspect it."
+horizontal_alignment = 1
+
+[node name="EncounterController" type="Node" parent="." unique_id=1931775977]
+unique_name_in_owner = true
+script = ExtResource("3")
+
+[node name="CombatPresentationController" type="Node" parent="." unique_id=1701897038]
+unique_name_in_owner = true
+script = ExtResource("10")
+
+[node name="VFXLayer" parent="." unique_id=1194765324 instance=ExtResource("9")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="DebugPanel" type="PanelContainer" parent="." unique_id=462125766]
+unique_name_in_owner = true
+visible = false
+z_index = 50
+layout_mode = 0
+offset_left = 24.0
+offset_top = 94.0
+offset_right = 784.0
+offset_bottom = 696.0
+theme_type_variation = &"ElevatedPanel"
+
+[node name="DebugLayout" type="VBoxContainer" parent="DebugPanel" unique_id=1650088785]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="DebugHeader" type="HBoxContainer" parent="DebugPanel/DebugLayout" unique_id=156369380]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="DebugTitle" type="Label" parent="DebugPanel/DebugLayout/DebugHeader" unique_id=480274907]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeadingMedium"
+text = "RUN DEBUG"
+vertical_alignment = 1
+
+[node name="DebugClose" type="Button" parent="DebugPanel/DebugLayout/DebugHeader" unique_id=795717775]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(112, 52)
+layout_mode = 2
+theme_type_variation = &"GhostButton"
+text = "CLOSE"
+icon = ExtResource("4")
+
+[node name="DebugText" type="Label" parent="DebugPanel/DebugLayout" unique_id=2034059298]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Debug"
+autowrap_mode = 2
+
+[node name="CombatActionsLabel" type="Label" parent="DebugPanel/DebugLayout" unique_id=512020552]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "COMBAT"
+
+[node name="CombatActions" type="GridContainer" parent="DebugPanel/DebugLayout" unique_id=1797157550]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 4
+
+[node name="DebugDamage" type="Button" parent="DebugPanel/DebugLayout/CombatActions" unique_id=536472670]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SecondaryButton"
+text = "Damage Enemy"
+icon = ExtResource("4")
+
+[node name="DebugHeal" type="Button" parent="DebugPanel/DebugLayout/CombatActions" unique_id=1472490543]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SecondaryButton"
+text = "Heal Player"
+icon = ExtResource("4")
+
+[node name="DebugBlocker" type="Button" parent="DebugPanel/DebugLayout/CombatActions" unique_id=607026787]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SecondaryButton"
+text = "Add Blocker"
+icon = ExtResource("4")
+
+[node name="DebugClear" type="Button" parent="DebugPanel/DebugLayout/CombatActions" unique_id=498464804]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SecondaryButton"
+text = "Clear Board"
+icon = ExtResource("4")
+
+[node name="EncounterActionsLabel" type="Label" parent="DebugPanel/DebugLayout" unique_id=782542775]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "ENCOUNTER"
+
+[node name="EncounterActions" type="GridContainer" parent="DebugPanel/DebugLayout" unique_id=800706548]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 4
+
+[node name="DebugModifier" type="Button" parent="DebugPanel/DebugLayout/EncounterActions" unique_id=451312324]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SecondaryButton"
+text = "Toggle Ember"
+icon = ExtResource("4")
+
+[node name="DebugPrint" type="Button" parent="DebugPanel/DebugLayout/EncounterActions" unique_id=72193693]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SecondaryButton"
+text = "Print Board"
+icon = ExtResource("4")
+
+[node name="DebugRestart" type="Button" parent="DebugPanel/DebugLayout/EncounterActions" unique_id=987793162]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SecondaryButton"
+text = "Restart Encounter"
+icon = ExtResource("4")
+
+[node name="DebugWin" type="Button" parent="DebugPanel/DebugLayout/EncounterActions" unique_id=1761804218]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SecondaryButton"
+text = "Win Encounter"
+icon = ExtResource("4")
+
+[node name="TutorialActionsLabel" type="Label" parent="DebugPanel/DebugLayout" unique_id=1200201436]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "TUTORIAL"
+
+[node name="TutorialActions" type="GridContainer" parent="DebugPanel/DebugLayout" unique_id=1775283050]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 4
+
+[node name="DebugTutorial" type="Button" parent="DebugPanel/DebugLayout/TutorialActions" unique_id=1667763221]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SecondaryButton"
+text = "Start Tutorial"
+icon = ExtResource("4")
+
+[node name="DebugTutorialNext" type="Button" parent="DebugPanel/DebugLayout/TutorialActions" unique_id=22442111]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SecondaryButton"
+text = "Next Step"
+icon = ExtResource("4")
+
+[node name="DebugTutorialReset" type="Button" parent="DebugPanel/DebugLayout/TutorialActions" unique_id=564265328]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SecondaryButton"
+text = "Reset Tutorials"
+icon = ExtResource("4")
+
+[node name="DebugTutorialValidate" type="Button" parent="DebugPanel/DebugLayout/TutorialActions" unique_id=554688431]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SecondaryButton"
+text = "Validate Tutorials"
+icon = ExtResource("4")

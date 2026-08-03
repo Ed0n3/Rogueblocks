@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="BossArtifactDefinition" format=3 uid="uid://cgevuoy0le8a0"]
+
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://b785o7t8oc4c1" path="res://core/artifacts/boss_artifact_effect.gd" id="1_p3k55"]
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1_rxunq"]
+[ext_resource type="Script" uid="uid://kf2h85djoacw" path="res://core/artifacts/effects/architect_hand_effect.gd" id="2"]
+[ext_resource type="Resource" path="res://content/statuses/archlord_fire.tres" id="3_fire"]
+[ext_resource type="Resource" uid="uid://bsor3k5akk5ux" path="res://content/piece_modifiers/archlord_fire_visual.tres" id="4_tx1tf"]
+[ext_resource type="Resource" uid="uid://dddgppkrlq31e" path="res://content/pieces/monomino.tres" id="5_ec5e3"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+fire_status = ExtResource("3_fire")
+
+[resource]
+script = ExtResource("1")
+display_name = "Archlord's Hand"
+description = "Every third placement creates a burning Monoblock."
+benefit = "Every third normal placement creates a Monoblock. Its Fire deals 1 damage for three turns."
+effects = Array[ExtResource("1_p3k55")]([SubResource("Effect")])
+accent_color = Color(0.8, 0.55, 1, 1)

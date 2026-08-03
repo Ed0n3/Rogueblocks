@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UpgradeBoardRegionSlot" format=3]
+
+[ext_resource type="Script" path="res://core/progression/upgrade_board/upgrade_board_region_slot.gd" id="1"]
+[ext_resource type="Resource" path="res://content/upgrades/curators_seal.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+upgrade = ExtResource("2")
+slot_index = 9
+area_cell_count = 214
+usable_cell_count = 214
+shape = 4
+generation_seed = 1619
+

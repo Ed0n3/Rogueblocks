@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="PieceCardEffectDefinition" format=3 uid="uid://dg4h5rbt7cyp5"]
+
+[ext_resource type="Script" uid="uid://cpyu1wlfy52di" path="res://core/piece_effects/piece_card_effect_definition.gd" id="1_definition"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2_gameplay_effect"]
+[ext_resource type="Script" uid="uid://br7d1s60vll8l" path="res://core/effects/implementations/transfer_deck_cards_effect.gd" id="3_transfer"]
+[ext_resource type="Texture2D" uid="uid://nerrmcfo2k3l" path="res://assets/icons/empty_texture.tres" id="4_icon"]
+
+[sub_resource type="Resource" id="Transfer"]
+script = ExtResource("3_transfer")
+destination_pile = 0
+
+[resource]
+script = ExtResource("1_definition")
+display_name = "Reclaim Loop"
+description = "Return the most recent discarded Block to the top of the draw pile when every cell of this Block has been cleared."
+icon = ExtResource("4_icon")
+accent_color = Color(1, 0.72, 0.24, 1)
+marker_style = 4
+trigger = 2
+effects = Array[ExtResource("2_gameplay_effect")]([SubResource("Transfer")])
+enemy_health_scaling_weight = 0.35
+tags = Array[StringName]([&"deck", &"recycle", &"full_clear"])

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DeckRules" format=3 uid="uid://ckldfv6kjv2bx"]
+
+[ext_resource type="Script" uid="uid://bxkpacpndfnke" path="res://core/deck/deck_rules.gd" id="1_rules"]
+
+[resource]
+script = ExtResource("1_rules")
+maximum_hand_size = 7

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="RelicDefinition" format=3 uid="uid://ch3figyy3oiau"]
+
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="1_db1mk"]
+[ext_resource type="Script" uid="uid://d3kb5mnu8hm6c" path="res://core/relics/vault_cooldown_relic_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="2_hp4lu"]
+[ext_resource type="Resource" uid="uid://bd3bdl2l17mkn" path="res://content/artifacts/vault_shapes.tres" id="3_vault"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+
+[resource]
+script = ExtResource("1")
+display_name = "Vault Accelerator"
+description = "The Vault charges one turn faster."
+effect = SubResource("Effect")
+required_artifacts = Array[ExtResource("2_hp4lu")]([ExtResource("3_vault")])

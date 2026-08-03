@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyVisualDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://presentation/combat/enemy_visual_definition.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/enemies/leech.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+sprite = ExtResource("2")
+sprite_scale = 0.87
+sprite_offset = Vector2(0, 10)
+shadow_size = Vector2(205, 36)
+accent_color = Color(0.9, 0.27, 0.47, 1)
+idle_height = 7.0
+idle_duration = 1.45
+idle_rotation_degrees = 1.4
+attack_style = 0

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UpgradeBoardRegionSlot" format=3]
+
+[ext_resource type="Script" path="res://core/progression/upgrade_board/upgrade_board_region_slot.gd" id="1"]
+[ext_resource type="Resource" path="res://content/upgrades/spawn_more_elites.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+upgrade = ExtResource("2")
+slot_index = 26
+area_cell_count = 192
+usable_cell_count = 174
+shape = 5
+generation_seed = 1447
+

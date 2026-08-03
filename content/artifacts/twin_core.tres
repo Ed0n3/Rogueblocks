@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BossArtifactDefinition" format=3 uid="uid://dfd024pq71a3f"]
+
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://b785o7t8oc4c1" path="res://core/artifacts/boss_artifact_effect.gd" id="1_c1j36"]
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1_hymxj"]
+[ext_resource type="Script" uid="uid://w6pab5xndll" path="res://core/artifacts/effects/twin_core_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+
+[resource]
+script = ExtResource("1")
+display_name = "Twin Core"
+description = "Every fourth normal placement grants a second Block before the enemy acts."
+benefit = "Every 4 placements, place a second offered Block."
+drawback = "The second Block must fit. All rejected Blocks are discarded."
+effects = Array[ExtResource("1_c1j36")]([SubResource("Effect")])
+accent_color = Color(1, 0.72, 0.35, 1)

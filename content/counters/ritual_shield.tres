@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CounterDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://core/counters/counter_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+display_name = "Ritual Shield"
+description = "Clear four total lines or use a matching counter item."
+counter_type = 4
+duration_turns = 2
+required_progress = 4
+partial_success_threshold = 2
+valid_item_counter_tags = Array[StringName]([&"dispel"])

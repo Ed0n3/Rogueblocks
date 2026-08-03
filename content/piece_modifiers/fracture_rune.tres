@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="PieceModifierDefinition" format=3 uid="uid://bqohiu11ns5su"]
+
+[ext_resource type="Script" uid="uid://dfugivbrrejsb" path="res://core/piece_modifiers/piece_modifier_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_hp3xg"]
+[ext_resource type="Script" uid="uid://bqwfrt3slt1sp" path="res://core/piece_modifiers/piece_modifier_visual_definition.gd" id="2"]
+[ext_resource type="Script" uid="uid://dl5hxd8rp2ro0" path="res://core/effects/implementations/damage_effect.gd" id="3"]
+[ext_resource type="Script" uid="uid://dsf4icvf6b10p" path="res://core/effects/implementations/apply_status_when_shield_broken_effect.gd" id="4"]
+[ext_resource type="Resource" uid="uid://e2iww5t3sbpy" path="res://content/statuses/cracked.tres" id="5"]
+[ext_resource type="Resource" path="res://content/statuses/ward.tres" id="5_8xtnb"]
+[ext_resource type="Script" uid="uid://chm38hqkf8hqf" path="res://core/effects/implementations/heal_effect.gd" id="5_a0p41"]
+
+[sub_resource type="Resource" id="Damage"]
+script = ExtResource("3")
+amount = 4
+target = 1
+
+[sub_resource type="Resource" id="Cracked"]
+script = ExtResource("4")
+status = ExtResource("5")
+duration_turns = 3
+target = 1
+
+[sub_resource type="Resource" id="Resource_mgeff"]
+script = ExtResource("5_a0p41")
+metadata/_custom_type_script = "uid://chm38hqkf8hqf"
+
+[sub_resource type="Resource" id="Visual"]
+script = ExtResource("2")
+accent_color = Color(0.58, 0.82, 1, 1)
+secondary_color = Color(0.83, 0.93, 1, 1)
+marker_style = 3
+
+[resource]
+script = ExtResource("1")
+display_name = "Fracture Rune"
+description = "When this Block helps clear a line, deal 4 damage and apply Cracked for 3 turns."
+effects = Array[ExtResource("1_hp3xg")]([SubResource("Damage"), SubResource("Cracked"), SubResource("Resource_mgeff")])
+visual_definition = SubResource("Visual")
+priority = 30
+tags = Array[StringName]([&"affinity", &"damage"])

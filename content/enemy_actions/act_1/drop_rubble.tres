@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+display_name = "Drop Rubble"
+intent_description = "Place two blockers in empty cells."
+action_tags = Array[StringName]([&"board", &"blocker"])
+weight = 0.55
+blocker_count = 2
+requires_empty_cell = true
+icon_type = 5
+accent_color = Color(0.95, 0.65, 0.25, 1)

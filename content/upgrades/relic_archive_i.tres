@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" format=3 uid="uid://cadhmv0v0ewtl"]
+
+[ext_resource type="Script" uid="uid://c0vske0subwsi" path="res://core/progression/upgrade_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://dfndwdlwv1rfk" path="res://core/progression/permanent_upgrade_effect.gd" id="1_k3iaa"]
+[ext_resource type="Script" uid="uid://coy4ajq45xmt8" path="res://core/progression/effects/unlock_content_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="2_42bm5"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="2_q4vmx"]
+[ext_resource type="Script" uid="uid://4p0uxo08n5wv" path="res://core/events/run_event_definition.gd" id="3_q4vmx"]
+[ext_resource type="Resource" uid="uid://4rg7qxj8podr" path="res://content/relics/overflow.tres" id="3_relic"]
+[ext_resource type="Resource" uid="uid://bjqh13vcxjmbd" path="res://content/relics/clean_geometry.tres" id="4_relic"]
+[ext_resource type="Script" uid="uid://cy40q74iyy3gr" path="res://core/pieces/piece_definition.gd" id="4_viuxc"]
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="5_4x6v5"]
+[ext_resource type="Resource" uid="uid://b21wk1kgfri0c" path="res://content/relics/packed_lunch.tres" id="5_relic"]
+[ext_resource type="Resource" uid="uid://cvkigjy10lvad" path="res://content/relics/rejector.tres" id="6_relic"]
+[ext_resource type="Resource" uid="uid://cskt6qs6ghl8l" path="res://content/relics/stonebreaker.tres" id="7_relic"]
+[ext_resource type="Resource" uid="uid://c3dcnfu0x85wm" path="res://content/relics/heavy_catalogue.tres" id="8_relic"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+relics = Array[ExtResource("5_4x6v5")]([ExtResource("3_relic"), ExtResource("4_relic"), ExtResource("5_relic"), ExtResource("6_relic"), ExtResource("7_relic"), ExtResource("8_relic")])
+
+[resource]
+script = ExtResource("1")
+display_name = "Combat Relics"
+description = "Unlock six relics with combat effects."
+category = 3
+base_cost = 8
+explicit_costs = null
+prerequisite_levels = null
+effects = Array[ExtResource("1_k3iaa")]([SubResource("Effect")])
+tree_row = 1
+board_level_thresholds = null

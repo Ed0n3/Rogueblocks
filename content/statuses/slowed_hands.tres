@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="StatusDefinition" load_steps=3 format=3 uid="uid://dqi0idoa0r6p4"]
+
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://content/status_visuals/slowed.tres" id="2_visual"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Slowed Hands"
+description = "Blocks cannot rotate."
+tags = Array[StringName]([&"negative", &"control", &"slow"])
+duration_phase = 2
+accent_color = Color(0.45, 0.8, 0.9, 1)
+icon_type = 12
+visual_definition = ExtResource("2_visual")

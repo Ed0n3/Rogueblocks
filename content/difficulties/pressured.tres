@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DifficultyDefinition" format=3 uid="uid://cu7gp4rs3phq7"]
+
+[ext_resource type="Script" uid="uid://bdwuggy1d3tti" path="res://core/difficulty/difficulty_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Pressured"
+attack_interval_modifier = -1
+fragment_reward_multiplier = 1.6

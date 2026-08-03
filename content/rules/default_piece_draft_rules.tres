@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PieceDraftRules" format=3 uid="uid://clkjw7k0ug0av"]
+
+[ext_resource type="Script" uid="uid://dlxw3srirowxr" path="res://core/piece_draft/piece_draft_rules.gd" id="1"]
+[ext_resource type="Script" uid="uid://cy40q74iyy3gr" path="res://core/pieces/piece_definition.gd" id="1_x5nwp"]
+[ext_resource type="Script" uid="uid://cpyu1wlfy52di" path="res://core/piece_effects/piece_card_effect_definition.gd" id="2_effect_definition"]
+[ext_resource type="Resource" uid="uid://8rso3xwl67gp" path="res://content/card_effects/kinetic_impact.tres" id="3_impact"]
+[ext_resource type="Resource" uid="uid://cknve3eleo6o1" path="res://content/card_effects/prism_guard.tres" id="4_guard"]
+[ext_resource type="Resource" uid="uid://gkfswocebiha" path="res://content/card_effects/repair_glyph.tres" id="5_repair"]
+[ext_resource type="Resource" uid="uid://dlq37wm2y777p" path="res://content/card_effects/fracture_trace.tres" id="6_fracture"]
+[ext_resource type="Resource" uid="uid://bwx1ger85tlpt" path="res://content/card_effects/tempo_lattice.tres" id="7_tempo"]
+[ext_resource type="Resource" uid="uid://dg4h5rbt7cyp5" path="res://content/card_effects/reclaim_loop.tres" id="8_reclaim"]
+
+[resource]
+script = ExtResource("1")
+candidate_count = 14
+random_effect_pool = Array[ExtResource("2_effect_definition")]([ExtResource("3_impact"), ExtResource("4_guard"), ExtResource("5_repair"), ExtResource("6_fracture"), ExtResource("7_tempo"), ExtResource("8_reclaim"), null])
+effect_candidate_count = 5
+required_effect_selection_count = 2

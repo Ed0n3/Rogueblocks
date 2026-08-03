@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PieceCardEffectDefinition" format=3 uid="uid://c6rfemc0r7r3c"]
+
+[ext_resource type="Script" uid="uid://cpyu1wlfy52di" path="res://core/piece_effects/piece_card_effect_definition.gd" id="1_definition"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2_gameplay_effect"]
+[ext_resource type="Script" uid="uid://dl5hxd8rp2ro0" path="res://core/effects/implementations/damage_effect.gd" id="3_damage"]
+[ext_resource type="Texture2D" uid="uid://nerrmcfo2k3l" path="res://assets/icons/empty_texture.tres" id="4_icon"]
+
+[sub_resource type="Resource" id="Damage"]
+script = ExtResource("3_damage")
+amount = 2
+
+[resource]
+script = ExtResource("1_definition")
+display_name = "Volatile Fragment"
+description = "Take 2 damage when this Block is placed. This temporary piece lasts for the encounter."
+icon = ExtResource("4_icon")
+accent_color = Color(0.78, 0.34, 1, 1)
+marker_style = 7
+effects = Array[ExtResource("2_gameplay_effect")]([SubResource("Damage")])
+roll_weight = 0.0
+priority = -10
+enemy_health_scaling_weight = 0.0
+tags = Array[StringName]([&"curse", &"temporary"])

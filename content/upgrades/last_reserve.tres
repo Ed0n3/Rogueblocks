@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" format=3 uid="uid://d0vbvyympag2l"]
+
+[ext_resource type="Script" uid="uid://c0vske0subwsi" path="res://core/progression/upgrade_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://dfndwdlwv1rfk" path="res://core/progression/permanent_upgrade_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="2_s4kt8"]
+[ext_resource type="Resource" uid="uid://b77r2i6aj0cmh" path="res://content/upgrades/reinforced_core.tres" id="prerequisite"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+last_reserve_charges_per_level = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Emergency Reserve"
+description = "Once per run, survive lethal damage with 1 health."
+category = 0
+base_cost = 120
+explicit_costs = null
+prerequisite_upgrades = Array[ExtResource("1")]([ExtResource("prerequisite")])
+prerequisite_levels = PackedInt32Array(3)
+effects = Array[ExtResource("2")]([SubResource("Effect")])
+tree_column = 2
+board_level_thresholds = null

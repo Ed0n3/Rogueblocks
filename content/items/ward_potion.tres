@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://8giprahac615"]
+
+[ext_resource type="Script" uid="uid://dx16brlbge1il" path="res://core/items/item_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_5gw1t"]
+[ext_resource type="Script" uid="uid://btkip47lbquh4" path="res://core/effects/implementations/apply_status_effect.gd" id="2"]
+[ext_resource type="Resource" path="res://content/statuses/ward.tres" id="3"]
+[ext_resource type="Texture2D" path="res://assets/icons/items/ward_tank.png" id="4_icon"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+status = ExtResource("3")
+
+[resource]
+script = ExtResource("1")
+display_name = "Ward Tank"
+description = "Prevent the next cleansable negative status within 3 turns."
+category = 5
+rarity = 1
+base_shop_price = 24
+maximum_stack_size = 2
+target_mode = 0
+effects = Array[ExtResource("1_5gw1t")]([SubResource("Effect")])
+accent_color = Color(0.55, 0.9, 1, 1)
+icon = ExtResource("4_icon")

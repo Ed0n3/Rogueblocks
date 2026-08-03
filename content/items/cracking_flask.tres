@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://bwd3br06vvhyd"]
+
+[ext_resource type="Script" uid="uid://dx16brlbge1il" path="res://core/items/item_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_o8wjr"]
+[ext_resource type="Script" uid="uid://btkip47lbquh4" path="res://core/effects/implementations/apply_status_effect.gd" id="2"]
+[ext_resource type="Resource" path="res://content/statuses/vulnerable.tres" id="3"]
+[ext_resource type="Texture2D" path="res://assets/icons/items/fracture_charge.png" id="4_icon"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+status = ExtResource("3")
+target = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Fracture Charge"
+description = "The enemy takes 25% more health damage for 3 turns."
+category = 2
+rarity = 1
+base_shop_price = 28
+maximum_stack_size = 2
+target_mode = 1
+effects = Array[ExtResource("1_o8wjr")]([SubResource("Effect")])
+accent_color = Color(1, 0.6, 0.35, 1)
+icon = ExtResource("4_icon")

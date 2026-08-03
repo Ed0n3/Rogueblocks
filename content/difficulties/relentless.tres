@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DifficultyDefinition" format=3 uid="uid://bka84i1o4ddi2"]
+
+[ext_resource type="Script" uid="uid://bdwuggy1d3tti" path="res://core/difficulty/difficulty_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Relentless"
+enemy_health_multiplier = 1.35
+draw_count_modifier = -1
+fragment_reward_multiplier = 1.8

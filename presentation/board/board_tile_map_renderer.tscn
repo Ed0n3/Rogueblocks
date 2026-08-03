@@ -1,0 +1,24 @@
+[gd_scene load_steps=8 format=3 uid="uid://bm6kltjaa1qga"]
+
+[ext_resource type="Script" uid="uid://dr1grivs3rjg3" path="res://presentation/board/board_tile_map_renderer.gd" id="1"]
+[ext_resource type="Resource" uid="uid://b6lp8aufkdxaf" path="res://content/presentation/block_visual_settings.tres" id="2"]
+[ext_resource type="PackedScene" path="res://presentation/board/board_status_effect_layer.tscn" id="3_effect_layer"]
+[ext_resource type="Shader" path="res://presentation/shaders/poisoned_block.gdshader" id="4_poison_shader"]
+[ext_resource type="Shader" path="res://presentation/shaders/electrified_block.gdshader" id="5_electric_shader"]
+[ext_resource type="Resource" path="res://content/status_visuals/poison.tres" id="6_poison_visual"]
+[ext_resource type="Resource" path="res://content/status_visuals/electrified.tres" id="7_electric_visual"]
+
+[node name="BoardTileMapRenderer" type="Node2D" unique_id=1856363874]
+script = ExtResource("1")
+tile_texture_size = 128
+block_visual_settings = ExtResource("2")
+
+[node name="PoisonedBlockEffects" parent="." instance=ExtResource("3_effect_layer")]
+unique_name_in_owner = true
+effect_shader = ExtResource("4_poison_shader")
+visual_definition = ExtResource("6_poison_visual")
+
+[node name="ElectrifiedBlockEffects" parent="." instance=ExtResource("3_effect_layer")]
+unique_name_in_owner = true
+effect_shader = ExtResource("5_electric_shader")
+visual_definition = ExtResource("7_electric_visual")

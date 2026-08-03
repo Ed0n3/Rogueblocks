@@ -1,0 +1,71 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3 uid="uid://dkp6m2lotjprq"]
+
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://bbyykmmb01scj" path="res://core/combat/enemy_phase_definition.gd" id="2"]
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="3"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="3_qdxxv"]
+[ext_resource type="Resource" uid="uid://x3rkm7x5uq40" path="res://content/counters/column_collapse.tres" id="4"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="4_8q5n1"]
+[ext_resource type="Resource" path="res://content/counters/ritual_shield.tres" id="5"]
+[ext_resource type="Resource" uid="uid://b2r1euigcjkep" path="res://content/counters/overload.tres" id="6"]
+[ext_resource type="Resource" uid="uid://pmqkjuxgyqpk" path="res://content/enemy_visuals/architect.tres" id="visual"]
+
+[sub_resource type="Resource" id="Block"]
+script = ExtResource("3")
+display_name = "Column Collapse"
+intent_description = "Clear the marked column."
+counter_definition = ExtResource("4")
+direct_damage = 3
+blocker_count = 2
+
+[sub_resource type="Resource" id="Phase1"]
+script = ExtResource("2")
+action_pattern = Array[ExtResource("3")]([SubResource("Block")])
+display_name_suffix = "Foundation"
+
+[sub_resource type="Resource" id="Armor"]
+script = ExtResource("3")
+display_name = "Ritual Shield"
+intent_description = "Clear three lines before the ritual completes."
+counter_definition = ExtResource("5")
+direct_damage = 3
+special_cell_type = 7
+special_cell_count = 3
+special_cell_value = 2
+
+[sub_resource type="Resource" id="Phase2"]
+script = ExtResource("2")
+health_threshold_percent = 0.65
+attack_interval = 3
+action_pattern = Array[ExtResource("3")]([SubResource("Armor")])
+phase_start_actions = Array[ExtResource("3")]([SubResource("Armor")])
+display_name_suffix = "Fortification"
+
+[sub_resource type="Resource" id="Lock"]
+script = ExtResource("3")
+display_name = "Overload"
+intent_description = "Deal 22 damage before Overload resolves."
+counter_definition = ExtResource("6")
+direct_damage = 5
+special_cell_type = 5
+special_cell_count = 5
+special_cell_value = 2
+
+[sub_resource type="Resource" id="Phase3"]
+script = ExtResource("2")
+health_threshold_percent = 0.3
+attack_interval = 2
+action_pattern = Array[ExtResource("3")]([SubResource("Lock")])
+phase_start_actions = Array[ExtResource("3")]([SubResource("Lock")])
+display_name_suffix = "Final Design"
+
+[resource]
+script = ExtResource("1")
+display_name = "The Archlord Engine"
+maximum_health = 84
+direct_damage = 5
+phases = Array[ExtResource("2")]([SubResource("Phase1"), SubResource("Phase2"), SubResource("Phase3")])
+minimum_act = 4
+maximum_act = 4
+encounter_role = 2
+visual = ExtResource("visual")

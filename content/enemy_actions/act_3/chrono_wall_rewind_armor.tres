@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://6bbn21f2agnt"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1_ccje3"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://c3fh2778b0dd0" path="res://core/effects/implementations/shield_effect.gd" id="3"]
+
+[sub_resource type="Resource" id="Shield"]
+script = ExtResource("3")
+amount = 15
+target = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Rewind Armor"
+intent_description = "Rewind damage, healing 6 and gaining 15 shield."
+action_tags = Array[StringName]([&"shield", &"heal", &"time"])
+effects = Array[ExtResource("2")]([SubResource("Shield")])
+weight = 0.35
+cannot_repeat = true
+icon_type = 1
+accent_color = Color(0.75, 0.35, 1, 1)
+disallow_while_shielded = true
+shield_duration_placements = 2
+enemy_healing = 6

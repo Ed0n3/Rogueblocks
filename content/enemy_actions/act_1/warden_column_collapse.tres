@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" load_steps=3 format=3]
+[ext_resource type="Script" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://content/counters/warden_column_collapse.tres" id="2"]
+[resource]
+script = ExtResource("1")
+display_name = "Column Collapse"
+intent_description = "Clear the marked column within two turns."
+action_tags = Array[StringName]([&"counter", &"column", &"lock"])
+counter_definition = ExtResource("2")
+minimum_phase = 1
+weight = 0.35
+cannot_repeat = true
+icon_type = 12
+accent_color = Color(0.45, 0.7, 1, 1)

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyVisualDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://presentation/combat/enemy_visual_definition.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/enemies/divider.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+sprite = ExtResource("2")
+sprite_scale = 0.86
+sprite_offset = Vector2(0, 8)
+shadow_size = Vector2(180, 32)
+accent_color = Color(1, 0.42, 0.48, 1)
+idle_height = 4.0
+idle_duration = 2.05
+idle_rotation_degrees = 0.25
+attack_style = 2

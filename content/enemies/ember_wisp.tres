@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3 uid="uid://kga04jk1uude"]
+
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1"]
+[ext_resource type="Resource" uid="uid://dt5us3lxwgybo" path="res://content/enemy_actions/act_1/cinder_shot.tres" id="2"]
+[ext_resource type="Script" uid="uid://bbyykmmb01scj" path="res://core/combat/enemy_phase_definition.gd" id="2_8x6oi"]
+[ext_resource type="Resource" uid="uid://dgmjkfnlu7u7j" path="res://content/enemy_actions/act_1/ignite.tres" id="3"]
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="action_script"]
+[ext_resource type="Resource" path="res://content/enemy_visuals/ember_wisp.tres" id="visual"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Ember Blockling"
+maximum_health = 17
+mechanic_tier = 1
+selection_weight = 1.2
+possible_actions = Array[ExtResource("action_script")]([ExtResource("2"), ExtResource("3")])
+fallback_action = ExtResource("2")
+visual = ExtResource("visual")

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="TutorialDefinition" format=3 uid="uid://bsq44062iieyb"]
+
+[ext_resource type="Script" uid="uid://dkv2565fajb13" path="res://core/tutorial/tutorial_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://ckd1yh07hkegy" path="res://core/tutorial/tutorial_condition.gd" id="1_e4hbw"]
+[ext_resource type="Script" uid="uid://c17d62lp1a4rs" path="res://core/tutorial/tutorial_step_definition.gd" id="2"]
+[ext_resource type="Script" uid="uid://cfxplkcvejy83" path="res://core/tutorial/tutorial_target.gd" id="3"]
+[ext_resource type="Script" uid="uid://bhh11bcngg5ia" path="res://core/tutorial/tutorial_action.gd" id="4_k5hqk"]
+
+[sub_resource type="Resource" id="Target"]
+script = ExtResource("3")
+target_key = 12
+
+[sub_resource type="Resource" id="Step"]
+script = ExtResource("2")
+title = "Redrawing pieces"
+body = "A redraw discards your remaining drawn pieces and draws the same number of replacements. It costs 1 PM unless an effect makes it free. Piece effects stay attached to their Blocks."
+target = SubResource("Target")
+input_mode = 1
+message_position = 5
+wait_for_player_confirmation = true
+
+[resource]
+script = ExtResource("1")
+display_name = "Redrawing Pieces"
+description = "How redraws replace drawn pieces and spend PM."
+repeat_policy = 5
+steps = Array[ExtResource("2")]([SubResource("Step")])
+blocks_gameplay = true

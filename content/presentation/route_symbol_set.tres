@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="RouteSymbolSet" format=3 uid="uid://cfew5ncwo8ur7"]
+
+[ext_resource type="Script" uid="uid://d3i85pyobqhgv" path="res://presentation/cards/route_symbol_set.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cg6wn7igycuq8" path="res://assets/icons/routes/combat.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://tal7xaxxdsaa" path="res://assets/icons/routes/elite.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://i1jdfopqbu57" path="res://assets/icons/routes/shop.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://dytp8fxjgy8xy" path="res://assets/icons/routes/event.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://blpw0gurb5jwr" path="res://assets/icons/routes/recovery.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://e8osry0vs5sb" path="res://assets/icons/routes/challenge.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://dcj4ytq2h258r" path="res://assets/icons/routes/boss.png" id="8"]
+
+[resource]
+script = ExtResource("1")
+normal_combat = ExtResource("2")
+elite_combat = ExtResource("3")
+shop = ExtResource("4")
+event = ExtResource("5")
+recovery = ExtResource("6")
+challenge = ExtResource("7")
+boss = ExtResource("8")

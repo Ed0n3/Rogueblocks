@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://c7q7l8y4ftwld"]
+
+[ext_resource type="Script" uid="uid://dt15mrobngp2k" path="res://scenes/piece_draft/piece_draft_screen.gd" id="1"]
+[ext_resource type="Theme" uid="uid://hay1hu5nk5gd" path="res://presentation/theme/game_theme.tres" id="1_vuhnk"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/back.png" id="2_back"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/reroll.png" id="3_reroll"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/play.png" id="4_play"]
+
+[node name="PieceDraftScreen" type="Control" unique_id=1803828119]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_vuhnk")
+script = ExtResource("1")
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=707101060]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 18.0
+offset_right = -28.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="Margin" unique_id=1752942510]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Margin/Layout" unique_id=1834958949]
+layout_mode = 2
+theme_type_variation = &"HeadingLarge"
+text = "BUILD YOUR BLOCK PILE"
+horizontal_alignment = 1
+
+[node name="Prompt" type="Label" parent="Margin/Layout" unique_id=1163910401]
+layout_mode = 2
+text = "Choose pieces for your starting Block pile. Duplicate shapes remain separate pieces, and highlighted pieces carry intrinsic effects."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Selection" type="Label" parent="Margin/Layout" unique_id=846787332]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"NumericDisplay"
+theme_override_font_sizes/font_size = 20
+text = "0 / 8 PIECES  |  0 / 4 EFFECTS"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Content" type="HBoxContainer" parent="Margin/Layout" unique_id=1180226077]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 14
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/Layout/Content" unique_id=976436954]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+
+[node name="CandidateGrid" type="GridContainer" parent="Margin/Layout/Content/Scroll" unique_id=1929783512]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4
+
+[node name="DetailPanel" type="PanelContainer" parent="Margin/Layout/Content" unique_id=1044615582]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+theme_type_variation = &"InsetPanel"
+
+[node name="DetailLayout" type="VBoxContainer" parent="Margin/Layout/Content/DetailPanel" unique_id=1971208789]
+layout_mode = 2
+
+[node name="DetailTitle" type="Label" parent="Margin/Layout/Content/DetailPanel/DetailLayout" unique_id=1317737232]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeadingMedium"
+text = "BLOCK DETAILS"
+
+[node name="Detail" type="Label" parent="Margin/Layout/Content/DetailPanel/DetailLayout" unique_id=852661723]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Hover, focus, or tap a piece to inspect its shape and intrinsic effect."
+autowrap_mode = 2
+
+[node name="PoolSummary" type="Label" parent="Margin/Layout" unique_id=1802908487]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "BLOCK PILE PREVIEW"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Actions" type="HBoxContainer" parent="Margin/Layout" unique_id=1756088394]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Back" type="Button" parent="Margin/Layout/Actions" unique_id=1132290099]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(104, 44)
+layout_mode = 2
+theme_type_variation = &"GhostButton"
+tooltip_text = "Return to Hub"
+icon = ExtResource("2_back")
+expand_icon = true
+icon_max_width = 36
+icon_alignment = 1
+
+[node name="Randomize" type="Button" parent="Margin/Layout/Actions" unique_id=1087115399]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SecondaryButton"
+tooltip_text = "Randomize Selection"
+icon = ExtResource("3_reroll")
+expand_icon = true
+icon_max_width = 40
+icon_alignment = 1
+
+[node name="Begin" type="Button" parent="Margin/Layout/Actions" unique_id=1963213875]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"PrimaryButton"
+tooltip_text = "Begin Run"
+icon = ExtResource("4_play")
+expand_icon = true
+icon_max_width = 40
+icon_alignment = 1

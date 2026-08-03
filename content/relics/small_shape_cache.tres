@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="RelicDefinition" format=3 uid="uid://besegu6ec1f46"]
+
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="1_75hv6"]
+[ext_resource type="Script" uid="uid://cddprljnikvra" path="res://core/relics/add_piece_to_pool_relic_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="3_u1776"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+selection_mode = 3
+candidate_count = 1
+allowed_tags = Array[StringName]([&"small"])
+
+[resource]
+script = ExtResource("1")
+display_name = "Small-Shape Cache"
+description = "Add a random small piece to your Block pile. Duplicate shapes are allowed."
+effect = SubResource("Effect")

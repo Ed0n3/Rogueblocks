@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="StatusDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/effects/status_definition.gd" id="1_status"]
+[ext_resource type="Resource" path="res://content/status_visuals/recovery.tres" id="2_visual"]
+
+[resource]
+script = ExtResource("1_status")
+display_name = "Repair Nanites"
+description = "Restores 2 Core Integrity at the start of each player turn."
+category = 3
+tags = Array[StringName]([&"positive", &"healing", &"repair"])
+default_duration_turns = 3
+tick_phase = 1
+duration_phase = 1
+tick_amount = -2
+accent_color = Color(0.3, 0.95, 0.65, 1)
+visual_definition = ExtResource("2_visual")
+icon_type = 11

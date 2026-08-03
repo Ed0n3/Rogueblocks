@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="LegacyContentMigrations" format=3 uid="uid://bnmwd5ktecjtd"]
+
+[ext_resource type="Script" uid="uid://d0cjcwh7wfhrp" path="res://core/saves/migrations/legacy_content_migrations.gd" id="1_migrations"]
+[ext_resource type="Script" uid="uid://bbkemtjuwqy8d" path="res://core/saves/migrations/legacy_content_alias.gd" id="2_alias"]
+[ext_resource type="Resource" uid="uid://dddgppkrlq31e" path="res://content/pieces/monomino.tres" id="3_monomino"]
+
+[sub_resource type="Resource" id="LegacyMonomino"]
+script = ExtResource("2_alias")
+legacy_id = &"mono"
+definition = ExtResource("3_monomino")
+
+[resource]
+script = ExtResource("1_migrations")
+aliases = Array[ExtResource("2_alias")]([SubResource("LegacyMonomino")])

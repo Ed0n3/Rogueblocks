@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="RunEventDefinition" format=3 uid="uid://cdwf6ii8ypud8"]
+
+[ext_resource type="Script" uid="uid://4p0uxo08n5wv" path="res://core/events/run_event_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://cg8woti0slts2" path="res://core/events/event_choice_definition.gd" id="2"]
+
+[sub_resource type="Resource" id="Cleanse"]
+script = ExtResource("2")
+choice_text = "Submit to purification"
+result_preview = "Spend 5 Shards to get one item."
+shard_cost = 5
+item_reward_count = 1
+
+[sub_resource type="Resource" id="Siphon"]
+script = ExtResource("2")
+choice_text = "Siphon the filters"
+result_preview = "Gain 12 Shards. Add three corrupted cells to the next fight."
+shard_reward = 12
+corrupted_cells_next_encounter = 3
+
+[resource]
+script = ExtResource("1")
+title = "Cleansing Array"
+description = "Ancient filters hum around a reservoir of captured corruption."
+selection_weight = 0.9
+choices = Array[ExtResource("2")]([SubResource("Cleanse"), SubResource("Siphon")])

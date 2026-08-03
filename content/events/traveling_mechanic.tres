@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="RunEventDefinition" format=3 uid="uid://c417iagxfgdur"]
+
+[ext_resource type="Script" uid="uid://4p0uxo08n5wv" path="res://core/events/run_event_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://cg8woti0slts2" path="res://core/events/event_choice_definition.gd" id="2"]
+
+[sub_resource type="Resource" id="Clear"]
+script = ExtResource("2")
+choice_text = "Buy an emergency charge"
+result_preview = "Spend 8 Shards to gain one Emergency Clear."
+shard_cost = 8
+emergency_clear_reward = 1
+
+[sub_resource type="Resource" id="Frame"]
+script = ExtResource("2")
+choice_text = "Reinforce the core"
+result_preview = "Lose 2 current health and gain 2 maximum health."
+health_cost = 2
+maximum_health_reward = 2
+
+[sub_resource type="Resource" id="Leave"]
+script = ExtResource("2")
+choice_text = "Decline the modification"
+result_preview = "Leave without changing the run."
+
+[resource]
+script = ExtResource("1")
+title = "Traveling Mechanic"
+description = "A patient machine offers one field modification before moving on."
+choices = Array[ExtResource("2")]([SubResource("Clear"), SubResource("Frame"), SubResource("Leave")])

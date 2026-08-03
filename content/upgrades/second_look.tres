@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" format=3 uid="uid://cxhukibhtn6ox"]
+
+[ext_resource type="Script" uid="uid://c0vske0subwsi" path="res://core/progression/upgrade_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://dfndwdlwv1rfk" path="res://core/progression/permanent_upgrade_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="2_arjtn"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+rerolls_per_level = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Redraw Reserve"
+description = "+1 free redraw per encounter per level."
+category = 1
+max_level = 4
+explicit_costs = PackedInt32Array(25, 75, 200, 500)
+prerequisite_levels = null
+effects = Array[ExtResource("2")]([SubResource("Effect")])
+board_level_thresholds = null

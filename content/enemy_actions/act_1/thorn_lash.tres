@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://dbbwbbgq7ytwm"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_raxr5"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Siphon Lash"
+intent_description = "Deal 3 direct damage."
+action_tags = Array[StringName]([&"attack", &"direct_damage"])
+weight = 0.6
+accent_color = Color(1, 0.4, 0.6, 1)
+direct_damage = 3

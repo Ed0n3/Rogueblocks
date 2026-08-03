@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="TutorialDefinition" format=3 uid="uid://d1nof5iwhnghb"]
+
+[ext_resource type="Script" uid="uid://dkv2565fajb13" path="res://core/tutorial/tutorial_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://ckd1yh07hkegy" path="res://core/tutorial/tutorial_condition.gd" id="1_bmxy5"]
+[ext_resource type="Script" uid="uid://c17d62lp1a4rs" path="res://core/tutorial/tutorial_step_definition.gd" id="2"]
+[ext_resource type="Script" uid="uid://cfxplkcvejy83" path="res://core/tutorial/tutorial_target.gd" id="3"]
+[ext_resource type="Script" uid="uid://bokghqvivitjr" path="res://core/tutorial/conditions/event_occurred_condition.gd" id="4"]
+[ext_resource type="Script" uid="uid://bhh11bcngg5ia" path="res://core/tutorial/tutorial_action.gd" id="4_op1bs"]
+
+[sub_resource type="Resource" id="CandidatesTarget"]
+script = ExtResource("3")
+target_key = 19
+
+[sub_resource type="Resource" id="Intro"]
+script = ExtResource("2")
+title = "Build this run's Block pile"
+body = "Your collection holds every unlocked Block. This run seed chooses twelve piece candidates, including duplicate shapes. Pick eight to build your starting Block pile."
+target = SubResource("CandidatesTarget")
+input_mode = 1
+wait_for_player_confirmation = true
+
+[sub_resource type="Resource" id="Confirmed"]
+script = ExtResource("4")
+event_type = 29
+
+[sub_resource type="Resource" id="Choose"]
+script = ExtResource("2")
+title = "Choose your starting pieces"
+body = "Pick the required pieces to begin. Powered pieces keep their effects, filler pieces add consistency, and relics, shops, and events can change the Block pile later."
+target = SubResource("CandidatesTarget")
+completion_conditions = Array[ExtResource("1_bmxy5")]([SubResource("Confirmed")])
+input_mode = 5
+
+[resource]
+script = ExtResource("1")
+display_name = "Starting Block Draft"
+description = "Build an eight-piece starting Block pile from twelve candidates."
+replay_context = 7
+priority = 70
+activation_mode = 3
+activation_event = 30
+steps = Array[ExtResource("2")]([SubResource("Intro"), SubResource("Choose")])
+can_skip = false
+blocks_gameplay = true

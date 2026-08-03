@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="RelicDefinition" format=3 uid="uid://cskt6qs6ghl8l"]
+
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="1_a47vh"]
+[ext_resource type="Script" uid="uid://djlgmqh1pdvp6" path="res://core/relics/relic_trigger_effect.gd" id="2_trigger"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="3_damage"]
+
+[sub_resource type="Resource" id="DamageModifier"]
+script = ExtResource("3_damage")
+event_type = 1
+value = 2.0
+scaling = 3
+
+[sub_resource type="Resource" id="Trigger"]
+script = ExtResource("2_trigger")
+damage_modifiers = Array[ExtResource("3_damage")]([SubResource("DamageModifier")])
+spawned_blocker_durability = 2
+
+[resource]
+script = ExtResource("1")
+display_name = "Stonebreaker"
+description = "Enemy blockers need two clears. Breaking those deal 2 additional damage per block."
+repeatable = true
+initially_unlocked = false
+trigger_priority = 60
+trigger_effect = SubResource("Trigger")

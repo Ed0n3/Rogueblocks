@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PieceDefinition" format=3 uid="uid://c08q8y2p2ji2a"]
+
+[ext_resource type="Script" uid="uid://cy40q74iyy3gr" path="res://core/pieces/piece_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+display_name = "U Pentablock"
+base_cells = Array[Vector2i]([Vector2i(1, 1), Vector2i(0, 0), Vector2i(2, 0), Vector2i(0, 1), Vector2i(2, 1)])
+preview_color = Color(0.35, 0.82, 0.73, 1)
+starting_draft_weight = 0.7
+tags = Array[StringName]([&"large", &"corner", &"pentomino"])
+initially_unlocked = false

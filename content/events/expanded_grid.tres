@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="RunEventDefinition" format=3 uid="uid://cqhaavtd2t6i6"]
+
+[ext_resource type="Script" uid="uid://4p0uxo08n5wv" path="res://core/events/run_event_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://cg8woti0slts2" path="res://core/events/event_choice_definition.gd" id="2"]
+
+[sub_resource type="Resource" id="Risk"]
+script = ExtResource("2")
+choice_text = "Enter the expanded grid"
+result_preview = "Next encounter uses a 9x10 board with 5 corrupted cells."
+corrupted_cells_next_encounter = 5
+board_width_override = 9
+board_height_override = 10
+
+[sub_resource type="Resource" id="Stabilize"]
+script = ExtResource("2")
+choice_text = "Pay for stabilization"
+result_preview = "Spend 8 Shards. Next encounter uses a clean 9x10 board."
+shard_cost = 8
+board_width_override = 9
+board_height_override = 10
+
+[resource]
+script = ExtResource("1")
+title = "Expanded Grid"
+description = "A maintenance gate opens onto a wider combat lattice."
+selection_weight = 0.9
+choices = Array[ExtResource("2")]([SubResource("Risk"), SubResource("Stabilize")])

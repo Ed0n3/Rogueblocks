@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="RelicDefinition" format=3 uid="uid://bvb2rli57unwl"]
+
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="1_rpsd5"]
+[ext_resource type="Script" uid="uid://djlgmqh1pdvp6" path="res://core/relics/relic_trigger_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="Trigger"]
+script = ExtResource("2")
+minimum_lines = 2
+shard_reward = 2
+
+[resource]
+script = ExtResource("1")
+display_name = "Shard Thread"
+description = "Clearing two or more lines grants 2 Shards."
+trigger_priority = 10
+trigger_effect = SubResource("Trigger")

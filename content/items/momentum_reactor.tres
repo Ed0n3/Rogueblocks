@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3]
+
+[ext_resource type="Script" path="res://core/items/item_definition.gd" id="1_item"]
+[ext_resource type="Script" path="res://core/effects/gameplay_effect.gd" id="2_effect"]
+[ext_resource type="Script" path="res://core/effects/implementations/apply_status_effect.gd" id="3_status"]
+[ext_resource type="Script" path="res://core/effects/implementations/delay_enemy_attack_effect.gd" id="4_delay"]
+[ext_resource type="Resource" path="res://content/statuses/strength.tres" id="5_strength"]
+[ext_resource type="Texture2D" path="res://assets/icons/items/momentum_reactor.png" id="6_icon"]
+[ext_resource type="Resource" path="res://content/items/momentum_coil.tres" id="7_base"]
+
+[sub_resource type="Resource" id="ApplyStrength"]
+script = ExtResource("3_status")
+target = 0
+status = ExtResource("5_strength")
+duration_turns = 5
+
+[sub_resource type="Resource" id="Delay"]
+script = ExtResource("4_delay")
+target = 1
+placements = 2
+
+[resource]
+script = ExtResource("1_item")
+display_name = "Momentum Reactor"
+description = "Cleared lines deal +1 damage for 5 turns. Delay the current enemy action by 2 placements."
+category = 1
+rarity = 2
+tags = Array[StringName]([&"buff", &"damage", &"delay"])
+base_shop_price = 56
+maximum_stack_size = 1
+charges_per_purchase = 1
+target_mode = 6
+effects = Array[ExtResource("2_effect")]([SubResource("ApplyStrength"), SubResource("Delay")])
+accent_color = Color(1, 0.32, 0.65, 1)
+icon = ExtResource("6_icon")
+variant_of = ExtResource("7_base")

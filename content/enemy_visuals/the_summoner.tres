@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyVisualDefinition" format=3 uid="uid://drvvj4ivecbxc"]
+
+[ext_resource type="Script" uid="uid://bt6ggen3q15hs" path="res://presentation/combat/enemy_visual_definition.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://b6vvuae3ci47o" path="res://assets/enemies/the_summoner.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+sprite = ExtResource("2")
+sprite_scale = 0.85
+shadow_size = Vector2(260, 40)
+accent_color = Color(0.8, 0.3, 1, 1)
+attack_color = Color(0.45, 0.85, 1, 1)
+idle_height = 9.0
+idle_duration = 1.45
+attack_style = 2

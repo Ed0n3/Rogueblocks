@@ -1,0 +1,112 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://tests/tutorial_showcase.gd" id="1"]
+[ext_resource type="Theme" path="res://presentation/theme/game_theme.tres" id="2"]
+[ext_resource type="Texture2D" path="res://assets/icons/empty_texture.tres" id="3"]
+
+[node name="TutorialShowcase" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2")
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.018, 0.03, 0.065, 1)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 24.0
+offset_right = -28.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Margin/Layout"]
+layout_mode = 2
+theme_type_variation = &"HeadingLarge"
+text = "ROUTE  |  ACT 1"
+horizontal_alignment = 1
+
+[node name="Status" type="PanelContainer" parent="Margin/Layout"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+theme_type_variation = &"StandardPanel"
+
+[node name="Row" type="HBoxContainer" parent="Margin/Layout/Status"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Health" type="Label" parent="Margin/Layout/Status/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CORE  24 / 24"
+
+[node name="Shards" type="Label" parent="Margin/Layout/Status/Row"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.92, 0.86, 1)
+text = "SHARDS  12"
+
+[node name="Pieces" type="Button" parent="Margin/Layout/Status/Row"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"GhostButton"
+text = "PIECES  11"
+icon = ExtResource("3")
+
+[node name="Relics" type="Button" parent="Margin/Layout/Status/Row"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"GhostButton"
+text = "RELICS  2"
+icon = ExtResource("3")
+
+[node name="Map" type="PanelContainer" parent="Margin/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"ElevatedPanel"
+
+[node name="AvailableNodes" type="HBoxContainer" parent="Margin/Layout/Map"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 56
+
+[node name="Combat" type="Button" parent="Margin/Layout/Map/AvailableNodes"]
+custom_minimum_size = Vector2(210, 110)
+layout_mode = 2
+theme_type_variation = &"RewardCard"
+text = "COMBAT\nNormal Combat"
+icon = ExtResource("3")
+
+[node name="Event" type="Button" parent="Margin/Layout/Map/AvailableNodes"]
+custom_minimum_size = Vector2(210, 110)
+layout_mode = 2
+theme_type_variation = &"RewardCard"
+text = "EVENT\nUnknown Signal"
+icon = ExtResource("3")
+
+[node name="Shop" type="Button" parent="Margin/Layout/Map/AvailableNodes"]
+custom_minimum_size = Vector2(210, 110)
+layout_mode = 2
+theme_type_variation = &"RewardCard"
+text = "SHOP\nShard Exchange"
+icon = ExtResource("3")

@@ -1,0 +1,1252 @@
+[gd_resource type="Resource" script_class="ContentCatalog" format=3 uid="uid://bbf57yld6wrbw"]
+
+[ext_resource type="Script" uid="uid://prr16hvf6su5" path="res://core/content/content_catalog.gd" id="1_catalog"]
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="1_urmxr"]
+[ext_resource type="Script" uid="uid://bbkemtjuwqy8d" path="res://core/saves/migrations/legacy_content_alias.gd" id="2_alias"]
+[ext_resource type="Script" uid="uid://und1rcm8w6bq" path="res://core/counters/counter_definition.gd" id="9_mr3yo"]
+[ext_resource type="Script" uid="uid://bdwuggy1d3tti" path="res://core/difficulty/difficulty_definition.gd" id="17_goxqq"]
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="22_q86nk"]
+[ext_resource type="Resource" uid="uid://ce5wji3wtwelk" path="res://content/enemies/elites/arcane_sentinel.tres" id="23_0pi3e"]
+[ext_resource type="Resource" uid="uid://dbwfreffdupwb" path="res://content/enemies/bulwark_beetle.tres" id="24_euh0r"]
+[ext_resource type="Resource" uid="uid://kga04jk1uude" path="res://content/enemies/ember_wisp.tres" id="25_dbeq4"]
+[ext_resource type="Resource" uid="uid://xk0ess46vrwf" path="res://content/enemies/bosses/grid_warden.tres" id="26_ysf4q"]
+[ext_resource type="Resource" uid="uid://dgibllsw8eh7v" path="res://content/enemies/hexling.tres" id="27_bhmjx"]
+[ext_resource type="Resource" uid="uid://r01o5m3bo2gi" path="res://content/enemies/leech_bloom.tres" id="28_iuyc4"]
+[ext_resource type="Resource" uid="uid://dut00yhn4oou" path="res://content/enemies/scrap_mason.tres" id="29_m4ea2"]
+[ext_resource type="Resource" uid="uid://hdwe48og8q1o" path="res://content/enemies/venom_toad.tres" id="30_u4uln"]
+[ext_resource type="Script" uid="uid://4p0uxo08n5wv" path="res://core/events/run_event_definition.gd" id="40_17guk"]
+[ext_resource type="Script" uid="uid://dx16brlbge1il" path="res://core/items/item_definition.gd" id="50_3clap"]
+[ext_resource type="Script" uid="uid://dfugivbrrejsb" path="res://core/piece_modifiers/piece_modifier_definition.gd" id="203_gafyc"]
+[ext_resource type="Script" uid="uid://cy40q74iyy3gr" path="res://core/pieces/piece_definition.gd" id="204_651rl"]
+[ext_resource type="Script" path="res://core/piece_effects/piece_card_effect_definition.gd" id="card_effect_definition"]
+[ext_resource type="Resource" path="res://content/card_effects/kinetic_impact.tres" id="card_effect_impact"]
+[ext_resource type="Resource" path="res://content/card_effects/prism_guard.tres" id="card_effect_guard"]
+[ext_resource type="Resource" path="res://content/card_effects/repair_glyph.tres" id="card_effect_repair"]
+[ext_resource type="Resource" path="res://content/card_effects/fracture_trace.tres" id="card_effect_fracture"]
+[ext_resource type="Resource" path="res://content/card_effects/tempo_lattice.tres" id="card_effect_tempo"]
+[ext_resource type="Resource" path="res://content/card_effects/reclaim_loop.tres" id="card_effect_reclaim"]
+[ext_resource type="Resource" path="res://content/card_effects/cursed_fragment.tres" id="card_effect_cursed"]
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="205_mvdpj"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="207_omq2h"]
+[ext_resource type="Script" uid="uid://dkv2565fajb13" path="res://core/tutorial/tutorial_definition.gd" id="208_fxssn"]
+[ext_resource type="Script" uid="uid://c0vske0subwsi" path="res://core/progression/upgrade_definition.gd" id="209_n8fme"]
+[ext_resource type="Resource" uid="uid://u1ussdhxxt14" path="res://content/pieces/domino.tres" id="content_1"]
+[ext_resource type="Resource" uid="uid://dddgppkrlq31e" path="res://content/pieces/monomino.tres" id="content_2"]
+[ext_resource type="Resource" uid="uid://bnosmevyls8wr" path="res://content/pieces/pent_cross.tres" id="content_3"]
+[ext_resource type="Resource" uid="uid://c0i4mqfme2q5w" path="res://content/pieces/pent_l.tres" id="content_4"]
+[ext_resource type="Resource" uid="uid://y08ce3k3u3vb" path="res://content/pieces/pent_t.tres" id="content_5"]
+[ext_resource type="Resource" uid="uid://c08q8y2p2ji2a" path="res://content/pieces/pent_u.tres" id="content_6"]
+[ext_resource type="Resource" uid="uid://oegs7uen1tg4" path="res://content/pieces/pent_w.tres" id="content_7"]
+[ext_resource type="Resource" uid="uid://b2wc6g5ahtoed" path="res://content/pieces/tet_i.tres" id="content_8"]
+[ext_resource type="Resource" path="res://content/pieces/tet_j.tres" id="content_9"]
+[ext_resource type="Resource" uid="uid://cla15a1ggm23u" path="res://content/pieces/tet_l.tres" id="content_10"]
+[ext_resource type="Resource" uid="uid://byht2aej3nfbu" path="res://content/pieces/tet_o.tres" id="content_11"]
+[ext_resource type="Resource" uid="uid://y5ty88km6uwq" path="res://content/pieces/tet_p.tres" id="content_12"]
+[ext_resource type="Resource" uid="uid://b1wbs7r885hk3" path="res://content/pieces/tet_s.tres" id="content_13"]
+[ext_resource type="Resource" uid="uid://c7ytbyhqnpncr" path="res://content/pieces/tet_t.tres" id="content_14"]
+[ext_resource type="Resource" uid="uid://cbluwtc3umwy8" path="res://content/pieces/tet_z.tres" id="content_15"]
+[ext_resource type="Resource" uid="uid://ckpvglo0m6x8i" path="res://content/pieces/tri_i.tres" id="content_16"]
+[ext_resource type="Resource" uid="uid://cke5lcxrvnh47" path="res://content/pieces/tri_l.tres" id="content_17"]
+[ext_resource type="Resource" uid="uid://cp35np2x3ynix" path="res://content/pieces/tri_v.tres" id="content_18"]
+[ext_resource type="Resource" uid="uid://dkp6m2lotjprq" path="res://content/enemies/bosses/architect.tres" id="content_27"]
+[ext_resource type="Resource" uid="uid://csu856wrq23gw" path="res://content/enemies/curator.tres" id="content_28"]
+[ext_resource type="Resource" uid="uid://bxmvqfvjhouhv" path="res://content/enemies/divider.tres" id="content_29"]
+[ext_resource type="Resource" uid="uid://cgb8k7cnndxb0" path="res://content/enemies/elites/elite_mason.tres" id="content_30"]
+[ext_resource type="Resource" uid="uid://48hdyhcpatga" path="res://content/enemies/hoarder.tres" id="content_31"]
+[ext_resource type="Resource" uid="uid://bs7ltjfgq5io4" path="res://content/enemies/leech.tres" id="content_32"]
+[ext_resource type="Resource" uid="uid://dr6u86y348n7v" path="res://content/enemies/mason.tres" id="content_33"]
+[ext_resource type="Resource" uid="uid://brnq1trlfahe1" path="res://content/enemies/elites/surveyor.tres" id="content_34"]
+[ext_resource type="Resource" uid="uid://cgivt8nfxdc0j" path="res://content/enemies/training_slime.tres" id="content_35"]
+[ext_resource type="Resource" uid="uid://bjqh13vcxjmbd" path="res://content/relics/clean_geometry.tres" id="content_36"]
+[ext_resource type="Resource" uid="uid://dsw4g33adjxg6" path="res://content/relics/combo_core.tres" id="content_37"]
+[ext_resource type="Resource" uid="uid://jdtkh2n3bf11" path="res://content/relics/cross_coil.tres" id="content_38"]
+[ext_resource type="Resource" uid="uid://dvnvi0do6d8bs" path="res://content/relics/curators_choice.tres" id="content_39"]
+[ext_resource type="Resource" uid="uid://d0ey76aam4d36" path="res://content/relics/double_cut.tres" id="content_40"]
+[ext_resource type="Resource" uid="uid://qa65pibv18yo" path="res://content/relics/ember_brand.tres" id="content_41"]
+[ext_resource type="Resource" uid="uid://ks4u5t8tb8vj" path="res://content/relics/emergency_patch.tres" id="content_42"]
+[ext_resource type="Resource" uid="uid://cix8r74htsjvy" path="res://content/relics/expanded_bin.tres" id="content_43"]
+[ext_resource type="Resource" uid="uid://bu44woow073r1" path="res://content/relics/foresight.tres" id="content_44"]
+[ext_resource type="Resource" uid="uid://bbhnton0oy465" path="res://content/relics/fracture_rune.tres" id="content_45"]
+[ext_resource type="Resource" uid="uid://cn0mmvq844iid" path="res://content/relics/guardian_pattern.tres" id="content_46"]
+[ext_resource type="Resource" uid="uid://c3dcnfu0x85wm" path="res://content/relics/heavy_catalogue.tres" id="content_47"]
+[ext_resource type="Resource" uid="uid://4rg7qxj8podr" path="res://content/relics/overflow.tres" id="content_48"]
+[ext_resource type="Resource" uid="uid://b21wk1kgfri0c" path="res://content/relics/packed_lunch.tres" id="content_49"]
+[ext_resource type="Resource" uid="uid://khb0dj5f44qi" path="res://content/relics/perfect_prism.tres" id="content_50"]
+[ext_resource type="Resource" uid="uid://uui8k2rkg3ip" path="res://content/relics/recycler.tres" id="content_51"]
+[ext_resource type="Resource" uid="uid://dmdb6wcye2rhg" path="res://content/relics/reinforced_frame.tres" id="content_52"]
+[ext_resource type="Resource" path="res://content/relics/rejector.tres" id="content_53"]
+[ext_resource type="Resource" uid="uid://dxeq83owuuxax" path="res://content/relics/repair_drone.tres" id="content_54"]
+[ext_resource type="Resource" uid="uid://lff0s1mhyjiq" path="res://content/relics/reserve_bin.tres" id="content_55"]
+[ext_resource type="Resource" uid="uid://c6qalpogabs3e" path="res://content/relics/shape_suppressor.tres" id="content_56"]
+[ext_resource type="Resource" uid="uid://bvb2rli57unwl" path="res://content/relics/shard_thread.tres" id="content_57"]
+[ext_resource type="Resource" uid="uid://dbgukfu7bavuk" path="res://content/relics/sharp_lines.tres" id="content_58"]
+[ext_resource type="Resource" uid="uid://besegu6ec1f46" path="res://content/relics/small_shape_cache.tres" id="content_59"]
+[ext_resource type="Resource" uid="uid://ct3pw2kg00lfe" path="res://content/relics/steady_gyroscope.tres" id="content_60"]
+[ext_resource type="Resource" path="res://content/relics/stonebreaker.tres" id="content_61"]
+[ext_resource type="Resource" uid="uid://dhib16xaxyafr" path="res://content/relics/twin_preference.tres" id="content_62"]
+[ext_resource type="Resource" uid="uid://ch3figyy3oiau" path="res://content/relics/vault_accelerator.tres" id="content_63"]
+[ext_resource type="Resource" uid="uid://gtvyfui3xy2k" path="res://content/relics/venom_geometry.tres" id="content_64"]
+[ext_resource type="Resource" path="res://content/relics/fifth_gear.tres" id="relic_fifth_gear"]
+[ext_resource type="Resource" uid="uid://41mmc4jc6u05" path="res://content/relics/small_brand.tres" id="relic_small_brand"]
+[ext_resource type="Resource" path="res://content/relics/twin_spool_recycler.tres" id="relic_twin_spool_recycler"]
+[ext_resource type="Resource" uid="uid://bdqc2etqa0kti" path="res://content/upgrades/advanced_routes.tres" id="content_65"]
+[ext_resource type="Resource" uid="uid://dq13bb7klcft5" path="res://content/upgrades/curators_seal.tres" id="content_67"]
+[ext_resource type="Resource" uid="uid://dikuvujtam34i" path="res://content/upgrades/damage_calibration.tres" id="content_68"]
+[ext_resource type="Resource" uid="uid://dawluaam1ip1s" path="res://content/upgrades/deep_pockets.tres" id="content_69"]
+[ext_resource type="Resource" uid="uid://26e4qg4qgbga" path="res://content/upgrades/emergency_clearance.tres" id="content_70"]
+[ext_resource type="Resource" uid="uid://blnco8gap3f6x" path="res://content/upgrades/encounter_archive_i.tres" id="content_71"]
+[ext_resource type="Resource" uid="uid://c47cplfvakhyi" path="res://content/upgrades/expanded_belt.tres" id="content_72"]
+[ext_resource type="Resource" uid="uid://cb6k2ns3cim56" path="res://content/upgrades/expanded_selection.tres" id="content_74"]
+[ext_resource type="Resource" uid="uid://taief0o8enq4" path="res://content/upgrades/field_repair.tres" id="content_75"]
+[ext_resource type="Resource" uid="uid://dlveqow7c08vw" path="res://content/upgrades/larger_showcase.tres" id="content_77"]
+[ext_resource type="Resource" uid="uid://d0vbvyympag2l" path="res://content/upgrades/last_reserve.tres" id="content_78"]
+[ext_resource type="Resource" uid="uid://bqrx7j5ay1m31" path="res://content/upgrades/negotiator.tres" id="content_79"]
+[ext_resource type="Resource" uid="uid://bc2bhyf54ow3" path="res://content/upgrades/prepared_adventurer.tres" id="content_80"]
+[ext_resource type="Resource" uid="uid://b77r2i6aj0cmh" path="res://content/upgrades/reinforced_core.tres" id="content_81"]
+[ext_resource type="Resource" uid="uid://cadhmv0v0ewtl" path="res://content/upgrades/relic_archive_i.tres" id="content_82"]
+[ext_resource type="Resource" uid="uid://cf2bosjqwg2fm" path="res://content/upgrades/reward_insight.tres" id="content_83"]
+[ext_resource type="Resource" uid="uid://guwn5qccf0db" path="res://content/upgrades/salvager.tres" id="content_84"]
+[ext_resource type="Resource" uid="uid://cxhukibhtn6ox" path="res://content/upgrades/second_look.tres" id="content_85"]
+[ext_resource type="Resource" uid="uid://ccbyl4sg76l61" path="res://content/upgrades/shape_archive_i.tres" id="content_86"]
+[ext_resource type="Resource" uid="uid://lp2elg5sn2ac" path="res://content/upgrades/shape_archive_ii.tres" id="content_87"]
+[ext_resource type="Resource" uid="uid://c8umyjon5a6hg" path="res://content/upgrades/shape_archive_iii.tres" id="content_88"]
+[ext_resource type="Resource" uid="uid://b8rpi4cc57qcy" path="res://content/upgrades/shape_archive_iv.tres" id="content_89"]
+[ext_resource type="Resource" uid="uid://ojntxjydonkl" path="res://content/upgrades/shape_archive_v.tres" id="content_90"]
+[ext_resource type="Resource" uid="uid://b5lvogdxqx4pu" path="res://content/upgrades/shape_archive_vi.tres" id="content_91"]
+[ext_resource type="Resource" uid="uid://c4i2f6irw6fmr" path="res://content/upgrades/shape_archive_vii.tres" id="content_92"]
+[ext_resource type="Resource" uid="uid://biphmhf4d7n7y" path="res://content/upgrades/spawn_more_elites.tres" id="content_93"]
+[ext_resource type="Resource" uid="uid://c8i71lrd2i2bv" path="res://content/upgrades/starter_cache.tres" id="content_94"]
+[ext_resource type="Resource" uid="uid://dyyh1nvodrmr3" path="res://content/events/abandoned_workshop.tres" id="content_95"]
+[ext_resource type="Resource" uid="uid://dggm2kap2b8c2" path="res://content/events/broken_archive.tres" id="content_96"]
+[ext_resource type="Resource" uid="uid://cdwf6ii8ypud8" path="res://content/events/cleansing_array.tres" id="content_97"]
+[ext_resource type="Resource" uid="uid://cqhaavtd2t6i6" path="res://content/events/expanded_grid.tres" id="content_98"]
+[ext_resource type="Resource" uid="uid://dbee3e0kkr1m5" path="res://content/events/narrow_passage.tres" id="content_99"]
+[ext_resource type="Resource" uid="uid://bwyjymg1k6a5o" path="res://content/events/shattered_cache.tres" id="content_100"]
+[ext_resource type="Resource" uid="uid://bcmewsmgkc71r" path="res://content/events/supply_drone.tres" id="content_101"]
+[ext_resource type="Resource" uid="uid://c417iagxfgdur" path="res://content/events/traveling_mechanic.tres" id="content_102"]
+[ext_resource type="Resource" uid="uid://cio4ry0qdurkq" path="res://content/events/unstable_core.tres" id="content_103"]
+[ext_resource type="Resource" uid="uid://cr04uy7jsby0v" path="res://content/difficulties/hostile.tres" id="content_104"]
+[ext_resource type="Resource" uid="uid://cu7gp4rs3phq7" path="res://content/difficulties/pressured.tres" id="content_105"]
+[ext_resource type="Resource" uid="uid://bka84i1o4ddi2" path="res://content/difficulties/relentless.tres" id="content_106"]
+[ext_resource type="Resource" uid="uid://dfltn13faie70" path="res://content/difficulties/standard.tres" id="content_107"]
+[ext_resource type="Resource" path="res://content/statuses/accelerated.tres" id="content_108"]
+[ext_resource type="Resource" path="res://content/statuses/affinity_burn.tres" id="content_109"]
+[ext_resource type="Resource" path="res://content/statuses/affinity_poison.tres" id="content_110"]
+[ext_resource type="Resource" path="res://content/statuses/archlord_fire.tres" id="content_111"]
+[ext_resource type="Resource" path="res://content/statuses/burn.tres" id="content_112"]
+[ext_resource type="Resource" uid="uid://e2iww5t3sbpy" path="res://content/statuses/cracked.tres" id="content_113"]
+[ext_resource type="Resource" path="res://content/statuses/empowered.tres" id="content_114"]
+[ext_resource type="Resource" uid="uid://ukirf1wuchje" path="res://content/statuses/empowered_venom.tres" id="content_115"]
+[ext_resource type="Resource" path="res://content/statuses/enemy_weakened.tres" id="content_116"]
+[ext_resource type="Resource" path="res://content/statuses/enraged.tres" id="content_117"]
+[ext_resource type="Resource" path="res://content/statuses/fortified.tres" id="content_118"]
+[ext_resource type="Resource" path="res://content/statuses/fragile.tres" id="content_119"]
+[ext_resource type="Resource" path="res://content/statuses/player_fortified.tres" id="content_120"]
+[ext_resource type="Resource" uid="uid://vqr7tfjxtq1v" path="res://content/statuses/poison.tres" id="content_121"]
+[ext_resource type="Resource" uid="uid://6s6l1ysorvb" path="res://content/statuses/regeneration.tres" id="content_122"]
+[ext_resource type="Resource" uid="uid://dqi0idoa0r6p4" path="res://content/statuses/slowed_hands.tres" id="content_123"]
+[ext_resource type="Resource" path="res://content/statuses/strength.tres" id="content_124"]
+[ext_resource type="Resource" path="res://content/statuses/thorns.tres" id="content_125"]
+[ext_resource type="Resource" path="res://content/statuses/venom.tres" id="content_126"]
+[ext_resource type="Resource" path="res://content/statuses/vulnerable.tres" id="content_127"]
+[ext_resource type="Resource" path="res://content/statuses/ward.tres" id="content_128"]
+[ext_resource type="Resource" uid="uid://c7qa8vsvtt8s5" path="res://content/statuses/weakened.tres" id="content_129"]
+[ext_resource type="Resource" path="res://content/statuses/electrified.tres" id="status_electrified"]
+[ext_resource type="Resource" path="res://content/statuses/item_fire_burn.tres" id="status_item_fire_burn"]
+[ext_resource type="Resource" path="res://content/statuses/repair_nanites.tres" id="status_repair_nanites"]
+[ext_resource type="Resource" uid="uid://drcarksnqonew" path="res://content/statuses/small_burn.tres" id="status_small_burn"]
+[ext_resource type="Resource" uid="uid://bhiyuqkakgcuu" path="res://content/items/barrier_potion.tres" id="content_130"]
+[ext_resource type="Resource" path="res://content/items/block_capsule.tres" id="content_131"]
+[ext_resource type="Resource" uid="uid://e3nfv1pjf3ia" path="res://content/items/bomb_flask.tres" id="content_132"]
+[ext_resource type="Resource" uid="uid://bhax4gb0gng3g" path="res://content/items/cleansing_draught.tres" id="content_133"]
+[ext_resource type="Resource" uid="uid://bwd3br06vvhyd" path="res://content/items/cracking_flask.tres" id="content_134"]
+[ext_resource type="Resource" uid="uid://dpjisw0qucub2" path="res://content/items/dispel_flask.tres" id="content_135"]
+[ext_resource type="Resource" uid="uid://byf4lg281o064" path="res://content/items/fortification_tonic.tres" id="content_136"]
+[ext_resource type="Resource" uid="uid://bhiyyy4yuudoa" path="res://content/items/major_healing_potion.tres" id="content_137"]
+[ext_resource type="Resource" uid="uid://gbucty5oiuyl" path="res://content/items/minor_healing_potion.tres" id="content_138"]
+[ext_resource type="Resource" uid="uid://ct7ryagkccjs3" path="res://content/items/piercing_charge.tres" id="content_139"]
+[ext_resource type="Resource" uid="uid://tfhd1drm7m0k" path="res://content/items/purification_potion.tres" id="content_140"]
+[ext_resource type="Resource" uid="uid://bx2m6xgk6eegr" path="res://content/items/recycler_serum.tres" id="content_141"]
+[ext_resource type="Resource" uid="uid://bycqvnot50fv5" path="res://content/items/regeneration_tonic.tres" id="content_142"]
+[ext_resource type="Resource" uid="uid://dlr5jqtnlhs6w" path="res://content/items/slowing_flask.tres" id="content_143"]
+[ext_resource type="Resource" uid="uid://c56mf2fa5syo8" path="res://content/items/strength_tonic.tres" id="content_144"]
+[ext_resource type="Resource" uid="uid://buarx8m3lw76t" path="res://content/items/venom_flask.tres" id="content_145"]
+[ext_resource type="Resource" uid="uid://8giprahac615" path="res://content/items/ward_potion.tres" id="content_146"]
+[ext_resource type="Resource" uid="uid://b4e5p6vya2k8v" path="res://content/items/weakening_flask.tres" id="content_147"]
+[ext_resource type="Resource" path="res://content/items/ember_seeder.tres" id="item_ember_seeder"]
+[ext_resource type="Resource" path="res://content/items/inferno_seeder.tres" id="item_inferno_seeder"]
+[ext_resource type="Resource" path="res://content/items/shard_beacon.tres" id="item_shard_beacon"]
+[ext_resource type="Resource" path="res://content/items/shard_array.tres" id="item_shard_array"]
+[ext_resource type="Resource" path="res://content/items/grid_scrubber.tres" id="item_grid_scrubber"]
+[ext_resource type="Resource" path="res://content/items/grid_purge.tres" id="item_grid_purge"]
+[ext_resource type="Resource" path="res://content/items/scrap_ejector.tres" id="item_scrap_ejector"]
+[ext_resource type="Resource" path="res://content/items/scrap_vacuum.tres" id="item_scrap_vacuum"]
+[ext_resource type="Resource" path="res://content/items/patch_drone.tres" id="item_patch_drone"]
+[ext_resource type="Resource" path="res://content/items/repair_swarm.tres" id="item_repair_swarm"]
+[ext_resource type="Resource" path="res://content/items/fracture_mine.tres" id="item_fracture_mine"]
+[ext_resource type="Resource" path="res://content/items/seismic_mine.tres" id="item_seismic_mine"]
+[ext_resource type="Resource" path="res://content/items/bastion_emitter.tres" id="item_bastion_emitter"]
+[ext_resource type="Resource" path="res://content/items/citadel_emitter.tres" id="item_citadel_emitter"]
+[ext_resource type="Resource" path="res://content/items/null_wash.tres" id="item_null_wash"]
+[ext_resource type="Resource" path="res://content/items/null_storm.tres" id="item_null_storm"]
+[ext_resource type="Resource" path="res://content/items/momentum_coil.tres" id="item_momentum_coil"]
+[ext_resource type="Resource" path="res://content/items/momentum_reactor.tres" id="item_momentum_reactor"]
+[ext_resource type="Resource" path="res://content/items/phase_needle.tres" id="item_phase_needle"]
+[ext_resource type="Resource" path="res://content/items/void_lance.tres" id="item_void_lance"]
+[ext_resource type="Resource" uid="uid://x3rkm7x5uq40" path="res://content/counters/column_collapse.tres" id="content_148"]
+[ext_resource type="Resource" uid="uid://oajb02i1lhks" path="res://content/counters/core_seal.tres" id="content_149"]
+[ext_resource type="Resource" uid="uid://dtobyt1v3uku0" path="res://content/counters/marked_beam.tres" id="content_150"]
+[ext_resource type="Resource" uid="uid://b2r1euigcjkep" path="res://content/counters/overload.tres" id="content_151"]
+[ext_resource type="Resource" path="res://content/counters/ritual_shield.tres" id="content_152"]
+[ext_resource type="Resource" uid="uid://uj2pndliyiw6" path="res://content/counters/row_sever.tres" id="content_153"]
+[ext_resource type="Resource" uid="uid://ch2wrqn12hqef" path="res://content/counters/warden_column_collapse.tres" id="content_154"]
+[ext_resource type="Resource" uid="uid://cgevuoy0le8a0" path="res://content/artifacts/architect_hand.tres" id="content_155"]
+[ext_resource type="Resource" uid="uid://c0a8w5w6hyysy" path="res://content/artifacts/infinite_mold.tres" id="content_156"]
+[ext_resource type="Resource" uid="uid://drlqq5lmu6l32" path="res://content/artifacts/momentum_lattice.tres" id="content_157"]
+[ext_resource type="Resource" uid="uid://dnljpq77elake" path="res://content/artifacts/timekeeper_gear.tres" id="content_158"]
+[ext_resource type="Resource" uid="uid://dfd024pq71a3f" path="res://content/artifacts/twin_core.tres" id="content_159"]
+[ext_resource type="Resource" uid="uid://bd3bdl2l17mkn" path="res://content/artifacts/vault_shapes.tres" id="content_160"]
+[ext_resource type="Resource" uid="uid://di4gtkhwfrkqy" path="res://content/artifacts/warden_prism.tres" id="content_161"]
+[ext_resource type="Resource" path="res://content/artifacts/closed_loop_hopper.tres" id="artifact_closed_loop_hopper"]
+[ext_resource type="Resource" path="res://content/artifacts/overclocked_feed.tres" id="artifact_overclocked_feed"]
+[ext_resource type="Resource" uid="uid://bsor3k5akk5ux" path="res://content/piece_modifiers/archlord_fire_visual.tres" id="content_162"]
+[ext_resource type="Resource" uid="uid://bqbhei43bm27q" path="res://content/piece_modifiers/ember_brand.tres" id="content_163"]
+[ext_resource type="Resource" uid="uid://bqohiu11ns5su" path="res://content/piece_modifiers/fracture_rune.tres" id="content_165"]
+[ext_resource type="Resource" uid="uid://bupmg836nglpf" path="res://content/piece_modifiers/guardian_pattern.tres" id="content_166"]
+[ext_resource type="Resource" uid="uid://lt8juubytyxe" path="res://content/piece_modifiers/heavy_catalogue_damage.tres" id="content_167"]
+[ext_resource type="Resource" uid="uid://txg8n2krw1mn" path="res://content/piece_modifiers/refined_archive_score.tres" id="content_168"]
+[ext_resource type="Resource" uid="uid://dhdm2fxwqrf0t" path="res://content/piece_modifiers/venom_geometry.tres" id="content_172"]
+[ext_resource type="Resource" path="res://content/piece_modifiers/item_fire_visual.tres" id="piece_modifier_item_fire_visual"]
+[ext_resource type="Resource" uid="uid://d4ebblsq65jbo" path="res://content/piece_modifiers/small_brand.tres" id="piece_modifier_small_brand"]
+[ext_resource type="Resource" uid="uid://cxac7v8kwl1ya" path="res://content/tutorials/bosses/artifacts.tres" id="content_173"]
+[ext_resource type="Resource" uid="uid://vao65wtcpik1" path="res://content/tutorials/bosses/counter_objectives.tres" id="content_174"]
+[ext_resource type="Resource" uid="uid://ck0ush1p15wy" path="res://content/tutorials/combat/clears_reference.tres" id="content_175"]
+[ext_resource type="Resource" uid="uid://rn5cw3fdgrsp" path="res://content/tutorials/combat/enemy_actions.tres" id="content_176"]
+[ext_resource type="Resource" uid="uid://bsq44062iieyb" path="res://content/tutorials/combat/rerolls.tres" id="content_177"]
+[ext_resource type="Resource" uid="uid://c76b2avjfu0ex" path="res://content/tutorials/combat/special_cells.tres" id="content_178"]
+[ext_resource type="Resource" uid="uid://c3c3io2g55h14" path="res://content/tutorials/contextual/damage_over_time.tres" id="content_179"]
+[ext_resource type="Resource" uid="uid://bw8v6v8vt1gdf" path="res://content/tutorials/contextual/discard_basics.tres" id="content_180"]
+[ext_resource type="Resource" uid="uid://bkh3ia0lob4xa" path="res://content/tutorials/contextual/enemy_board_effects.tres" id="content_181"]
+[ext_resource type="Resource" uid="uid://c2ssw0e2ldgr1" path="res://content/tutorials/contextual/enemy_healing.tres" id="content_182"]
+[ext_resource type="Resource" uid="uid://c7o8y3xrewkvb" path="res://content/tutorials/contextual/relics.tres" id="content_183"]
+[ext_resource type="Resource" uid="uid://cw7rpq2605u4j" path="res://content/tutorials/contextual/route_basics.tres" id="content_184"]
+[ext_resource type="Resource" uid="uid://dwbfogihq8scc" path="res://content/tutorials/contextual/shields_healing.tres" id="content_185"]
+[ext_resource type="Resource" uid="uid://bsxtivqhmlxmu" path="res://content/tutorials/contextual/shop_basics.tres" id="content_186"]
+[ext_resource type="Resource" uid="uid://c1yf4nadg0m63" path="res://content/tutorials/contextual/status_effects.tres" id="content_187"]
+[ext_resource type="Resource" uid="uid://4f1fec5krsbw" path="res://content/tutorials/items/bonus_blocks.tres" id="content_188"]
+[ext_resource type="Resource" uid="uid://d3ymqf2201opb" path="res://content/tutorials/items/items_inventory.tres" id="content_189"]
+[ext_resource type="Resource" uid="uid://cjl0jfvbec6k8" path="res://content/tutorials/items/piece_pool_addition.tres" id="content_190"]
+[ext_resource type="Resource" uid="uid://bjiik6svb2gaf" path="res://content/tutorials/onboarding/guided_onboarding.tres" id="content_191"]
+[ext_resource type="Resource" uid="uid://jiy6p01g41rx" path="res://content/tutorials/progression/difficulty_daily.tres" id="content_192"]
+[ext_resource type="Resource" uid="uid://cbalqvobf4trt" path="res://content/tutorials/progression/permanent_progression.tres" id="content_193"]
+[ext_resource type="Resource" uid="uid://cq83xkeo7cl47" path="res://content/tutorials/progression/save_resume.tres" id="content_194"]
+[ext_resource type="Resource" uid="uid://d1nof5iwhnghb" path="res://content/tutorials/progression/starting_piece_draft.tres" id="content_195"]
+[ext_resource type="Resource" uid="uid://wryojjjelrq" path="res://content/enemies/bosses/giant_block_centipede.tres" id="content_196"]
+[ext_resource type="Resource" uid="uid://dvbbmirrxob40" path="res://content/enemies/bosses/the_smith.tres" id="content_197"]
+[ext_resource type="Resource" uid="uid://qrgniof8a3bf" path="res://content/enemies/bosses/the_designer.tres" id="content_198"]
+[ext_resource type="Resource" uid="uid://ciqtf1nwxdgl2" path="res://content/enemies/bosses/the_summoner.tres" id="content_199"]
+[ext_resource type="Resource" uid="uid://s8x572jx5ck6" path="res://content/enemies/elites/furnace_golem.tres" id="content_200"]
+[ext_resource type="Resource" uid="uid://q1dmjx6ab3dh" path="res://content/enemies/elites/mortar_knight.tres" id="content_201"]
+[ext_resource type="Resource" uid="uid://70ulhed2gp1q" path="res://content/enemies/elites/prism_weaver.tres" id="content_202"]
+[ext_resource type="Resource" uid="uid://c7sropnu4rt0f" path="res://content/enemies/elites/chrono_wall.tres" id="content_203"]
+[ext_resource type="Resource" uid="uid://cld64x30723by" path="res://content/enemies/elites/void_bastion.tres" id="content_204"]
+[ext_resource type="Resource" uid="uid://duaalf8xunew2" path="res://content/enemies/elites/crowned_shard.tres" id="content_205"]
+[ext_resource type="Resource" uid="uid://cqmh4nexlg3eu" path="res://content/enemies/brick_borer.tres" id="content_206"]
+[ext_resource type="Resource" uid="uid://cj27uqjs6fslp" path="res://content/enemies/cinder_cube.tres" id="content_207"]
+[ext_resource type="Resource" uid="uid://bqbmlntd6n3ag" path="res://content/enemies/chain_stack.tres" id="content_208"]
+[ext_resource type="Resource" uid="uid://b2srssjwhwe2m" path="res://content/enemies/rune_mosaic.tres" id="content_209"]
+[ext_resource type="Resource" uid="uid://bcgropkftpkt8" path="res://content/enemies/mirror_slab.tres" id="content_210"]
+[ext_resource type="Resource" uid="uid://bovgb3k241qy3" path="res://content/enemies/glitch_polyomino.tres" id="content_211"]
+[ext_resource type="Resource" uid="uid://f23vroayy1gx" path="res://content/enemies/null_obelisk.tres" id="content_212"]
+[ext_resource type="Resource" uid="uid://c7uea2rekhwp2" path="res://content/enemies/gravity_stack.tres" id="content_213"]
+[ext_resource type="Resource" uid="uid://jb4eu23hdkmg" path="res://content/counters/centipede_coiling_rush.tres" id="counter_1"]
+[ext_resource type="Resource" uid="uid://de8x5b7ac5o7j" path="res://content/counters/smith_hammerfall.tres" id="counter_2"]
+[ext_resource type="Resource" uid="uid://c105q2b8tybxg" path="res://content/counters/smith_twin_line_quench.tres" id="counter_3"]
+[ext_resource type="Resource" uid="uid://dnpl5gnelh1hb" path="res://content/counters/designer_blueprint_row.tres" id="counter_4"]
+[ext_resource type="Resource" uid="uid://dd1bvmyaysfm6" path="res://content/counters/designer_vanishing_column.tres" id="counter_5"]
+[ext_resource type="Resource" uid="uid://dotgcguqtx8nm" path="res://content/counters/designer_impossible_geometry.tres" id="counter_6"]
+[ext_resource type="Resource" path="res://content/tutorials/progression/upgrade_matrix.tres" id="tutorial_upgrade_matrix"]
+[ext_resource type="Resource" path="res://content/tutorials/progression/hub_overview.tres" id="tutorial_hub_overview"]
+
+[sub_resource type="Resource" id="LegacyAlias_1"]
+script = ExtResource("2_alias")
+legacy_id = &"domino"
+definition = ExtResource("content_1")
+
+[sub_resource type="Resource" id="LegacyAlias_2"]
+script = ExtResource("2_alias")
+legacy_id = &"monomino"
+definition = ExtResource("content_2")
+
+[sub_resource type="Resource" id="LegacyAlias_3"]
+script = ExtResource("2_alias")
+legacy_id = &"pent_cross"
+definition = ExtResource("content_3")
+
+[sub_resource type="Resource" id="LegacyAlias_4"]
+script = ExtResource("2_alias")
+legacy_id = &"pent_l"
+definition = ExtResource("content_4")
+
+[sub_resource type="Resource" id="LegacyAlias_5"]
+script = ExtResource("2_alias")
+legacy_id = &"pent_t"
+definition = ExtResource("content_5")
+
+[sub_resource type="Resource" id="LegacyAlias_6"]
+script = ExtResource("2_alias")
+legacy_id = &"pent_u"
+definition = ExtResource("content_6")
+
+[sub_resource type="Resource" id="LegacyAlias_7"]
+script = ExtResource("2_alias")
+legacy_id = &"pent_w"
+definition = ExtResource("content_7")
+
+[sub_resource type="Resource" id="LegacyAlias_8"]
+script = ExtResource("2_alias")
+legacy_id = &"tet_i"
+definition = ExtResource("content_8")
+
+[sub_resource type="Resource" id="LegacyAlias_9"]
+script = ExtResource("2_alias")
+legacy_id = &"tet_j"
+definition = ExtResource("content_9")
+
+[sub_resource type="Resource" id="LegacyAlias_10"]
+script = ExtResource("2_alias")
+legacy_id = &"tet_l"
+definition = ExtResource("content_10")
+
+[sub_resource type="Resource" id="LegacyAlias_11"]
+script = ExtResource("2_alias")
+legacy_id = &"tet_o"
+definition = ExtResource("content_11")
+
+[sub_resource type="Resource" id="LegacyAlias_12"]
+script = ExtResource("2_alias")
+legacy_id = &"tet_p"
+definition = ExtResource("content_12")
+
+[sub_resource type="Resource" id="LegacyAlias_13"]
+script = ExtResource("2_alias")
+legacy_id = &"tet_s"
+definition = ExtResource("content_13")
+
+[sub_resource type="Resource" id="LegacyAlias_14"]
+script = ExtResource("2_alias")
+legacy_id = &"tet_t"
+definition = ExtResource("content_14")
+
+[sub_resource type="Resource" id="LegacyAlias_15"]
+script = ExtResource("2_alias")
+legacy_id = &"tet_z"
+definition = ExtResource("content_15")
+
+[sub_resource type="Resource" id="LegacyAlias_16"]
+script = ExtResource("2_alias")
+legacy_id = &"tri_i"
+definition = ExtResource("content_16")
+
+[sub_resource type="Resource" id="LegacyAlias_17"]
+script = ExtResource("2_alias")
+legacy_id = &"tri_l"
+definition = ExtResource("content_17")
+
+[sub_resource type="Resource" id="LegacyAlias_18"]
+script = ExtResource("2_alias")
+legacy_id = &"tri_v"
+definition = ExtResource("content_18")
+
+[sub_resource type="Resource" id="LegacyAlias_19"]
+script = ExtResource("2_alias")
+legacy_id = &"arcane_sentinel"
+definition = ExtResource("23_0pi3e")
+
+[sub_resource type="Resource" id="LegacyAlias_20"]
+script = ExtResource("2_alias")
+legacy_id = &"bulwark_beetle"
+definition = ExtResource("24_euh0r")
+
+[sub_resource type="Resource" id="LegacyAlias_21"]
+script = ExtResource("2_alias")
+legacy_id = &"ember_wisp"
+definition = ExtResource("25_dbeq4")
+
+[sub_resource type="Resource" id="LegacyAlias_22"]
+script = ExtResource("2_alias")
+legacy_id = &"grid_warden"
+definition = ExtResource("26_ysf4q")
+
+[sub_resource type="Resource" id="LegacyAlias_23"]
+script = ExtResource("2_alias")
+legacy_id = &"hexling"
+definition = ExtResource("27_bhmjx")
+
+[sub_resource type="Resource" id="LegacyAlias_24"]
+script = ExtResource("2_alias")
+legacy_id = &"leech_bloom"
+definition = ExtResource("28_iuyc4")
+
+[sub_resource type="Resource" id="LegacyAlias_25"]
+script = ExtResource("2_alias")
+legacy_id = &"scrap_mason"
+definition = ExtResource("29_m4ea2")
+
+[sub_resource type="Resource" id="LegacyAlias_26"]
+script = ExtResource("2_alias")
+legacy_id = &"venom_toad"
+definition = ExtResource("30_u4uln")
+
+[sub_resource type="Resource" id="LegacyAlias_27"]
+script = ExtResource("2_alias")
+legacy_id = &"architect"
+definition = ExtResource("content_27")
+
+[sub_resource type="Resource" id="LegacyAlias_28"]
+script = ExtResource("2_alias")
+legacy_id = &"curator"
+definition = ExtResource("content_28")
+
+[sub_resource type="Resource" id="LegacyAlias_29"]
+script = ExtResource("2_alias")
+legacy_id = &"divider"
+definition = ExtResource("content_29")
+
+[sub_resource type="Resource" id="LegacyAlias_30"]
+script = ExtResource("2_alias")
+legacy_id = &"elite_mason"
+definition = ExtResource("content_30")
+
+[sub_resource type="Resource" id="LegacyAlias_31"]
+script = ExtResource("2_alias")
+legacy_id = &"hoarder"
+definition = ExtResource("content_31")
+
+[sub_resource type="Resource" id="LegacyAlias_32"]
+script = ExtResource("2_alias")
+legacy_id = &"leech"
+definition = ExtResource("content_32")
+
+[sub_resource type="Resource" id="LegacyAlias_33"]
+script = ExtResource("2_alias")
+legacy_id = &"mason"
+definition = ExtResource("content_33")
+
+[sub_resource type="Resource" id="LegacyAlias_34"]
+script = ExtResource("2_alias")
+legacy_id = &"surveyor"
+definition = ExtResource("content_34")
+
+[sub_resource type="Resource" id="LegacyAlias_35"]
+script = ExtResource("2_alias")
+legacy_id = &"training_slime"
+definition = ExtResource("content_35")
+
+[sub_resource type="Resource" id="LegacyAlias_36"]
+script = ExtResource("2_alias")
+legacy_id = &"clean_geometry"
+definition = ExtResource("content_36")
+
+[sub_resource type="Resource" id="LegacyAlias_37"]
+script = ExtResource("2_alias")
+legacy_id = &"combo_core"
+definition = ExtResource("content_37")
+
+[sub_resource type="Resource" id="LegacyAlias_38"]
+script = ExtResource("2_alias")
+legacy_id = &"cross_coil"
+definition = ExtResource("content_38")
+
+[sub_resource type="Resource" id="LegacyAlias_39"]
+script = ExtResource("2_alias")
+legacy_id = &"curators_choice"
+definition = ExtResource("content_39")
+
+[sub_resource type="Resource" id="LegacyAlias_40"]
+script = ExtResource("2_alias")
+legacy_id = &"double_cut"
+definition = ExtResource("content_40")
+
+[sub_resource type="Resource" id="LegacyAlias_41"]
+script = ExtResource("2_alias")
+legacy_id = &"ember_brand_relic"
+definition = ExtResource("content_41")
+
+[sub_resource type="Resource" id="LegacyAlias_42"]
+script = ExtResource("2_alias")
+legacy_id = &"emergency_patch"
+definition = ExtResource("content_42")
+
+[sub_resource type="Resource" id="LegacyAlias_43"]
+script = ExtResource("2_alias")
+legacy_id = &"expanded_bin"
+definition = ExtResource("content_43")
+
+[sub_resource type="Resource" id="LegacyAlias_44"]
+script = ExtResource("2_alias")
+legacy_id = &"foresight"
+definition = ExtResource("content_44")
+
+[sub_resource type="Resource" id="LegacyAlias_45"]
+script = ExtResource("2_alias")
+legacy_id = &"fracture_rune_relic"
+definition = ExtResource("content_45")
+
+[sub_resource type="Resource" id="LegacyAlias_46"]
+script = ExtResource("2_alias")
+legacy_id = &"guardian_pattern_relic"
+definition = ExtResource("content_46")
+
+[sub_resource type="Resource" id="LegacyAlias_47"]
+script = ExtResource("2_alias")
+legacy_id = &"heavy_catalogue"
+definition = ExtResource("content_47")
+
+[sub_resource type="Resource" id="LegacyAlias_48"]
+script = ExtResource("2_alias")
+legacy_id = &"overflow"
+definition = ExtResource("content_48")
+
+[sub_resource type="Resource" id="LegacyAlias_49"]
+script = ExtResource("2_alias")
+legacy_id = &"packed_lunch"
+definition = ExtResource("content_49")
+
+[sub_resource type="Resource" id="LegacyAlias_50"]
+script = ExtResource("2_alias")
+legacy_id = &"perfect_prism"
+definition = ExtResource("content_50")
+
+[sub_resource type="Resource" id="LegacyAlias_51"]
+script = ExtResource("2_alias")
+legacy_id = &"recycler"
+definition = ExtResource("content_51")
+
+[sub_resource type="Resource" id="LegacyAlias_52"]
+script = ExtResource("2_alias")
+legacy_id = &"reinforced_frame"
+definition = ExtResource("content_52")
+
+[sub_resource type="Resource" id="LegacyAlias_53"]
+script = ExtResource("2_alias")
+legacy_id = &"rejector"
+definition = ExtResource("content_53")
+
+[sub_resource type="Resource" id="LegacyAlias_54"]
+script = ExtResource("2_alias")
+legacy_id = &"repair_drone"
+definition = ExtResource("content_54")
+
+[sub_resource type="Resource" id="LegacyAlias_55"]
+script = ExtResource("2_alias")
+legacy_id = &"reserve_bin"
+definition = ExtResource("content_55")
+
+[sub_resource type="Resource" id="LegacyAlias_56"]
+script = ExtResource("2_alias")
+legacy_id = &"shape_suppressor"
+definition = ExtResource("content_56")
+
+[sub_resource type="Resource" id="LegacyAlias_57"]
+script = ExtResource("2_alias")
+legacy_id = &"shard_thread"
+definition = ExtResource("content_57")
+
+[sub_resource type="Resource" id="LegacyAlias_58"]
+script = ExtResource("2_alias")
+legacy_id = &"sharp_lines"
+definition = ExtResource("content_58")
+
+[sub_resource type="Resource" id="LegacyAlias_59"]
+script = ExtResource("2_alias")
+legacy_id = &"small_shape_cache"
+definition = ExtResource("content_59")
+
+[sub_resource type="Resource" id="LegacyAlias_60"]
+script = ExtResource("2_alias")
+legacy_id = &"steady_gyroscope"
+definition = ExtResource("content_60")
+
+[sub_resource type="Resource" id="LegacyAlias_61"]
+script = ExtResource("2_alias")
+legacy_id = &"stonebreaker"
+definition = ExtResource("content_61")
+
+[sub_resource type="Resource" id="LegacyAlias_62"]
+script = ExtResource("2_alias")
+legacy_id = &"twin_preference"
+definition = ExtResource("content_62")
+
+[sub_resource type="Resource" id="LegacyAlias_63"]
+script = ExtResource("2_alias")
+legacy_id = &"vault_accelerator"
+definition = ExtResource("content_63")
+
+[sub_resource type="Resource" id="LegacyAlias_64"]
+script = ExtResource("2_alias")
+legacy_id = &"venom_geometry_relic"
+definition = ExtResource("content_64")
+
+[sub_resource type="Resource" id="LegacyAlias_65"]
+script = ExtResource("2_alias")
+legacy_id = &"unlock_advanced_routes"
+definition = ExtResource("content_65")
+
+[sub_resource type="Resource" id="LegacyAlias_66"]
+script = ExtResource("2_alias")
+legacy_id = &"upgrade_controlled_rotation"
+definition = ExtResource("content_85")
+
+[sub_resource type="Resource" id="LegacyAlias_67"]
+script = ExtResource("2_alias")
+legacy_id = &"curators_seal"
+definition = ExtResource("content_67")
+
+[sub_resource type="Resource" id="LegacyAlias_68"]
+script = ExtResource("2_alias")
+legacy_id = &"upgrade_damage_calibration"
+definition = ExtResource("content_68")
+
+[sub_resource type="Resource" id="LegacyAlias_69"]
+script = ExtResource("2_alias")
+legacy_id = &"upgrade_deep_pockets"
+definition = ExtResource("content_69")
+
+[sub_resource type="Resource" id="LegacyAlias_70"]
+script = ExtResource("2_alias")
+legacy_id = &"upgrade_emergency_clearance"
+definition = ExtResource("content_70")
+
+[sub_resource type="Resource" id="LegacyAlias_71"]
+script = ExtResource("2_alias")
+legacy_id = &"unlock_encounter_archive_i"
+definition = ExtResource("content_71")
+
+[sub_resource type="Resource" id="LegacyAlias_72"]
+script = ExtResource("2_alias")
+legacy_id = &"upgrade_expanded_belt"
+definition = ExtResource("content_72")
+
+[sub_resource type="Resource" id="LegacyAlias_74"]
+script = ExtResource("2_alias")
+legacy_id = &"upgrade_expanded_selection"
+definition = ExtResource("content_74")
+
+[sub_resource type="Resource" id="LegacyAlias_75"]
+script = ExtResource("2_alias")
+legacy_id = &"upgrade_field_repair"
+definition = ExtResource("content_75")
+
+[sub_resource type="Resource" id="LegacyAlias_77"]
+script = ExtResource("2_alias")
+legacy_id = &"larger_showcase"
+definition = ExtResource("content_77")
+
+[sub_resource type="Resource" id="LegacyAlias_78"]
+script = ExtResource("2_alias")
+legacy_id = &"upgrade_last_reserve"
+definition = ExtResource("content_78")
+
+[sub_resource type="Resource" id="LegacyAlias_79"]
+script = ExtResource("2_alias")
+legacy_id = &"upgrade_negotiator"
+definition = ExtResource("content_79")
+
+[sub_resource type="Resource" id="LegacyAlias_80"]
+script = ExtResource("2_alias")
+legacy_id = &"upgrade_prepared_adventurer"
+definition = ExtResource("content_80")
+
+[sub_resource type="Resource" id="LegacyAlias_81"]
+script = ExtResource("2_alias")
+legacy_id = &"upgrade_reinforced_core"
+definition = ExtResource("content_81")
+
+[sub_resource type="Resource" id="LegacyAlias_82"]
+script = ExtResource("2_alias")
+legacy_id = &"unlock_relic_archive_i"
+definition = ExtResource("content_82")
+
+[sub_resource type="Resource" id="LegacyAlias_83"]
+script = ExtResource("2_alias")
+legacy_id = &"upgrade_reward_insight"
+definition = ExtResource("content_83")
+
+[sub_resource type="Resource" id="LegacyAlias_84"]
+script = ExtResource("2_alias")
+legacy_id = &"upgrade_salvager"
+definition = ExtResource("content_84")
+
+[sub_resource type="Resource" id="LegacyAlias_85"]
+script = ExtResource("2_alias")
+legacy_id = &"upgrade_second_look"
+definition = ExtResource("content_85")
+
+[sub_resource type="Resource" id="LegacyAlias_86"]
+script = ExtResource("2_alias")
+legacy_id = &"unlock_shape_archive_i"
+definition = ExtResource("content_86")
+
+[sub_resource type="Resource" id="LegacyAlias_87"]
+script = ExtResource("2_alias")
+legacy_id = &"unlock_shape_archive_ii"
+definition = ExtResource("content_87")
+
+[sub_resource type="Resource" id="LegacyAlias_88"]
+script = ExtResource("2_alias")
+legacy_id = &"unlock_shape_archive_iii"
+definition = ExtResource("content_88")
+
+[sub_resource type="Resource" id="LegacyAlias_89"]
+script = ExtResource("2_alias")
+legacy_id = &"unlock_shape_archive_iv"
+definition = ExtResource("content_89")
+
+[sub_resource type="Resource" id="LegacyAlias_90"]
+script = ExtResource("2_alias")
+legacy_id = &"unlock_shape_archive_v"
+definition = ExtResource("content_90")
+
+[sub_resource type="Resource" id="LegacyAlias_91"]
+script = ExtResource("2_alias")
+legacy_id = &"unlock_shape_archive_vi"
+definition = ExtResource("content_91")
+
+[sub_resource type="Resource" id="LegacyAlias_92"]
+script = ExtResource("2_alias")
+legacy_id = &"unlock_shape_archive_vii"
+definition = ExtResource("content_92")
+
+[sub_resource type="Resource" id="LegacyAlias_93"]
+script = ExtResource("2_alias")
+legacy_id = &"upgrade_spawn_more_elites"
+definition = ExtResource("content_93")
+
+[sub_resource type="Resource" id="LegacyAlias_94"]
+script = ExtResource("2_alias")
+legacy_id = &"upgrade_starter_cache"
+definition = ExtResource("content_94")
+
+[sub_resource type="Resource" id="LegacyAlias_95"]
+script = ExtResource("2_alias")
+legacy_id = &"abandoned_workshop"
+definition = ExtResource("content_95")
+
+[sub_resource type="Resource" id="LegacyAlias_96"]
+script = ExtResource("2_alias")
+legacy_id = &"broken_archive"
+definition = ExtResource("content_96")
+
+[sub_resource type="Resource" id="LegacyAlias_97"]
+script = ExtResource("2_alias")
+legacy_id = &"cleansing_array"
+definition = ExtResource("content_97")
+
+[sub_resource type="Resource" id="LegacyAlias_98"]
+script = ExtResource("2_alias")
+legacy_id = &"expanded_grid"
+definition = ExtResource("content_98")
+
+[sub_resource type="Resource" id="LegacyAlias_99"]
+script = ExtResource("2_alias")
+legacy_id = &"narrow_passage"
+definition = ExtResource("content_99")
+
+[sub_resource type="Resource" id="LegacyAlias_100"]
+script = ExtResource("2_alias")
+legacy_id = &"shattered_cache"
+definition = ExtResource("content_100")
+
+[sub_resource type="Resource" id="LegacyAlias_101"]
+script = ExtResource("2_alias")
+legacy_id = &"supply_drone"
+definition = ExtResource("content_101")
+
+[sub_resource type="Resource" id="LegacyAlias_102"]
+script = ExtResource("2_alias")
+legacy_id = &"traveling_mechanic"
+definition = ExtResource("content_102")
+
+[sub_resource type="Resource" id="LegacyAlias_103"]
+script = ExtResource("2_alias")
+legacy_id = &"unstable_core"
+definition = ExtResource("content_103")
+
+[sub_resource type="Resource" id="LegacyAlias_104"]
+script = ExtResource("2_alias")
+legacy_id = &"hostile"
+definition = ExtResource("content_104")
+
+[sub_resource type="Resource" id="LegacyAlias_105"]
+script = ExtResource("2_alias")
+legacy_id = &"pressured"
+definition = ExtResource("content_105")
+
+[sub_resource type="Resource" id="LegacyAlias_106"]
+script = ExtResource("2_alias")
+legacy_id = &"relentless"
+definition = ExtResource("content_106")
+
+[sub_resource type="Resource" id="LegacyAlias_107"]
+script = ExtResource("2_alias")
+legacy_id = &"standard"
+definition = ExtResource("content_107")
+
+[sub_resource type="Resource" id="LegacyAlias_108"]
+script = ExtResource("2_alias")
+legacy_id = &"accelerated"
+definition = ExtResource("content_108")
+
+[sub_resource type="Resource" id="LegacyAlias_109"]
+script = ExtResource("2_alias")
+legacy_id = &"affinity_burn"
+definition = ExtResource("content_109")
+
+[sub_resource type="Resource" id="LegacyAlias_110"]
+script = ExtResource("2_alias")
+legacy_id = &"affinity_poison"
+definition = ExtResource("content_110")
+
+[sub_resource type="Resource" id="LegacyAlias_111"]
+script = ExtResource("2_alias")
+legacy_id = &"archlord_fire"
+definition = ExtResource("content_111")
+
+[sub_resource type="Resource" id="LegacyAlias_112"]
+script = ExtResource("2_alias")
+legacy_id = &"burn"
+definition = ExtResource("content_112")
+
+[sub_resource type="Resource" id="LegacyAlias_113"]
+script = ExtResource("2_alias")
+legacy_id = &"cracked"
+definition = ExtResource("content_113")
+
+[sub_resource type="Resource" id="LegacyAlias_114"]
+script = ExtResource("2_alias")
+legacy_id = &"empowered"
+definition = ExtResource("content_114")
+
+[sub_resource type="Resource" id="LegacyAlias_115"]
+script = ExtResource("2_alias")
+legacy_id = &"empowered_venom"
+definition = ExtResource("content_115")
+
+[sub_resource type="Resource" id="LegacyAlias_116"]
+script = ExtResource("2_alias")
+legacy_id = &"enemy_weakened"
+definition = ExtResource("content_116")
+
+[sub_resource type="Resource" id="LegacyAlias_117"]
+script = ExtResource("2_alias")
+legacy_id = &"enraged"
+definition = ExtResource("content_117")
+
+[sub_resource type="Resource" id="LegacyAlias_118"]
+script = ExtResource("2_alias")
+legacy_id = &"fortified"
+definition = ExtResource("content_118")
+
+[sub_resource type="Resource" id="LegacyAlias_119"]
+script = ExtResource("2_alias")
+legacy_id = &"fragile"
+definition = ExtResource("content_119")
+
+[sub_resource type="Resource" id="LegacyAlias_120"]
+script = ExtResource("2_alias")
+legacy_id = &"player_fortified"
+definition = ExtResource("content_120")
+
+[sub_resource type="Resource" id="LegacyAlias_121"]
+script = ExtResource("2_alias")
+legacy_id = &"poison"
+definition = ExtResource("content_121")
+
+[sub_resource type="Resource" id="LegacyAlias_122"]
+script = ExtResource("2_alias")
+legacy_id = &"regeneration"
+definition = ExtResource("content_122")
+
+[sub_resource type="Resource" id="LegacyAlias_123"]
+script = ExtResource("2_alias")
+legacy_id = &"slowed_hands"
+definition = ExtResource("content_123")
+
+[sub_resource type="Resource" id="LegacyAlias_124"]
+script = ExtResource("2_alias")
+legacy_id = &"strength"
+definition = ExtResource("content_124")
+
+[sub_resource type="Resource" id="LegacyAlias_125"]
+script = ExtResource("2_alias")
+legacy_id = &"thorns"
+definition = ExtResource("content_125")
+
+[sub_resource type="Resource" id="LegacyAlias_126"]
+script = ExtResource("2_alias")
+legacy_id = &"venom"
+definition = ExtResource("content_126")
+
+[sub_resource type="Resource" id="LegacyAlias_127"]
+script = ExtResource("2_alias")
+legacy_id = &"vulnerable"
+definition = ExtResource("content_127")
+
+[sub_resource type="Resource" id="LegacyAlias_128"]
+script = ExtResource("2_alias")
+legacy_id = &"ward"
+definition = ExtResource("content_128")
+
+[sub_resource type="Resource" id="LegacyAlias_129"]
+script = ExtResource("2_alias")
+legacy_id = &"weakened"
+definition = ExtResource("content_129")
+
+[sub_resource type="Resource" id="LegacyAlias_130"]
+script = ExtResource("2_alias")
+legacy_id = &"barrier_potion"
+definition = ExtResource("content_130")
+
+[sub_resource type="Resource" id="LegacyAlias_131"]
+script = ExtResource("2_alias")
+legacy_id = &"block_capsule"
+definition = ExtResource("content_131")
+
+[sub_resource type="Resource" id="LegacyAlias_132"]
+script = ExtResource("2_alias")
+legacy_id = &"bomb_flask"
+definition = ExtResource("content_132")
+
+[sub_resource type="Resource" id="LegacyAlias_133"]
+script = ExtResource("2_alias")
+legacy_id = &"cleansing_draught"
+definition = ExtResource("content_133")
+
+[sub_resource type="Resource" id="LegacyAlias_134"]
+script = ExtResource("2_alias")
+legacy_id = &"cracking_flask"
+definition = ExtResource("content_134")
+
+[sub_resource type="Resource" id="LegacyAlias_135"]
+script = ExtResource("2_alias")
+legacy_id = &"dispel_flask"
+definition = ExtResource("content_135")
+
+[sub_resource type="Resource" id="LegacyAlias_136"]
+script = ExtResource("2_alias")
+legacy_id = &"fortification_tonic"
+definition = ExtResource("content_136")
+
+[sub_resource type="Resource" id="LegacyAlias_137"]
+script = ExtResource("2_alias")
+legacy_id = &"major_healing_potion"
+definition = ExtResource("content_137")
+
+[sub_resource type="Resource" id="LegacyAlias_138"]
+script = ExtResource("2_alias")
+legacy_id = &"minor_healing_potion"
+definition = ExtResource("content_138")
+
+[sub_resource type="Resource" id="LegacyAlias_139"]
+script = ExtResource("2_alias")
+legacy_id = &"piercing_charge"
+definition = ExtResource("content_139")
+
+[sub_resource type="Resource" id="LegacyAlias_140"]
+script = ExtResource("2_alias")
+legacy_id = &"purification_potion"
+definition = ExtResource("content_140")
+
+[sub_resource type="Resource" id="LegacyAlias_141"]
+script = ExtResource("2_alias")
+legacy_id = &"recycler_serum"
+definition = ExtResource("content_141")
+
+[sub_resource type="Resource" id="LegacyAlias_142"]
+script = ExtResource("2_alias")
+legacy_id = &"regeneration_tonic"
+definition = ExtResource("content_142")
+
+[sub_resource type="Resource" id="LegacyAlias_143"]
+script = ExtResource("2_alias")
+legacy_id = &"slowing_flask"
+definition = ExtResource("content_143")
+
+[sub_resource type="Resource" id="LegacyAlias_144"]
+script = ExtResource("2_alias")
+legacy_id = &"strength_tonic"
+definition = ExtResource("content_144")
+
+[sub_resource type="Resource" id="LegacyAlias_145"]
+script = ExtResource("2_alias")
+legacy_id = &"venom_flask"
+definition = ExtResource("content_145")
+
+[sub_resource type="Resource" id="LegacyAlias_146"]
+script = ExtResource("2_alias")
+legacy_id = &"ward_potion"
+definition = ExtResource("content_146")
+
+[sub_resource type="Resource" id="LegacyAlias_147"]
+script = ExtResource("2_alias")
+legacy_id = &"weakening_flask"
+definition = ExtResource("content_147")
+
+[sub_resource type="Resource" id="LegacyAlias_148"]
+script = ExtResource("2_alias")
+legacy_id = &"column_collapse"
+definition = ExtResource("content_148")
+
+[sub_resource type="Resource" id="LegacyAlias_149"]
+script = ExtResource("2_alias")
+legacy_id = &"core_seal"
+definition = ExtResource("content_149")
+
+[sub_resource type="Resource" id="LegacyAlias_150"]
+script = ExtResource("2_alias")
+legacy_id = &"marked_beam"
+definition = ExtResource("content_150")
+
+[sub_resource type="Resource" id="LegacyAlias_151"]
+script = ExtResource("2_alias")
+legacy_id = &"overload"
+definition = ExtResource("content_151")
+
+[sub_resource type="Resource" id="LegacyAlias_152"]
+script = ExtResource("2_alias")
+legacy_id = &"ritual_shield"
+definition = ExtResource("content_152")
+
+[sub_resource type="Resource" id="LegacyAlias_153"]
+script = ExtResource("2_alias")
+legacy_id = &"row_sever"
+definition = ExtResource("content_153")
+
+[sub_resource type="Resource" id="LegacyAlias_154"]
+script = ExtResource("2_alias")
+legacy_id = &"warden_column_collapse"
+definition = ExtResource("content_154")
+
+[sub_resource type="Resource" id="LegacyAlias_155"]
+script = ExtResource("2_alias")
+legacy_id = &"architect_hand"
+definition = ExtResource("content_155")
+
+[sub_resource type="Resource" id="LegacyAlias_156"]
+script = ExtResource("2_alias")
+legacy_id = &"infinite_mold"
+definition = ExtResource("content_156")
+
+[sub_resource type="Resource" id="LegacyAlias_157"]
+script = ExtResource("2_alias")
+legacy_id = &"momentum_lattice"
+definition = ExtResource("content_157")
+
+[sub_resource type="Resource" id="LegacyAlias_158"]
+script = ExtResource("2_alias")
+legacy_id = &"timekeeper_gear"
+definition = ExtResource("content_158")
+
+[sub_resource type="Resource" id="LegacyAlias_159"]
+script = ExtResource("2_alias")
+legacy_id = &"twin_core"
+definition = ExtResource("content_159")
+
+[sub_resource type="Resource" id="LegacyAlias_160"]
+script = ExtResource("2_alias")
+legacy_id = &"vault_shapes"
+definition = ExtResource("content_160")
+
+[sub_resource type="Resource" id="LegacyAlias_161"]
+script = ExtResource("2_alias")
+legacy_id = &"warden_prism"
+definition = ExtResource("content_161")
+
+[sub_resource type="Resource" id="LegacyAlias_162"]
+script = ExtResource("2_alias")
+legacy_id = &"archlord_fire_visual"
+definition = ExtResource("content_162")
+
+[sub_resource type="Resource" id="LegacyAlias_163"]
+script = ExtResource("2_alias")
+legacy_id = &"ember_brand"
+definition = ExtResource("content_163")
+
+[sub_resource type="Resource" id="LegacyAlias_164"]
+script = ExtResource("2_alias")
+legacy_id = &"favored_weight"
+
+[sub_resource type="Resource" id="LegacyAlias_165"]
+script = ExtResource("2_alias")
+legacy_id = &"fracture_rune"
+definition = ExtResource("content_165")
+
+[sub_resource type="Resource" id="LegacyAlias_166"]
+script = ExtResource("2_alias")
+legacy_id = &"guardian_pattern"
+definition = ExtResource("content_166")
+
+[sub_resource type="Resource" id="LegacyAlias_167"]
+script = ExtResource("2_alias")
+legacy_id = &"heavy_catalogue_damage"
+definition = ExtResource("content_167")
+
+[sub_resource type="Resource" id="LegacyAlias_168"]
+script = ExtResource("2_alias")
+legacy_id = &"refined_archive_score"
+definition = ExtResource("content_168")
+
+[sub_resource type="Resource" id="LegacyAlias_169"]
+script = ExtResource("2_alias")
+legacy_id = &"small_shape_weight"
+
+[sub_resource type="Resource" id="LegacyAlias_170"]
+script = ExtResource("2_alias")
+legacy_id = &"suppressed_weight"
+
+[sub_resource type="Resource" id="LegacyAlias_171"]
+script = ExtResource("2_alias")
+legacy_id = &"twin_weight"
+
+[sub_resource type="Resource" id="LegacyAlias_172"]
+script = ExtResource("2_alias")
+legacy_id = &"venom_geometry"
+definition = ExtResource("content_172")
+
+[sub_resource type="Resource" id="LegacyAlias_173"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_boss_artifacts"
+definition = ExtResource("content_173")
+
+[sub_resource type="Resource" id="LegacyAlias_174"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_counter_objectives"
+definition = ExtResource("content_174")
+
+[sub_resource type="Resource" id="LegacyAlias_175"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_clears_reference"
+definition = ExtResource("content_175")
+
+[sub_resource type="Resource" id="LegacyAlias_176"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_enemy_actions"
+definition = ExtResource("content_176")
+
+[sub_resource type="Resource" id="LegacyAlias_177"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_rerolls"
+definition = ExtResource("content_177")
+
+[sub_resource type="Resource" id="LegacyAlias_178"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_special_cells"
+definition = ExtResource("content_178")
+
+[sub_resource type="Resource" id="LegacyAlias_179"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_damage_over_time"
+definition = ExtResource("content_179")
+
+[sub_resource type="Resource" id="LegacyAlias_180"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_discard_basics"
+definition = ExtResource("content_180")
+
+[sub_resource type="Resource" id="LegacyAlias_181"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_enemy_board_effects"
+definition = ExtResource("content_181")
+
+[sub_resource type="Resource" id="LegacyAlias_182"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_enemy_healing"
+definition = ExtResource("content_182")
+
+[sub_resource type="Resource" id="LegacyAlias_183"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_relics"
+definition = ExtResource("content_183")
+
+[sub_resource type="Resource" id="LegacyAlias_184"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_route_basics"
+definition = ExtResource("content_184")
+
+[sub_resource type="Resource" id="LegacyAlias_185"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_shields_healing"
+definition = ExtResource("content_185")
+
+[sub_resource type="Resource" id="LegacyAlias_186"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_shop_basics"
+definition = ExtResource("content_186")
+
+[sub_resource type="Resource" id="LegacyAlias_187"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_status_effects"
+definition = ExtResource("content_187")
+
+[sub_resource type="Resource" id="LegacyAlias_188"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_bonus_blocks"
+definition = ExtResource("content_188")
+
+[sub_resource type="Resource" id="LegacyAlias_189"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_items_inventory"
+definition = ExtResource("content_189")
+
+[sub_resource type="Resource" id="LegacyAlias_190"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_piece_pool_addition"
+definition = ExtResource("content_190")
+
+[sub_resource type="Resource" id="LegacyAlias_191"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_guided_onboarding"
+definition = ExtResource("content_191")
+
+[sub_resource type="Resource" id="LegacyAlias_192"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_difficulty_daily"
+definition = ExtResource("content_192")
+
+[sub_resource type="Resource" id="LegacyAlias_193"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_permanent_progression"
+definition = ExtResource("content_193")
+
+[sub_resource type="Resource" id="LegacyAlias_194"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_save_resume"
+definition = ExtResource("content_194")
+
+[sub_resource type="Resource" id="LegacyAlias_195"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_starting_piece_draft"
+definition = ExtResource("content_195")
+
+[sub_resource type="Resource" id="LegacyAlias_UpgradeMatrix"]
+script = ExtResource("2_alias")
+legacy_id = &"tutorial_upgrade_matrix"
+definition = ExtResource("tutorial_upgrade_matrix")
+
+[resource]
+script = ExtResource("1_catalog")
+pieces = Array[ExtResource("204_651rl")]([ExtResource("content_1"), ExtResource("content_2"), ExtResource("content_3"), ExtResource("content_4"), ExtResource("content_5"), ExtResource("content_6"), ExtResource("content_7"), ExtResource("content_8"), ExtResource("content_9"), ExtResource("content_10"), ExtResource("content_11"), ExtResource("content_12"), ExtResource("content_13"), ExtResource("content_14"), ExtResource("content_15"), ExtResource("content_16"), ExtResource("content_17"), ExtResource("content_18")])
+card_effects = Array[ExtResource("card_effect_definition")]([ExtResource("card_effect_impact"), ExtResource("card_effect_guard"), ExtResource("card_effect_repair"), ExtResource("card_effect_fracture"), ExtResource("card_effect_tempo"), ExtResource("card_effect_reclaim"), ExtResource("card_effect_cursed")])
+enemies = Array[ExtResource("22_q86nk")]([ExtResource("23_0pi3e"), ExtResource("24_euh0r"), ExtResource("25_dbeq4"), ExtResource("26_ysf4q"), ExtResource("27_bhmjx"), ExtResource("28_iuyc4"), ExtResource("29_m4ea2"), ExtResource("30_u4uln"), ExtResource("content_27"), ExtResource("content_28"), ExtResource("content_29"), ExtResource("content_30"), ExtResource("content_31"), ExtResource("content_32"), ExtResource("content_33"), ExtResource("content_34"), ExtResource("content_35"), ExtResource("content_196"), ExtResource("content_197"), ExtResource("content_198"), ExtResource("content_199"), ExtResource("content_200"), ExtResource("content_201"), ExtResource("content_202"), ExtResource("content_203"), ExtResource("content_204"), ExtResource("content_205"), ExtResource("content_206"), ExtResource("content_207"), ExtResource("content_208"), ExtResource("content_209"), ExtResource("content_210"), ExtResource("content_211"), ExtResource("content_212"), ExtResource("content_213")])
+relics = Array[ExtResource("205_mvdpj")]([ExtResource("content_36"), ExtResource("content_37"), ExtResource("content_38"), ExtResource("content_39"), ExtResource("content_40"), ExtResource("content_41"), ExtResource("content_42"), ExtResource("content_43"), ExtResource("content_44"), ExtResource("content_45"), ExtResource("content_46"), ExtResource("content_47"), ExtResource("content_48"), ExtResource("content_49"), ExtResource("content_50"), ExtResource("content_51"), ExtResource("content_52"), ExtResource("content_53"), ExtResource("content_54"), ExtResource("content_55"), ExtResource("content_56"), ExtResource("content_57"), ExtResource("content_58"), ExtResource("content_59"), ExtResource("content_60"), ExtResource("content_61"), ExtResource("content_62"), ExtResource("content_63"), ExtResource("content_64"), ExtResource("relic_fifth_gear"), ExtResource("relic_small_brand"), ExtResource("relic_twin_spool_recycler")])
+upgrades = Array[ExtResource("209_n8fme")]([ExtResource("content_65"), ExtResource("content_67"), ExtResource("content_68"), ExtResource("content_69"), ExtResource("content_70"), ExtResource("content_71"), ExtResource("content_72"), ExtResource("content_74"), ExtResource("content_75"), ExtResource("content_77"), ExtResource("content_78"), ExtResource("content_79"), ExtResource("content_80"), ExtResource("content_81"), ExtResource("content_82"), ExtResource("content_83"), ExtResource("content_84"), ExtResource("content_85"), ExtResource("content_86"), ExtResource("content_87"), ExtResource("content_88"), ExtResource("content_89"), ExtResource("content_90"), ExtResource("content_91"), ExtResource("content_92"), ExtResource("content_93"), ExtResource("content_94")])
+events = Array[ExtResource("40_17guk")]([ExtResource("content_95"), ExtResource("content_96"), ExtResource("content_97"), ExtResource("content_98"), ExtResource("content_99"), ExtResource("content_100"), ExtResource("content_101"), ExtResource("content_102"), ExtResource("content_103")])
+difficulties = Array[ExtResource("17_goxqq")]([ExtResource("content_107"), ExtResource("content_105"), ExtResource("content_104"), ExtResource("content_106")])
+statuses = Array[ExtResource("207_omq2h")]([ExtResource("content_108"), ExtResource("content_109"), ExtResource("content_110"), ExtResource("content_111"), ExtResource("content_112"), ExtResource("content_113"), ExtResource("content_114"), ExtResource("content_115"), ExtResource("content_116"), ExtResource("content_117"), ExtResource("content_118"), ExtResource("content_119"), ExtResource("content_120"), ExtResource("content_121"), ExtResource("content_122"), ExtResource("content_123"), ExtResource("content_124"), ExtResource("content_125"), ExtResource("content_126"), ExtResource("content_127"), ExtResource("content_128"), ExtResource("content_129"), ExtResource("status_item_fire_burn"), ExtResource("status_repair_nanites"), ExtResource("status_small_burn"), ExtResource("status_electrified")])
+items = Array[ExtResource("50_3clap")]([ExtResource("content_130"), ExtResource("content_131"), ExtResource("content_132"), ExtResource("content_133"), ExtResource("content_134"), ExtResource("content_135"), ExtResource("content_136"), ExtResource("content_137"), ExtResource("content_138"), ExtResource("content_139"), ExtResource("content_140"), ExtResource("content_141"), ExtResource("content_142"), ExtResource("content_143"), ExtResource("content_144"), ExtResource("content_145"), ExtResource("content_146"), ExtResource("content_147"), ExtResource("item_ember_seeder"), ExtResource("item_inferno_seeder"), ExtResource("item_shard_beacon"), ExtResource("item_shard_array"), ExtResource("item_grid_scrubber"), ExtResource("item_grid_purge"), ExtResource("item_scrap_ejector"), ExtResource("item_scrap_vacuum"), ExtResource("item_patch_drone"), ExtResource("item_repair_swarm"), ExtResource("item_fracture_mine"), ExtResource("item_seismic_mine"), ExtResource("item_bastion_emitter"), ExtResource("item_citadel_emitter"), ExtResource("item_null_wash"), ExtResource("item_null_storm"), ExtResource("item_momentum_coil"), ExtResource("item_momentum_reactor"), ExtResource("item_phase_needle"), ExtResource("item_void_lance")])
+counters = Array[ExtResource("9_mr3yo")]([ExtResource("content_148"), ExtResource("content_149"), ExtResource("content_150"), ExtResource("content_151"), ExtResource("content_152"), ExtResource("content_153"), ExtResource("content_154"), ExtResource("counter_1"), ExtResource("counter_2"), ExtResource("counter_3"), ExtResource("counter_4"), ExtResource("counter_5"), ExtResource("counter_6")])
+artifacts = Array[ExtResource("1_urmxr")]([ExtResource("content_155"), ExtResource("content_156"), ExtResource("content_157"), ExtResource("content_158"), ExtResource("content_159"), ExtResource("content_160"), ExtResource("content_161"), ExtResource("artifact_closed_loop_hopper"), ExtResource("artifact_overclocked_feed")])
+piece_modifiers = Array[ExtResource("203_gafyc")]([ExtResource("content_162"), ExtResource("content_163"), ExtResource("content_165"), ExtResource("content_166"), ExtResource("content_167"), ExtResource("content_168"), ExtResource("content_172"), ExtResource("piece_modifier_item_fire_visual"), ExtResource("piece_modifier_small_brand")])
+tutorials = Array[ExtResource("208_fxssn")]([ExtResource("content_173"), ExtResource("content_174"), ExtResource("content_175"), ExtResource("content_176"), ExtResource("content_177"), ExtResource("content_178"), ExtResource("content_179"), ExtResource("content_180"), ExtResource("content_181"), ExtResource("content_182"), ExtResource("content_183"), ExtResource("content_184"), ExtResource("content_185"), ExtResource("content_186"), ExtResource("content_187"), ExtResource("content_188"), ExtResource("content_189"), ExtResource("content_190"), ExtResource("content_191"), ExtResource("content_192"), ExtResource("content_193"), ExtResource("content_194"), ExtResource("content_195"), ExtResource("tutorial_upgrade_matrix"), ExtResource("tutorial_hub_overview")])
+legacy_aliases = Array[ExtResource("2_alias")]([SubResource("LegacyAlias_1"), SubResource("LegacyAlias_2"), SubResource("LegacyAlias_3"), SubResource("LegacyAlias_4"), SubResource("LegacyAlias_5"), SubResource("LegacyAlias_6"), SubResource("LegacyAlias_7"), SubResource("LegacyAlias_8"), SubResource("LegacyAlias_9"), SubResource("LegacyAlias_10"), SubResource("LegacyAlias_11"), SubResource("LegacyAlias_12"), SubResource("LegacyAlias_13"), SubResource("LegacyAlias_14"), SubResource("LegacyAlias_15"), SubResource("LegacyAlias_16"), SubResource("LegacyAlias_17"), SubResource("LegacyAlias_18"), SubResource("LegacyAlias_19"), SubResource("LegacyAlias_20"), SubResource("LegacyAlias_21"), SubResource("LegacyAlias_22"), SubResource("LegacyAlias_23"), SubResource("LegacyAlias_24"), SubResource("LegacyAlias_25"), SubResource("LegacyAlias_26"), SubResource("LegacyAlias_27"), SubResource("LegacyAlias_28"), SubResource("LegacyAlias_29"), SubResource("LegacyAlias_30"), SubResource("LegacyAlias_31"), SubResource("LegacyAlias_32"), SubResource("LegacyAlias_33"), SubResource("LegacyAlias_34"), SubResource("LegacyAlias_35"), SubResource("LegacyAlias_36"), SubResource("LegacyAlias_37"), SubResource("LegacyAlias_38"), SubResource("LegacyAlias_39"), SubResource("LegacyAlias_40"), SubResource("LegacyAlias_41"), SubResource("LegacyAlias_42"), SubResource("LegacyAlias_43"), SubResource("LegacyAlias_44"), SubResource("LegacyAlias_45"), SubResource("LegacyAlias_46"), SubResource("LegacyAlias_47"), SubResource("LegacyAlias_48"), SubResource("LegacyAlias_49"), SubResource("LegacyAlias_50"), SubResource("LegacyAlias_51"), SubResource("LegacyAlias_52"), SubResource("LegacyAlias_53"), SubResource("LegacyAlias_54"), SubResource("LegacyAlias_55"), SubResource("LegacyAlias_56"), SubResource("LegacyAlias_57"), SubResource("LegacyAlias_58"), SubResource("LegacyAlias_59"), SubResource("LegacyAlias_60"), SubResource("LegacyAlias_61"), SubResource("LegacyAlias_62"), SubResource("LegacyAlias_63"), SubResource("LegacyAlias_64"), SubResource("LegacyAlias_65"), SubResource("LegacyAlias_66"), SubResource("LegacyAlias_67"), SubResource("LegacyAlias_68"), SubResource("LegacyAlias_69"), SubResource("LegacyAlias_70"), SubResource("LegacyAlias_71"), SubResource("LegacyAlias_72"), SubResource("LegacyAlias_74"), SubResource("LegacyAlias_75"), SubResource("LegacyAlias_77"), SubResource("LegacyAlias_78"), SubResource("LegacyAlias_79"), SubResource("LegacyAlias_80"), SubResource("LegacyAlias_81"), SubResource("LegacyAlias_82"), SubResource("LegacyAlias_83"), SubResource("LegacyAlias_84"), SubResource("LegacyAlias_85"), SubResource("LegacyAlias_86"), SubResource("LegacyAlias_87"), SubResource("LegacyAlias_88"), SubResource("LegacyAlias_89"), SubResource("LegacyAlias_90"), SubResource("LegacyAlias_91"), SubResource("LegacyAlias_92"), SubResource("LegacyAlias_93"), SubResource("LegacyAlias_94"), SubResource("LegacyAlias_95"), SubResource("LegacyAlias_96"), SubResource("LegacyAlias_97"), SubResource("LegacyAlias_98"), SubResource("LegacyAlias_99"), SubResource("LegacyAlias_100"), SubResource("LegacyAlias_101"), SubResource("LegacyAlias_102"), SubResource("LegacyAlias_103"), SubResource("LegacyAlias_104"), SubResource("LegacyAlias_105"), SubResource("LegacyAlias_106"), SubResource("LegacyAlias_107"), SubResource("LegacyAlias_108"), SubResource("LegacyAlias_109"), SubResource("LegacyAlias_110"), SubResource("LegacyAlias_111"), SubResource("LegacyAlias_112"), SubResource("LegacyAlias_113"), SubResource("LegacyAlias_114"), SubResource("LegacyAlias_115"), SubResource("LegacyAlias_116"), SubResource("LegacyAlias_117"), SubResource("LegacyAlias_118"), SubResource("LegacyAlias_119"), SubResource("LegacyAlias_120"), SubResource("LegacyAlias_121"), SubResource("LegacyAlias_122"), SubResource("LegacyAlias_123"), SubResource("LegacyAlias_124"), SubResource("LegacyAlias_125"), SubResource("LegacyAlias_126"), SubResource("LegacyAlias_127"), SubResource("LegacyAlias_128"), SubResource("LegacyAlias_129"), SubResource("LegacyAlias_130"), SubResource("LegacyAlias_131"), SubResource("LegacyAlias_132"), SubResource("LegacyAlias_133"), SubResource("LegacyAlias_134"), SubResource("LegacyAlias_135"), SubResource("LegacyAlias_136"), SubResource("LegacyAlias_137"), SubResource("LegacyAlias_138"), SubResource("LegacyAlias_139"), SubResource("LegacyAlias_140"), SubResource("LegacyAlias_141"), SubResource("LegacyAlias_142"), SubResource("LegacyAlias_143"), SubResource("LegacyAlias_144"), SubResource("LegacyAlias_145"), SubResource("LegacyAlias_146"), SubResource("LegacyAlias_147"), SubResource("LegacyAlias_148"), SubResource("LegacyAlias_149"), SubResource("LegacyAlias_150"), SubResource("LegacyAlias_151"), SubResource("LegacyAlias_152"), SubResource("LegacyAlias_153"), SubResource("LegacyAlias_154"), SubResource("LegacyAlias_155"), SubResource("LegacyAlias_156"), SubResource("LegacyAlias_157"), SubResource("LegacyAlias_158"), SubResource("LegacyAlias_159"), SubResource("LegacyAlias_160"), SubResource("LegacyAlias_161"), SubResource("LegacyAlias_162"), SubResource("LegacyAlias_163"), SubResource("LegacyAlias_164"), SubResource("LegacyAlias_165"), SubResource("LegacyAlias_166"), SubResource("LegacyAlias_167"), SubResource("LegacyAlias_168"), SubResource("LegacyAlias_169"), SubResource("LegacyAlias_170"), SubResource("LegacyAlias_171"), SubResource("LegacyAlias_172"), SubResource("LegacyAlias_173"), SubResource("LegacyAlias_174"), SubResource("LegacyAlias_175"), SubResource("LegacyAlias_176"), SubResource("LegacyAlias_177"), SubResource("LegacyAlias_178"), SubResource("LegacyAlias_179"), SubResource("LegacyAlias_180"), SubResource("LegacyAlias_181"), SubResource("LegacyAlias_182"), SubResource("LegacyAlias_183"), SubResource("LegacyAlias_184"), SubResource("LegacyAlias_185"), SubResource("LegacyAlias_186"), SubResource("LegacyAlias_187"), SubResource("LegacyAlias_188"), SubResource("LegacyAlias_189"), SubResource("LegacyAlias_190"), SubResource("LegacyAlias_191"), SubResource("LegacyAlias_192"), SubResource("LegacyAlias_193"), SubResource("LegacyAlias_194"), SubResource("LegacyAlias_195"), SubResource("LegacyAlias_UpgradeMatrix")])

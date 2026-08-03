@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://bqw2ousxvwxbm"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Resource" uid="uid://dtobyt1v3uku0" path="res://content/counters/marked_beam.tres" id="2"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2_2r3jb"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Marked Beam"
+intent_description = "Clear the marked row within three turns or take 9 damage and three locked cells."
+action_tags = Array[StringName]([&"counter", &"row", &"lock"])
+counter_definition = ExtResource("2")
+weight = 0.4
+cannot_repeat = true
+icon_type = 7
+accent_color = Color(0.4, 0.9, 1, 1)

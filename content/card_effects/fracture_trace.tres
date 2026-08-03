@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="PieceCardEffectDefinition" format=3 uid="uid://dlq37wm2y777p"]
+
+[ext_resource type="Script" uid="uid://cpyu1wlfy52di" path="res://core/piece_effects/piece_card_effect_definition.gd" id="1_definition"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2_gameplay_effect"]
+[ext_resource type="Script" uid="uid://btkip47lbquh4" path="res://core/effects/implementations/apply_status_effect.gd" id="3_status"]
+[ext_resource type="Resource" uid="uid://e2iww5t3sbpy" path="res://content/statuses/cracked.tres" id="4_cracked"]
+[ext_resource type="Resource" path="res://content/statuses/ward.tres" id="4_leepq"]
+[ext_resource type="Texture2D" uid="uid://nerrmcfo2k3l" path="res://assets/icons/empty_texture.tres" id="5_icon"]
+
+[sub_resource type="Resource" id="Cracked"]
+script = ExtResource("3_status")
+status = ExtResource("4_cracked")
+duration_turns = 3
+target = 1
+
+[resource]
+script = ExtResource("1_definition")
+display_name = "Fracture Trace"
+description = "Apply Cracked for 3 turns when this Block helps clear a line."
+icon = ExtResource("5_icon")
+accent_color = Color(0.86, 0.59, 1, 1)
+marker_style = 6
+trigger = 1
+effects = Array[ExtResource("2_gameplay_effect")]([SubResource("Cracked")])
+enemy_health_scaling_weight = 0.75
+tags = Array[StringName]([&"status", &"clear"])

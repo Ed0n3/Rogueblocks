@@ -1,0 +1,582 @@
+[gd_scene format=3 uid="uid://dflm5evf1sgxw"]
+
+[ext_resource type="Script" uid="uid://bh4uo5mabvd6s" path="res://scenes/upgrades/upgrade_tree_screen.gd" id="1"]
+[ext_resource type="Theme" uid="uid://cgawyp4ufchpa" path="res://themes/default_theme.tres" id="1_6m1ar"]
+[ext_resource type="Theme" uid="uid://hay1hu5nk5gd" path="res://presentation/theme/game_theme.tres" id="1_tolmy"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/back.png" id="2_back"]
+[ext_resource type="PackedScene" path="res://presentation/upgrade_board/upgrade_board_view.tscn" id="3"]
+[ext_resource type="Resource" uid="uid://d24mwhiogwe5s" path="res://content/upgrade_matrix/default_upgrade_matrix_configuration.tres" id="4"]
+[ext_resource type="PackedScene" path="res://presentation/upgrade_board/upgrade_board_shop_dialog.tscn" id="5"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/zoom_out.png" id="6_zoom_out"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/focus.png" id="7_focus"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/zoom_in.png" id="8_zoom_in"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/buy.png" id="9_buy"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/place.png" id="10_place"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/undo.png" id="11_undo"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/confirm.png" id="12_confirm"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/rotate_right.png" id="13_rotate"]
+
+[node name="UpgradeTreeScreen" type="Control" unique_id=1837370371]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tolmy")
+script = ExtResource("1")
+configuration = ExtResource("4")
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=651097248]
+custom_maximum_size = Vector2(1280, 720)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.5
+offset_right = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Layout" type="VBoxContainer" parent="Margin" unique_id=787319938]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Header" type="Control" parent="Margin/Layout" unique_id=1636525571]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+
+[node name="Background" type="PanelContainer" parent="Margin/Layout/Header" unique_id=1787705582]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_type_variation = &"InsetPanel"
+
+[node name="HeaderLayout" type="HBoxContainer" parent="Margin/Layout/Header" unique_id=298324941]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = -8.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Heading" type="VBoxContainer" parent="Margin/Layout/Header/HeaderLayout" unique_id=185613182]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="Margin/Layout/Header/HeaderLayout/Heading" unique_id=1809088406]
+layout_mode = 2
+theme_type_variation = &"HeadingMedium"
+theme_override_font_sizes/font_size = 27
+text = "UPGRADE MATRIX"
+
+[node name="Subtitle" type="Label" parent="Margin/Layout/Header/HeaderLayout/Heading" unique_id=867110197]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "Place blocks for upgrades. "
+
+[node name="DirtyState" type="Label" parent="Margin/Layout/Header/HeaderLayout" unique_id=1440326681]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "NO PENDING CHANGES"
+
+[node name="FragmentBalance" type="Label" parent="Margin/Layout/Header/HeaderLayout" unique_id=964538051]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"NumericDisplay"
+text = "FRAGMENTS  0"
+
+[node name="Back" type="Button" parent="Margin/Layout/Header/HeaderLayout" unique_id=2100776552]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(104, 44)
+custom_maximum_size = Vector2(104, -1)
+layout_mode = 2
+theme_type_variation = &"GhostButton"
+tooltip_text = "Back to Hub"
+icon = ExtResource("2_back")
+expand_icon = true
+icon_max_width = 36
+icon_alignment = 1
+
+[node name="Workspace" type="HBoxContainer" parent="Margin/Layout" unique_id=272090146]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="BoardPanel" type="PanelContainer" parent="Margin/Layout/Workspace" unique_id=1735238246]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"ElevatedPanel"
+
+[node name="BoardMargin" type="MarginContainer" parent="Margin/Layout/Workspace/BoardPanel" unique_id=997759575]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="BoardLayer" type="Control" parent="Margin/Layout/Workspace/BoardPanel/BoardMargin" unique_id=649289089]
+layout_mode = 2
+
+[node name="BoardView" parent="Margin/Layout/Workspace/BoardPanel/BoardMargin/BoardLayer" unique_id=521506820 instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="ZoomHud" type="HBoxContainer" parent="Margin/Layout/Workspace/BoardPanel/BoardMargin/BoardLayer" unique_id=1752391622]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -250.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 50.0
+grow_horizontal = 0
+theme_override_constants/separation = 4
+
+[node name="ZoomOut" type="Button" parent="Margin/Layout/Workspace/BoardPanel/BoardMargin/BoardLayer/ZoomHud" unique_id=1290882315]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(42, 42)
+layout_mode = 2
+theme_type_variation = &"GhostButton"
+tooltip_text = "Zoom Out"
+icon = ExtResource("6_zoom_out")
+expand_icon = true
+icon_max_width = 30
+icon_alignment = 1
+
+[node name="FitBoard" type="Button" parent="Margin/Layout/Workspace/BoardPanel/BoardMargin/BoardLayer/ZoomHud" unique_id=1134557450]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(76, 42)
+layout_mode = 2
+theme_type_variation = &"GhostButton"
+tooltip_text = "Fit Board"
+icon = ExtResource("7_focus")
+expand_icon = true
+icon_max_width = 30
+icon_alignment = 1
+
+[node name="ZoomIn" type="Button" parent="Margin/Layout/Workspace/BoardPanel/BoardMargin/BoardLayer/ZoomHud" unique_id=571053407]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(42, 42)
+layout_mode = 2
+theme_type_variation = &"GhostButton"
+tooltip_text = "Zoom In"
+icon = ExtResource("8_zoom_in")
+expand_icon = true
+icon_max_width = 30
+icon_alignment = 1
+
+[node name="ZoomLevel" type="Label" parent="Margin/Layout/Workspace/BoardPanel/BoardMargin/BoardLayer/ZoomHud" unique_id=1934522462]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_type_variation = &"NumericDisplay"
+text = "100%"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MapHint" type="PanelContainer" parent="Margin/Layout/Workspace/BoardPanel/BoardMargin/BoardLayer" unique_id=169025761]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -48.0
+offset_right = 300.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_type_variation = &"InsetPanel"
+
+[node name="Hint" type="Label" parent="Margin/Layout/Workspace/BoardPanel/BoardMargin/BoardLayer/MapHint" unique_id=561511060]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "PINCH/WHEEL ZOOM  •  DRAG PAN  •  DRAG BLOCK MOVE  •  SWIPE ROTATE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KeyboardLegend" type="PanelContainer" parent="Margin/Layout/Workspace/BoardPanel/BoardMargin/BoardLayer" unique_id=467845525]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = -42.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+theme_type_variation = &"InsetPanel"
+
+[node name="LegendMargin" type="MarginContainer" parent="Margin/Layout/Workspace/BoardPanel/BoardMargin/BoardLayer/KeyboardLegend" unique_id=238277117]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="Legend" type="HBoxContainer" parent="Margin/Layout/Workspace/BoardPanel/BoardMargin/BoardLayer/KeyboardLegend/LegendMargin" unique_id=1904965648]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="LeftKey" type="PanelContainer" parent="Margin/Layout/Workspace/BoardPanel/BoardMargin/BoardLayer/KeyboardLegend/LegendMargin/Legend" unique_id=1834238527]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+theme_type_variation = &"KeyBindingPanel"
+
+[node name="Label" type="Label" parent="Margin/Layout/Workspace/BoardPanel/BoardMargin/BoardLayer/KeyboardLegend/LegendMargin/Legend/LeftKey" unique_id=1315554856]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Q"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LeftAction" type="Label" parent="Margin/Layout/Workspace/BoardPanel/BoardMargin/BoardLayer/KeyboardLegend/LegendMargin/Legend" unique_id=759653197]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+theme_override_font_sizes/font_size = 12
+text = "LEFT"
+vertical_alignment = 1
+
+[node name="RightKey" type="PanelContainer" parent="Margin/Layout/Workspace/BoardPanel/BoardMargin/BoardLayer/KeyboardLegend/LegendMargin/Legend" unique_id=1171886266]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+theme_type_variation = &"KeyBindingPanel"
+
+[node name="Label" type="Label" parent="Margin/Layout/Workspace/BoardPanel/BoardMargin/BoardLayer/KeyboardLegend/LegendMargin/Legend/RightKey" unique_id=1807663590]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightAction" type="Label" parent="Margin/Layout/Workspace/BoardPanel/BoardMargin/BoardLayer/KeyboardLegend/LegendMargin/Legend" unique_id=587795397]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+theme_override_font_sizes/font_size = 12
+text = "RIGHT"
+vertical_alignment = 1
+
+[node name="DetailPanel" type="Control" parent="Margin/Layout/Workspace" unique_id=1467092293]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(318, 0)
+layout_mode = 2
+
+[node name="Background" type="PanelContainer" parent="Margin/Layout/Workspace/DetailPanel" unique_id=1036258056]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_type_variation = &"StandardPanel"
+
+[node name="DetailMargin" type="MarginContainer" parent="Margin/Layout/Workspace/DetailPanel" unique_id=1673766791]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 8
+
+[node name="Details" type="VBoxContainer" parent="Margin/Layout/Workspace/DetailPanel/DetailMargin" unique_id=1041386374]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="RegionCategory" type="Label" parent="Margin/Layout/Workspace/DetailPanel/DetailMargin/Details" unique_id=2061863756]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MutedText"
+theme_override_font_sizes/font_size = 14
+text = "AREA"
+
+[node name="UpgradeName" type="Label" parent="Margin/Layout/Workspace/DetailPanel/DetailMargin/Details" unique_id=1268655461]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeadingMedium"
+theme_override_font_sizes/font_size = 22
+text = "Upgrade"
+autowrap_mode = 2
+
+[node name="Level" type="Label" parent="Margin/Layout/Workspace/DetailPanel/DetailMargin/Details" unique_id=248092575]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"NumericDisplay"
+text = "LEVEL 0 / 1"
+
+[node name="Description" type="Label" parent="Margin/Layout/Workspace/DetailPanel/DetailMargin/Details" unique_id=689229964]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Upgrade description"
+autowrap_mode = 2
+
+[node name="RegionProgress" type="ProgressBar" parent="Margin/Layout/Workspace/DetailPanel/DetailMargin/Details" unique_id=1850230725]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+show_percentage = false
+
+[node name="RegionProgressLabel" type="Label" parent="Margin/Layout/Workspace/DetailPanel/DetailMargin/Details" unique_id=3535441]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0 / 30 cells"
+
+[node name="NextLevel" type="Label" parent="Margin/Layout/Workspace/DetailPanel/DetailMargin/Details" unique_id=1142877051]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49, 0.89, 0.68, 1)
+text = "30 cells until level 1"
+autowrap_mode = 2
+
+[node name="ThresholdsTitle" type="Label" parent="Margin/Layout/Workspace/DetailPanel/DetailMargin/Details" unique_id=1621169455]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "LEVEL THRESHOLDS"
+
+[node name="Thresholds" type="Label" parent="Margin/Layout/Workspace/DetailPanel/DetailMargin/Details" unique_id=1073634146]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 14
+text = "L1  30 cells"
+autowrap_mode = 2
+
+[node name="FocusRegion" type="Button" parent="Margin/Layout/Workspace/DetailPanel/DetailMargin/Details" unique_id=353674041]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+tooltip_text = "Focus Area"
+icon = ExtResource("7_focus")
+expand_icon = true
+icon_max_width = 36
+icon_alignment = 1
+
+[node name="PiecePanel" type="Control" parent="Margin/Layout" unique_id=1663638379]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Background" type="PanelContainer" parent="Margin/Layout/PiecePanel" unique_id=507782094]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_type_variation = &"InsetPanel"
+
+[node name="PieceLayout" type="HBoxContainer" parent="Margin/Layout/PiecePanel" unique_id=1166043326]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = -12.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="PieceHeading" type="VBoxContainer" parent="Margin/Layout/PiecePanel/PieceLayout" unique_id=1050660219]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+
+[node name="PieceTitle" type="Label" parent="Margin/Layout/PiecePanel/PieceLayout/PieceHeading" unique_id=912045298]
+layout_mode = 2
+theme_type_variation = &"HeadingSmall"
+text = "BLOCK RESERVE"
+
+[node name="PieceCount" type="Label" parent="Margin/Layout/PiecePanel/PieceLayout/PieceHeading" unique_id=533290298]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "0 Blocks available"
+
+[node name="SelectedPiece" type="Label" parent="Margin/Layout/PiecePanel/PieceLayout/PieceHeading" unique_id=1104612042]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Select a Block"
+autowrap_mode = 2
+
+[node name="ActionBar" type="MarginContainer" parent="Margin/Layout" unique_id=911706555]
+custom_minimum_size = Vector2(0, 104)
+layout_mode = 2
+
+[node name="Background" type="PanelContainer" parent="Margin/Layout/ActionBar" unique_id=908163910]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"StandardPanel"
+
+[node name="Actions" type="HBoxContainer" parent="Margin/Layout/ActionBar" unique_id=1764586565]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Margin/Layout/ActionBar/Actions" unique_id=846097060]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="PieceScroll" type="ScrollContainer" parent="Margin/Layout/ActionBar/Actions" unique_id=2002561596]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="PieceTray" type="HBoxContainer" parent="Margin/Layout/ActionBar/Actions/PieceScroll" unique_id=371803956]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="EmptyReserve" type="Label" parent="Margin/Layout/ActionBar/Actions/PieceScroll/PieceTray" unique_id=460442442]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 92)
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "NO BLOCKS"
+vertical_alignment = 1
+
+[node name="OpenFoundry" type="Button" parent="Margin/Layout/ActionBar/Actions" unique_id=1566948832]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 90)
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"SecondaryButton"
+tooltip_text = "Buy Blocks"
+icon = ExtResource("9_buy")
+expand_icon = true
+icon_max_width = 42
+icon_alignment = 1
+
+[node name="Place" type="Button" parent="Margin/Layout/ActionBar/Actions" unique_id=1659717933]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 90)
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"PrimaryButton"
+disabled = true
+tooltip_text = "Place Block"
+icon = ExtResource("10_place")
+expand_icon = true
+icon_max_width = 42
+icon_alignment = 1
+
+[node name="Undo" type="Button" parent="Margin/Layout/ActionBar/Actions" unique_id=740194283]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 90)
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"SecondaryButton"
+tooltip_text = "Undo"
+icon = ExtResource("11_undo")
+expand_icon = true
+icon_max_width = 42
+icon_alignment = 1
+
+[node name="Revert" type="Button" parent="Margin/Layout/ActionBar/Actions" unique_id=1658586177]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 90)
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"GhostButton"
+tooltip_text = "Revert Pending Changes"
+icon = ExtResource("11_undo")
+expand_icon = true
+icon_max_width = 42
+icon_alignment = 1
+
+[node name="Confirm" type="Button" parent="Margin/Layout/ActionBar/Actions" unique_id=708329046]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 90)
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"PrimaryButton"
+tooltip_text = "Confirm Changes"
+icon = ExtResource("12_confirm")
+expand_icon = true
+icon_max_width = 42
+icon_alignment = 1
+autowrap_mode = 2
+
+[node name="Rotate" type="Button" parent="Margin/Layout/ActionBar/Actions" unique_id=951501824]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 90)
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"SecondaryButton"
+tooltip_text = "Rotate Block"
+icon = ExtResource("13_rotate")
+expand_icon = true
+icon_max_width = 42
+icon_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/Layout/ActionBar/Actions" unique_id=1790142055]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="ConfirmChanges" type="ConfirmationDialog" parent="." unique_id=315117202]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = ""
+initial_position = 1
+size = Vector2i(400, 250)
+content_scale_factor = 1.2
+theme = ExtResource("1_6m1ar")
+ok_button_text = "CONFIRM"
+dialog_text = "Confirm these placements? Confirmed Blocks cannot be moved."
+dialog_autowrap = true
+cancel_button_text = "KEEP EDITING"
+
+[node name="DiscardChanges" type="ConfirmationDialog" parent="." unique_id=222571619]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = ""
+initial_position = 1
+size = Vector2i(400, 250)
+content_scale_factor = 1.2
+theme = ExtResource("1_6m1ar")
+ok_button_text = "DISCARD"
+dialog_text = "Discard every placement made since the last confirmation?"
+dialog_autowrap = true
+cancel_button_text = "KEEP EDITING"
+
+[node name="Foundry" parent="." unique_id=2106039557 instance=ExtResource("5")]
+layout_mode = 1

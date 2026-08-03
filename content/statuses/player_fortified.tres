@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="StatusDefinition" load_steps=3 format=3]
+[ext_resource type="Script" path="res://core/effects/status_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://content/status_visuals/shield.tres" id="2"]
+[ext_resource type="Script" path="res://core/combat/damage_modifier_definition.gd" id="3_damage"]
+[sub_resource type="Resource" id="DamageModifier"]
+script = ExtResource("3_damage")
+scope = 1
+event_type = 2
+value = -2.0
+[resource]
+script = ExtResource("1")
+display_name = "Fortified"
+description = "Direct enemy attacks deal 2 less damage."
+category = 0
+tags = Array[StringName]([&"positive", &"defense"])
+default_duration_turns = 2
+duration_phase = 4
+damage_modifiers = Array[ExtResource("3_damage")]([SubResource("DamageModifier")])
+accent_color = Color(0.35, 0.85, 1, 1)
+visual_definition = ExtResource("2")
+icon_type = 9

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3 uid="uid://cgb8k7cnndxb0"]
+
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://bbyykmmb01scj" path="res://core/combat/enemy_phase_definition.gd" id="1_cjvg3"]
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="2_i0aw0"]
+[ext_resource type="Resource" path="res://content/enemy_visuals/elite_mason.tres" id="visual"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Bastion Golem"
+maximum_health = 36
+attack_interval = 5
+direct_damage = 3
+blocker_count = 3
+minimum_act = 1
+maximum_act = 1
+encounter_role = 1
+visual = ExtResource("visual")

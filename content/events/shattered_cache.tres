@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="RunEventDefinition" format=3 uid="uid://bwyjymg1k6a5o"]
+
+[ext_resource type="Script" uid="uid://4p0uxo08n5wv" path="res://core/events/run_event_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://cg8woti0slts2" path="res://core/events/event_choice_definition.gd" id="2"]
+
+[sub_resource type="Resource" id="Reach"]
+script = ExtResource("2")
+choice_text = "Reach through the debris"
+result_preview = "Lose 3 health and gain 20 Shards."
+health_cost = 3
+shard_reward = 20
+
+[sub_resource type="Resource" id="Tools"]
+script = ExtResource("2")
+choice_text = "Search for intact tools"
+result_preview = "Gain one random item."
+item_reward_count = 1
+
+[sub_resource type="Resource" id="Leave"]
+script = ExtResource("2")
+choice_text = "Leave the cache"
+result_preview = "Continue without disturbing the debris."
+
+[resource]
+script = ExtResource("1")
+title = "Shattered Cache"
+description = "Valuable salvage glints beneath unstable metal slabs."
+choices = Array[ExtResource("2")]([SubResource("Reach"), SubResource("Tools"), SubResource("Leave")])

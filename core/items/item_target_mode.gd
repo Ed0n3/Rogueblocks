@@ -1,0 +1,4 @@
+class_name ItemTargetMode
+extends RefCounted
+
+enum Value { SELF, ENEMY, ACTIVE_COUNTER, BOARD_CELL, BOARD_AREA, OFFERED_PIECE, NO_TARGET, BONUS_PIECE_PLACEMENT }

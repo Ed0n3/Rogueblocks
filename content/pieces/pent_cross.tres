@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PieceDefinition" format=3 uid="uid://bnosmevyls8wr"]
+
+[ext_resource type="Script" uid="uid://cy40q74iyy3gr" path="res://core/pieces/piece_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Cross Pentablock"
+base_cells = Array[Vector2i]([Vector2i(1, 1), Vector2i(1, 0), Vector2i(0, 1), Vector2i(2, 1), Vector2i(1, 2)])
+preview_color = Color(0.96, 0.61, 0.31, 1)
+starting_draft_weight = 0.6
+allow_rotation = false
+tags = Array[StringName]([&"large", &"square", &"pentomino"])
+initially_unlocked = false

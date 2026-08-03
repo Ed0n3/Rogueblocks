@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="CounterDefinition" format=3 uid="uid://c105q2b8tybxg"]
+
+[ext_resource type="Script" uid="uid://und1rcm8w6bq" path="res://core/counters/counter_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://dl5hxd8rp2ro0" path="res://core/effects/implementations/damage_effect.gd" id="3"]
+[ext_resource type="Script" uid="uid://btkip47lbquh4" path="res://core/effects/implementations/apply_status_effect.gd" id="4"]
+[ext_resource type="Resource" path="res://content/statuses/burn.tres" id="5"]
+[ext_resource type="Resource" path="res://content/statuses/ward.tres" id="5_ceqgo"]
+
+[sub_resource type="Resource" id="FailureDamage"]
+script = ExtResource("3")
+amount = 11
+
+[sub_resource type="Resource" id="FailureBurn"]
+script = ExtResource("4")
+status = ExtResource("5")
+duration_turns = 4
+
+[sub_resource type="Resource" id="SuccessDamage"]
+script = ExtResource("3")
+amount = 4
+target = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Twin-Line Quench"
+description = "Clear three lines before both heated rails strike. Success deals 4 damage. Failure deals 11 damage and applies Burn for four turns."
+required_progress = 3
+partial_success_threshold = 2
+success_effects = Array[ExtResource("2")]([SubResource("SuccessDamage")])
+failure_effects = Array[ExtResource("2")]([SubResource("FailureDamage"), SubResource("FailureBurn")])

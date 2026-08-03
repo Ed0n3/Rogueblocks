@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://bx2m6xgk6eegr"]
+
+[ext_resource type="Script" uid="uid://dx16brlbge1il" path="res://core/items/item_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_kjo68"]
+[ext_resource type="Script" path="res://core/effects/implementations/transfer_deck_cards_effect.gd" id="2"]
+[ext_resource type="Texture2D" path="res://assets/icons/items/recycler_canister.png" id="3_icon"]
+
+[sub_resource type="Resource" id="Recycle"]
+script = ExtResource("2")
+count = 2
+
+[resource]
+script = ExtResource("1")
+display_name = "Recycler Canister"
+description = "Return up to 2 recently discarded Blocks to your drawn pieces."
+base_shop_price = 16
+maximum_stack_size = 2
+effects = Array[ExtResource("1_kjo68")]([SubResource("Recycle")])
+accent_color = Color(0.35, 0.95, 0.8, 1)
+icon = ExtResource("3_icon")

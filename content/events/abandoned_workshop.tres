@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="RunEventDefinition" format=3 uid="uid://dyyh1nvodrmr3"]
+
+[ext_resource type="Script" uid="uid://4p0uxo08n5wv" path="res://core/events/run_event_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://cg8woti0slts2" path="res://core/events/event_choice_definition.gd" id="2"]
+
+[sub_resource type="Resource" id="Remove"]
+script = ExtResource("2")
+choice_text = "Retire a shape"
+result_preview = "Remove one Block type from this run's pool."
+remove_piece_from_pool = true
+
+[sub_resource type="Resource" id="Leave"]
+script = ExtResource("2")
+choice_text = "Leave"
+result_preview = "Keep the current draft pool."
+
+[resource]
+script = ExtResource("1")
+title = "Abandoned Workshop"
+description = "The sorting machinery still responds to a careful hand."
+initially_unlocked = false
+choices = Array[ExtResource("2")]([SubResource("Remove"), SubResource("Leave")])

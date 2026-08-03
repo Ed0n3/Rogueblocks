@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StatusDefinition" load_steps=3 format=3]
+[ext_resource type="Script" path="res://core/effects/status_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://content/status_visuals/burn.tres" id="2"]
+[resource]
+script = ExtResource("1")
+display_name = "Archlord Fire"
+description = "Deals 1 damage at the start of each player turn for three turns."
+category = 2
+tags = Array[StringName]([&"negative", &"damage_over_time", &"burn", &"fire"])
+default_duration_turns = 3
+tick_phase = 1
+duration_phase = 1
+tick_amount = 1
+accent_color = Color(1, 0.42, 0.12, 1)
+visual_definition = ExtResource("2")
+icon_type = 2

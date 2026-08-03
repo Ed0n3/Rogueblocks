@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://gbucty5oiuyl"]
+
+[ext_resource type="Script" uid="uid://dx16brlbge1il" path="res://core/items/item_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_g23n0"]
+[ext_resource type="Script" uid="uid://chm38hqkf8hqf" path="res://core/effects/implementations/heal_effect.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://hu0upwjps4n8" path="res://assets/icons/items/compact_integrity_tank.png" id="3_icon"]
+
+[sub_resource type="Resource" id="Heal"]
+script = ExtResource("2")
+amount = 5
+
+[resource]
+script = ExtResource("1")
+display_name = "Compact Integrity Tank"
+description = "Restore 5 Core Integrity."
+icon = ExtResource("3_icon")
+category = 0
+base_shop_price = 12
+maximum_stack_size = 3
+target_mode = 0
+effects = Array[ExtResource("1_g23n0")]([SubResource("Heal")])
+accent_color = Color(0.3, 1, 0.65, 1)

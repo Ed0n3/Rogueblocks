@@ -1,0 +1,4 @@
+class_name PieceAdditionSelectionMode
+extends RefCounted
+
+enum Value { RANDOM_ONE, CHOOSE_ONE_FROM_CANDIDATES, CHOOSE_MULTIPLE_FROM_CANDIDATES, RANDOM_MATCHING_TAG }

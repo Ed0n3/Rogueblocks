@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="RelicDefinition" format=3 uid="uid://4rg7qxj8podr"]
+
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="1_juf60"]
+[ext_resource type="Script" uid="uid://djlgmqh1pdvp6" path="res://core/relics/relic_trigger_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="3_5h4k4"]
+
+[sub_resource type="Resource" id="Trigger"]
+script = ExtResource("2")
+minimum_lines = 3
+shard_reward = 5
+
+[resource]
+script = ExtResource("1")
+display_name = "Overflow"
+description = "Clearing three or more lines grants 5 Shards."
+initially_unlocked = false
+trigger_priority = 10
+trigger_effect = SubResource("Trigger")

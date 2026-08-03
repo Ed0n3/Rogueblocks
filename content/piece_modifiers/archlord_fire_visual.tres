@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="PieceModifierDefinition" format=3 uid="uid://bsor3k5akk5ux"]
+
+[ext_resource type="Script" uid="uid://dfugivbrrejsb" path="res://core/piece_modifiers/piece_modifier_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_sqjb7"]
+[ext_resource type="Script" uid="uid://bqwfrt3slt1sp" path="res://core/piece_modifiers/piece_modifier_visual_definition.gd" id="2"]
+
+[sub_resource type="Resource" id="Visual"]
+script = ExtResource("2")
+accent_color = Color(1, 0.29, 0.12, 1)
+secondary_color = Color(1, 0.76, 0.22, 1)
+marker_style = 1
+glow_strength = 0.7
+board_overlay_priority = 50
+
+[resource]
+script = ExtResource("1")
+display_name = "Archlord Fire"
+description = "This Monoblock was ignited by Archlord's Hand."
+visual_definition = SubResource("Visual")
+priority = 50
+tags = Array[StringName]([&"artifact", &"fire", &"visual"])

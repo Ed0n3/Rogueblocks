@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://dct1on60qsy4b"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_gw3lb"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1_plba6"]
+[ext_resource type="Script" uid="uid://btkip47lbquh4" path="res://core/effects/implementations/apply_status_effect.gd" id="2"]
+[ext_resource type="Resource" uid="uid://c7qa8vsvtt8s5" path="res://content/statuses/weakened.tres" id="3"]
+[ext_resource type="Resource" path="res://content/statuses/ward.tres" id="5_oraxr"]
+
+[sub_resource type="Resource" id="Weaken"]
+script = ExtResource("2")
+status = ExtResource("3")
+duration_turns = 6
+
+[resource]
+script = ExtResource("1")
+display_name = "Weakening Hex"
+intent_description = "Reduce line-clear damage by 25% for six turns."
+action_tags = Array[StringName]([&"debuff", &"weaken"])
+effects = Array[ExtResource("1_gw3lb")]([SubResource("Weaken")])
+weight = 0.5
+applied_statuses = Array[ExtResource("1_plba6")]([ExtResource("3")])
+icon_type = 10
+accent_color = Color(0.75, 0.4, 1, 1)

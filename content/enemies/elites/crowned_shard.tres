@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3 uid="uid://duaalf8xunew2"]
+
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="2"]
+[ext_resource type="Script" uid="uid://bbyykmmb01scj" path="res://core/combat/enemy_phase_definition.gd" id="2_i43ut"]
+[ext_resource type="Resource" uid="uid://bcavrypjexu5c" path="res://content/enemy_actions/act_4/crowned_shard_slash.tres" id="action_1"]
+[ext_resource type="Resource" uid="uid://bllr137107lj8" path="res://content/enemy_actions/act_4/crowned_shard_royal_riposte.tres" id="action_2"]
+[ext_resource type="Resource" uid="uid://01g8rh8usp5a" path="res://content/enemy_visuals/crowned_shard.tres" id="visual"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Crowned Shard"
+maximum_health = 62
+attack_interval = 2
+minimum_act = 3
+maximum_act = 3
+encounter_role = 1
+mechanic_tier = 3
+possible_actions = Array[ExtResource("2")]([ExtResource("action_1"), ExtResource("action_2")])
+fallback_action = ExtResource("action_1")
+visual = ExtResource("visual")

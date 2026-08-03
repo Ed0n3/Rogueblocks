@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PieceModifierDefinition" format=3 uid="uid://txg8n2krw1mn"]
+
+[ext_resource type="Script" uid="uid://dfugivbrrejsb" path="res://core/piece_modifiers/piece_modifier_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_uleqi"]
+[ext_resource type="Script" uid="uid://bqwfrt3slt1sp" path="res://core/piece_modifiers/piece_modifier_visual_definition.gd" id="2"]
+
+[sub_resource type="Resource" id="Visual"]
+script = ExtResource("2")
+accent_color = Color(0.45, 0.82, 0.92, 1)
+
+[resource]
+script = ExtResource("1")
+display_name = "Refined Archive"
+description = "Clears using this Block score 10% less."
+visual_definition = SubResource("Visual")
+show_on_board_cells = false
+tags = Array[StringName]([&"score"])

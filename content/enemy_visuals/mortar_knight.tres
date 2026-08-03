@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyVisualDefinition" format=3 uid="uid://buvhnn56p2fdp"]
+
+[ext_resource type="Script" uid="uid://bt6ggen3q15hs" path="res://presentation/combat/enemy_visual_definition.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dbcr62i6rmnjc" path="res://assets/enemies/mortar_knight.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+sprite = ExtResource("2")
+sprite_scale = 0.8
+shadow_size = Vector2(205, 36)
+accent_color = Color(0.35, 0.85, 1, 1)
+attack_color = Color(0.8, 0.55, 1, 1)
+idle_height = 5.0
+death_style = 1

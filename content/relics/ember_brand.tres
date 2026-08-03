@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="RelicDefinition" format=3 uid="uid://qa65pibv18yo"]
+
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="1_idi21"]
+[ext_resource type="Script" uid="uid://c1xhhna4gdcjw" path="res://core/relics/piece_affinity_relic_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://dmqxettumo761" path="res://core/piece_modifiers/piece_target_request.gd" id="3"]
+[ext_resource type="Script" uid="uid://cy40q74iyy3gr" path="res://core/pieces/piece_definition.gd" id="3_6bby6"]
+[ext_resource type="Resource" uid="uid://bqbhei43bm27q" path="res://content/piece_modifiers/ember_brand.tres" id="4"]
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="5_idi21"]
+
+[sub_resource type="Resource" id="Target"]
+script = ExtResource("3")
+selection_mode = 2
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+modifier_definition = ExtResource("4")
+target_selection = SubResource("Target")
+
+[resource]
+script = ExtResource("1")
+display_name = "Ember Brand"
+description = "Choose 1 of 3 Blocks. When it helps clear a line, apply 2 Burn for two turns."
+effect = SubResource("Effect")
+elite_defeat_reward_only = true

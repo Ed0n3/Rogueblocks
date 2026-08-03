@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="RelicDefinition" format=3 uid="uid://cvkigjy10lvad"]
+
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="1_8mgdy"]
+[ext_resource type="Script" uid="uid://djlgmqh1pdvp6" path="res://core/relics/relic_trigger_effect.gd" id="2_trigger"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="3_eawop"]
+
+[sub_resource type="Resource" id="Trigger"]
+script = ExtResource("2_trigger")
+discard_interval = 12
+rerolls_per_discard_trigger = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Rejector"
+description = "Every 12 discarded Pieces grants 1 free redraw."
+initially_unlocked = false
+trigger_priority = 50
+trigger_effect = SubResource("Trigger")

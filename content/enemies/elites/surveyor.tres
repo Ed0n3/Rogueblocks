@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3 uid="uid://brnq1trlfahe1"]
+
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://bbyykmmb01scj" path="res://core/combat/enemy_phase_definition.gd" id="2"]
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="3"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="3_86ovn"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="3_agu0d"]
+[ext_resource type="Resource" path="res://content/enemy_visuals/surveyor.tres" id="visual"]
+
+[sub_resource type="Resource" id="Action"]
+script = ExtResource("3")
+direct_damage = 2
+special_cell_type = 6
+special_cell_count = 3
+special_cell_value = 3
+
+[sub_resource type="Resource" id="Phase"]
+script = ExtResource("2")
+action_pattern = Array[ExtResource("3")]([SubResource("Action")])
+
+[resource]
+script = ExtResource("1")
+display_name = "Surveyor Artificer"
+initially_unlocked = false
+maximum_health = 47
+phases = Array[ExtResource("2")]([SubResource("Phase")])
+minimum_act = 2
+maximum_act = 3
+encounter_role = 1
+visual = ExtResource("visual")

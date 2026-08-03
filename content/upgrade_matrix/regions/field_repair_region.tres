@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UpgradeBoardRegionSlot" format=3]
+
+[ext_resource type="Script" path="res://core/progression/upgrade_board/upgrade_board_region_slot.gd" id="1"]
+[ext_resource type="Resource" path="res://content/upgrades/field_repair.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+upgrade = ExtResource("2")
+slot_index = 20
+area_cell_count = 132
+usable_cell_count = 116
+shape = 1
+generation_seed = 137
+

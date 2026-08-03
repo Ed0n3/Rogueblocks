@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="StatusDefinition" format=3 uid="uid://drcarksnqonew"]
+
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="1_rui6u"]
+[ext_resource type="Resource" path="res://content/status_visuals/burn.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Small Burn"
+category = 2
+tags = Array[StringName]([&"negative", &"damage_over_time", &"burn"])
+default_duration_turns = 2
+tick_phase = 1
+duration_phase = 1
+tick_amount = 1
+accent_color = Color(1, 0.45, 0.25, 1)
+icon_type = 2
+visual_definition = ExtResource("2")

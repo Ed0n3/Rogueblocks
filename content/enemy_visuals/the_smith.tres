@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyVisualDefinition" format=3 uid="uid://ccyyhkk6wfkt5"]
+
+[ext_resource type="Script" uid="uid://bt6ggen3q15hs" path="res://presentation/combat/enemy_visual_definition.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bkkwa4x4d00ol" path="res://assets/enemies/the_smith.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+sprite = ExtResource("2")
+sprite_scale = 0.85
+shadow_size = Vector2(240, 42)
+accent_color = Color(1, 0.48, 0.12, 1)
+attack_color = Color(1, 0.25, 0.08, 1)
+idle_height = 5.0
+idle_duration = 2.0
+death_style = 1

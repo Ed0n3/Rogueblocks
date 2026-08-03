@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3 uid="uid://dut00yhn4oou"]
+
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://content/enemy_actions/act_1/drop_rubble.tres" id="2"]
+[ext_resource type="Script" uid="uid://bbyykmmb01scj" path="res://core/combat/enemy_phase_definition.gd" id="2_3lv37"]
+[ext_resource type="Resource" uid="uid://ct180tsxv5gaj" path="res://content/enemy_actions/act_1/reinforce.tres" id="3"]
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="action_script"]
+[ext_resource type="Resource" path="res://content/enemy_visuals/scrap_mason.tres" id="visual"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Scrap Blockling"
+maximum_health = 23
+mechanic_tier = 2
+possible_actions = Array[ExtResource("action_script")]([ExtResource("2"), ExtResource("3")])
+fallback_action = ExtResource("2")
+visual = ExtResource("visual")

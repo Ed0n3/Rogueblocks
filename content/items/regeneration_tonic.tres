@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://bycqvnot50fv5"]
+
+[ext_resource type="Script" uid="uid://dx16brlbge1il" path="res://core/items/item_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_m6p1d"]
+[ext_resource type="Script" uid="uid://btkip47lbquh4" path="res://core/effects/implementations/apply_status_effect.gd" id="2"]
+[ext_resource type="Resource" path="res://content/statuses/repair_nanites.tres" id="3"]
+[ext_resource type="Texture2D" path="res://assets/icons/items/repair_nanite_tank.png" id="4_icon"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+status = ExtResource("3")
+
+[resource]
+script = ExtResource("1")
+display_name = "Repair Nanite Tank"
+description = "Restore 2 Core Integrity at the start of the next three turns."
+category = 0
+rarity = 1
+base_shop_price = 28
+maximum_stack_size = 2
+target_mode = 0
+effects = Array[ExtResource("1_m6p1d")]([SubResource("Effect")])
+accent_color = Color(0.3, 0.95, 0.65, 1)
+icon = ExtResource("4_icon")

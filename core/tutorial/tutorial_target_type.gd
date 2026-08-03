@@ -1,0 +1,4 @@
+class_name TutorialTargetType
+extends RefCounted
+
+enum Value { UI_CONTROL, NODE_2D, BOARD_CELL, BOARD_CELL_SET, BOARD_ROW, BOARD_COLUMN, BOARD_AREA, SCREEN_REGION, WORLD_POSITION }

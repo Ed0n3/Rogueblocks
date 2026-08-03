@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="DebugEncounterRules" format=3 uid="uid://b2kpm30ruxi0a"]
+
+[ext_resource type="Script" uid="uid://c768m5in4xah2" path="res://core/debug/debug_encounter_rules.gd" id="1_rules"]
+[ext_resource type="Script" uid="uid://cy40q74iyy3gr" path="res://core/pieces/piece_definition.gd" id="2_piece"]
+[ext_resource type="Resource" uid="uid://cgivt8nfxdc0j" path="res://content/enemies/training_slime.tres" id="3_enemy"]
+[ext_resource type="Resource" uid="uid://dddgppkrlq31e" path="res://content/pieces/monomino.tres" id="4_piece"]
+[ext_resource type="Resource" uid="uid://u1ussdhxxt14" path="res://content/pieces/domino.tres" id="5_piece"]
+[ext_resource type="Resource" uid="uid://ckpvglo0m6x8i" path="res://content/pieces/tri_i.tres" id="6_piece"]
+[ext_resource type="Resource" uid="uid://cke5lcxrvnh47" path="res://content/pieces/tri_l.tres" id="7_piece"]
+[ext_resource type="Resource" uid="uid://byht2aej3nfbu" path="res://content/pieces/tet_o.tres" id="8_piece"]
+[ext_resource type="Resource" uid="uid://b2wc6g5ahtoed" path="res://content/pieces/tet_i.tres" id="9_piece"]
+[ext_resource type="Resource" uid="uid://c7ytbyhqnpncr" path="res://content/pieces/tet_t.tres" id="10_piece"]
+[ext_resource type="Resource" uid="uid://cla15a1ggm23u" path="res://content/pieces/tet_l.tres" id="11_piece"]
+
+[resource]
+script = ExtResource("1_rules")
+default_enemy = ExtResource("3_enemy")
+default_pieces = Array[ExtResource("2_piece")]([ExtResource("4_piece"), ExtResource("5_piece"), ExtResource("6_piece"), ExtResource("7_piece"), ExtResource("8_piece"), ExtResource("9_piece"), ExtResource("10_piece"), ExtResource("11_piece")])
+maximum_piece_count = 24
+default_seed = 424242
+artifact_obtained_act = 1

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" format=3 uid="uid://dawluaam1ip1s"]
+
+[ext_resource type="Script" uid="uid://c0vske0subwsi" path="res://core/progression/upgrade_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://dfndwdlwv1rfk" path="res://core/progression/permanent_upgrade_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="2_2f5jk"]
+[ext_resource type="Texture2D" uid="uid://nerrmcfo2k3l" path="res://assets/icons/empty_texture.tres" id="3"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+potion_stack_limit_per_level = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Supply Stacks"
+description = "+1 field device stack limit per level."
+category = 4
+icon = ExtResource("3")
+max_level = 2
+explicit_costs = PackedInt32Array(12, 45)
+prerequisite_levels = null
+effects = Array[ExtResource("2")]([SubResource("Effect")])
+tree_column = 3
+tree_row = 1
+board_level_thresholds = null

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://dq5nadpd088fy"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1_5ds75"]
+[ext_resource type="Resource" uid="uid://dnpl5gnelh1hb" path="res://content/counters/designer_blueprint_row.tres" id="2"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="3_pdnep"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Blueprint Row"
+intent_description = "Clear the projected row before the design locks into place."
+action_tags = Array[StringName]([&"counter", &"magic", &"row"])
+counter_definition = ExtResource("2")
+weight = 0.3
+cannot_repeat = true
+icon_type = 7
+accent_color = Color(0.35, 0.9, 1, 1)

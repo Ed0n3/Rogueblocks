@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://dsfywludm5y0h"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_3jjj5"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1_288s8"]
+[ext_resource type="Script" uid="uid://c3fh2778b0dd0" path="res://core/effects/implementations/shield_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://und1rcm8w6bq" path="res://core/counters/counter_definition.gd" id="2_wjcpl"]
+[ext_resource type="Script" uid="uid://dl5hxd8rp2ro0" path="res://core/effects/implementations/damage_effect.gd" id="3_288s8"]
+
+[sub_resource type="Resource" id="Resource_0ble2"]
+script = ExtResource("3_288s8")
+amount = 2
+target = 1
+
+[sub_resource type="Resource" id="Resource_jug6s"]
+script = ExtResource("2_wjcpl")
+display_name = "Shell Guard Counter"
+description = "Clear the marked row before the beam fires. Success deals 2  damage."
+counter_type = 8
+duration_turns = 3
+success_effects = Array[ExtResource("1_3jjj5")]([SubResource("Resource_0ble2")])
+
+[sub_resource type="Resource" id="Shield"]
+script = ExtResource("2")
+amount = 9
+target = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Block Guard"
+intent_description = "Gain 9 shield."
+action_tags = Array[StringName]([&"shield", &"buff"])
+effects = Array[ExtResource("1_3jjj5")]([SubResource("Shield")])
+counter_definition = SubResource("Resource_jug6s")
+weight = 0.45
+cannot_repeat = true
+icon_type = 1
+accent_color = Color(0.3, 0.8, 1, 1)
+disallow_while_shielded = true

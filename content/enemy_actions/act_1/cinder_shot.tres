@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://dt5us3lxwgybo"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_fid11"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1_urr87"]
+[ext_resource type="Script" uid="uid://btkip47lbquh4" path="res://core/effects/implementations/apply_status_effect.gd" id="2"]
+[ext_resource type="Resource" path="res://content/statuses/burn.tres" id="3"]
+[ext_resource type="Resource" path="res://content/statuses/ward.tres" id="5_tsmqd"]
+
+[sub_resource type="Resource" id="Burn"]
+script = ExtResource("2")
+status = ExtResource("3")
+duration_turns = 3
+
+[resource]
+script = ExtResource("1")
+display_name = "Cinder Shot"
+intent_description = "Deal 3 damage and apply Burn for three turns."
+action_tags = Array[StringName]([&"attack", &"burn", &"projectile"])
+effects = Array[ExtResource("1_fid11")]([SubResource("Burn")])
+weight = 0.65
+applied_statuses = Array[ExtResource("1_urr87")]([ExtResource("3")])
+icon_type = 2
+accent_color = Color(1, 0.45, 0.15, 1)
+direct_damage = 3

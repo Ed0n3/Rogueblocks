@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3 uid="uid://csu856wrq23gw"]
+[ext_resource type="Resource" path="res://content/enemy_visuals/curator.tres" id="visual"]
+
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://bbyykmmb01scj" path="res://core/combat/enemy_phase_definition.gd" id="1_6xycs"]
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="2_j3ifk"]
+
+[resource]
+script = ExtResource("1")
+visual = ExtResource("visual")
+display_name = "Archive Blockmage"
+initially_unlocked = false
+maximum_health = 33
+attack_interval = 3
+direct_damage = 2
+blocker_count = 2
+minimum_act = 1
+maximum_act = 3
+selection_weight = 1.0

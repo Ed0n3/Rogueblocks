@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StatusDefinition" load_steps=3 format=3]
+[ext_resource type="Script" path="res://core/effects/status_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://content/status_visuals/burn.tres" id="2"]
+[resource]
+script = ExtResource("1")
+display_name = "Burn"
+description = "Deals damage after each placement. Large clears shorten it."
+category = 2
+tags = Array[StringName]([&"negative", &"damage_over_time", &"burn"])
+default_duration_turns = 4
+tick_phase = 2
+duration_phase = 2
+tick_amount = 1
+accent_color = Color(1, 0.5, 0.15, 1)
+visual_definition = ExtResource("2")
+icon_type = 2

@@ -1,0 +1,4 @@
+class_name PieceSourceType
+extends RefCounted
+
+enum Value { DRAWN_CARD, BONUS_BLOCK, LEGACY_FORCED_DISCARD, ARTIFACT_GENERATED, ARTIFACT_SECONDARY }

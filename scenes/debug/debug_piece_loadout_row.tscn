@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/debug/debug_piece_loadout_row.gd" id="1"]
+[ext_resource type="Theme" uid="uid://hay1hu5nk5gd" path="res://presentation/theme/game_theme.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://nerrmcfo2k3l" path="res://assets/icons/empty_texture.tres" id="3"]
+
+[node name="DebugPieceLoadoutRow" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 64)
+theme = ExtResource("2")
+theme_type_variation = &"InsetPanel"
+script = ExtResource("1")
+
+[node name="Row" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Order" type="Label" parent="Row"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(38, 48)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"NumericDisplay"
+theme_override_font_sizes/font_size = 16
+text = "01"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PieceIcon" type="TextureRect" parent="Row"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PieceOptions" type="Button" parent="Row"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(210, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SecondaryButton"
+text = "SELECT BLOCK"
+icon = ExtResource("3")
+alignment = 0
+
+[node name="EffectIcon" type="TextureRect" parent="Row"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="EffectOptions" type="Button" parent="Row"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(230, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SecondaryButton"
+text = "SELECT EFFECT"
+icon = ExtResource("3")
+alignment = 0
+
+[node name="Duplicate" type="Button" parent="Row"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 48)
+layout_mode = 2
+theme_type_variation = &"CompactButton"
+text = "DUPLICATE"
+icon = ExtResource("3")
+
+[node name="Remove" type="Button" parent="Row"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(82, 48)
+layout_mode = 2
+theme_type_variation = &"DangerButton"
+text = "REMOVE"
+icon = ExtResource("3")

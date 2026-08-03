@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" format=3 uid="uid://blnco8gap3f6x"]
+
+[ext_resource type="Script" uid="uid://c0vske0subwsi" path="res://core/progression/upgrade_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://dfndwdlwv1rfk" path="res://core/progression/permanent_upgrade_effect.gd" id="1_w43xi"]
+[ext_resource type="Script" uid="uid://coy4ajq45xmt8" path="res://core/progression/effects/unlock_content_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="2_mt7j1"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="2_wqkcx"]
+[ext_resource type="Resource" uid="uid://brnq1trlfahe1" path="res://content/enemies/elites/surveyor.tres" id="3_enemy"]
+[ext_resource type="Resource" uid="uid://bxmvqfvjhouhv" path="res://content/enemies/divider.tres" id="4_enemy"]
+[ext_resource type="Resource" uid="uid://bs7ltjfgq5io4" path="res://content/enemies/leech.tres" id="5_enemy"]
+[ext_resource type="Resource" uid="uid://csu856wrq23gw" path="res://content/enemies/curator.tres" id="6_enemy"]
+[ext_resource type="Resource" uid="uid://dggm2kap2b8c2" path="res://content/events/broken_archive.tres" id="7_event"]
+[ext_resource type="Script" uid="uid://4p0uxo08n5wv" path="res://core/events/run_event_definition.gd" id="7_wqkcx"]
+[ext_resource type="Resource" uid="uid://dbee3e0kkr1m5" path="res://content/events/narrow_passage.tres" id="8_event"]
+[ext_resource type="Resource" uid="uid://dyyh1nvodrmr3" path="res://content/events/abandoned_workshop.tres" id="9_event"]
+[ext_resource type="Resource" uid="uid://cio4ry0qdurkq" path="res://content/events/unstable_core.tres" id="10_event"]
+[ext_resource type="Script" uid="uid://cy40q74iyy3gr" path="res://core/pieces/piece_definition.gd" id="12_g6xrp"]
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="13_61op1"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+enemies = Array[ExtResource("2_mt7j1")]([ExtResource("3_enemy"), ExtResource("4_enemy"), ExtResource("5_enemy"), ExtResource("6_enemy")])
+events = Array[ExtResource("7_wqkcx")]([ExtResource("7_event"), ExtResource("8_event"), ExtResource("9_event"), ExtResource("10_event")])
+
+[resource]
+script = ExtResource("1")
+display_name = "Expanded Encounters"
+description = "Unlock four enemies and four events."
+category = 3
+base_cost = 10
+explicit_costs = null
+prerequisite_levels = null
+effects = Array[ExtResource("1_w43xi")]([SubResource("Effect")])
+tree_column = 1
+tree_row = 1
+board_level_thresholds = null

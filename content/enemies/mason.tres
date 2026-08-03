@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3 uid="uid://dr6u86y348n7v"]
+[ext_resource type="Resource" path="res://content/enemy_visuals/mason.tres" id="visual"]
+
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://bbyykmmb01scj" path="res://core/combat/enemy_phase_definition.gd" id="1_8luam"]
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="2_j5fm5"]
+
+[resource]
+script = ExtResource("1")
+visual = ExtResource("visual")
+display_name = "Rubble Golem"
+maximum_health = 23
+attack_interval = 5
+direct_damage = 2
+blocker_count = 2
+minimum_act = 1
+maximum_act = 1
+selection_weight = 0.8

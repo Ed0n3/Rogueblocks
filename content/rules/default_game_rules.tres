@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="GameRules" format=3 uid="uid://k3y3benxidqf"]
+
+[ext_resource type="Script" uid="uid://c6rp4wl75ysi1" path="res://core/rules/game_rules.gd" id="1"]
+[ext_resource type="Resource" uid="uid://clkjw7k0ug0av" path="res://content/rules/default_piece_draft_rules.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+board_width = 9
+board_height = 9
+starting_player_health = 16
+score_per_line_count = PackedInt32Array(0)
+damage_per_line_count = PackedInt32Array(0, 2, 6, 9, 15)
+cross_score_bonus = 800
+cross_damage_bonus = 3
+perfect_clear_score_bonus = 1500
+combo_damage_bonus_per_level = 2
+base_item_slots = 3
+piece_draft_rules = ExtResource("2")

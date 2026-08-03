@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CounterDefinition" format=3 uid="uid://b2r1euigcjkep"]
+
+[ext_resource type="Script" uid="uid://und1rcm8w6bq" path="res://core/counters/counter_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_mdv17"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Overload"
+description = "Deal 22 health damage within five turns."
+counter_type = 6
+duration_turns = 5
+required_progress = 22
+partial_success_threshold = 11

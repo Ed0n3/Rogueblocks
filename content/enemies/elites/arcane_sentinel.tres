@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3 uid="uid://ce5wji3wtwelk"]
+
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1"]
+[ext_resource type="Resource" uid="uid://6nfxv7p24ak1" path="res://content/enemy_actions/act_1/arc_shield.tres" id="2"]
+[ext_resource type="Script" uid="uid://bbyykmmb01scj" path="res://core/combat/enemy_phase_definition.gd" id="2_2dng6"]
+[ext_resource type="Resource" uid="uid://bqw2ousxvwxbm" path="res://content/enemy_actions/act_1/marked_beam.tres" id="3"]
+[ext_resource type="Resource" path="res://content/enemy_actions/act_1/pulse_strike.tres" id="4"]
+[ext_resource type="Resource" path="res://content/enemy_actions/act_1/static_field.tres" id="5_static"]
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="action_script"]
+[ext_resource type="Resource" path="res://content/enemy_visuals/arcane_sentinel.tres" id="visual"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Prism Blockmage"
+maximum_health = 38
+attack_interval = 3
+direct_damage = 6
+maximum_act = 2
+encounter_role = 1
+mechanic_tier = 2
+possible_actions = Array[ExtResource("action_script")]([ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5_static")])
+fallback_action = ExtResource("4")
+visual = ExtResource("visual")

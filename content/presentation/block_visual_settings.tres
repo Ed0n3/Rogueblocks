@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BlockVisualSettings" format=3 uid="uid://b6lp8aufkdxaf"]
+
+[ext_resource type="Script" uid="uid://cadku63ovfy2t" path="res://presentation/board/block_visual_settings.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://epeowxm4tgrv" path="res://assets/blocks/metal_block_style.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+outline_color = Color(0.0352941, 0.0509804, 0.0980392, 1)
+block_style_texture = ExtResource("2")

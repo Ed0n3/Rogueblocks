@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="TutorialDefinition" format=3 uid="uid://c1yf4nadg0m63"]
+
+[ext_resource type="Script" uid="uid://dkv2565fajb13" path="res://core/tutorial/tutorial_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://ckd1yh07hkegy" path="res://core/tutorial/tutorial_condition.gd" id="1_hlrtp"]
+[ext_resource type="Script" uid="uid://c17d62lp1a4rs" path="res://core/tutorial/tutorial_step_definition.gd" id="2"]
+[ext_resource type="Script" uid="uid://cfxplkcvejy83" path="res://core/tutorial/tutorial_target.gd" id="3"]
+[ext_resource type="Script" uid="uid://bhh11bcngg5ia" path="res://core/tutorial/tutorial_action.gd" id="4_8x6gl"]
+
+[sub_resource type="Resource" id="Target"]
+script = ExtResource("3")
+target_key = 17
+
+[sub_resource type="Resource" id="Step"]
+script = ExtResource("2")
+title = "Buffs and debuffs"
+body = "Status icons show buffs, debuffs, turns, and stacks. Hold or hover an icon to read its rules."
+target = SubResource("Target")
+input_mode = 5
+auto_advance_delay = 10.0
+
+[resource]
+script = ExtResource("1")
+display_name = "Player Buffs and Debuffs"
+description = "Status icons, turns, and stacks."
+category = 4
+priority = 42
+activation_mode = 1
+activation_event = 48
+steps = Array[ExtResource("2")]([SubResource("Step")])

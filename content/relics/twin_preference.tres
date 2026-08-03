@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="RelicDefinition" format=3 uid="uid://dhib16xaxyafr"]
+
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="1_xmkxh"]
+[ext_resource type="Script" uid="uid://supn4g412wqx" path="res://core/relics/modify_deck_card_copies_relic_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="3_8lj1b"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+card_preference = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Twin Preference"
+description = "Duplicate a random powered piece in your Block pile, preserving its effect."
+effect = SubResource("Effect")

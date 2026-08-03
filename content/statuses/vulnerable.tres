@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="StatusDefinition" format=3 uid="uid://cdsqlydekwxgh"]
+
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://content/status_visuals/fracture.tres" id="2"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="3_damage"]
+
+[sub_resource type="Resource" id="DamageModifier"]
+script = ExtResource("3_damage")
+scope = 1
+operation = 1
+value = 1.25
+
+[resource]
+script = ExtResource("1")
+display_name = "Cracked"
+description = "Takes 25% more health damage."
+tags = Array[StringName]([&"negative", &"debuff"])
+default_duration_turns = 3
+damage_modifiers = Array[ExtResource("3_damage")]([SubResource("DamageModifier")])
+accent_color = Color(1, 0.6, 0.35, 1)
+icon_type = 10
+visual_definition = ExtResource("2")

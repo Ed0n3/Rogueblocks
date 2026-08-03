@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ItemDefinition" load_steps=6 format=3 uid="uid://dlr5jqtnlhs6w"]
+
+[ext_resource type="Script" uid="uid://dx16brlbge1il" path="res://core/items/item_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_f3amp"]
+[ext_resource type="Script" path="res://core/effects/implementations/apply_status_effect.gd" id="2"]
+[ext_resource type="Texture2D" path="res://assets/icons/items/stasis_charge.png" id="3_icon"]
+[ext_resource type="Resource" path="res://content/statuses/electrified.tres" id="4_status"]
+
+[sub_resource type="Resource" id="Electrify"]
+script = ExtResource("2")
+status = ExtResource("4_status")
+duration_turns = 1
+target = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Stasis Charge"
+description = "Electrify the enemy, stunning its next move."
+category = 2
+rarity = 1
+base_shop_price = 24
+target_mode = 1
+effects = Array[ExtResource("1_f3amp")]([SubResource("Electrify")])
+accent_color = Color(0.6, 0.7, 1, 1)
+icon = ExtResource("3_icon")

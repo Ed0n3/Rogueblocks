@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://btonq7c1dqoet"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1_wuw1u"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://c3fh2778b0dd0" path="res://core/effects/implementations/shield_effect.gd" id="3"]
+
+[sub_resource type="Resource" id="Shield"]
+script = ExtResource("3")
+amount = 15
+target = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Ember Barricade"
+intent_description = "Gain 15 shield and place one reinforced armored cell."
+action_tags = Array[StringName]([&"shield", &"blocker", &"burn"])
+effects = Array[ExtResource("2")]([SubResource("Shield")])
+weight = 0.35
+cannot_repeat = true
+icon_type = 1
+accent_color = Color(1, 0.5, 0.15, 1)
+requires_empty_cell = true
+disallow_while_shielded = true
+shield_duration_placements = 2
+special_cell_type = 7
+special_cell_count = 1
+special_cell_value = 3

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DifficultyDefinition" format=3 uid="uid://dfltn13faie70"]
+
+[ext_resource type="Script" uid="uid://bdwuggy1d3tti" path="res://core/difficulty/difficulty_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Standard"

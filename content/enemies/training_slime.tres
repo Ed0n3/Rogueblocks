@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3 uid="uid://cgivt8nfxdc0j"]
+
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://content/enemy_actions/act_1/slime_bash.tres" id="2"]
+[ext_resource type="Script" uid="uid://bbyykmmb01scj" path="res://core/combat/enemy_phase_definition.gd" id="2_4aasg"]
+[ext_resource type="Resource" uid="uid://dbly876lmuci8" path="res://content/enemy_actions/act_1/sticky_residue.tres" id="3"]
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="action_script"]
+[ext_resource type="Resource" path="res://content/enemy_visuals/training_slime.tres" id="visual"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Training Blockling"
+maximum_health = 15
+selection_weight = 0.55
+possible_actions = Array[ExtResource("action_script")]([ExtResource("2"), ExtResource("3")])
+fallback_action = ExtResource("2")
+visual = ExtResource("visual")

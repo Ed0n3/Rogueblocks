@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://cnd3vd8bfqlg1"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1_njmdx"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2_e8onb"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Void Crush"
+intent_description = "Crush for 9 damage."
+action_tags = Array[StringName]([&"attack", &"void", &"melee"])
+weight = 0.6
+cannot_repeat = true
+accent_color = Color(0.7, 0.25, 1, 1)
+direct_damage = 9

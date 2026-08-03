@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://3h3yw5xp5eqq"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1_40lfy"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2_tj7at"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Pixel Tear"
+intent_description = "Corrupt three empty cells."
+action_tags = Array[StringName]([&"glitch", &"corruption", &"board"])
+weight = 0.4
+cannot_repeat = true
+icon_type = 3
+accent_color = Color(0.75, 0.25, 1, 1)
+requires_empty_cell = true
+special_cell_type = 3
+special_cell_count = 3
+special_cell_value = 1

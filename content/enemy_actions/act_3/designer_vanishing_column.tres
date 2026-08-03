@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://dnh6mxabbuseq"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1_bjgsu"]
+[ext_resource type="Resource" uid="uid://dd1bvmyaysfm6" path="res://content/counters/designer_vanishing_column.tres" id="2"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="3_snj73"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Vanishing Column"
+intent_description = "Clear the projected column before it vanishes into corruption."
+action_tags = Array[StringName]([&"counter", &"magic", &"column"])
+counter_definition = ExtResource("2")
+weight = 0.3
+cannot_repeat = true
+icon_type = 12
+accent_color = Color(0.55, 0.5, 1, 1)

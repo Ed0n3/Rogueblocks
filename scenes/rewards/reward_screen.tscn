@@ -1,0 +1,105 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource path="res://scenes/rewards/reward_screen.gd" type="Script" id="1"]
+[ext_resource path="res://assets/icons/actions/reroll.png" type="Texture2D" id="2"]
+[ext_resource path="res://presentation/cards/content_card.gd" type="Script" id="3"]
+
+[node name="RewardScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(980, 480)
+layout_mode = 2
+theme_type_variation = &"ElevatedPanel"
+
+[node name="Layout" type="VBoxContainer" parent="Center/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="Title" type="Label" parent="Center/Panel/Layout"]
+layout_mode = 2
+theme_type_variation = &"HeadingMedium"
+theme_override_colors/font_color = Color(0.35, 0.9, 0.85, 1)
+theme_override_font_sizes/font_size = 38
+text = "ENCOUNTER CLEARED"
+horizontal_alignment = 1
+
+[node name="Summary" type="Label" parent="Center/Panel/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Summary"
+horizontal_alignment = 1
+
+[node name="Prompt" type="Label" parent="Center/Panel/Layout"]
+layout_mode = 2
+text = "Choose one reward"
+horizontal_alignment = 1
+
+[node name="Cards" type="HBoxContainer" parent="Center/Panel/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="RewardOne" type="Button" parent="Center/Panel/Layout/Cards"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 210)
+layout_mode = 2
+theme_type_variation = &"RewardCard"
+size_flags_horizontal = 3
+icon = ExtResource("2")
+text = "Reward"
+autowrap_mode = 2
+script = ExtResource("3")
+
+[node name="RewardTwo" type="Button" parent="Center/Panel/Layout/Cards"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 210)
+layout_mode = 2
+theme_type_variation = &"RewardCard"
+size_flags_horizontal = 3
+icon = ExtResource("2")
+text = "Reward"
+autowrap_mode = 2
+script = ExtResource("3")
+
+[node name="RewardThree" type="Button" parent="Center/Panel/Layout/Cards"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 210)
+layout_mode = 2
+theme_type_variation = &"RewardCard"
+size_flags_horizontal = 3
+icon = ExtResource("2")
+text = "Reward"
+autowrap_mode = 2
+script = ExtResource("3")
+
+[node name="Confirmation" type="Label" parent="Center/Panel/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 1, 0.65, 1)
+text = ""
+horizontal_alignment = 1
+
+[node name="Reroll" type="Button" parent="Center/Panel/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+tooltip_text = "Reroll Rewards"
+icon = ExtResource("2")
+expand_icon = true
+icon_max_width = 40
+icon_alignment = 1

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyVisualDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://presentation/combat/enemy_visual_definition.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/enemies/elite_mason.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+sprite = ExtResource("2")
+sprite_scale = 0.92
+sprite_offset = Vector2(0, 4)
+shadow_size = Vector2(215, 40)
+accent_color = Color(1, 0.43, 0.5, 1)
+idle_height = 3.0
+idle_duration = 2.25
+recoil_distance = 11.0
+attack_style = 2
+death_style = 1

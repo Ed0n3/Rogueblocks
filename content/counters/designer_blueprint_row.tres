@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="CounterDefinition" format=3 uid="uid://dnpl5gnelh1hb"]
+
+[ext_resource type="Script" uid="uid://und1rcm8w6bq" path="res://core/counters/counter_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://dl5hxd8rp2ro0" path="res://core/effects/implementations/damage_effect.gd" id="3"]
+[ext_resource type="Script" uid="uid://u0i2ibcitbfl" path="res://core/effects/implementations/spawn_counter_target_cells_effect.gd" id="4"]
+
+[sub_resource type="Resource" id="FailureDamage"]
+script = ExtResource("3")
+amount = 9
+
+[sub_resource type="Resource" id="FailureLock"]
+script = ExtResource("4")
+cell_type = 5
+count = 3
+cell_value = 2
+target = 2
+
+[sub_resource type="Resource" id="SuccessDamage"]
+script = ExtResource("3")
+amount = 4
+target = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Blueprint Row"
+description = "Clear the projected row. Success deals 4 damage. Failure deals 9 damage and locks three cells."
+counter_type = 0
+duration_turns = 3
+success_effects = Array[ExtResource("2")]([SubResource("SuccessDamage")])
+failure_effects = Array[ExtResource("2")]([SubResource("FailureDamage"), SubResource("FailureLock")])

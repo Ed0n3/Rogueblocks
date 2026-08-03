@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyVisualDefinition" format=3 uid="uid://dov372y2xsquf"]
+
+[ext_resource type="Script" uid="uid://bt6ggen3q15hs" path="res://presentation/combat/enemy_visual_definition.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cnxukbo2nveu3" path="res://assets/enemies/brick_borer.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+sprite = ExtResource("2")
+sprite_scale = 0.7
+sprite_offset = Vector2(0, 14)
+shadow_size = Vector2(155, 26)
+accent_color = Color(0.25, 0.85, 1, 1)
+attack_color = Color(0.85, 0.35, 1, 1)
+idle_height = 4.0

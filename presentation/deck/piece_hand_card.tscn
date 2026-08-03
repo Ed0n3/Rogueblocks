@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://presentation/deck/piece_hand_card.gd" id="1"]
+[ext_resource type="Theme" uid="uid://hay1hu5nk5gd" path="res://presentation/theme/game_theme.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://nerrmcfo2k3l" path="res://assets/icons/empty_texture.tres" id="3"]
+[ext_resource type="Resource" uid="uid://b6lp8aufkdxaf" path="res://content/presentation/block_visual_settings.tres" id="4"]
+
+[node name="PieceHandCard" type="Button"]
+custom_minimum_size = Vector2(100, 142)
+size_flags_horizontal = 3
+theme = ExtResource("2")
+theme_type_variation = &"PieceCard"
+focus_mode = 2
+icon = ExtResource("3")
+script = ExtResource("1")
+block_visual_settings = ExtResource("4")
+
+[node name="CardFooter" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -29.0
+offset_right = -7.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="PieceName" type="Label" parent="CardFooter"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 12
+text = "PIECE"
+horizontal_alignment = 1
+text_overrun_behavior = 3

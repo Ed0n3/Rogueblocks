@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BossArtifactDefinition" format=3 uid="uid://bd3bdl2l17mkn"]
+
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1_50g7v"]
+[ext_resource type="Script" uid="uid://b785o7t8oc4c1" path="res://core/artifacts/boss_artifact_effect.gd" id="1_palrs"]
+[ext_resource type="Script" uid="uid://bqwxschurb0yg" path="res://core/artifacts/effects/vault_shapes_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+
+[resource]
+script = ExtResource("1")
+display_name = "Vault of Shapes"
+description = "Charge the Vault, then store rejected Blocks for later."
+benefit = "Every sixth turn charges the Vault to store a rejected Block. Starts with one storage slot."
+drawback = "The Vault cannot refill on the turn its Block is used. Forced turns cannot open it."
+effects = Array[ExtResource("1_palrs")]([SubResource("Effect")])
+accent_color = Color(0.45, 0.9, 0.7, 1)

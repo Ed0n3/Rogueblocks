@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="StatusDefinition" format=3 uid="uid://6s6l1ysorvb"]
+
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://content/status_visuals/recovery.tres" id="2"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="3_damage"]
+
+[sub_resource type="Resource" id="DamageModifier"]
+script = ExtResource("3_damage")
+scope = 1
+operation = 1
+value = 1.3
+
+[resource]
+script = ExtResource("1")
+display_name = "Regeneration"
+description = "Restores 2 health at the start of each player turn."
+category = 3
+tags = Array[StringName]([&"positive", &"healing"])
+default_duration_turns = 2
+tick_phase = 1
+duration_phase = 1
+tick_amount = -2
+damage_modifiers = Array[ExtResource("3_damage")]([SubResource("DamageModifier")])
+accent_color = Color(0.3, 0.95, 0.7, 1)
+icon_type = 11
+visual_definition = ExtResource("2")

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://y4803a430mb0"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1_wmo5e"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2_tgqtc"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Swarm Scratch"
+intent_description = "A fast swarm attack deals 5 damage."
+action_tags = Array[StringName]([&"attack", &"minion", &"melee"])
+weight = 0.3
+cannot_repeat = true
+accent_color = Color(0.75, 0.35, 1, 1)
+direct_damage = 5

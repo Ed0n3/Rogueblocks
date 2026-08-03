@@ -1,0 +1,281 @@
+[gd_scene format=3 uid="uid://c8upmvuekudu5"]
+
+[ext_resource type="Script" uid="uid://b1rdpvwda4j2a" path="res://scenes/settings/settings_screen.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/restart.png" id="2_restart"]
+[ext_resource type="Texture2D" uid="uid://nerrmcfo2k3l" path="res://assets/icons/empty_texture.tres" id="2"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/undo.png" id="3_reset"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/play.png" id="4_play"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/confirm.png" id="5_confirm"]
+
+[node name="SettingsScreen" type="Control" unique_id=1357564242]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Center" type="CenterContainer" parent="." unique_id=1959045762]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Center" unique_id=1172300663]
+custom_minimum_size = Vector2(860, 640)
+layout_mode = 2
+theme_type_variation = &"ElevatedPanel"
+
+[node name="Layout" type="VBoxContainer" parent="Center/Panel" unique_id=272337869]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Center/Panel/Layout" unique_id=1672119701]
+layout_mode = 2
+theme_type_variation = &"HeadingMedium"
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="Scroll" type="ScrollContainer" parent="Center/Panel/Layout" unique_id=63914301]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+scroll_deadzone = 12
+
+[node name="Columns" type="GridContainer" parent="Center/Panel/Layout/Scroll" unique_id=1925467259]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="Audio" type="VBoxContainer" parent="Center/Panel/Layout/Scroll/Columns" unique_id=1487880927]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AudioTitle" type="Label" parent="Center/Panel/Layout/Scroll/Columns/Audio" unique_id=1298494364]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "AUDIO AND DISPLAY"
+
+[node name="MasterLabel" type="Label" parent="Center/Panel/Layout/Scroll/Columns/Audio" unique_id=600562589]
+layout_mode = 2
+text = "Master volume"
+
+[node name="Master" type="HSlider" parent="Center/Panel/Layout/Scroll/Columns/Audio" unique_id=1805998062]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+
+[node name="MusicLabel" type="Label" parent="Center/Panel/Layout/Scroll/Columns/Audio" unique_id=1552788015]
+layout_mode = 2
+text = "Music volume"
+
+[node name="Music" type="HSlider" parent="Center/Panel/Layout/Scroll/Columns/Audio" unique_id=1315240615]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+
+[node name="EffectsLabel" type="Label" parent="Center/Panel/Layout/Scroll/Columns/Audio" unique_id=2071931198]
+layout_mode = 2
+text = "Effects volume"
+
+[node name="Effects" type="HSlider" parent="Center/Panel/Layout/Scroll/Columns/Audio" unique_id=1864666097]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+
+[node name="Fullscreen" type="CheckButton" parent="Center/Panel/Layout/Scroll/Columns/Audio" unique_id=813164638]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Fullscreen"
+icon = ExtResource("2")
+
+[node name="LargerText" type="CheckButton" parent="Center/Panel/Layout/Scroll/Columns/Audio" unique_id=495246437]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Larger combat text"
+icon = ExtResource("2")
+
+[node name="Motion" type="VBoxContainer" parent="Center/Panel/Layout/Scroll/Columns" unique_id=677637913]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MotionTitle" type="Label" parent="Center/Panel/Layout/Scroll/Columns/Motion" unique_id=1528096443]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "MOTION AND ACCESSIBILITY"
+
+[node name="ReducedMotion" type="CheckButton" parent="Center/Panel/Layout/Scroll/Columns/Motion" unique_id=10189769]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reduced motion"
+icon = ExtResource("2")
+
+[node name="ScreenShake" type="CheckButton" parent="Center/Panel/Layout/Scroll/Columns/Motion" unique_id=2031566946]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Screen shake"
+icon = ExtResource("2")
+
+[node name="Flashes" type="CheckButton" parent="Center/Panel/Layout/Scroll/Columns/Motion" unique_id=334207830]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Screen flashes"
+icon = ExtResource("2")
+
+[node name="ParticleLabel" type="Label" parent="Center/Panel/Layout/Scroll/Columns/Motion" unique_id=62686573]
+layout_mode = 2
+text = "Particle density"
+
+[node name="ParticleDensity" type="HSlider" parent="Center/Panel/Layout/Scroll/Columns/Motion" unique_id=831105080]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="SpeedLabel" type="Label" parent="Center/Panel/Layout/Scroll/Columns/Motion" unique_id=1710301220]
+layout_mode = 2
+text = "Combat animation speed"
+
+[node name="AnimationSpeed" type="HSlider" parent="Center/Panel/Layout/Scroll/Columns/Motion" unique_id=1061889357]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 0.5
+max_value = 2.0
+step = 0.1
+value = 0.5
+
+[node name="Tutorial" type="VBoxContainer" parent="Center/Panel/Layout/Scroll/Columns" unique_id=92401789]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TutorialTitle" type="Label" parent="Center/Panel/Layout/Scroll/Columns/Tutorial" unique_id=1205878144]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "TUTORIALS AND HELP"
+
+[node name="TutorialsEnabled" type="CheckButton" parent="Center/Panel/Layout/Scroll/Columns/Tutorial" unique_id=916690873]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Tutorials"
+icon = ExtResource("2")
+
+[node name="ContextualTips" type="CheckButton" parent="Center/Panel/Layout/Scroll/Columns/Tutorial" unique_id=109270027]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Gameplay tips"
+icon = ExtResource("2")
+
+[node name="HintsEnabled" type="CheckButton" parent="Center/Panel/Layout/Scroll/Columns/Tutorial" unique_id=2147166367]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Hint popups"
+icon = ExtResource("2")
+
+[node name="TutorialManualAdvance" type="CheckButton" parent="Center/Panel/Layout/Scroll/Columns/Tutorial" unique_id=390482367]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Advance tutorials manually"
+icon = ExtResource("2")
+
+[node name="TutorialLargeText" type="CheckButton" parent="Center/Panel/Layout/Scroll/Columns/Tutorial" unique_id=2127058153]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Larger tutorial text"
+icon = ExtResource("2")
+
+[node name="TutorialHighContrast" type="CheckButton" parent="Center/Panel/Layout/Scroll/Columns/Tutorial" unique_id=2014741974]
+unique_name_in_owner = true
+layout_mode = 2
+text = "High-contrast spotlight"
+icon = ExtResource("2")
+
+[node name="TutorialDurationLabel" type="Label" parent="Center/Panel/Layout/Scroll/Columns/Tutorial" unique_id=984933557]
+layout_mode = 2
+text = "Tutorial message time"
+
+[node name="TutorialDuration" type="HSlider" parent="Center/Panel/Layout/Scroll/Columns/Tutorial" unique_id=1603770633]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 0.5
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="ReplayBasics" type="Button" parent="Center/Panel/Layout/Scroll/Columns/Tutorial" unique_id=138008956]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+tooltip_text = "Replay Basics Next Run"
+icon = ExtResource("2_restart")
+expand_icon = true
+icon_max_width = 36
+icon_alignment = 1
+
+[node name="ResetTutorials" type="Button" parent="Center/Panel/Layout/Scroll/Columns/Tutorial" unique_id=1951853149]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+tooltip_text = "Reset Tutorial Progress"
+icon = ExtResource("3_reset")
+expand_icon = true
+icon_max_width = 36
+icon_alignment = 1
+
+[node name="TutorialFeedback" type="Label" parent="Center/Panel/Layout/Scroll/Columns/Tutorial" unique_id=1381208750]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.92, 0.78, 1)
+autowrap_mode = 2
+
+[node name="Data" type="VBoxContainer" parent="Center/Panel/Layout/Scroll/Columns" unique_id=249828902]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DataTitle" type="Label" parent="Center/Panel/Layout/Scroll/Columns/Data" unique_id=1684400943]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "SAVE DATA"
+
+[node name="NewGameDescription" type="Label" parent="Center/Panel/Layout/Scroll/Columns/Data" unique_id=754190804]
+layout_mode = 2
+text = "Erase all progress and the active run. Keep your settings."
+autowrap_mode = 2
+
+[node name="NewGame" type="Button" parent="Center/Panel/Layout/Scroll/Columns/Data" unique_id=1503137611]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+tooltip_text = "Start New Game"
+icon = ExtResource("4_play")
+expand_icon = true
+icon_max_width = 36
+icon_alignment = 1
+
+[node name="Back" type="Button" parent="Center/Panel/Layout" unique_id=1003470290]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(104, 44)
+layout_mode = 2
+theme_type_variation = &"PrimaryButton"
+tooltip_text = "Apply and Return"
+icon = ExtResource("5_confirm")
+expand_icon = true
+icon_max_width = 36
+icon_alignment = 1
+
+[node name="ConfirmNewGame" type="ConfirmationDialog" parent="." unique_id=1023297762]
+unique_name_in_owner = true
+title = "Start New Game"
+ok_button_text = "START NEW GAME"
+dialog_text = "Erase all progress, unlocks, stats, and the active run? Your settings will stay. This cannot be undone."
+cancel_button_text = "CANCEL"

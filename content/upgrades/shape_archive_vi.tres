@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" format=3 uid="uid://b5lvogdxqx4pu"]
+
+[ext_resource type="Script" uid="uid://c0vske0subwsi" path="res://core/progression/upgrade_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://dfndwdlwv1rfk" path="res://core/progression/permanent_upgrade_effect.gd" id="1_m6q1i"]
+[ext_resource type="Script" uid="uid://coy4ajq45xmt8" path="res://core/progression/effects/unlock_content_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="2_08kvw"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="2_pcyir"]
+[ext_resource type="Texture2D" uid="uid://nerrmcfo2k3l" path="res://assets/icons/empty_texture.tres" id="3"]
+[ext_resource type="Script" uid="uid://4p0uxo08n5wv" path="res://core/events/run_event_definition.gd" id="3_pcyir"]
+[ext_resource type="Script" uid="uid://cy40q74iyy3gr" path="res://core/pieces/piece_definition.gd" id="4_4ngjk"]
+[ext_resource type="Resource" uid="uid://bnosmevyls8wr" path="res://content/pieces/pent_cross.tres" id="4_piece"]
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="6_gc5bv"]
+[ext_resource type="Resource" uid="uid://ojntxjydonkl" path="res://content/upgrades/shape_archive_v.tres" id="prerequisite"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+pieces = Array[ExtResource("4_4ngjk")]([ExtResource("4_piece")])
+
+[resource]
+script = ExtResource("1")
+display_name = "Cross Pentablock Blueprint"
+description = "Unlock the Cross Pentablock for future starting drafts."
+category = 3
+icon = ExtResource("3")
+base_cost = 65
+explicit_costs = null
+prerequisite_upgrades = Array[ExtResource("1")]([ExtResource("prerequisite")])
+prerequisite_levels = PackedInt32Array(1)
+effects = Array[ExtResource("1_m6q1i")]([SubResource("Effect")])
+tree_column = 5
+board_level_thresholds = null

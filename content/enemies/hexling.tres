@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3 uid="uid://dgibllsw8eh7v"]
+
+[ext_resource type="Script" uid="uid://bbyykmmb01scj" path="res://core/combat/enemy_phase_definition.gd" id="1_kv3lw"]
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="2_omixq"]
+[ext_resource type="Resource" uid="uid://bri017ac1n5s" path="res://content/enemy_actions/act_1/cursed_draft.tres" id="3_kxjv3"]
+[ext_resource type="Resource" uid="uid://dct1on60qsy4b" path="res://content/enemy_actions/act_1/weakening_hex.tres" id="4_lajj2"]
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="5_oivcd"]
+[ext_resource type="Resource" path="res://content/enemy_visuals/hexling.tres" id="6_411f6"]
+
+[resource]
+script = ExtResource("5_oivcd")
+display_name = "Hex Blockling"
+maximum_health = 18
+attack_interval = 3
+mechanic_tier = 2
+possible_actions = Array[ExtResource("2_omixq")]([ExtResource("3_kxjv3"), ExtResource("4_lajj2")])
+visual = ExtResource("6_411f6")

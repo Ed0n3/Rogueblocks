@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://bi67v5konxode"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1_7kwme"]
+[ext_resource type="Resource" uid="uid://de8x5b7ac5o7j" path="res://content/counters/smith_hammerfall.tres" id="2"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="3_obgrn"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Hammerfall"
+intent_description = "Clear four lines before the hammer lands for 15 damage."
+action_tags = Array[StringName]([&"counter", &"special", &"attack"])
+counter_definition = ExtResource("2")
+weight = 0.3
+cooldown_actions = 2
+cannot_repeat = true
+icon_type = 3
+accent_color = Color(1, 0.3, 0.1, 1)

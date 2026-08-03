@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="StatusDefinition" format=3 uid="uid://c1ho26itwov4g"]
+
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://content/status_visuals/empowered.tres" id="2"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="3_damage"]
+
+[sub_resource type="Resource" id="DamageModifier"]
+script = ExtResource("3_damage")
+event_type = 2
+value = 3.0
+consume_on_apply = true
+
+[resource]
+script = ExtResource("1")
+display_name = "Empowered"
+description = "The next attack deals 3 extra damage."
+category = 0
+tags = Array[StringName]([&"positive", &"buff", &"empowered"])
+default_duration_turns = 99
+duration_phase = 0
+damage_modifiers = Array[ExtResource("3_damage")]([SubResource("DamageModifier")])
+is_cleansable = false
+accent_color = Color(1, 0.55, 0.2, 1)
+icon_type = 5
+visual_definition = ExtResource("2")

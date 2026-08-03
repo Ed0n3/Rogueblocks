@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://presentation/upgrade_board/upgrade_board_shop_card.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/icons/empty_texture.tres" id="2"]
+
+[node name="UpgradeBoardShopCard" type="Button"]
+custom_minimum_size = Vector2(204, 96)
+theme_type_variation = &"RewardCard"
+focus_mode = 2
+icon = ExtResource("2")
+script = ExtResource("1")
+
+[node name="PieceName" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 80.0
+offset_top = 10.0
+offset_right = 196.0
+offset_bottom = 34.0
+mouse_filter = 2
+text = "Block"
+text_overrun_behavior = 3
+
+[node name="CellCount" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 80.0
+offset_top = 34.0
+offset_right = 196.0
+offset_bottom = 54.0
+mouse_filter = 2
+theme_type_variation = &"MutedText"
+theme_override_font_sizes/font_size = 10
+text = "4 CELLS"
+
+[node name="Price" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 80.0
+offset_top = 56.0
+offset_right = 196.0
+offset_bottom = 76.0
+mouse_filter = 2
+theme_type_variation = &"NumericDisplay"
+theme_override_font_sizes/font_size = 11
+text = "16 FRAGMENTS"
+
+[node name="Owned" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 80.0
+offset_top = 76.0
+offset_right = 196.0
+offset_bottom = 92.0
+mouse_filter = 2
+theme_type_variation = &"MutedText"
+theme_override_font_sizes/font_size = 9
+text = "OWNED  0"

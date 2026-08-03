@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3 uid="uid://qrgniof8a3bf"]
+
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="2"]
+[ext_resource type="Resource" uid="uid://dq5nadpd088fy" path="res://content/enemy_actions/act_3/designer_blueprint_row.tres" id="action_1"]
+[ext_resource type="Resource" uid="uid://dnh6mxabbuseq" path="res://content/enemy_actions/act_3/designer_vanishing_column.tres" id="action_2"]
+[ext_resource type="Resource" uid="uid://nbechnao1mg8" path="res://content/enemy_actions/act_3/designer_arcane_revision.tres" id="action_3"]
+[ext_resource type="Resource" uid="uid://bk7kaam67lqtg" path="res://content/enemy_actions/act_3/designer_impossible_geometry.tres" id="action_4"]
+[ext_resource type="Script" uid="uid://bbyykmmb01scj" path="res://core/combat/enemy_phase_definition.gd" id="phase_script"]
+[ext_resource type="Resource" uid="uid://5oiwxt2hye23" path="res://content/enemy_visuals/the_designer.tres" id="visual"]
+
+[sub_resource type="Resource" id="Phase1"]
+script = ExtResource("phase_script")
+attack_interval = 3
+display_name_suffix = "First Draft"
+
+[sub_resource type="Resource" id="Phase2"]
+script = ExtResource("phase_script")
+health_threshold_percent = 0.65
+attack_interval = 2
+display_name_suffix = "Revision"
+
+[sub_resource type="Resource" id="Phase3"]
+script = ExtResource("phase_script")
+health_threshold_percent = 0.3
+attack_interval = 2
+display_name_suffix = "Impossible Form"
+
+[resource]
+script = ExtResource("1")
+display_name = "The Designer"
+maximum_health = 94
+attack_interval = 3
+phases = Array[ExtResource("phase_script")]([SubResource("Phase1"), SubResource("Phase2"), SubResource("Phase3")])
+minimum_act = 2
+maximum_act = 2
+encounter_role = 2
+mechanic_tier = 3
+possible_actions = Array[ExtResource("2")]([ExtResource("action_1"), ExtResource("action_2"), ExtResource("action_3"), ExtResource("action_4")])
+fallback_action = ExtResource("action_1")
+visual = ExtResource("visual")

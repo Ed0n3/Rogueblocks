@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://presentation/cards/content_card.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/icons/empty_texture.tres" id="2"]
+
+[node name="ContentCard" type="Button"]
+custom_minimum_size = Vector2(0, 70)
+icon = ExtResource("2")
+icon_max_width = 24
+alignment = 0
+script = ExtResource("1")

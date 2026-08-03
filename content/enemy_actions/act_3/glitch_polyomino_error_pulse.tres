@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://de2cmeyovnkq2"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="3"]
+[ext_resource type="Script" uid="uid://btkip47lbquh4" path="res://core/effects/implementations/apply_status_effect.gd" id="4"]
+[ext_resource type="Resource" uid="uid://b57157vya88q1" path="res://content/statuses/fragile.tres" id="5"]
+[ext_resource type="Resource" path="res://content/statuses/ward.tres" id="5_bsmm1"]
+
+[sub_resource type="Resource" id="Status"]
+script = ExtResource("4")
+status = ExtResource("5")
+duration_turns = 4
+
+[resource]
+script = ExtResource("1")
+display_name = "Error Pulse"
+intent_description = "Deal 5 damage and apply Fragile for four turns."
+action_tags = Array[StringName]([&"attack", &"glitch", &"debuff"])
+effects = Array[ExtResource("2")]([SubResource("Status")])
+weight = 0.6
+applied_statuses = Array[ExtResource("3")]([ExtResource("5")])
+icon_type = 10
+accent_color = Color(1, 0.2, 0.65, 1)
+direct_damage = 5

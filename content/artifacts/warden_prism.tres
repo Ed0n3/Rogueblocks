@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BossArtifactDefinition" format=3 uid="uid://di4gtkhwfrkqy"]
+
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://b785o7t8oc4c1" path="res://core/artifacts/boss_artifact_effect.gd" id="1_2c5wp"]
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1_qnyxp"]
+[ext_resource type="Script" uid="uid://8ihc8am4ak3s" path="res://core/artifacts/effects/warden_prism_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+
+[resource]
+script = ExtResource("1")
+display_name = "Warden's Prism"
+description = "Draw one additional Piece at the start of each turn."
+benefit = "Draw 5 Pieces instead of 4."
+drawback = "The additional drawn piece enters the discard pile if left unused."
+effects = Array[ExtResource("1_2c5wp")]([SubResource("Effect")])
+accent_color = Color(0.35, 0.9, 1, 1)

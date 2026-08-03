@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://bhiyuqkakgcuu"]
+
+[ext_resource type="Script" uid="uid://dx16brlbge1il" path="res://core/items/item_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_4qj2m"]
+[ext_resource type="Script" uid="uid://c3fh2778b0dd0" path="res://core/effects/implementations/shield_effect.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://dspqc06gv3j11" path="res://assets/icons/items/aegis_tank.png" id="3_icon"]
+
+[sub_resource type="Resource" id="Shield"]
+script = ExtResource("2")
+amount = 6
+
+[resource]
+script = ExtResource("1")
+display_name = "Aegis Tank"
+description = "Gain 6 Shield."
+icon = ExtResource("3_icon")
+category = 5
+base_shop_price = 18
+maximum_stack_size = 2
+target_mode = 0
+effects = Array[ExtResource("1_4qj2m")]([SubResource("Shield")])
+accent_color = Color(0.3, 0.8, 1, 1)

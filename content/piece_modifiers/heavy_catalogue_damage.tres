@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="PieceModifierDefinition" format=3 uid="uid://lt8juubytyxe"]
+
+[ext_resource type="Script" uid="uid://dfugivbrrejsb" path="res://core/piece_modifiers/piece_modifier_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_s4ytl"]
+[ext_resource type="Script" uid="uid://bqwfrt3slt1sp" path="res://core/piece_modifiers/piece_modifier_visual_definition.gd" id="2"]
+[ext_resource type="Script" uid="uid://dl5hxd8rp2ro0" path="res://core/effects/implementations/damage_effect.gd" id="3"]
+
+[sub_resource type="Resource" id="Damage"]
+script = ExtResource("3")
+amount = 2
+target = 1
+
+[sub_resource type="Resource" id="Visual"]
+script = ExtResource("2")
+accent_color = Color(0.94, 0.69, 0.32, 1)
+marker_style = 5
+
+[resource]
+script = ExtResource("1")
+display_name = "Heavy Catalogue"
+description = "When this Block helps clear a line, deal 2 extra damage."
+effects = Array[ExtResource("1_s4ytl")]([SubResource("Damage")])
+visual_definition = SubResource("Visual")
+tags = Array[StringName]([&"affinity", &"damage"])

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="RelicDefinition" format=3 uid="uid://dmdb6wcye2rhg"]
+
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://d28cef128is7k" path="res://core/relics/relic_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="2_bcch3"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+maximum_health_bonus = 5
+healing = 5
+
+[resource]
+script = ExtResource("1")
+display_name = "Reinforced Frame"
+description = "+5 maximum integrity and restore 5."
+effect = SubResource("Effect")

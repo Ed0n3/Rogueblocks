@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://cf4048f5neyfx"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1_dde2m"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2_agy6o"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Tunnel Debris"
+intent_description = "Deal 2 damage and place three blockers."
+action_tags = Array[StringName]([&"attack", &"blocker", &"board"])
+weight = 0.35
+cannot_repeat = true
+icon_type = 5
+accent_color = Color(0.8, 0.35, 1, 1)
+requires_empty_cell = true
+direct_damage = 2
+blocker_count = 3

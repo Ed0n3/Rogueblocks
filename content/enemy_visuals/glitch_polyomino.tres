@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyVisualDefinition" format=3 uid="uid://bmckr8ulyepbg"]
+
+[ext_resource type="Script" uid="uid://bt6ggen3q15hs" path="res://presentation/combat/enemy_visual_definition.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bm10c8pbhhldf" path="res://assets/enemies/glitch_polyomino.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+sprite = ExtResource("2")
+sprite_scale = 0.7
+shadow_size = Vector2(150, 24)
+accent_color = Color(1, 0.2, 0.7, 1)
+attack_color = Color(0.35, 0.9, 1, 1)
+idle_height = 12.0
+idle_duration = 1.25
+attack_style = 2

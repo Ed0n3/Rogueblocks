@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="TutorialDefinition" format=3 uid="uid://bkh3ia0lob4xa"]
+
+[ext_resource type="Script" uid="uid://dkv2565fajb13" path="res://core/tutorial/tutorial_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://ckd1yh07hkegy" path="res://core/tutorial/tutorial_condition.gd" id="1_s3u2c"]
+[ext_resource type="Script" uid="uid://c17d62lp1a4rs" path="res://core/tutorial/tutorial_step_definition.gd" id="2"]
+[ext_resource type="Script" uid="uid://cfxplkcvejy83" path="res://core/tutorial/tutorial_target.gd" id="3"]
+[ext_resource type="Script" uid="uid://bhh11bcngg5ia" path="res://core/tutorial/tutorial_action.gd" id="4_wg48d"]
+
+[sub_resource type="Resource" id="Target"]
+script = ExtResource("3")
+target_key = 2
+
+[sub_resource type="Resource" id="Step"]
+script = ExtResource("2")
+title = "Enemy board effects"
+body = "Enemy actions can add blockers or mark parts of the board. Intent shows how many cells are at risk. Clear or counter them before the board closes in."
+target = SubResource("Target")
+input_mode = 5
+auto_advance_delay = 10.0
+
+[resource]
+script = ExtResource("1")
+display_name = "Enemy Board Effects"
+description = "Enemy effects on the board."
+category = 3
+priority = 43
+activation_mode = 1
+activation_event = 3
+steps = Array[ExtResource("2")]([SubResource("Step")])

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="RelicDefinition" format=3 uid="uid://khb0dj5f44qi"]
+
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="1_j42qg"]
+[ext_resource type="Script" uid="uid://djlgmqh1pdvp6" path="res://core/relics/relic_trigger_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="3_damage"]
+
+[sub_resource type="Resource" id="DamageModifier"]
+script = ExtResource("3_damage")
+event_type = 1
+value = 5.0
+
+[sub_resource type="Resource" id="Trigger"]
+script = ExtResource("2")
+requires_perfect_clear = true
+damage_modifiers = Array[ExtResource("3_damage")]([SubResource("DamageModifier")])
+
+[resource]
+script = ExtResource("1")
+display_name = "Perfect Prism"
+description = "Perfect clears deal 5 extra damage."
+repeatable = true
+trigger_priority = 20
+trigger_effect = SubResource("Trigger")

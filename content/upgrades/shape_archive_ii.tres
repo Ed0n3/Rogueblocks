@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" format=3 uid="uid://lp2elg5sn2ac"]
+
+[ext_resource type="Script" uid="uid://c0vske0subwsi" path="res://core/progression/upgrade_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://dfndwdlwv1rfk" path="res://core/progression/permanent_upgrade_effect.gd" id="1_15xmi"]
+[ext_resource type="Script" uid="uid://coy4ajq45xmt8" path="res://core/progression/effects/unlock_content_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="2_v7lrd"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="2_wwpe4"]
+[ext_resource type="Texture2D" uid="uid://nerrmcfo2k3l" path="res://assets/icons/empty_texture.tres" id="3"]
+[ext_resource type="Script" uid="uid://4p0uxo08n5wv" path="res://core/events/run_event_definition.gd" id="3_wwpe4"]
+[ext_resource type="Resource" uid="uid://y5ty88km6uwq" path="res://content/pieces/tet_p.tres" id="4_piece"]
+[ext_resource type="Script" uid="uid://cy40q74iyy3gr" path="res://core/pieces/piece_definition.gd" id="4_w17ci"]
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="6_dp863"]
+[ext_resource type="Resource" uid="uid://ccbyl4sg76l61" path="res://content/upgrades/shape_archive_i.tres" id="prerequisite"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+pieces = Array[ExtResource("4_w17ci")]([ExtResource("4_piece")])
+
+[resource]
+script = ExtResource("1")
+display_name = "P Mini Blueprint"
+description = "Unlock P Mini for future starting drafts."
+category = 3
+icon = ExtResource("3")
+base_cost = 25
+explicit_costs = null
+prerequisite_upgrades = Array[ExtResource("1")]([ExtResource("prerequisite")])
+prerequisite_levels = PackedInt32Array(1)
+effects = Array[ExtResource("1_15xmi")]([SubResource("Effect")])
+tree_column = 1
+board_level_thresholds = null

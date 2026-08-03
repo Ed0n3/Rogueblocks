@@ -1,0 +1,76 @@
+[gd_resource type="Resource" script_class="TutorialDefinition" format=3 uid="uid://s7hyqpov58x2"]
+
+[ext_resource type="Script" uid="uid://dkv2565fajb13" path="res://core/tutorial/tutorial_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://ckd1yh07hkegy" path="res://core/tutorial/tutorial_condition.gd" id="1_qhvvh"]
+[ext_resource type="Script" uid="uid://c17d62lp1a4rs" path="res://core/tutorial/tutorial_step_definition.gd" id="2"]
+[ext_resource type="Script" uid="uid://cfxplkcvejy83" path="res://core/tutorial/tutorial_target.gd" id="3"]
+[ext_resource type="Script" uid="uid://bhh11bcngg5ia" path="res://core/tutorial/tutorial_action.gd" id="4_poblp"]
+
+[sub_resource type="Resource" id="GridTarget"]
+script = ExtResource("3")
+target_key = 23
+padding = 6.0
+
+[sub_resource type="Resource" id="GridStep"]
+script = ExtResource("2")
+title = "Build permanent upgrades"
+body = "Each colored area on the board belongs to one permanent upgrade. Blocks that cover its open cells add progress to that upgrade."
+target = SubResource("GridTarget")
+input_mode = 1
+message_position = 4
+wait_for_player_confirmation = true
+
+[sub_resource type="Resource" id="ActionsTarget"]
+script = ExtResource("3")
+target_key = 33
+padding = 6.0
+
+[sub_resource type="Resource" id="ActionsStep"]
+script = ExtResource("2")
+title = "Buy, rotate, and place Blocks"
+body = "Spend Fragments in the Foundry, select a Block from your reserve, then position it on the board. Rotate with Q and E or the Rotate control. Placements remain pending while you edit."
+target = SubResource("ActionsTarget")
+input_mode = 1
+message_position = 1
+wait_for_player_confirmation = true
+
+[sub_resource type="Resource" id="DetailsTarget"]
+script = ExtResource("3")
+target_key = 34
+padding = 6.0
+
+[sub_resource type="Resource" id="DetailsStep"]
+script = ExtResource("2")
+title = "Reach level thresholds"
+body = "The detail panel shows how many cells are filled and the threshold for every level. A reached level may stay pending until its prerequisite upgrade is active."
+target = SubResource("DetailsTarget")
+input_mode = 1
+message_position = 3
+wait_for_player_confirmation = true
+
+[sub_resource type="Resource" id="ConfirmTarget"]
+script = ExtResource("3")
+target_key = 35
+padding = 6.0
+
+[sub_resource type="Resource" id="ConfirmStep"]
+script = ExtResource("2")
+title = "Confirm permanent changes"
+body = "Confirm Changes locks every pending Block into the matrix and activates all eligible upgrade levels. Confirmed Blocks are permanent, so review the board first."
+target = SubResource("ConfirmTarget")
+input_mode = 1
+message_position = 1
+wait_for_player_confirmation = true
+
+[resource]
+script = ExtResource("1")
+display_name = "Upgrade Matrix"
+description = "Fragments, Block placement, thresholds, and confirmation."
+category = 8
+replay_context = 6
+priority = 65
+activation_mode = 4
+activation_event = 26
+steps = Array[ExtResource("2")]([SubResource("GridStep"), SubResource("ActionsStep"), SubResource("DetailsStep"), SubResource("ConfirmStep")])
+blocks_gameplay = true
+tags = Array[StringName]([&"progression", &"upgrade_matrix"])

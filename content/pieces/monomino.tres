@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PieceDefinition" format=3 uid="uid://dddgppkrlq31e"]
+
+[ext_resource type="Script" uid="uid://cy40q74iyy3gr" path="res://core/pieces/piece_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Monoblock"
+base_cells = Array[Vector2i]([Vector2i(0, 0)])
+preview_color = Color(0.38, 0.82, 0.91, 1)
+tags = Array[StringName]([&"small", &"flexible"])

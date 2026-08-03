@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://c8w7co2stbm5m"]
+
+[ext_resource type="Script" uid="uid://dx16brlbge1il" path="res://core/items/item_definition.gd" id="1_item"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2_effect"]
+[ext_resource type="Script" uid="uid://dl5hxd8rp2ro0" path="res://core/effects/implementations/damage_effect.gd" id="3_damage"]
+[ext_resource type="Script" uid="uid://btkip47lbquh4" path="res://core/effects/implementations/apply_status_effect.gd" id="4_status"]
+[ext_resource type="Resource" uid="uid://cdsqlydekwxgh" path="res://content/statuses/vulnerable.tres" id="5_vulnerable"]
+[ext_resource type="Resource" path="res://content/statuses/ward.tres" id="5_wcf7m"]
+[ext_resource type="Texture2D" uid="uid://cnhk6des0wgbx" path="res://assets/icons/items/fracture_mine.png" id="6_icon"]
+
+[sub_resource type="Resource" id="Damage"]
+script = ExtResource("3_damage")
+amount = 3
+target = 1
+
+[sub_resource type="Resource" id="ApplyVulnerable"]
+script = ExtResource("4_status")
+status = ExtResource("5_vulnerable")
+duration_turns = 3
+target = 1
+priority = 1
+
+[resource]
+script = ExtResource("1_item")
+display_name = "Fracture Mine"
+description = "Deal 3 damage, then make the enemy take 25% more health damage for 3 turns."
+icon = ExtResource("6_icon")
+category = 3
+rarity = 1
+tags = Array[StringName]([&"damage", &"debuff", &"vulnerability"])
+base_shop_price = 36
+maximum_stack_size = 2
+target_mode = 1
+effects = Array[ExtResource("2_effect")]([SubResource("Damage"), SubResource("ApplyVulnerable")])
+accent_color = Color(1, 0.48, 0.2, 1)

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://bhax4gb0gng3g"]
+
+[ext_resource type="Script" uid="uid://dx16brlbge1il" path="res://core/items/item_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_iiqli"]
+[ext_resource type="Script" uid="uid://c4gvnux52m3p8" path="res://core/effects/implementations/cleanse_effect.gd" id="2"]
+[ext_resource type="Texture2D" path="res://assets/icons/items/purge_tank.png" id="3_icon"]
+
+[sub_resource type="Resource" id="Cleanse"]
+script = ExtResource("2")
+
+[resource]
+script = ExtResource("1")
+display_name = "Purge Tank"
+description = "Remove 1 cleansable negative status."
+category = 4
+base_shop_price = 16
+maximum_stack_size = 2
+target_mode = 0
+effects = Array[ExtResource("1_iiqli")]([SubResource("Cleanse")])
+accent_color = Color(0.65, 1, 0.95, 1)
+icon = ExtResource("3_icon")

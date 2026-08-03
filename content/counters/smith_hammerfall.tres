@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="CounterDefinition" format=3 uid="uid://de8x5b7ac5o7j"]
+
+[ext_resource type="Script" uid="uid://und1rcm8w6bq" path="res://core/counters/counter_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://dl5hxd8rp2ro0" path="res://core/effects/implementations/damage_effect.gd" id="3"]
+
+[sub_resource type="Resource" id="FailureDamage"]
+script = ExtResource("3")
+amount = 15
+
+[sub_resource type="Resource" id="SuccessDamage"]
+script = ExtResource("3")
+amount = 5
+target = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Hammerfall"
+description = "Clear four lines before the hammer lands. Success deals 5 damage. Failure deals 15 damage."
+duration_turns = 3
+required_progress = 4
+partial_success_threshold = 3
+success_effects = Array[ExtResource("2")]([SubResource("SuccessDamage")])
+failure_effects = Array[ExtResource("2")]([SubResource("FailureDamage")])

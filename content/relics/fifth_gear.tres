@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="RelicDefinition" format=3 uid="uid://da0uisghxrhuy"]
+
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="1_definition"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="1_u7rhx"]
+[ext_resource type="Script" uid="uid://d28cef128is7k" path="res://core/relics/relic_effect.gd" id="2_effect"]
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="3_ppq7r"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2_effect")
+placement_point_bonus = 1
+
+[resource]
+script = ExtResource("1_definition")
+display_name = "Fifth Gear"
+description = "Gain 1 additional PM each turn."
+effect = SubResource("Effect")
+elite_defeat_reward_only = true

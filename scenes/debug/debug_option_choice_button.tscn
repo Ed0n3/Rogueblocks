@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/debug/debug_option_choice_button.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://hay1hu5nk5gd" path="res://presentation/theme/game_theme.tres" id="2_theme"]
+[ext_resource type="Texture2D" uid="uid://nerrmcfo2k3l" path="res://assets/icons/empty_texture.tres" id="3_empty"]
+
+[node name="DebugOptionChoiceButton" type="Button"]
+custom_minimum_size = Vector2(260, 52)
+theme = ExtResource("2_theme")
+theme_type_variation = &"SecondaryButton"
+text = "OPTION"
+icon = ExtResource("3_empty")
+alignment = 0
+script = ExtResource("1_script")

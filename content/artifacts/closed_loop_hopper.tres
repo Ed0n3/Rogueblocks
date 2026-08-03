@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BossArtifactDefinition" format=3 uid="uid://d04bl27586umk"]
+
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="1_definition"]
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1_o4tat"]
+[ext_resource type="Script" uid="uid://b785o7t8oc4c1" path="res://core/artifacts/boss_artifact_effect.gd" id="2_effect_base"]
+[ext_resource type="Script" uid="uid://bu1w1ov6suw64" path="res://core/artifacts/effects/placement_economy_artifact_effect.gd" id="3_effect"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("3_effect")
+placement_point_bonus = -1
+free_redraws_per_turn_bonus = 1
+
+[resource]
+script = ExtResource("1_definition")
+display_name = "Closed-Loop Hopper"
+description = "Cycle all drawn pieces freely once each turn, but work with fewer placements."
+benefit = "The first redraw each turn costs no PM."
+drawback = "Gain 3 PM instead of 4 each turn."
+effects = Array[ExtResource("2_effect_base")]([SubResource("Effect")])
+accent_color = Color(0.42, 0.92, 0.72, 1)

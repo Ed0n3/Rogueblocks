@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PieceDefinition" format=3 uid="uid://cke5lcxrvnh47"]
+
+[ext_resource type="Script" uid="uid://cy40q74iyy3gr" path="res://core/pieces/piece_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+display_name = "L Trioblock"
+base_cells = Array[Vector2i]([Vector2i(0, 1), Vector2i(0, 0), Vector2i(1, 1)])
+preview_color = Color(0.94, 0.48, 0.38, 1)
+tags = Array[StringName]([&"medium", &"corner", &"triomino"])

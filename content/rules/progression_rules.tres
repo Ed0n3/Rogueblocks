@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ProgressionRules" format=3 uid="uid://cvdvdkpet3io8"]
+
+[ext_resource type="Script" uid="uid://137emh4y633" path="res://core/progression/progression_rules.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+normal_enemy_fragments = 8
+elite_enemy_fragments = 14
+boss_fragments = 26
+run_victory_fragments = 50
+first_enemy_victory_fragments = 5

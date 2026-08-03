@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="RelicDefinition" format=3 uid="uid://c6qalpogabs3e"]
+
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="1_raxoc"]
+[ext_resource type="Script" uid="uid://supn4g412wqx" path="res://core/relics/modify_deck_card_copies_relic_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="3_itwwl"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+operation = 1
+card_preference = 2
+
+[resource]
+script = ExtResource("1")
+display_name = "Shape Suppressor"
+description = "Remove a random filler piece whose shape has another copy in the Block pile. If none qualify, gain 8 Shards."
+effect = SubResource("Effect")

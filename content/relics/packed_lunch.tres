@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="RelicDefinition" format=3 uid="uid://b21wk1kgfri0c"]
+
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="1_8aiiu"]
+[ext_resource type="Script" uid="uid://djlgmqh1pdvp6" path="res://core/relics/relic_trigger_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="3_hbci2"]
+
+[sub_resource type="Resource" id="Trigger"]
+script = ExtResource("2")
+heal_every_clear_count = 3
+heal_amount = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Packed Lunch"
+description = "Heal 1 after every third successful clear."
+initially_unlocked = false
+trigger_priority = 30
+trigger_effect = SubResource("Trigger")

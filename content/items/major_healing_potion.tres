@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://bhiyyy4yuudoa"]
+
+[ext_resource type="Script" uid="uid://dx16brlbge1il" path="res://core/items/item_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_2hvog"]
+[ext_resource type="Script" uid="uid://chm38hqkf8hqf" path="res://core/effects/implementations/heal_effect.gd" id="2"]
+[ext_resource type="Texture2D" path="res://assets/icons/items/heavy_integrity_tank.png" id="3_icon"]
+
+[sub_resource type="Resource" id="Heal"]
+script = ExtResource("2")
+amount = 10
+
+[resource]
+script = ExtResource("1")
+display_name = "Heavy Integrity Tank"
+description = "Restore 10 Core Integrity."
+category = 0
+rarity = 1
+base_shop_price = 24
+maximum_stack_size = 2
+target_mode = 0
+effects = Array[ExtResource("1_2hvog")]([SubResource("Heal")])
+accent_color = Color(0.2, 1, 0.8, 1)
+icon = ExtResource("3_icon")

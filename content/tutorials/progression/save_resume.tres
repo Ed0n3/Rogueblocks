@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="TutorialDefinition" format=3 uid="uid://cq83xkeo7cl47"]
+
+[ext_resource type="Script" uid="uid://dkv2565fajb13" path="res://core/tutorial/tutorial_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://ckd1yh07hkegy" path="res://core/tutorial/tutorial_condition.gd" id="1_pbgl6"]
+[ext_resource type="Script" uid="uid://c17d62lp1a4rs" path="res://core/tutorial/tutorial_step_definition.gd" id="2"]
+[ext_resource type="Script" uid="uid://cfxplkcvejy83" path="res://core/tutorial/tutorial_target.gd" id="3"]
+[ext_resource type="Script" uid="uid://bhh11bcngg5ia" path="res://core/tutorial/tutorial_action.gd" id="4_so6rp"]
+
+[sub_resource type="Resource" id="Target"]
+script = ExtResource("3")
+target_key = 22
+
+[sub_resource type="Resource" id="Step"]
+script = ExtResource("2")
+title = "Save and resume"
+body = "The game saves after fights, choices, and purchases. Resume an interrupted fight from the hub. Tutorials also save their current step."
+target = SubResource("Target")
+input_mode = 1
+message_position = 5
+wait_for_player_confirmation = true
+
+[resource]
+script = ExtResource("1")
+display_name = "Save and Resume"
+description = "Saving and resuming runs."
+category = 8
+replay_context = 5
+repeat_policy = 5
+steps = Array[ExtResource("2")]([SubResource("Step")])
+blocks_gameplay = true

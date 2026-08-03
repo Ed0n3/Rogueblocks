@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://c56mf2fa5syo8"]
+
+[ext_resource type="Script" uid="uid://dx16brlbge1il" path="res://core/items/item_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_qu14q"]
+[ext_resource type="Script" uid="uid://btkip47lbquh4" path="res://core/effects/implementations/apply_status_effect.gd" id="2"]
+[ext_resource type="Resource" uid="uid://c3aqla1tfk8jf" path="res://content/statuses/strength.tres" id="3"]
+[ext_resource type="Resource" path="res://content/statuses/ward.tres" id="4_5vhyf"]
+[ext_resource type="Texture2D" uid="uid://dxfycbyh14j38" path="res://assets/icons/items/overdrive_tank.png" id="4_icon"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+status = ExtResource("3")
+
+[resource]
+script = ExtResource("1")
+display_name = "Overdrive Tank"
+description = "Cleared lines deal +1 damage for 3 turns."
+icon = ExtResource("4_icon")
+category = 1
+base_shop_price = 20
+maximum_stack_size = 2
+target_mode = 0
+effects = Array[ExtResource("1_qu14q")]([SubResource("Effect")])
+accent_color = Color(1, 0.5, 0.25, 1)

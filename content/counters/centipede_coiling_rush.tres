@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CounterDefinition" format=3 uid="uid://jb4eu23hdkmg"]
+
+[ext_resource type="Script" uid="uid://und1rcm8w6bq" path="res://core/counters/counter_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://dl5hxd8rp2ro0" path="res://core/effects/implementations/damage_effect.gd" id="3"]
+[ext_resource type="Script" uid="uid://debnekjfqqq8o" path="res://core/effects/implementations/mark_random_blocks_poisoned_effect.gd" id="4"]
+
+[sub_resource type="Resource" id="FailureDamage"]
+script = ExtResource("3")
+amount = 8
+
+[sub_resource type="Resource" id="FailureVenom"]
+script = ExtResource("4")
+target = 2
+
+[sub_resource type="Resource" id="SuccessDamage"]
+script = ExtResource("3")
+amount = 4
+target = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Coiling Rush"
+description = "Deal 8 damage before the Centipede completes its coil. Success deals 4 damage. Failure deals 8 damage and poisons 1 placed Block."
+counter_type = 6
+duration_turns = 3
+required_progress = 8
+partial_success_threshold = 4
+success_effects = Array[ExtResource("2")]([SubResource("SuccessDamage")])
+failure_effects = Array[ExtResource("2")]([SubResource("FailureDamage"), SubResource("FailureVenom")])

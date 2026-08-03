@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="BossArtifactDefinition" format=3 uid="uid://cute46r6o5yry"]
+
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1_amylo"]
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="1_definition"]
+[ext_resource type="Script" uid="uid://b785o7t8oc4c1" path="res://core/artifacts/boss_artifact_effect.gd" id="2_effect_base"]
+[ext_resource type="Script" uid="uid://bu1w1ov6suw64" path="res://core/artifacts/effects/placement_economy_artifact_effect.gd" id="3_effect"]
+[ext_resource type="Resource" uid="uid://d04bl27586umk" path="res://content/artifacts/closed_loop_hopper.tres" id="4_incompatible"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("3_effect")
+draw_count_bonus = 1
+placement_point_bonus = 1
+redraw_placement_point_cost_modifier = 1
+
+[resource]
+script = ExtResource("1_definition")
+display_name = "Overclocked Feed"
+description = "Load and place an extra Piece each turn at the cost of heavier redraws."
+benefit = "Draw 5 Pieces and gain 5 PM each turn."
+drawback = "Each redraw costs 2 PM."
+effects = Array[ExtResource("2_effect_base")]([SubResource("Effect")])
+incompatible_artifacts = Array[ExtResource("1_definition")]([ExtResource("4_incompatible")])
+accent_color = Color(1, 0.62, 0.28, 1)

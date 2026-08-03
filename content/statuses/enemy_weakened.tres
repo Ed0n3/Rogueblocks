@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="StatusDefinition" load_steps=4 format=3]
+[ext_resource type="Script" path="res://core/effects/status_definition.gd" id="1"]
+[ext_resource type="Script" path="res://core/combat/damage_modifier_definition.gd" id="2_damage"]
+[ext_resource type="Resource" path="res://content/status_visuals/weakened.tres" id="3_visual"]
+[sub_resource type="Resource" id="DamageModifier"]
+script = ExtResource("2_damage")
+event_type = 2
+value = -2.0
+[resource]
+script = ExtResource("1")
+display_name = "Weakened"
+description = "Direct attacks deal 2 less damage."
+category = 1
+tags = Array[StringName]([&"negative", &"debuff"])
+default_duration_turns = 2
+duration_phase = 4
+maximum_stacks = 1
+damage_modifiers = Array[ExtResource("2_damage")]([SubResource("DamageModifier")])
+accent_color = Color(0.75, 0.8, 0.9, 1)
+icon_type = 7
+visual_definition = ExtResource("3_visual")

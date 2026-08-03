@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="RelicDefinition" format=3 uid="uid://cn0mmvq844iid"]
+
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="1_8bq42"]
+[ext_resource type="Script" uid="uid://c1xhhna4gdcjw" path="res://core/relics/piece_affinity_relic_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://dmqxettumo761" path="res://core/piece_modifiers/piece_target_request.gd" id="3"]
+[ext_resource type="Script" uid="uid://cy40q74iyy3gr" path="res://core/pieces/piece_definition.gd" id="3_fuyt2"]
+[ext_resource type="Resource" uid="uid://bupmg836nglpf" path="res://content/piece_modifiers/guardian_pattern.tres" id="4"]
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="5_8bq42"]
+
+[sub_resource type="Resource" id="Target"]
+script = ExtResource("3")
+selection_mode = 2
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+modifier_definition = ExtResource("4")
+target_selection = SubResource("Target")
+
+[resource]
+script = ExtResource("1")
+display_name = "Guardian Pattern"
+description = "Choose 1 of 3 Blocks. When it helps clear a line, gain 1 shield, up to 3."
+effect = SubResource("Effect")
+elite_defeat_reward_only = true

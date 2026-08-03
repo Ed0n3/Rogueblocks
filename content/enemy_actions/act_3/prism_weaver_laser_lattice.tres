@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://cwpu8r1mrdk6e"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1_2fvgd"]
+[ext_resource type="Resource" uid="uid://dtobyt1v3uku0" path="res://content/counters/marked_beam.tres" id="2"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="3_hld07"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Laser Lattice"
+intent_description = "Clear the marked row before the prism web fires."
+action_tags = Array[StringName]([&"counter", &"row", &"lock", &"magic"])
+counter_definition = ExtResource("2")
+weight = 0.4
+cooldown_actions = 2
+cannot_repeat = true
+icon_type = 7
+accent_color = Color(0.85, 0.3, 1, 1)

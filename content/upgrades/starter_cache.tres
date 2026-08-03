@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" format=3 uid="uid://c8i71lrd2i2bv"]
+
+[ext_resource type="Script" uid="uid://c0vske0subwsi" path="res://core/progression/upgrade_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://dfndwdlwv1rfk" path="res://core/progression/permanent_upgrade_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="2_4nin1"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+shards_per_level = 5
+
+[resource]
+script = ExtResource("1")
+display_name = "Starting Shards"
+description = "Begin each run with 5 Shards per level."
+category = 2
+max_level = 4
+explicit_costs = PackedInt32Array(8, 25, 80, 240)
+prerequisite_levels = null
+effects = Array[ExtResource("2")]([SubResource("Effect")])
+tree_row = 1
+board_level_thresholds = null

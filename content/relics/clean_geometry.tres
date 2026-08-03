@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="RelicDefinition" format=3 uid="uid://bjqh13vcxjmbd"]
+
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="1_stjhu"]
+[ext_resource type="Script" uid="uid://djlgmqh1pdvp6" path="res://core/relics/relic_trigger_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="3_damage"]
+
+[sub_resource type="Resource" id="DamageModifier"]
+script = ExtResource("3_damage")
+event_type = 1
+value = 3.0
+
+[sub_resource type="Resource" id="Trigger"]
+script = ExtResource("2")
+requires_cross_clear = true
+damage_modifiers = Array[ExtResource("3_damage")]([SubResource("DamageModifier")])
+
+[resource]
+script = ExtResource("1")
+display_name = "Clean Geometry"
+description = "Cross clears deal 3 extra damage."
+repeatable = true
+initially_unlocked = false
+trigger_priority = 20
+trigger_effect = SubResource("Trigger")

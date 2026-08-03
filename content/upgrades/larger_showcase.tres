@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" format=3 uid="uid://dlveqow7c08vw"]
+
+[ext_resource type="Script" uid="uid://c0vske0subwsi" path="res://core/progression/upgrade_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://dfndwdlwv1rfk" path="res://core/progression/permanent_upgrade_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="2_osn75"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+draft_candidates_per_level = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Wider Draft"
+description = "+1 starting draft choice."
+category = 1
+explicit_costs = PackedInt32Array(15)
+prerequisite_levels = null
+effects = Array[ExtResource("2")]([SubResource("Effect")])
+tree_column = 2
+tree_row = 2
+board_level_thresholds = null

@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://btgf2gxjvjn10"]
+
+[ext_resource type="Script" uid="uid://mtsm1kldx0p7" path="res://scenes/rewards/piece_target_selection_overlay.gd" id="1"]
+[ext_resource type="Theme" uid="uid://hay1hu5nk5gd" path="res://presentation/theme/game_theme.tres" id="1_kivg5"]
+[ext_resource type="Script" uid="uid://b31604p6nrcks" path="res://presentation/cards/piece_choice_card.gd" id="2"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/confirm.png" id="3"]
+
+[node name="PieceTargetSelectionOverlay" type="Control" unique_id=1498567909]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_kivg5")
+script = ExtResource("1")
+
+[node name="Shade" type="ColorRect" parent="." unique_id=1740358272]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.015, 0.025, 0.06, 0.94)
+
+[node name="Center" type="CenterContainer" parent="." unique_id=254583095]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Center" unique_id=883736196]
+custom_minimum_size = Vector2(1100, 430)
+layout_mode = 2
+theme_type_variation = &"ElevatedPanel"
+
+[node name="Layout" type="VBoxContainer" parent="Center/Panel" unique_id=1916536202]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Center/Panel/Layout" unique_id=935910753]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeadingMedium"
+text = "CHOOSE A BLOCK"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="Center/Panel/Layout" unique_id=1662136320]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Block effect"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Counter" type="Label" parent="Center/Panel/Layout" unique_id=1967534725]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47, 0.95, 0.86, 1)
+text = "Choose 1 of 3"
+horizontal_alignment = 1
+
+[node name="Candidates" type="HBoxContainer" parent="Center/Panel/Layout" unique_id=1413422631]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="CandidateOne" type="Button" parent="Center/Panel/Layout/Candidates" unique_id=1154631922]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(190, 190)
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("3")
+script = ExtResource("2")
+
+[node name="CandidateTwo" type="Button" parent="Center/Panel/Layout/Candidates" unique_id=1693744188]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(190, 190)
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("3")
+script = ExtResource("2")
+
+[node name="CandidateThree" type="Button" parent="Center/Panel/Layout/Candidates" unique_id=1170060097]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(190, 190)
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("3")
+script = ExtResource("2")
+
+[node name="CandidateFour" type="Button" parent="Center/Panel/Layout/Candidates" unique_id=1901243590]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(190, 190)
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("3")
+script = ExtResource("2")
+
+[node name="CandidateFive" type="Button" parent="Center/Panel/Layout/Candidates" unique_id=1797832315]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(190, 190)
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("3")
+script = ExtResource("2")
+
+[node name="Confirm" type="Button" parent="Center/Panel/Layout" unique_id=1329984627]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+theme_type_variation = &"PrimaryButton"
+tooltip_text = "Confirm Selection"
+icon = ExtResource("3")
+expand_icon = true
+icon_max_width = 40
+icon_alignment = 1

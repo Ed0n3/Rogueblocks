@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://bwqvq20qggqo3"]
+
+[ext_resource type="Script" uid="uid://dx16brlbge1il" path="res://core/items/item_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_mqocn"]
+[ext_resource type="Texture2D" uid="uid://fb4wqgivhdmq" path="res://assets/icons/items/shape_capsule.png" id="2_icon"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Block Capsule"
+description = "Deploy its stored Block before your normal placement."
+icon = ExtResource("2_icon")
+category = 7
+rarity = 1
+base_shop_price = 18
+maximum_stack_size = 3
+target_mode = 7
+accent_color = Color(0.45, 0.95, 0.9, 1)

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3 uid="uid://r01o5m3bo2gi"]
+
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1"]
+[ext_resource type="Resource" uid="uid://dbbwbbgq7ytwm" path="res://content/enemy_actions/act_1/thorn_lash.tres" id="2"]
+[ext_resource type="Script" uid="uid://bbyykmmb01scj" path="res://core/combat/enemy_phase_definition.gd" id="2_a4338"]
+[ext_resource type="Resource" uid="uid://budliwhkcceow" path="res://content/enemy_actions/act_1/regrowth.tres" id="3"]
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="action_script"]
+[ext_resource type="Resource" path="res://content/enemy_visuals/leech_bloom.tres" id="visual"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Siphon Blockling"
+maximum_health = 17
+attack_interval = 5
+direct_damage = 3
+mechanic_tier = 2
+selection_weight = 0.9
+possible_actions = Array[ExtResource("action_script")]([ExtResource("2"), ExtResource("3")])
+fallback_action = ExtResource("2")
+visual = ExtResource("visual")

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" format=3 uid="uid://cf2bosjqwg2fm"]
+
+[ext_resource type="Script" uid="uid://c0vske0subwsi" path="res://core/progression/upgrade_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://dfndwdlwv1rfk" path="res://core/progression/permanent_upgrade_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="2_h4dft"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+reward_rerolls_per_level = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Reward Reroll"
+description = "+1 reward reroll after each fight."
+category = 2
+explicit_costs = PackedInt32Array(25)
+prerequisite_levels = null
+effects = Array[ExtResource("2")]([SubResource("Effect")])
+tree_column = 1
+tree_row = 1
+final_level_requires_full_area = false
+board_level_thresholds = PackedInt32Array(30)

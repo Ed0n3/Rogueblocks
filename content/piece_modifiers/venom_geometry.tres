@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="PieceModifierDefinition" format=3 uid="uid://dhdm2fxwqrf0t"]
+
+[ext_resource type="Script" uid="uid://dfugivbrrejsb" path="res://core/piece_modifiers/piece_modifier_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_arg6l"]
+[ext_resource type="Script" uid="uid://bqwfrt3slt1sp" path="res://core/piece_modifiers/piece_modifier_visual_definition.gd" id="2"]
+[ext_resource type="Script" uid="uid://dl5hxd8rp2ro0" path="res://core/effects/implementations/damage_effect.gd" id="3"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("3")
+amount = 2
+target = 1
+
+[sub_resource type="Resource" id="Visual"]
+script = ExtResource("2")
+accent_color = Color(0.58, 0.88, 0.3, 1)
+secondary_color = Color(0.7, 0.3, 0.88, 1)
+marker_style = 2
+
+[resource]
+script = ExtResource("1")
+display_name = "Venom Geometry"
+description = "When this Block helps clear a line, deal 2 bonus damage."
+effects = Array[ExtResource("1_arg6l")]([SubResource("Effect")])
+visual_definition = SubResource("Visual")
+priority = 20
+tags = Array[StringName]([&"affinity", &"status"])

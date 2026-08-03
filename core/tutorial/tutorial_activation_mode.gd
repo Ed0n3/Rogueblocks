@@ -1,0 +1,4 @@
+class_name TutorialActivationMode
+extends RefCounted
+
+enum Value { FIRST_RUN, CONTEXTUAL_EVENT, MANUAL, FIRST_MECHANIC_APPEARANCE, FIRST_SCREEN_VISIT, DEBUG_ONLY }

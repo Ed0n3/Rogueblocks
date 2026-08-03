@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://doaoh50dmijkb"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="3"]
+[ext_resource type="Script" uid="uid://debnekjfqqq8o" path="res://core/effects/implementations/mark_random_blocks_poisoned_effect.gd" id="4"]
+
+[sub_resource type="Resource" id="Venom"]
+script = ExtResource("4")
+target = 2
+
+[resource]
+script = ExtResource("1")
+display_name = "Venom Spray"
+intent_description = "Deal 1 damage and poison 1 placed Block. It deals 2 damage when involved in a clear."
+action_tags = Array[StringName]([&"attack", &"poison", &"projectile"])
+consumes_empowered_venom = true
+effects = Array[ExtResource("2")]([SubResource("Venom")])
+weight = 0.35
+icon_type = 11
+accent_color = Color(0.72, 0.95, 0.2, 1)
+direct_damage = 1

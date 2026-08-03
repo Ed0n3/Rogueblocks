@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" format=3 uid="uid://26e4qg4qgbga"]
+
+[ext_resource type="Script" uid="uid://c0vske0subwsi" path="res://core/progression/upgrade_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://dfndwdlwv1rfk" path="res://core/progression/permanent_upgrade_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="2_om6ak"]
+[ext_resource type="Resource" uid="uid://b77r2i6aj0cmh" path="res://content/upgrades/reinforced_core.tres" id="prerequisite"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+emergency_clear_charges_per_level = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Emergency Clear Capacity"
+description = "+1 Emergency Clear charge per level. Each charge removes three cells."
+category = 0
+max_level = 2
+explicit_costs = PackedInt32Array(15, 60)
+prerequisite_upgrades = Array[ExtResource("1")]([ExtResource("prerequisite")])
+prerequisite_levels = PackedInt32Array(2)
+effects = Array[ExtResource("2")]([SubResource("Effect")])
+tree_column = 2
+tree_row = 1
+board_level_thresholds = null

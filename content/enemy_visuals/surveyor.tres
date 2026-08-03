@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyVisualDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://presentation/combat/enemy_visual_definition.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/enemies/surveyor.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+sprite = ExtResource("2")
+sprite_scale = 0.92
+sprite_offset = Vector2(0, 6)
+shadow_size = Vector2(190, 32)
+accent_color = Color(0.39, 0.84, 1, 1)
+idle_height = 7.0
+idle_duration = 1.95
+attack_style = 1

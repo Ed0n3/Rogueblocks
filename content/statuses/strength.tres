@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="StatusDefinition" format=3 uid="uid://c3aqla1tfk8jf"]
+
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://content/status_visuals/empowered.tres" id="2"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="3_damage"]
+
+[sub_resource type="Resource" id="DamageModifier"]
+script = ExtResource("3_damage")
+event_type = 1
+value = 1.0
+scaling = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Strength"
+description = "Adds 1 damage per cleared line."
+category = 0
+tags = Array[StringName]([&"positive", &"damage"])
+default_duration_turns = 3
+damage_modifiers = Array[ExtResource("3_damage")]([SubResource("DamageModifier")])
+accent_color = Color(0.4, 1, 0.65, 1)
+icon_type = 13
+visual_definition = ExtResource("2")

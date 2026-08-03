@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="PieceModifierDefinition" format=3 uid="uid://bupmg836nglpf"]
+
+[ext_resource type="Script" uid="uid://dfugivbrrejsb" path="res://core/piece_modifiers/piece_modifier_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_55go0"]
+[ext_resource type="Script" uid="uid://bqwfrt3slt1sp" path="res://core/piece_modifiers/piece_modifier_visual_definition.gd" id="2"]
+[ext_resource type="Script" uid="uid://csq4utess7et8" path="res://core/effects/implementations/capped_shield_effect.gd" id="3"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("3")
+maximum_total = 3
+amount = 1
+
+[sub_resource type="Resource" id="Visual"]
+script = ExtResource("2")
+accent_color = Color(0.34, 0.7, 1, 1)
+secondary_color = Color(0.55, 0.95, 1, 1)
+marker_style = 4
+
+[resource]
+script = ExtResource("1")
+display_name = "Guardian Pattern"
+description = "When this Block helps clear a line, gain 1 shield, up to 3."
+effects = Array[ExtResource("1_55go0")]([SubResource("Effect")])
+visual_definition = SubResource("Visual")
+priority = 40
+tags = Array[StringName]([&"affinity", &"defense"])

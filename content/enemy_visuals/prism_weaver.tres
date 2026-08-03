@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyVisualDefinition" format=3 uid="uid://3ekyqeohot0y"]
+
+[ext_resource type="Script" uid="uid://bt6ggen3q15hs" path="res://presentation/combat/enemy_visual_definition.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dst25e84n7yg7" path="res://assets/enemies/prism_weaver.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+sprite = ExtResource("2")
+sprite_scale = 0.82
+sprite_offset = Vector2(0, 10)
+shadow_size = Vector2(225, 32)
+accent_color = Color(0.85, 0.3, 1, 1)
+attack_color = Color(0.35, 0.9, 1, 1)
+idle_duration = 1.5
+attack_style = 1
+death_style = 1

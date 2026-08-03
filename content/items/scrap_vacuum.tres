@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3]
+
+[ext_resource type="Script" path="res://core/items/item_definition.gd" id="1_item"]
+[ext_resource type="Script" path="res://core/effects/gameplay_effect.gd" id="2_effect"]
+[ext_resource type="Script" path="res://core/effects/implementations/transfer_deck_cards_effect.gd" id="3_discard"]
+[ext_resource type="Texture2D" path="res://assets/icons/items/scrap_vacuum.png" id="4_icon"]
+[ext_resource type="Resource" path="res://content/items/scrap_ejector.tres" id="5_base"]
+[ext_resource type="Script" path="res://core/effects/implementations/shield_effect.gd" id="6_shield"]
+
+[sub_resource type="Resource" id="ModifyDiscard"]
+script = ExtResource("3_discard")
+target = 0
+destination_pile = 0
+selection = 1
+count = 4
+
+[sub_resource type="Resource" id="Shield"]
+script = ExtResource("6_shield")
+target = 0
+amount = 4
+
+[resource]
+script = ExtResource("1_item")
+display_name = "Scrap Vacuum"
+description = "Recycle up to 4 old discarded Blocks into your draw pile and gain 4 Shield."
+category = 6
+rarity = 1
+tags = Array[StringName]([&"discard_control", &"shield"])
+base_shop_price = 30
+maximum_stack_size = 2
+charges_per_purchase = 1
+target_mode = 6
+effects = Array[ExtResource("2_effect")]([SubResource("ModifyDiscard"), SubResource("Shield")])
+accent_color = Color(0.58, 0.92, 0.32, 1)
+icon = ExtResource("4_icon")
+variant_of = ExtResource("5_base")

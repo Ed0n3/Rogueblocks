@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="PieceCardEffectDefinition" format=3 uid="uid://cknve3eleo6o1"]
+
+[ext_resource type="Script" uid="uid://cpyu1wlfy52di" path="res://core/piece_effects/piece_card_effect_definition.gd" id="1_definition"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2_gameplay_effect"]
+[ext_resource type="Script" uid="uid://csq4utess7et8" path="res://core/effects/implementations/capped_shield_effect.gd" id="3_shield"]
+[ext_resource type="Texture2D" uid="uid://nerrmcfo2k3l" path="res://assets/icons/empty_texture.tres" id="4_icon"]
+
+[sub_resource type="Resource" id="Shield"]
+script = ExtResource("3_shield")
+maximum_total = 2
+amount = 2
+
+[resource]
+script = ExtResource("1_definition")
+display_name = "Prism Guard"
+description = "Gain up to 2 Shield when this Block is placed. Prism Guard cannot raise Shield above 2."
+icon = ExtResource("4_icon")
+accent_color = Color(0.31, 0.78, 1, 1)
+marker_style = 2
+effects = Array[ExtResource("2_gameplay_effect")]([SubResource("Shield")])
+enemy_health_scaling_weight = 0.65
+tags = Array[StringName]([&"defense", &"placement"])

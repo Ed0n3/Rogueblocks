@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3 uid="uid://bovgb3k241qy3"]
+
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="2"]
+[ext_resource type="Script" uid="uid://bbyykmmb01scj" path="res://core/combat/enemy_phase_definition.gd" id="2_jagpe"]
+[ext_resource type="Resource" uid="uid://de2cmeyovnkq2" path="res://content/enemy_actions/act_3/glitch_polyomino_error_pulse.tres" id="action_1"]
+[ext_resource type="Resource" uid="uid://3h3yw5xp5eqq" path="res://content/enemy_actions/act_3/glitch_polyomino_pixel_tear.tres" id="action_2"]
+[ext_resource type="Resource" uid="uid://bmckr8ulyepbg" path="res://content/enemy_visuals/glitch_polyomino.tres" id="visual"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Glitch Polyomino"
+maximum_health = 38
+attack_interval = 3
+minimum_act = 2
+maximum_act = 2
+mechanic_tier = 3
+possible_actions = Array[ExtResource("2")]([ExtResource("action_1"), ExtResource("action_2")])
+fallback_action = ExtResource("action_1")
+visual = ExtResource("visual")

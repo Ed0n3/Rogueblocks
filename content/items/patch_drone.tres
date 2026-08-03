@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3]
+
+[ext_resource type="Script" path="res://core/items/item_definition.gd" id="1_item"]
+[ext_resource type="Script" path="res://core/effects/gameplay_effect.gd" id="2_effect"]
+[ext_resource type="Script" path="res://core/effects/implementations/heal_effect.gd" id="3_heal"]
+[ext_resource type="Script" path="res://core/effects/implementations/shield_effect.gd" id="4_shield"]
+[ext_resource type="Texture2D" path="res://assets/icons/items/patch_drone.png" id="5_icon"]
+
+[sub_resource type="Resource" id="Heal"]
+script = ExtResource("3_heal")
+target = 0
+amount = 2
+
+[sub_resource type="Resource" id="Shield"]
+script = ExtResource("4_shield")
+target = 0
+amount = 2
+
+[resource]
+script = ExtResource("1_item")
+display_name = "Patch Drone"
+description = "Restore 2 Core Integrity and gain 2 Shield."
+category = 5
+rarity = 0
+tags = Array[StringName]([&"healing", &"shield"])
+base_shop_price = 16
+maximum_stack_size = 3
+charges_per_purchase = 1
+target_mode = 0
+effects = Array[ExtResource("2_effect")]([SubResource("Heal"), SubResource("Shield")])
+accent_color = Color(0.28, 1, 0.7, 1)
+icon = ExtResource("5_icon")

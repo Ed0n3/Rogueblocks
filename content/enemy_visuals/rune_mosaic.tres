@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyVisualDefinition" format=3 uid="uid://cyqr7vbsea6il"]
+
+[ext_resource type="Script" uid="uid://bt6ggen3q15hs" path="res://presentation/combat/enemy_visual_definition.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dyija6a7autjp" path="res://assets/enemies/rune_mosaic.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+sprite = ExtResource("2")
+sprite_scale = 0.7
+shadow_size = Vector2(145, 24)
+accent_color = Color(0.8, 0.35, 1, 1)
+attack_color = Color(0.4, 0.85, 1, 1)
+idle_height = 11.0
+idle_duration = 1.7
+attack_style = 2

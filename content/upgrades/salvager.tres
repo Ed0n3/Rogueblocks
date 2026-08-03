@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" format=3 uid="uid://guwn5qccf0db"]
+
+[ext_resource type="Script" uid="uid://c0vske0subwsi" path="res://core/progression/upgrade_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://dfndwdlwv1rfk" path="res://core/progression/permanent_upgrade_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="2_xw7yb"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+fragment_multiplier_per_level = 0.1
+
+[resource]
+script = ExtResource("1")
+display_name = "Fragment Recovery"
+description = "+10% Fragments earned per level."
+category = 2
+max_level = 5
+explicit_costs = PackedInt32Array(20, 60, 150, 350, 800)
+prerequisite_levels = null
+effects = Array[ExtResource("2")]([SubResource("Effect")])
+board_level_thresholds = null

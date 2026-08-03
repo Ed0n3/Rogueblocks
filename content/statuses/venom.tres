@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StatusDefinition" load_steps=3 format=3]
+[ext_resource type="Script" path="res://core/effects/status_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://content/status_visuals/poison.tres" id="2"]
+[resource]
+script = ExtResource("1")
+display_name = "Venom"
+description = "Takes 2 damage at the start of each player turn."
+category = 2
+tags = Array[StringName]([&"negative", &"damage_over_time", &"poison"])
+default_duration_turns = 3
+tick_phase = 1
+duration_phase = 1
+tick_amount = 2
+accent_color = Color(0.45, 0.9, 0.25, 1)
+visual_definition = ExtResource("2")
+icon_type = 3

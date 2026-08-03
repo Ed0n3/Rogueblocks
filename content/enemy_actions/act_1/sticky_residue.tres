@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://dbly876lmuci8"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_dru7v"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1_jmoyi"]
+[ext_resource type="Script" uid="uid://btkip47lbquh4" path="res://core/effects/implementations/apply_status_effect.gd" id="2"]
+[ext_resource type="Resource" uid="uid://dqi0idoa0r6p4" path="res://content/statuses/slowed_hands.tres" id="3"]
+[ext_resource type="Resource" path="res://content/statuses/ward.tres" id="5_15s6k"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+status = ExtResource("3")
+duration_turns = 3
+
+[resource]
+script = ExtResource("1")
+display_name = "Loose Fragments"
+intent_description = "Prevent Block rotation for three turns."
+action_tags = Array[StringName]([&"debuff", &"control"])
+effects = Array[ExtResource("1_dru7v")]([SubResource("Effect")])
+weight = 0.3
+cannot_repeat = true
+applied_statuses = Array[ExtResource("1_jmoyi")]([ExtResource("3")])
+icon_type = 10
+accent_color = Color(0.35, 0.9, 0.85, 1)

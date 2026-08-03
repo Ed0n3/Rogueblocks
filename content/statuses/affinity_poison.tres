@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="StatusDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/effects/status_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://content/status_visuals/poison.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Geometry Poison"
+description = "Deals 1 damage per stack for three turns. Maximum 3 stacks."
+category = 2
+tags = Array[StringName]([&"negative", &"damage_over_time", &"poison"])
+default_duration_turns = 3
+maximum_stacks = 3
+stacking_rule = 3
+tick_phase = 1
+duration_phase = 1
+tick_amount = 1
+accent_color = Color(0.55, 0.85, 0.25, 1)
+visual_definition = ExtResource("2")
+icon_type = 3

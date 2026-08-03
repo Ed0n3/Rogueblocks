@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="PieceModifierDefinition" format=3 uid="uid://bqbhei43bm27q"]
+
+[ext_resource type="Script" uid="uid://dfugivbrrejsb" path="res://core/piece_modifiers/piece_modifier_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_824av"]
+[ext_resource type="Script" uid="uid://bqwfrt3slt1sp" path="res://core/piece_modifiers/piece_modifier_visual_definition.gd" id="2"]
+[ext_resource type="Script" uid="uid://btkip47lbquh4" path="res://core/effects/implementations/apply_status_effect.gd" id="3"]
+[ext_resource type="Resource" path="res://content/statuses/affinity_burn.tres" id="4"]
+[ext_resource type="Resource" path="res://content/statuses/ward.tres" id="4_nfpmw"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("3")
+status = ExtResource("4")
+duration_turns = 2
+target = 1
+
+[sub_resource type="Resource" id="Visual"]
+script = ExtResource("2")
+accent_color = Color(1, 0.42, 0.27, 1)
+secondary_color = Color(1, 0.78, 0.31, 1)
+marker_style = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Ember Brand"
+description = "When this Block helps clear a line, apply 2 Burn for two turns."
+effects = Array[ExtResource("1_824av")]([SubResource("Effect")])
+visual_definition = SubResource("Visual")
+priority = 10
+tags = Array[StringName]([&"affinity", &"status"])

@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3]
+
+[ext_resource type="Script" path="res://core/items/item_definition.gd" id="1_item"]
+[ext_resource type="Script" path="res://core/effects/gameplay_effect.gd" id="2_effect"]
+[ext_resource type="Script" path="res://core/effects/implementations/damage_effect.gd" id="3_damage"]
+[ext_resource type="Script" path="res://core/effects/implementations/delay_enemy_attack_effect.gd" id="4_delay"]
+[ext_resource type="Texture2D" path="res://assets/icons/items/phase_needle.png" id="5_icon"]
+
+[sub_resource type="Resource" id="Damage"]
+script = ExtResource("3_damage")
+target = 1
+amount = 3
+ignores_shield = true
+
+[sub_resource type="Resource" id="Delay"]
+script = ExtResource("4_delay")
+target = 1
+placements = 1
+
+[resource]
+script = ExtResource("1_item")
+display_name = "Phase Needle"
+description = "Deal 3 damage that bypasses Shield. Delay the current enemy action by 1 placement."
+category = 3
+rarity = 1
+tags = Array[StringName]([&"damage", &"piercing", &"delay"])
+base_shop_price = 42
+maximum_stack_size = 2
+charges_per_purchase = 1
+target_mode = 1
+effects = Array[ExtResource("2_effect")]([SubResource("Damage"), SubResource("Delay")])
+accent_color = Color(1, 0.85, 0.28, 1)
+icon = ExtResource("5_icon")

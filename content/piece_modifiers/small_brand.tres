@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="PieceModifierDefinition" format=3 uid="uid://d4ebblsq65jbo"]
+
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_hequp"]
+[ext_resource type="Script" uid="uid://btkip47lbquh4" path="res://core/effects/implementations/apply_status_effect.gd" id="2_2dney"]
+[ext_resource type="Resource" path="res://content/statuses/small_burn.tres" id="3_hequp"]
+[ext_resource type="Resource" path="res://content/statuses/ward.tres" id="4_4syvk"]
+[ext_resource type="Script" uid="uid://dfugivbrrejsb" path="res://core/piece_modifiers/piece_modifier_definition.gd" id="5_i4umv"]
+[ext_resource type="Script" uid="uid://bqwfrt3slt1sp" path="res://core/piece_modifiers/piece_modifier_visual_definition.gd" id="6_g2jr2"]
+
+[sub_resource type="Resource" id="Resource_2dney"]
+script = ExtResource("2_2dney")
+status = ExtResource("3_hequp")
+duration_turns = 2
+target = 1
+
+[sub_resource type="Resource" id="Visual"]
+script = ExtResource("6_g2jr2")
+accent_color = Color(1, 0.42, 0.27, 1)
+secondary_color = Color(1, 0.78, 0.31, 1)
+marker_style = 1
+
+[resource]
+script = ExtResource("5_i4umv")
+display_name = "Small Brand"
+description = "When this Block helps clear a line, apply 1 Burn for two turns."
+effects = Array[ExtResource("1_hequp")]([SubResource("Resource_2dney")])
+visual_definition = SubResource("Visual")
+priority = 10
+tags = Array[StringName]([&"affinity", &"status"])

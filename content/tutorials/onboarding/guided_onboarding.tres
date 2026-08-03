@@ -1,0 +1,185 @@
+[gd_resource type="Resource" script_class="TutorialDefinition" format=3 uid="uid://bjiik6svb2gaf"]
+
+[ext_resource type="Script" uid="uid://dkv2565fajb13" path="res://core/tutorial/tutorial_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://ckd1yh07hkegy" path="res://core/tutorial/tutorial_condition.gd" id="1_wxwvi"]
+[ext_resource type="Script" uid="uid://c17d62lp1a4rs" path="res://core/tutorial/tutorial_step_definition.gd" id="2"]
+[ext_resource type="Script" uid="uid://cfxplkcvejy83" path="res://core/tutorial/tutorial_target.gd" id="3"]
+[ext_resource type="Script" uid="uid://ds0qe543gyawf" path="res://core/tutorial/conditions/piece_selected_condition.gd" id="4"]
+[ext_resource type="Script" uid="uid://bhh11bcngg5ia" path="res://core/tutorial/tutorial_action.gd" id="4_avub8"]
+[ext_resource type="Script" uid="uid://j14gjixvai5c" path="res://core/tutorial/conditions/piece_rotated_condition.gd" id="5"]
+[ext_resource type="Script" uid="uid://d0c4r6vy0fbxx" path="res://core/tutorial/conditions/piece_placed_condition.gd" id="6"]
+[ext_resource type="Script" uid="uid://dbgcg5gk6w0pb" path="res://core/tutorial/conditions/line_count_cleared_condition.gd" id="7"]
+[ext_resource type="Script" uid="uid://cy40q74iyy3gr" path="res://core/pieces/piece_definition.gd" id="7_7p1h7"]
+[ext_resource type="Script" uid="uid://ptn5858o84m3" path="res://core/tutorial/actions/tutorial_sandbox_action.gd" id="9"]
+[ext_resource type="Resource" uid="uid://u1ussdhxxt14" path="res://content/pieces/domino.tres" id="10_domino"]
+[ext_resource type="Resource" uid="uid://cla15a1ggm23u" path="res://content/pieces/tet_l.tres" id="11_tet_l"]
+[ext_resource type="Resource" uid="uid://byht2aej3nfbu" path="res://content/pieces/tet_o.tres" id="12_tet_o"]
+[ext_resource type="Resource" uid="uid://b2wc6g5ahtoed" path="res://content/pieces/tet_i.tres" id="13_tet_i"]
+
+[sub_resource type="Resource" id="BoardTarget"]
+script = ExtResource("3")
+target_key = 2
+padding = 6.0
+
+[sub_resource type="Resource" id="BoardStep"]
+script = ExtResource("2")
+title = "The combat grid"
+body = "Place Blocks anywhere they fit. They do not fall. Fill a row or column to clear it."
+target = SubResource("BoardTarget")
+input_mode = 1
+message_position = 3
+wait_for_player_confirmation = true
+
+[sub_resource type="Resource" id="Selected"]
+script = ExtResource("4")
+choice_index = 0
+
+[sub_resource type="Resource" id="SelectOffers"]
+script = ExtResource("9")
+command = 0
+pieces = Array[ExtResource("7_7p1h7")]([ExtResource("10_domino"), ExtResource("11_tet_l")])
+
+[sub_resource type="Resource" id="ChoiceTarget"]
+script = ExtResource("3")
+target_key = 8
+padding = 5.0
+
+[sub_resource type="Resource" id="ChoiceStep"]
+script = ExtResource("2")
+step_type = 6
+title = "Select a drawn Block"
+body = "Choose the highlighted drawn piece. Its Block becomes your placement preview."
+target = SubResource("ChoiceTarget")
+completion_conditions = Array[ExtResource("1_wxwvi")]([SubResource("Selected")])
+entry_actions = Array[ExtResource("4_avub8")]([SubResource("SelectOffers")])
+input_mode = 2
+message_position = 3
+
+[sub_resource type="Resource" id="PlaceTarget"]
+script = ExtResource("3")
+target_key = 10
+padding = 6.0
+
+[sub_resource type="Resource" id="Placed"]
+script = ExtResource("6")
+
+[sub_resource type="Resource" id="PlaceStep"]
+script = ExtResource("2")
+step_type = 7
+title = "Place freely"
+body = "Move the preview anywhere on the highlighted board, then tap Place."
+target = SubResource("BoardTarget")
+additional_input_targets = Array[ExtResource("3")]([SubResource("PlaceTarget")])
+completion_conditions = Array[ExtResource("1_wxwvi")]([SubResource("Placed")])
+input_mode = 2
+message_position = 1
+
+[sub_resource type="Resource" id="RotateLeftTarget"]
+script = ExtResource("3")
+target_key = 13
+padding = 6.0
+
+[sub_resource type="Resource" id="Rotated"]
+script = ExtResource("5")
+
+[sub_resource type="Resource" id="RotateOffers"]
+script = ExtResource("9")
+command = 0
+pieces = Array[ExtResource("7_7p1h7")]([ExtResource("11_tet_l"), ExtResource("12_tet_o")])
+
+[sub_resource type="Resource" id="ShowRotatePreview"]
+script = ExtResource("9")
+command = 8
+
+[sub_resource type="Resource" id="RotateTarget"]
+script = ExtResource("3")
+target_key = 15
+padding = 6.0
+
+[sub_resource type="Resource" id="RotateStep"]
+script = ExtResource("2")
+step_type = 2
+title = "Rotate the preview"
+body = "Swipe across the board, use either rotate button, or press {rotate_left} or {rotate_right} on a keyboard."
+target = SubResource("RotateTarget")
+additional_input_targets = Array[ExtResource("3")]([SubResource("BoardTarget"), SubResource("RotateLeftTarget")])
+completion_conditions = Array[ExtResource("1_wxwvi")]([SubResource("Rotated")])
+entry_actions = Array[ExtResource("4_avub8")]([SubResource("RotateOffers"), SubResource("ShowRotatePreview")])
+input_mode = 3
+allowed_input_actions = Array[StringName]([&"rotate_left", &"rotate_right"])
+message_position = 1
+
+[sub_resource type="Resource" id="Cleared"]
+script = ExtResource("7")
+
+[sub_resource type="Resource" id="ClearBoard"]
+script = ExtResource("9")
+
+[sub_resource type="Resource" id="ClearSetup"]
+script = ExtResource("9")
+command = 1
+board_cells = Array[Vector2i]([Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7), Vector2i(4, 7)])
+
+[sub_resource type="Resource" id="ClearOffers"]
+script = ExtResource("9")
+command = 0
+pieces = Array[ExtResource("7_7p1h7")]([ExtResource("13_tet_i"), ExtResource("12_tet_o")])
+
+[sub_resource type="Resource" id="ClearStep"]
+script = ExtResource("2")
+step_type = 8
+title = "Complete a line"
+body = "Fill a row or column to clear it. Clear both at once for a stronger cross clear."
+target = SubResource("BoardTarget")
+completion_conditions = Array[ExtResource("1_wxwvi")]([SubResource("Cleared")])
+entry_actions = Array[ExtResource("4_avub8")]([SubResource("ClearBoard"), SubResource("ClearSetup"), SubResource("ClearOffers")])
+message_position = 4
+
+[sub_resource type="Resource" id="EnemyTarget"]
+script = ExtResource("3")
+target_key = 4
+padding = 5.0
+
+[sub_resource type="Resource" id="DamageStep"]
+script = ExtResource("2")
+step_type = 4
+title = "Clears strike the enemy"
+body = "Every line clear deals damage. Larger clears, cross clears, and combos hit harder."
+target = SubResource("EnemyTarget")
+input_mode = 1
+message_position = 3
+wait_for_player_confirmation = true
+
+[sub_resource type="Resource" id="IntentTarget"]
+script = ExtResource("3")
+target_key = 6
+padding = 5.0
+
+[sub_resource type="Resource" id="IntentStep"]
+script = ExtResource("2")
+title = "Read the enemy intent"
+body = "Intent shows the enemy's next move, possible damage, and how many placements remain."
+target = SubResource("IntentTarget")
+input_mode = 1
+message_position = 3
+wait_for_player_confirmation = true
+
+[sub_resource type="Resource" id="SummaryStep"]
+script = ExtResource("2")
+step_type = 12
+title = "Ready for a run"
+body = "Draw, choose, rotate, place, and clear Blocks. Watch enemy intent. More tips appear when you meet new systems."
+input_mode = 1
+message_position = 2
+wait_for_player_confirmation = true
+
+[resource]
+script = ExtResource("1")
+display_name = "Selecting, Placing, and Combat"
+description = "Learn the core combat controls."
+priority = 60
+repeat_policy = 5
+steps = Array[ExtResource("2")]([SubResource("BoardStep"), SubResource("ChoiceStep"), SubResource("PlaceStep"), SubResource("RotateStep"), SubResource("ClearStep"), SubResource("DamageStep"), SubResource("IntentStep"), SubResource("SummaryStep")])
+blocks_gameplay = true
+mark_complete_on_skip = true
+tags = Array[StringName]([&"guided", &"sandbox"])

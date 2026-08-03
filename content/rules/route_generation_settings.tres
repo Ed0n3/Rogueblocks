@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="RouteGenerationSettings" format=3 uid="uid://dp3s8eoghbify"]
+
+[ext_resource type="Script" uid="uid://dga0r14g34rsd" path="res://core/routes/route_generation_settings.gd" id="1"]
+[ext_resource type="Script" uid="uid://dpp4vv78d52eo" path="res://core/routes/route_fixed_room_rule.gd" id="2"]
+
+[sub_resource type="Resource" id="FixedShop"]
+script = ExtResource("2")
+room_type = 2
+
+[sub_resource type="Resource" id="FixedRecovery"]
+script = ExtResource("2")
+column_index = 6
+room_type = 4
+
+[resource]
+script = ExtResource("1")
+minimum_columns = 10
+minimum_rows = 3
+maximum_rows = 5
+earliest_shop_column = 4
+shop_distance_from_boss = 1
+minimum_shop_nodes_per_act = 2
+minimum_recovery_nodes_per_act = 4
+maximum_recovery_nodes_per_act = 5
+maximum_shop_nodes_per_act = 2
+minimum_elite_nodes_per_route = 3
+maximum_elite_nodes_per_route = 5
+fixed_rooms = Array[ExtResource("2")]([SubResource("FixedShop"), SubResource("FixedRecovery")])

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://dpjisw0qucub2"]
+
+[ext_resource type="Script" uid="uid://dx16brlbge1il" path="res://core/items/item_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_3edln"]
+[ext_resource type="Script" uid="uid://b7mirtf32ldlx" path="res://core/effects/implementations/dispel_effect.gd" id="2"]
+[ext_resource type="Texture2D" path="res://assets/icons/items/nullifier_charge.png" id="3_icon"]
+
+[sub_resource type="Resource" id="Dispel"]
+script = ExtResource("2")
+target = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Nullifier Charge"
+description = "Remove 1 positive status from the enemy."
+category = 2
+rarity = 1
+tags = Array[StringName]([&"dispel"])
+base_shop_price = 25
+target_mode = 1
+effects = Array[ExtResource("1_3edln")]([SubResource("Dispel")])
+accent_color = Color(0.75, 0.55, 1, 1)
+icon = ExtResource("3_icon")

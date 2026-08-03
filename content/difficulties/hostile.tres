@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DifficultyDefinition" format=3 uid="uid://cr04uy7jsby0v"]
+
+[ext_resource type="Script" uid="uid://bdwuggy1d3tti" path="res://core/difficulty/difficulty_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Hostile"
+starting_blockers = 1
+enemy_health_multiplier = 1.2
+fragment_reward_multiplier = 1.6

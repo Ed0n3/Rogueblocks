@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3 uid="uid://dbwfreffdupwb"]
+
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1"]
+[ext_resource type="Resource" uid="uid://dsfywludm5y0h" path="res://content/enemy_actions/act_1/shell_guard.tres" id="2"]
+[ext_resource type="Script" uid="uid://bbyykmmb01scj" path="res://core/combat/enemy_phase_definition.gd" id="2_qi0lf"]
+[ext_resource type="Resource" uid="uid://0bdymbvf4n0b" path="res://content/enemy_actions/act_1/horn_charge.tres" id="3"]
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="action_script"]
+[ext_resource type="Script" uid="uid://ccxdl45ik58je" path="res://core/combat/shield_clear_response.gd" id="shield_response_script"]
+[ext_resource type="Resource" path="res://content/enemy_visuals/bulwark_beetle.tres" id="visual"]
+
+[sub_resource type="Resource" id="ShieldClearResponse"]
+script = ExtResource("shield_response_script")
+break_on_perfect_clear = true
+cross_clear_damage = 4
+multi_line_damage = 2
+
+[resource]
+script = ExtResource("1")
+display_name = "Bulwark Blockling"
+maximum_health = 22
+attack_interval = 5
+direct_damage = 6
+maximum_act = 1
+mechanic_tier = 1
+selection_weight = 1.05
+possible_actions = Array[ExtResource("action_script")]([ExtResource("2"), ExtResource("3")])
+fallback_action = ExtResource("3")
+visual = ExtResource("visual")
+shield_clear_response = SubResource("ShieldClearResponse")

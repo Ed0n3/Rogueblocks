@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://presentation/board/board_status_effect_layer.gd" id="1"]
+
+[sub_resource type="Gradient" id="CellGradient"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="CellTexture"]
+gradient = SubResource("CellGradient")
+width = 2
+height = 2
+
+[node name="BoardStatusEffectLayer" type="Node2D"]
+z_as_relative = false
+texture_filter = 1
+script = ExtResource("1")
+cell_texture = SubResource("CellTexture")

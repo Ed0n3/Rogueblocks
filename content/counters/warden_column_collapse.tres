@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="CounterDefinition" format=3 uid="uid://ch2wrqn12hqef"]
+
+[ext_resource type="Script" uid="uid://und1rcm8w6bq" path="res://core/counters/counter_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c6m7i41kwc6jg" path="res://core/effects/implementations/delay_enemy_attack_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://u0i2ibcitbfl" path="res://core/effects/implementations/spawn_counter_target_cells_effect.gd" id="3"]
+[ext_resource type="Script" uid="uid://btkip47lbquh4" path="res://core/effects/implementations/apply_status_effect.gd" id="4"]
+[ext_resource type="Resource" uid="uid://b57157vya88q1" path="res://content/statuses/fragile.tres" id="5"]
+[ext_resource type="Resource" path="res://content/statuses/ward.tres" id="5_nrdsu"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="effect_script"]
+
+[sub_resource type="Resource" id="FailureLock"]
+script = ExtResource("3")
+cell_type = 5
+count = 3
+cell_value = 2
+target = 2
+
+[sub_resource type="Resource" id="Fragile"]
+script = ExtResource("4")
+status = ExtResource("5")
+
+[sub_resource type="Resource" id="Success"]
+script = ExtResource("2")
+
+[resource]
+script = ExtResource("1")
+display_name = "Column Collapse"
+description = "Clear the marked column. Success delays the Warden. Failure locks three cells and applies Fragile."
+counter_type = 1
+success_effects = Array[ExtResource("effect_script")]([SubResource("Success")])
+failure_effects = Array[ExtResource("effect_script")]([SubResource("FailureLock"), SubResource("Fragile")])

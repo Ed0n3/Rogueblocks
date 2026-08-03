@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="PieceModifierDefinition" format=3 uid="uid://bx7udly3k0qnm"]
+
+[ext_resource type="Script" uid="uid://dfugivbrrejsb" path="res://core/piece_modifiers/piece_modifier_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://bqwfrt3slt1sp" path="res://core/piece_modifiers/piece_modifier_visual_definition.gd" id="3"]
+
+[sub_resource type="Resource" id="Visual"]
+script = ExtResource("3")
+accent_color = Color(1, 0.25, 0.08, 1)
+secondary_color = Color(1, 0.78, 0.2, 1)
+marker_style = 1
+glow_strength = 0.75
+board_overlay_priority = 55
+
+[resource]
+script = ExtResource("1")
+display_name = "Ignited Block"
+description = "A heat-scarred Block seeded by a fire device."
+visual_definition = SubResource("Visual")
+priority = 55
+tags = Array[StringName]([&"item", &"fire", &"visual"])

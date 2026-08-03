@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyVisualDefinition" load_steps=3 format=3]
+[ext_resource type="Script" path="res://presentation/combat/enemy_visual_definition.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/enemies/arcane_sentinel.png" id="2"]
+[resource]
+script = ExtResource("1")
+sprite = ExtResource("2")
+sprite_scale = 0.84
+sprite_offset = Vector2(0, 6)
+shadow_size = Vector2(165, 28)
+accent_color = Color(0.55, 0.35, 1, 1)
+idle_height = 8.0
+idle_duration = 1.8
+attack_style = 2
+death_style = 1

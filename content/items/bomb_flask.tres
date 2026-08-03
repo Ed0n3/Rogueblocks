@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3 uid="uid://e3nfv1pjf3ia"]
+
+[ext_resource type="Script" uid="uid://dx16brlbge1il" path="res://core/items/item_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_op0a2"]
+[ext_resource type="Script" uid="uid://dl5hxd8rp2ro0" path="res://core/effects/implementations/damage_effect.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://ca5m23m3edbpi" path="res://assets/icons/items/demolition_charge.png" id="3_icon"]
+
+[sub_resource type="Resource" id="Damage"]
+script = ExtResource("2")
+amount = 6
+target = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Demolition Charge"
+description = "Deal 6 damage. Shield absorbs it first."
+icon = ExtResource("3_icon")
+category = 3
+base_shop_price = 18
+maximum_stack_size = 2
+target_mode = 1
+effects = Array[ExtResource("1_op0a2")]([SubResource("Damage")])
+accent_color = Color(1, 0.45, 0.25, 1)

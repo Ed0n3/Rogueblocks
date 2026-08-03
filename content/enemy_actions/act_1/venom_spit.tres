@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://beun8b3uxu0kp"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_5jjfq"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1_mro7g"]
+[ext_resource type="Script" uid="uid://debnekjfqqq8o" path="res://core/effects/implementations/mark_random_blocks_poisoned_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="Poison"]
+script = ExtResource("2")
+block_count = 2
+damage_on_clear = 3
+target = 2
+
+[resource]
+script = ExtResource("1")
+display_name = "Venom Burst"
+intent_description = "Poison 2 placed Blocks. Each deals 3 damage whenever it helps clear a line."
+action_tags = Array[StringName]([&"attack", &"poison", &"projectile"])
+consumes_empowered_venom = true
+effects = Array[ExtResource("1_5jjfq")]([SubResource("Poison")])
+weight = 0.6
+icon_type = 11
+accent_color = Color(0.6, 0.95, 0.25, 1)

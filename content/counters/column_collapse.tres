@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CounterDefinition" format=3 uid="uid://x3rkm7x5uq40"]
+
+[ext_resource type="Script" uid="uid://und1rcm8w6bq" path="res://core/counters/counter_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_6t1wm"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Column Collapse"
+description = "Clear the marked column before the deadline."
+counter_type = 1
+duration_turns = 3
+partial_success_threshold = 1

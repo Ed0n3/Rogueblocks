@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://nbechnao1mg8"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="3"]
+[ext_resource type="Script" uid="uid://btkip47lbquh4" path="res://core/effects/implementations/apply_status_effect.gd" id="4"]
+[ext_resource type="Resource" uid="uid://c7qa8vsvtt8s5" path="res://content/statuses/weakened.tres" id="5"]
+[ext_resource type="Resource" path="res://content/statuses/ward.tres" id="5_8g55j"]
+
+[sub_resource type="Resource" id="Weaken"]
+script = ExtResource("4")
+status = ExtResource("5")
+duration_turns = 6
+
+[resource]
+script = ExtResource("1")
+display_name = "Arcane Revision"
+intent_description = "Rewrite your Blocks, applying Weakened for six turns."
+action_tags = Array[StringName]([&"magic", &"debuff", &"weaken"])
+effects = Array[ExtResource("2")]([SubResource("Weaken")])
+weight = 0.2
+cannot_repeat = true
+applied_statuses = Array[ExtResource("3")]([ExtResource("5")])
+icon_type = 10
+accent_color = Color(0.8, 0.35, 1, 1)

@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3]
+
+[ext_resource type="Script" path="res://core/items/item_definition.gd" id="1_item"]
+[ext_resource type="Script" path="res://core/effects/gameplay_effect.gd" id="2_effect"]
+[ext_resource type="Script" path="res://core/effects/implementations/remove_random_occupied_cells_effect.gd" id="3_remove"]
+[ext_resource type="Texture2D" path="res://assets/icons/items/grid_scrubber.png" id="4_icon"]
+
+[sub_resource type="Resource" id="RemoveOccupiedCells"]
+script = ExtResource("3_remove")
+target = 2
+count = 2
+
+[resource]
+script = ExtResource("1_item")
+display_name = "Grid Scrubber"
+description = "Remove up to 2 random occupied cells from the board."
+category = 6
+rarity = 0
+tags = Array[StringName]([&"board_control", &"clear"])
+base_shop_price = 22
+maximum_stack_size = 2
+charges_per_purchase = 1
+target_mode = 6
+effects = Array[ExtResource("2_effect")]([SubResource("RemoveOccupiedCells")])
+accent_color = Color(0.28, 0.95, 0.78, 1)
+icon = ExtResource("4_icon")

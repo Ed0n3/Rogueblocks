@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BossArtifactDefinition" format=3 uid="uid://c0a8w5w6hyysy"]
+
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://b785o7t8oc4c1" path="res://core/artifacts/boss_artifact_effect.gd" id="1_bjivp"]
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1_xj608"]
+[ext_resource type="Script" uid="uid://b3dgkle6ra4im" path="res://core/artifacts/effects/infinite_mold_effect.gd" id="2"]
+[ext_resource type="Resource" uid="uid://bwqvq20qggqo3" path="res://content/items/block_capsule.tres" id="3_j85ie"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+
+[resource]
+script = ExtResource("1")
+display_name = "Infinite Mold"
+description = "Choose the same Block three times to create a one-use capsule."
+benefit = "Three consecutive selections of one Block create its capsule."
+drawback = "The counter then resets. If the inventory is full, gain 3 Shards instead."
+effects = Array[ExtResource("1_bjivp")]([SubResource("Effect")])
+accent_color = Color(0.55, 1, 0.62, 1)

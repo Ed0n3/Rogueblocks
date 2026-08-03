@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource path="res://presentation/vfx/vfx_layer.gd" type="Script" id="1"]
+[ext_resource type="Script" path="res://presentation/vfx/target_flash.gd" id="2"]
+[ext_resource type="Texture2D" path="res://assets/icons/empty_texture.tres" id="3"]
+[ext_resource type="Resource" path="res://content/presentation/combat_visual_settings.tres" id="4"]
+
+[node name="VFXLayer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1")
+visual_settings = ExtResource("4")
+
+[node name="TargetFlashOne" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+mouse_filter = 2
+texture = ExtResource("3")
+expand_mode = 1
+script = ExtResource("2")
+
+[node name="TargetFlashTwo" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+mouse_filter = 2
+texture = ExtResource("3")
+expand_mode = 1
+script = ExtResource("2")

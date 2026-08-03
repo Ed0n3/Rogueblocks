@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StatusDefinition" load_steps=3 format=3]
+[ext_resource type="Script" path="res://core/effects/status_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://content/status_visuals/thorns.tres" id="2_visual"]
+[resource]
+script = ExtResource("1")
+display_name = "Thorns"
+description = "Reflects 1 damage once when health damage is dealt."
+category = 0
+tags = Array[StringName]([&"positive", &"reflect"])
+default_duration_turns = 2
+accent_color = Color(0.8, 0.4, 0.65, 1)
+icon_type = 14
+visual_definition = ExtResource("2_visual")

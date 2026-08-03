@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://budliwhkcceow"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_f6sj5"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1_mk5eo"]
+[ext_resource type="Script" uid="uid://btkip47lbquh4" path="res://core/effects/implementations/apply_status_effect.gd" id="2"]
+[ext_resource type="Resource" uid="uid://6s6l1ysorvb" path="res://content/statuses/regeneration.tres" id="3"]
+[ext_resource type="Resource" path="res://content/statuses/ward.tres" id="5_l8nm6"]
+
+[sub_resource type="Resource" id="Regen"]
+script = ExtResource("2")
+status = ExtResource("3")
+duration_turns = 3
+target = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Core Repair"
+intent_description = "Heal 2 at the start of the next three player turns."
+action_tags = Array[StringName]([&"heal", &"buff", &"regeneration"])
+effects = Array[ExtResource("1_f6sj5")]([SubResource("Regen")])
+weight = 0.15
+cannot_repeat = true
+applied_statuses = Array[ExtResource("1_mk5eo")]([ExtResource("3")])
+icon_type = 8
+accent_color = Color(0.3, 0.95, 0.65, 1)
+maximum_health_percent = 0.95
+disallow_status_refresh = true

@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="CounterDefinition" format=3 uid="uid://oajb02i1lhks"]
+
+[ext_resource type="Script" uid="uid://und1rcm8w6bq" path="res://core/counters/counter_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://dl5hxd8rp2ro0" path="res://core/effects/implementations/damage_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://b7mirtf32ldlx" path="res://core/effects/implementations/dispel_effect.gd" id="3"]
+[ext_resource type="Script" uid="uid://btkip47lbquh4" path="res://core/effects/implementations/apply_status_effect.gd" id="4"]
+[ext_resource type="Resource" path="res://content/statuses/ward.tres" id="4_m830w"]
+[ext_resource type="Script" uid="uid://c3fh2778b0dd0" path="res://core/effects/implementations/shield_effect.gd" id="5"]
+[ext_resource type="Resource" path="res://content/statuses/burn.tres" id="6"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="effect_script"]
+
+[sub_resource type="Resource" id="FailureBurn"]
+script = ExtResource("4")
+status = ExtResource("6")
+duration_turns = 3
+
+[sub_resource type="Resource" id="FailureShield"]
+script = ExtResource("5")
+amount = 15
+target = 1
+
+[sub_resource type="Resource" id="PartialBurn"]
+script = ExtResource("4")
+status = ExtResource("6")
+duration_turns = 2
+
+[sub_resource type="Resource" id="SuccessDamage"]
+script = ExtResource("2")
+amount = 5
+target = 1
+
+[sub_resource type="Resource" id="SuccessDispel"]
+script = ExtResource("3")
+maximum_removed = 99
+target = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Core Seal"
+description = "Clear seven cells in the projected 3x3 area within three turns."
+counter_type = 2
+duration_turns = 3
+required_progress = 7
+partial_success_threshold = 4
+success_effects = Array[ExtResource("effect_script")]([SubResource("SuccessDamage"), SubResource("SuccessDispel")])
+partial_success_effects = Array[ExtResource("effect_script")]([SubResource("PartialBurn")])
+failure_effects = Array[ExtResource("effect_script")]([SubResource("FailureBurn"), SubResource("FailureShield")])

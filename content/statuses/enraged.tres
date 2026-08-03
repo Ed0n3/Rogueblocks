@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="StatusDefinition" load_steps=3 format=3]
+[ext_resource type="Script" path="res://core/effects/status_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://content/status_visuals/empowered.tres" id="2"]
+[ext_resource type="Script" path="res://core/combat/damage_modifier_definition.gd" id="3_damage"]
+[sub_resource type="Resource" id="DamageModifier"]
+script = ExtResource("3_damage")
+operation = 1
+event_type = 2
+value = 1.5
+consume_on_apply = true
+[resource]
+script = ExtResource("1")
+display_name = "Enraged"
+description = "The next direct attack deals 50% more damage."
+category = 0
+tags = Array[StringName]([&"positive", &"attack", &"consumable"])
+default_duration_turns = 2
+duration_phase = 4
+damage_modifiers = Array[ExtResource("3_damage")]([SubResource("DamageModifier")])
+accent_color = Color(1, 0.3, 0.25, 1)
+visual_definition = ExtResource("2")
+icon_type = 8

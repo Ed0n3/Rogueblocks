@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3 uid="uid://xk0ess46vrwf"]
+
+[ext_resource type="Resource" path="res://content/enemy_actions/act_1/warden_strike.tres" id="1_pi3xe"]
+[ext_resource type="Script" uid="uid://bbyykmmb01scj" path="res://core/combat/enemy_phase_definition.gd" id="2_u5vt7"]
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="3_83sgu"]
+[ext_resource type="Resource" uid="uid://byrffufoiry4t" path="res://content/enemy_actions/act_1/warden_shield.tres" id="4_si8bf"]
+[ext_resource type="Resource" uid="uid://0avi74rkcqhv" path="res://content/enemy_actions/act_1/row_sever.tres" id="5_u0hnu"]
+[ext_resource type="Resource" path="res://content/enemy_actions/act_1/warden_column_collapse.tres" id="6_i3hbp"]
+[ext_resource type="Resource" path="res://content/enemy_actions/act_1/warden_blockade.tres" id="7_d0yeq"]
+[ext_resource type="Resource" uid="uid://dpg54l1gmlicv" path="res://content/enemy_actions/act_1/warden_weakening.tres" id="8_5aknq"]
+[ext_resource type="Resource" path="res://content/enemy_actions/act_1/core_seal.tres" id="9_rwfdp"]
+[ext_resource type="Resource" uid="uid://bj8m7mchahma2" path="res://content/enemy_actions/act_1/warden_regrowth.tres" id="10_ocu5j"]
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="11_32poo"]
+[ext_resource type="Resource" uid="uid://faccpjj4inqc" path="res://content/enemy_visuals/grid_warden.tres" id="12_m56b5"]
+
+[sub_resource type="Resource" id="Phase1"]
+script = ExtResource("2_u5vt7")
+display_name_suffix = "Projection"
+
+[sub_resource type="Resource" id="Phase2"]
+script = ExtResource("2_u5vt7")
+health_threshold_percent = 0.66
+attack_interval = 3
+display_name_suffix = "Collapse"
+
+[sub_resource type="Resource" id="Phase3"]
+script = ExtResource("2_u5vt7")
+health_threshold_percent = 0.33
+attack_interval = 2
+display_name_suffix = "Core Unbound"
+
+[resource]
+script = ExtResource("11_32poo")
+display_name = "The Grid Colossus"
+maximum_health = 65
+direct_damage = 6
+phases = Array[ExtResource("2_u5vt7")]([SubResource("Phase1"), SubResource("Phase2"), SubResource("Phase3")])
+maximum_act = 3
+encounter_role = 2
+mechanic_tier = 3
+possible_actions = Array[ExtResource("3_83sgu")]([ExtResource("1_pi3xe"), ExtResource("4_si8bf"), ExtResource("5_u0hnu"), ExtResource("6_i3hbp"), ExtResource("7_d0yeq"), ExtResource("8_5aknq"), ExtResource("9_rwfdp"), ExtResource("10_ocu5j")])
+fallback_action = ExtResource("1_pi3xe")
+visual = ExtResource("12_m56b5")

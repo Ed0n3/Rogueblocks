@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="StatusVisualDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://presentation/combat/status_visual_definition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+channel = 4
+primary_color = Color(0.45, 0.95, 1, 1)
+secondary_color = Color(0.36, 0.7, 1, 1)
+priority = 35
+base_strength = 0.22
+strength_per_stack = 0.04
+maximum_strength = 0.42
+pulse_speed = 0.5

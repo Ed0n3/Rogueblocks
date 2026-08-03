@@ -1,0 +1,150 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://presentation/tutorial/tutorial_overlay.gd" id="1"]
+[ext_resource type="Script" path="res://presentation/tutorial/tutorial_spotlight.gd" id="2"]
+[ext_resource type="Script" path="res://presentation/tutorial/tutorial_pointer.gd" id="3"]
+[ext_resource type="Script" path="res://presentation/tutorial/tutorial_input_blocker.gd" id="4"]
+[ext_resource type="Script" path="res://presentation/tutorial/tutorial_progress_view.gd" id="5"]
+[ext_resource type="PackedScene" path="res://presentation/tutorial/tutorial_hint_toast.tscn" id="6"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/skip.png" id="7_skip"]
+[ext_resource type="Theme" path="res://presentation/theme/game_theme.tres" id="8"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/play.png" id="9_play"]
+
+[node name="TutorialOverlay" type="CanvasLayer"]
+desktop_panel_width = 680.0
+mobile_panel_width = 520.0
+desktop_hint_width = 416.0
+mobile_hint_width = 360.0
+mobile_side_margin = 24.0
+script = ExtResource("1")
+
+[node name="Root" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("8")
+
+[node name="Spotlight" type="Control" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2")
+
+[node name="Pointer" type="Control" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3")
+
+[node name="InputBlocker" type="Control" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4")
+
+[node name="MessagePanel" type="PanelContainer" parent="Root"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(680, 240)
+layout_mode = 0
+offset_right = 680.0
+offset_bottom = 240.0
+theme_type_variation = &"ElevatedPanel"
+
+[node name="Layout" type="VBoxContainer" parent="Root/MessagePanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Top" type="HBoxContainer" parent="Root/MessagePanel/Layout"]
+layout_mode = 2
+
+[node name="Speaker" type="Label" parent="Root/MessagePanel/Layout/Top"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.57, 0.72, 1, 1)
+text = "GUIDE"
+
+[node name="StepText" type="Label" parent="Root/MessagePanel/Layout/Top"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "1 / 5"
+
+[node name="Title" type="Label" parent="Root/MessagePanel/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeadingMedium"
+text = "Tutorial step"
+
+[node name="Body" type="Label" parent="Root/MessagePanel/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Tutorial instruction"
+autowrap_mode = 2
+
+[node name="Progress" type="Control" parent="Root/MessagePanel/Layout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 18)
+layout_mode = 2
+script = ExtResource("5")
+
+[node name="Actions" type="BoxContainer" parent="Root/MessagePanel/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 2
+
+[node name="Skip" type="Button" parent="Root/MessagePanel/Layout/Actions"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"GhostButton"
+tooltip_text = "Skip Tutorial"
+icon = ExtResource("7_skip")
+expand_icon = true
+icon_max_width = 36
+icon_alignment = 1
+
+[node name="Continue" type="Button" parent="Root/MessagePanel/Layout/Actions"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"PrimaryButton"
+tooltip_text = "Continue"
+icon = ExtResource("9_play")
+expand_icon = true
+icon_max_width = 36
+icon_alignment = 1
+
+[node name="HintLayer" type="MarginContainer" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -440.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 140.0
+grow_horizontal = 0
+
+[node name="HintToast" parent="Root/HintLayer" instance=ExtResource("6")]
+unique_name_in_owner = true
+layout_mode = 2

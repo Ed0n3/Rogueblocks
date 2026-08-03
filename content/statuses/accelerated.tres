@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StatusDefinition" load_steps=3 format=3]
+[ext_resource type="Script" path="res://core/effects/status_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://content/status_visuals/empowered.tres" id="2"]
+[resource]
+script = ExtResource("1")
+display_name = "Accelerated"
+description = "Enemy actions charge one placement faster."
+category = 0
+tags = Array[StringName]([&"positive", &"speed"])
+default_duration_turns = 2
+accent_color = Color(1, 0.75, 0.2, 1)
+visual_definition = ExtResource("2")
+icon_type = 1

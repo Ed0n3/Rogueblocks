@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BossArtifactDefinition" format=3 uid="uid://dnljpq77elake"]
+
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://b785o7t8oc4c1" path="res://core/artifacts/boss_artifact_effect.gd" id="1_bsytm"]
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1_yej73"]
+[ext_resource type="Script" uid="uid://bbliabtj4l7fg" path="res://core/artifacts/effects/timekeeper_gear_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+
+[resource]
+script = ExtResource("1")
+display_name = "Timekeeper's Gear"
+description = "A placement clearing at least two lines pauses its enemy-clock step. A no-clear PM action drains two ticks."
+benefit = "A placement clearing at least 2 lines costs no enemy countdown tick."
+drawback = "Any PM action with no line clear drains 2 ticks."
+effects = Array[ExtResource("1_bsytm")]([SubResource("Effect")])
+accent_color = Color(0.95, 0.78, 0.32, 1)

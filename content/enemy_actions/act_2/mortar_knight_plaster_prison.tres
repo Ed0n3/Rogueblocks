@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://oyu7m0exginc"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1_7msfw"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2_b8ydw"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Plaster Prison"
+intent_description = "Deal 3 damage and lock five cells."
+action_tags = Array[StringName]([&"attack", &"lock", &"board"])
+weight = 0.4
+cannot_repeat = true
+icon_type = 5
+accent_color = Color(0.35, 0.85, 1, 1)
+requires_empty_cell = true
+direct_damage = 3
+special_cell_type = 5
+special_cell_count = 5
+special_cell_value = 2

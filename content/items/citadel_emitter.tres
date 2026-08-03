@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3]
+
+[ext_resource type="Script" path="res://core/items/item_definition.gd" id="1_item"]
+[ext_resource type="Script" path="res://core/effects/gameplay_effect.gd" id="2_effect"]
+[ext_resource type="Script" path="res://core/effects/implementations/shield_effect.gd" id="3_shield"]
+[ext_resource type="Script" path="res://core/effects/implementations/apply_status_effect.gd" id="4_status"]
+[ext_resource type="Resource" path="res://content/statuses/player_fortified.tres" id="5_fortified"]
+[ext_resource type="Texture2D" path="res://assets/icons/items/citadel_emitter.png" id="6_icon"]
+[ext_resource type="Resource" path="res://content/items/bastion_emitter.tres" id="7_base"]
+
+[sub_resource type="Resource" id="Shield"]
+script = ExtResource("3_shield")
+target = 0
+amount = 8
+
+[sub_resource type="Resource" id="ApplyFortified"]
+script = ExtResource("4_status")
+target = 0
+status = ExtResource("5_fortified")
+duration_turns = 3
+
+[resource]
+script = ExtResource("1_item")
+display_name = "Citadel Emitter"
+description = "Gain 8 Shield. Direct enemy attacks deal 2 less damage for the next 3 turns."
+category = 5
+rarity = 2
+tags = Array[StringName]([&"shield", &"defense"])
+base_shop_price = 52
+maximum_stack_size = 1
+charges_per_purchase = 1
+target_mode = 0
+effects = Array[ExtResource("2_effect")]([SubResource("Shield"), SubResource("ApplyFortified")])
+accent_color = Color(0.34, 0.45, 1, 1)
+icon = ExtResource("6_icon")
+variant_of = ExtResource("7_base")

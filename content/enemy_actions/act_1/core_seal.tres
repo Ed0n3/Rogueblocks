@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" load_steps=3 format=3]
+[ext_resource type="Script" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://content/counters/core_seal.tres" id="2"]
+[resource]
+script = ExtResource("1")
+display_name = "Core Seal"
+intent_description = "Clear seven marked cells in the central 3x3 area within three turns."
+action_tags = Array[StringName]([&"counter", &"area", &"burn", &"shield"])
+counter_definition = ExtResource("2")
+minimum_phase = 2
+weight = 0.5
+cooldown_actions = 2
+icon_type = 3
+accent_color = Color(1, 0.35, 0.65, 1)

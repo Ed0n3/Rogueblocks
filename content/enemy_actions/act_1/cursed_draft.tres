@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://bri017ac1n5s"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_sykrg"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Cursed Draft"
+intent_description = "Add a volatile copy of one of your pieces to the next draw."
+action_tags = Array[StringName]([&"cursed_draft", &"discard_pressure", &"debuff"])
+schedules_cursed_draft = true
+weight = 0.3
+cannot_repeat = true
+icon_type = 4
+accent_color = Color(0.7, 0.35, 1, 1)

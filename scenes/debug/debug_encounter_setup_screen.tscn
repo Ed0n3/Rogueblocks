@@ -1,0 +1,341 @@
+[gd_scene format=3 uid="uid://dx2ak6mldegf4"]
+
+[ext_resource type="Script" uid="uid://cik87wqnharnc" path="res://scenes/debug/debug_encounter_setup_screen.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://hay1hu5nk5gd" path="res://presentation/theme/game_theme.tres" id="2_theme"]
+[ext_resource type="Texture2D" uid="uid://nerrmcfo2k3l" path="res://assets/icons/empty_texture.tres" id="3_empty"]
+[ext_resource type="PackedScene" path="res://scenes/debug/debug_option_picker.tscn" id="4_picker"]
+
+[node name="DebugEncounterSetupScreen" type="Control" unique_id=586378184]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=831144343]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 18.0
+offset_right = -24.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="Margin" unique_id=1100725501]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Header" type="HBoxContainer" parent="Margin/Layout" unique_id=343129983]
+visible = false
+layout_mode = 2
+
+[node name="Heading" type="VBoxContainer" parent="Margin/Layout/Header" unique_id=889398713]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="Margin/Layout/Header/Heading" unique_id=1642284485]
+layout_mode = 2
+theme_type_variation = &"HeadingLarge"
+text = "TEST AREA"
+
+[node name="Prompt" type="Label" parent="Margin/Layout/Header/Heading" unique_id=2087076630]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "Build a combat constellation and launch it directly."
+autowrap_mode = 2
+
+[node name="DebugBadge" type="Label" parent="Margin/Layout/Header" unique_id=1308255894]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"NumericDisplay"
+text = "DEBUG  |  NO SAVE"
+vertical_alignment = 1
+
+[node name="SetupPanel" type="PanelContainer" parent="Margin/Layout" unique_id=1480902418]
+layout_mode = 2
+theme_type_variation = &"ElevatedPanel"
+
+[node name="SetupLayout" type="VBoxContainer" parent="Margin/Layout/SetupPanel" unique_id=1105099775]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SetupGrid" type="GridContainer" parent="Margin/Layout/SetupPanel/SetupLayout" unique_id=1034208479]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 8
+columns = 6
+
+[node name="EnemyField" type="VBoxContainer" parent="Margin/Layout/SetupPanel/SetupLayout/SetupGrid" unique_id=1988166121]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Margin/Layout/SetupPanel/SetupLayout/SetupGrid/EnemyField" unique_id=401997909]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "ENEMY"
+
+[node name="EnemyOptions" type="Button" parent="Margin/Layout/SetupPanel/SetupLayout/SetupGrid/EnemyField" unique_id=1022001647]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+text = "SELECT ENEMY"
+icon = ExtResource("3_empty")
+alignment = 0
+
+[node name="DifficultyField" type="VBoxContainer" parent="Margin/Layout/SetupPanel/SetupLayout/SetupGrid" unique_id=413306643]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Margin/Layout/SetupPanel/SetupLayout/SetupGrid/DifficultyField" unique_id=790009095]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "DIFFICULTY"
+
+[node name="DifficultyOptions" type="Button" parent="Margin/Layout/SetupPanel/SetupLayout/SetupGrid/DifficultyField" unique_id=1755849041]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+text = "SELECT DIFFICULTY"
+icon = ExtResource("3_empty")
+alignment = 0
+
+[node name="SeedField" type="VBoxContainer" parent="Margin/Layout/SetupPanel/SetupLayout/SetupGrid" unique_id=311708364]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Margin/Layout/SetupPanel/SetupLayout/SetupGrid/SeedField" unique_id=951152851]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "SEED"
+
+[node name="Seed" type="SpinBox" parent="Margin/Layout/SetupPanel/SetupLayout/SetupGrid/SeedField" unique_id=2044553645]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="PlayerHealthField" type="VBoxContainer" parent="Margin/Layout/SetupPanel/SetupLayout/SetupGrid" unique_id=1254612803]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Margin/Layout/SetupPanel/SetupLayout/SetupGrid/PlayerHealthField" unique_id=533412034]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "CORE HEALTH"
+
+[node name="PlayerHealth" type="SpinBox" parent="Margin/Layout/SetupPanel/SetupLayout/SetupGrid/PlayerHealthField" unique_id=1211056119]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="PlayerShieldField" type="VBoxContainer" parent="Margin/Layout/SetupPanel/SetupLayout/SetupGrid" unique_id=1304555145]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Margin/Layout/SetupPanel/SetupLayout/SetupGrid/PlayerShieldField" unique_id=192045241]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "STARTING SHIELD"
+
+[node name="PlayerShield" type="SpinBox" parent="Margin/Layout/SetupPanel/SetupLayout/SetupGrid/PlayerShieldField" unique_id=1569844044]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="BoardField" type="VBoxContainer" parent="Margin/Layout/SetupPanel/SetupLayout/SetupGrid" unique_id=161176934]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Margin/Layout/SetupPanel/SetupLayout/SetupGrid/BoardField" unique_id=1155839765]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "BOARD  W × H"
+
+[node name="Dimensions" type="HBoxContainer" parent="Margin/Layout/SetupPanel/SetupLayout/SetupGrid/BoardField" unique_id=1700504267]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BoardWidth" type="SpinBox" parent="Margin/Layout/SetupPanel/SetupLayout/SetupGrid/BoardField/Dimensions" unique_id=1244219587]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 48)
+layout_mode = 2
+
+[node name="BoardHeight" type="SpinBox" parent="Margin/Layout/SetupPanel/SetupLayout/SetupGrid/BoardField/Dimensions" unique_id=88114240]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 48)
+layout_mode = 2
+
+[node name="EnemyDetails" type="Label" parent="Margin/Layout/SetupPanel/SetupLayout" unique_id=1815389884]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "ENEMY DETAILS"
+autowrap_mode = 2
+
+[node name="Tabs" type="HBoxContainer" parent="Margin/Layout" unique_id=249603750]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BlocksTab" type="Button" parent="Margin/Layout/Tabs" unique_id=579140125]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"PrimaryButton"
+text = "BLOCK PILE"
+icon = ExtResource("3_empty")
+
+[node name="ItemsTab" type="Button" parent="Margin/Layout/Tabs" unique_id=1188385111]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SecondaryButton"
+text = "ITEMS"
+icon = ExtResource("3_empty")
+
+[node name="RelicsTab" type="Button" parent="Margin/Layout/Tabs" unique_id=299023224]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SecondaryButton"
+text = "RELICS"
+icon = ExtResource("3_empty")
+
+[node name="ArtifactsTab" type="Button" parent="Margin/Layout/Tabs" unique_id=671299748]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SecondaryButton"
+text = "ARTIFACTS"
+icon = ExtResource("3_empty")
+
+[node name="BlocksContent" type="VBoxContainer" parent="Margin/Layout" unique_id=734592883]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="BlocksScroll" type="ScrollContainer" parent="Margin/Layout/BlocksContent" unique_id=1134803905]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+
+[node name="PieceRows" type="VBoxContainer" parent="Margin/Layout/BlocksContent/BlocksScroll" unique_id=975202852]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(860, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="AddPiece" type="Button" parent="Margin/Layout/BlocksContent" unique_id=76396691]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+text = "ADD PIECE"
+icon = ExtResource("3_empty")
+
+[node name="ItemsScroll" type="ScrollContainer" parent="Margin/Layout" unique_id=980187449]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="ItemRows" type="VBoxContainer" parent="Margin/Layout/ItemsScroll" unique_id=327928717]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="RelicsScroll" type="ScrollContainer" parent="Margin/Layout" unique_id=650826840]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="RelicRows" type="VBoxContainer" parent="Margin/Layout/RelicsScroll" unique_id=877613893]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="ArtifactsScroll" type="ScrollContainer" parent="Margin/Layout" unique_id=1471762500]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="ArtifactRows" type="VBoxContainer" parent="Margin/Layout/ArtifactsScroll" unique_id=2129819414]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="SelectionSummary" type="Label" parent="Margin/Layout" unique_id=628156130]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"NumericDisplay"
+text = "SELECTION"
+autowrap_mode = 2
+
+[node name="Validation" type="Label" parent="Margin/Layout" unique_id=729992682]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "VALIDATION"
+autowrap_mode = 2
+
+[node name="Actions" type="HBoxContainer" parent="Margin/Layout" unique_id=1241435785]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Back" type="Button" parent="Margin/Layout/Actions" unique_id=857796203]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(104, 44)
+layout_mode = 2
+theme_type_variation = &"GhostButton"
+text = "BACK"
+icon = ExtResource("3_empty")
+
+[node name="Reset" type="Button" parent="Margin/Layout/Actions" unique_id=436120183]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(170, 52)
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+text = "RESET"
+icon = ExtResource("3_empty")
+
+[node name="ActionSpacer" type="Control" parent="Margin/Layout/Actions" unique_id=152242270]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="StartTest" type="Button" parent="Margin/Layout/Actions" unique_id=141840654]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 52)
+layout_mode = 2
+theme_type_variation = &"PrimaryButton"
+text = "START TEST"
+icon = ExtResource("3_empty")
+
+[node name="OptionPicker" parent="." unique_id=2060586783 instance=ExtResource("4_picker")]
+unique_name_in_owner = true
+layout_mode = 1

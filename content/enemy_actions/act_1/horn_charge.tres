@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://0bdymbvf4n0b"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_2ckvj"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Bastion Charge"
+intent_description = "Deal 6 direct damage."
+action_tags = Array[StringName]([&"attack", &"direct_damage", &"melee"])
+weight = 0.55
+direct_damage = 6

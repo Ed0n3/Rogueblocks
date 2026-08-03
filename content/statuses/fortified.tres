@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="StatusDefinition" format=3 uid="uid://bygercsvy5ax3"]
+
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://content/status_visuals/shield.tres" id="2"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="3_damage"]
+
+[sub_resource type="Resource" id="DamageModifier"]
+script = ExtResource("3_damage")
+scope = 1
+operation = 1
+value = 0.75
+
+[resource]
+script = ExtResource("1")
+display_name = "Fortified"
+description = "Take 25% less health damage."
+category = 0
+tags = Array[StringName]([&"positive", &"defense"])
+default_duration_turns = 2
+damage_modifiers = Array[ExtResource("3_damage")]([SubResource("DamageModifier")])
+accent_color = Color(0.4, 0.75, 1, 1)
+icon_type = 9
+visual_definition = ExtResource("2")

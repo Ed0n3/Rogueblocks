@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="RelicDefinition" format=3 uid="uid://dsw4g33adjxg6"]
+
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://d28cef128is7k" path="res://core/relics/relic_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="2_nhns8"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="3_damage"]
+
+[sub_resource type="Resource" id="DamageModifier"]
+script = ExtResource("3_damage")
+event_type = 1
+value = 1.0
+scaling = 2
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+damage_modifiers = Array[ExtResource("3_damage")]([SubResource("DamageModifier")])
+
+[resource]
+script = ExtResource("1")
+display_name = "Combo Core"
+description = "+1 damage per active combo level."
+repeatable = true
+effect = SubResource("Effect")

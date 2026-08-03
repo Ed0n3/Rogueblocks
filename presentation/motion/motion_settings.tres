@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="MotionSettings" load_steps=2 format=3]
+
+[ext_resource path="res://presentation/motion/motion_settings.gd" type="Script" id="1"]
+
+[resource]
+script = ExtResource("1")

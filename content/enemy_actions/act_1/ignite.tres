@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://dgmjkfnlu7u7j"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="1_n21b6"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1_wj007"]
+[ext_resource type="Script" uid="uid://btkip47lbquh4" path="res://core/effects/implementations/apply_status_effect.gd" id="2"]
+[ext_resource type="Resource" uid="uid://c1ho26itwov4g" path="res://content/statuses/empowered.tres" id="3"]
+[ext_resource type="Resource" path="res://content/statuses/ward.tres" id="5_aqd6q"]
+
+[sub_resource type="Resource" id="Buff"]
+script = ExtResource("2")
+status = ExtResource("3")
+target = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Ignite"
+intent_description = "Empower the next attack with 3 bonus damage."
+action_tags = Array[StringName]([&"buff", &"empower"])
+effects = Array[ExtResource("1_n21b6")]([SubResource("Buff")])
+weight = 0.35
+cannot_repeat = true
+applied_statuses = Array[ExtResource("1_wj007")]([ExtResource("3")])
+icon_type = 6
+accent_color = Color(1, 0.65, 0.2, 1)
+disallow_status_refresh = true

@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="ItemDefinition" format=3]
+
+[ext_resource type="Script" path="res://core/items/item_definition.gd" id="1_item"]
+[ext_resource type="Script" path="res://core/effects/gameplay_effect.gd" id="2_effect"]
+[ext_resource type="Script" path="res://core/effects/implementations/spawn_special_cells_effect.gd" id="3_spawn"]
+[ext_resource type="Texture2D" path="res://assets/icons/items/shard_array.png" id="4_icon"]
+[ext_resource type="Resource" path="res://content/items/shard_beacon.tres" id="5_base"]
+[ext_resource type="Script" path="res://core/effects/implementations/shield_effect.gd" id="6_shield"]
+
+[sub_resource type="Resource" id="SpawnBonusCells"]
+script = ExtResource("3_spawn")
+target = 2
+cell_type = 4
+count = 4
+cell_value = 1
+
+[sub_resource type="Resource" id="Shield"]
+script = ExtResource("6_shield")
+target = 0
+amount = 4
+
+[resource]
+script = ExtResource("1_item")
+display_name = "Shard Array"
+description = "Gain 4 Shield. Mark up to 4 random empty cells as Bonus cells worth 3 Shards each."
+category = 6
+rarity = 1
+tags = Array[StringName]([&"shards", &"board"])
+base_shop_price = 30
+maximum_stack_size = 2
+charges_per_purchase = 1
+target_mode = 6
+effects = Array[ExtResource("2_effect")]([SubResource("Shield"), SubResource("SpawnBonusCells")])
+accent_color = Color(0.65, 0.45, 1, 1)
+icon = ExtResource("4_icon")
+variant_of = ExtResource("5_base")

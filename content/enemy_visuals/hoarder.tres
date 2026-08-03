@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyVisualDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://presentation/combat/enemy_visual_definition.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/enemies/hoarder.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+sprite = ExtResource("2")
+sprite_scale = 0.84
+sprite_offset = Vector2(0, 7)
+shadow_size = Vector2(205, 38)
+accent_color = Color(1, 0.72, 0.25, 1)
+idle_height = 5.0
+idle_duration = 1.7
+idle_rotation_degrees = 1.8
+attack_style = 1

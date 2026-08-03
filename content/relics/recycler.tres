@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="RelicDefinition" format=3 uid="uid://uui8k2rkg3ip"]
+
+[ext_resource type="Script" uid="uid://0mp85i0jyi22" path="res://core/relics/relic_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://d28cef128is7k" path="res://core/relics/relic_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://faf4ednfysxd" path="res://core/artifacts/boss_artifact_definition.gd" id="2_oeou8"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+reroll_bonus = 1
+
+[resource]
+script = ExtResource("1")
+display_name = "Recycler"
+description = "Gain 1 free redraw each encounter."
+effect = SubResource("Effect")

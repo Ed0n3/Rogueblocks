@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://s83b8d7wgbw4"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1_sxkt3"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2_6gcch"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Crushing Bite"
+intent_description = "Bite for 5 damage."
+action_tags = Array[StringName]([&"attack", &"bite", &"melee"])
+weight = 0.4
+cannot_repeat = true
+accent_color = Color(1, 0.4, 0.3, 1)
+direct_damage = 5

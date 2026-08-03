@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+display_name = "Grid Strike"
+intent_description = "Deal 6 direct damage."
+action_tags = Array[StringName]([&"attack", &"direct_damage"])
+weight = 0.35
+direct_damage = 6
+icon_type = 0

@@ -1,0 +1,124 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/debug/debug_option_picker.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://hay1hu5nk5gd" path="res://presentation/theme/game_theme.tres" id="2_theme"]
+[ext_resource type="Texture2D" uid="uid://nerrmcfo2k3l" path="res://assets/icons/empty_texture.tres" id="3_empty"]
+
+[node name="DebugOptionPicker" type="Control"]
+visible = false
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="Shade" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.015, 0.025, 0.055, 0.88)
+
+[node name="Backdrop" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+flat = true
+icon = ExtResource("3_empty")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Center" type="CenterContainer" parent="Margin"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PickerPanel" type="PanelContainer" parent="Margin/Center"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(680, 0)
+layout_mode = 2
+mouse_filter = 0
+theme_type_variation = &"ElevatedPanel"
+
+[node name="Layout" type="VBoxContainer" parent="Margin/Center/PickerPanel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Header" type="HBoxContainer" parent="Margin/Center/PickerPanel/Layout"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Margin/Center/PickerPanel/Layout/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeadingMedium"
+text = "SELECT"
+vertical_alignment = 1
+
+[node name="Close" type="Button" parent="Margin/Center/PickerPanel/Layout/Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 2
+theme_type_variation = &"GhostButton"
+text = "CLOSE"
+icon = ExtResource("3_empty")
+
+[node name="Choices" type="GridContainer" parent="Margin/Center/PickerPanel/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="Footer" type="HBoxContainer" parent="Margin/Center/PickerPanel/Layout"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Previous" type="Button" parent="Margin/Center/PickerPanel/Layout/Footer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+text = "PREVIOUS"
+icon = ExtResource("3_empty")
+
+[node name="Page" type="Label" parent="Margin/Center/PickerPanel/Layout/Footer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"NumericDisplay"
+text = "1 / 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Next" type="Button" parent="Margin/Center/PickerPanel/Layout/Footer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 52)
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+text = "NEXT"
+icon = ExtResource("3_empty")

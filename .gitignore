@@ -1,0 +1,6 @@
+# Godot 4+ specific ignores
+.godot/
+.godot_46_cache/
+.godot_user/
+/android/
+*.exe

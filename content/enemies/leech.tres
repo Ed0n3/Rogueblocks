@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3 uid="uid://bs7ltjfgq5io4"]
+[ext_resource type="Resource" path="res://content/enemy_visuals/leech.tres" id="visual"]
+
+[ext_resource type="Script" uid="uid://ejuwc61dd8as" path="res://core/combat/enemy_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://bbyykmmb01scj" path="res://core/combat/enemy_phase_definition.gd" id="1_5s41k"]
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="2_lqvql"]
+
+[resource]
+script = ExtResource("1")
+visual = ExtResource("visual")
+display_name = "Siphon Golem"
+initially_unlocked = false
+maximum_health = 32
+direct_damage = 3
+heal_on_no_clear = 3
+minimum_act = 1
+maximum_act = 2
+selection_weight = 1.0

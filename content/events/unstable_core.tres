@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="RunEventDefinition" format=3 uid="uid://cio4ry0qdurkq"]
+
+[ext_resource type="Script" uid="uid://4p0uxo08n5wv" path="res://core/events/run_event_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://cg8woti0slts2" path="res://core/events/event_choice_definition.gd" id="2"]
+
+[sub_resource type="Resource" id="Take"]
+script = ExtResource("2")
+choice_text = "Drain the core"
+result_preview = "Gain 20 Shards. Add five corrupted cells to the next fight."
+shard_reward = 20
+corrupted_cells_next_encounter = 5
+
+[sub_resource type="Resource" id="Leave"]
+script = ExtResource("2")
+choice_text = "Refuse"
+result_preview = "Leave the unstable machinery untouched."
+
+[resource]
+script = ExtResource("1")
+title = "Unstable Core"
+description = "Power leaks from a cracked containment shell."
+initially_unlocked = false
+choices = Array[ExtResource("2")]([SubResource("Take"), SubResource("Leave")])

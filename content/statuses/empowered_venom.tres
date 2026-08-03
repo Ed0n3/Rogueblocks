@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="StatusDefinition" format=3 uid="uid://ukirf1wuchje"]
+
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1"]
+[ext_resource type="Resource" path="res://content/status_visuals/poison.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Empowered Venom"
+description = "The next Venom Burst poisons 1 extra placed Block."
+category = 0
+tags = Array[StringName]([&"positive", &"buff", &"poison"])
+default_duration_turns = 99
+duration_phase = 0
+is_cleansable = false
+accent_color = Color(0.6, 0.95, 0.3, 1)
+icon_type = 6
+visual_definition = ExtResource("2")

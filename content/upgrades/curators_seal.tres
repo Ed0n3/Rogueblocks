@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" format=3 uid="uid://dq13bb7klcft5"]
+
+[ext_resource type="Script" uid="uid://c0vske0subwsi" path="res://core/progression/upgrade_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://dfndwdlwv1rfk" path="res://core/progression/permanent_upgrade_effect.gd" id="2"]
+[ext_resource type="Script" uid="uid://bewmdvfuirr1p" path="res://core/combat/damage_modifier_definition.gd" id="2_w23of"]
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2")
+guarantee_small_draft_candidate = true
+
+[resource]
+script = ExtResource("1")
+display_name = "Small-Piece Guarantee"
+description = "Each starting draft includes a small piece."
+category = 1
+base_cost = 35
+explicit_costs = null
+prerequisite_levels = null
+effects = Array[ExtResource("2")]([SubResource("Effect")])
+tree_column = 3
+tree_row = 2
+board_level_thresholds = null

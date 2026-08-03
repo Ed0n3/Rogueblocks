@@ -1,0 +1,193 @@
+[gd_scene format=3 uid="uid://rf3gmcdvmavh"]
+
+[ext_resource type="Script" uid="uid://byln3buuxva7j" path="res://scenes/menu/main_menu_screen.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/home.png" id="2_home"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/seed.png" id="3_seed"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/play.png" id="4_play"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/test.png" id="5_test"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/settings.png" id="6_settings"]
+[ext_resource type="Texture2D" path="res://assets/icons/actions/quit.png" id="7_quit"]
+
+[node name="MainMenuScreen" type="Control" unique_id=1828117633]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="ProfileSummary" type="Label" parent="." unique_id=843567243]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = 24.0
+offset_right = -32.0
+offset_bottom = 82.0
+grow_horizontal = 0
+theme_type_variation = &"MutedText"
+text = "PROFILE"
+horizontal_alignment = 2
+
+[node name="Composition" type="GridContainer" parent="." unique_id=1242836655]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -510.0
+offset_top = -245.0
+offset_right = 510.0
+offset_bottom = 245.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 80
+columns = 2
+
+[node name="LogoArea" type="VBoxContainer" parent="Composition" unique_id=1975145897]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Eyebrow" type="Label" parent="Composition/LogoArea" unique_id=1171923402]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47, 0.66, 1, 1)
+
+[node name="Title" type="Label" parent="Composition/LogoArea" unique_id=950923349]
+layout_mode = 2
+theme_type_variation = &"HeadingLarge"
+theme_override_font_sizes/font_size = 72
+text = "ROGUEBLOCKS"
+
+[node name="Underline" type="ColorRect" parent="Composition/LogoArea" unique_id=521011186]
+custom_minimum_size = Vector2(370, 3)
+layout_mode = 2
+color = Color(0.49, 0.91, 0.85, 0.86)
+
+[node name="Subtitle" type="Label" parent="Composition/LogoArea" unique_id=289317875]
+layout_mode = 2
+theme_type_variation = &"MutedText"
+text = "PLACE  |  CLEAR  |  STRIKE  |  SURVIVE"
+
+[node name="Description" type="Label" parent="Composition/LogoArea" unique_id=720546309]
+custom_minimum_size = Vector2(430, 0)
+layout_mode = 2
+theme_type_variation = &"BodyText"
+autowrap_mode = 2
+
+[node name="MenuCard" type="PanelContainer" parent="Composition" unique_id=1668022031]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(370, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"ElevatedPanel"
+
+[node name="Menu" type="VBoxContainer" parent="Composition/MenuCard" unique_id=806154230]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="MenuTitle" type="Label" parent="Composition/MenuCard/Menu" unique_id=818099211]
+layout_mode = 2
+theme_type_variation = &"HeadingMedium"
+text = "BEGIN"
+
+[node name="NewRunButton" type="Button" parent="Composition/MenuCard/Menu" unique_id=1033809019]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_type_variation = &"PrimaryButton"
+tooltip_text = "Enter Progression Hub"
+icon = ExtResource("2_home")
+expand_icon = true
+icon_max_width = 40
+icon_alignment = 1
+
+[node name="SeededToggle" type="Button" parent="Composition/MenuCard/Menu" unique_id=1746023219]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_type_variation = &"GhostButton"
+tooltip_text = "Show Seeded Run"
+icon = ExtResource("3_seed")
+expand_icon = true
+icon_max_width = 40
+icon_alignment = 1
+
+[node name="SeedArea" type="VBoxContainer" parent="Composition/MenuCard/Menu" unique_id=293529250]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SeedInput" type="LineEdit" parent="Composition/MenuCard/Menu/SeedArea" unique_id=727822200]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Numeric seed"
+alignment = 1
+
+[node name="SeededRunButton" type="Button" parent="Composition/MenuCard/Menu/SeedArea" unique_id=707886267]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+tooltip_text = "Start Seeded Run"
+icon = ExtResource("4_play")
+expand_icon = true
+icon_max_width = 36
+icon_alignment = 1
+
+[node name="Divider" type="HSeparator" parent="Composition/MenuCard/Menu" unique_id=1538074322]
+layout_mode = 2
+
+[node name="TestAreaButton" type="Button" parent="Composition/MenuCard/Menu" unique_id=231913638]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_type_variation = &"GhostButton"
+tooltip_text = "Open Test Area"
+icon = ExtResource("5_test")
+expand_icon = true
+icon_max_width = 40
+icon_alignment = 1
+
+[node name="SettingsButton" type="Button" parent="Composition/MenuCard/Menu" unique_id=990299158]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_type_variation = &"GhostButton"
+tooltip_text = "Settings"
+icon = ExtResource("6_settings")
+expand_icon = true
+icon_max_width = 40
+icon_alignment = 1
+
+[node name="QuitButton" type="Button" parent="Composition/MenuCard/Menu" unique_id=1068781984]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_type_variation = &"GhostButton"
+tooltip_text = "Quit Game"
+icon = ExtResource("7_quit")
+expand_icon = true
+icon_max_width = 40
+icon_alignment = 1
+
+[node name="Version" type="Label" parent="." unique_id=836508940]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -42.0
+offset_right = -24.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"MutedText"
+text = "ROGUEBLOCKS  |  GODOT 4.7"

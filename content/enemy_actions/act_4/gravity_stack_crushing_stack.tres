@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyActionDefinition" format=3 uid="uid://mde8d8cbsj01"]
+
+[ext_resource type="Script" uid="uid://cruk2m7mwyx7e" path="res://core/combat/enemy_action_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://baf5wy3pfcq0r" path="res://core/effects/status_definition.gd" id="1_bxksm"]
+[ext_resource type="Script" uid="uid://c67a3i5ceryfs" path="res://core/effects/gameplay_effect.gd" id="2_axtut"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Crushing Stack"
+intent_description = "Collapse for 9 damage and place two blockers."
+action_tags = Array[StringName]([&"attack", &"gravity", &"blocker"])
+weight = 0.45
+cannot_repeat = true
+icon_type = 5
+accent_color = Color(0.35, 0.8, 1, 1)
+requires_empty_cell = true
+direct_damage = 9
+blocker_count = 2
