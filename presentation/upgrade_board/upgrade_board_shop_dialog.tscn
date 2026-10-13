@@ -1,34 +1,31 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene format=3 uid="uid://c56xc4sjg8m8w"]
 
-[ext_resource type="Script" path="res://presentation/upgrade_board/upgrade_board_shop_dialog.gd" id="1"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/close.png" id="2_close"]
+[ext_resource type="Script" uid="uid://bmvqe1v65wgl2" path="res://presentation/upgrade_board/upgrade_board_shop_dialog.gd" id="1"]
 [ext_resource type="PackedScene" path="res://presentation/cards/shop_item_icon.tscn" id="3"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/buy.png" id="4_buy"]
 
-[node name="UpgradeBoardShopDialog" type="Control"]
-z_index = 10
+[node name="UpgradeBoardShopDialog" type="Control" unique_id=1451935025]
 visible = false
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 0
 script = ExtResource("1")
 
-[node name="Dim" type="ColorRect" parent="."]
+[node name="Dim" type="ColorRect" parent="." unique_id=390044418]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 0
 color = Color(0.006, 0.01, 0.026, 0.92)
 
-[node name="Panel" type="PanelContainer" parent="."]
+[node name="Panel" type="PanelContainer" parent="." unique_id=1189745889]
 layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.04
 anchor_top = 0.06
 anchor_right = 0.96
@@ -37,126 +34,125 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"ElevatedPanel"
 
-[node name="Margin" type="MarginContainer" parent="Panel"]
+[node name="Margin" type="MarginContainer" parent="Panel" unique_id=57378170]
 layout_mode = 2
 theme_override_constants/margin_left = 18
 theme_override_constants/margin_top = 14
 theme_override_constants/margin_right = 18
 theme_override_constants/margin_bottom = 14
 
-[node name="Layout" type="VBoxContainer" parent="Panel/Margin"]
+[node name="Layout" type="VBoxContainer" parent="Panel/Margin" unique_id=1496582362]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Header" type="HBoxContainer" parent="Panel/Margin/Layout"]
+[node name="Header" type="HBoxContainer" parent="Panel/Margin/Layout" unique_id=1209508409]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Heading" type="VBoxContainer" parent="Panel/Margin/Layout/Header"]
+[node name="Heading" type="VBoxContainer" parent="Panel/Margin/Layout/Header" unique_id=485347245]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="Panel/Margin/Layout/Header/Heading"]
+[node name="Title" type="Label" parent="Panel/Margin/Layout/Header/Heading" unique_id=1174080822]
 layout_mode = 2
 theme_type_variation = &"HeadingMedium"
 theme_override_font_sizes/font_size = 27
 text = "MATRIX FOUNDRY"
 
-[node name="Subtitle" type="Label" parent="Panel/Margin/Layout/Header/Heading"]
+[node name="Subtitle" type="Label" parent="Panel/Margin/Layout/Header/Heading" unique_id=1715447752]
 layout_mode = 2
 theme_type_variation = &"MutedText"
 text = "Buy unlocked Block shapes with Fragments • every purchase adds one Block to the reserve"
 
-[node name="FragmentBalance" type="Label" parent="Panel/Margin/Layout/Header"]
+[node name="FragmentBalance" type="Label" parent="Panel/Margin/Layout/Header" unique_id=1835161453]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"NumericDisplay"
 text = "0 FRAGMENTS"
 vertical_alignment = 1
 
-[node name="Close" type="Button" parent="Panel/Margin/Layout/Header"]
+[node name="Close" type="Button" parent="Panel/Margin/Layout/Header" unique_id=1245579691]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(94, 44)
 layout_mode = 2
-theme_type_variation = &"GhostButton"
 tooltip_text = "Close Foundry"
-icon = ExtResource("2_close")
-expand_icon = true
-icon_max_width = 32
+theme_type_variation = &"GhostButton"
+text = "BACK"
 icon_alignment = 1
+expand_icon = true
 
-[node name="Rule" type="HSeparator" parent="Panel/Margin/Layout"]
+[node name="Rule" type="HSeparator" parent="Panel/Margin/Layout" unique_id=531400313]
 layout_mode = 2
 
-[node name="Content" type="HBoxContainer" parent="Panel/Margin/Layout"]
+[node name="Content" type="HBoxContainer" parent="Panel/Margin/Layout" unique_id=427061782]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 12
 
-[node name="CatalogPanel" type="PanelContainer" parent="Panel/Margin/Layout/Content"]
+[node name="CatalogPanel" type="PanelContainer" parent="Panel/Margin/Layout/Content" unique_id=1088027435]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = &"InsetPanel"
 
-[node name="CatalogMargin" type="MarginContainer" parent="Panel/Margin/Layout/Content/CatalogPanel"]
+[node name="CatalogMargin" type="MarginContainer" parent="Panel/Margin/Layout/Content/CatalogPanel" unique_id=594550258]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="CatalogLayout" type="VBoxContainer" parent="Panel/Margin/Layout/Content/CatalogPanel/CatalogMargin"]
+[node name="CatalogLayout" type="VBoxContainer" parent="Panel/Margin/Layout/Content/CatalogPanel/CatalogMargin" unique_id=1707750774]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="CatalogTitle" type="Label" parent="Panel/Margin/Layout/Content/CatalogPanel/CatalogMargin/CatalogLayout"]
+[node name="CatalogTitle" type="Label" parent="Panel/Margin/Layout/Content/CatalogPanel/CatalogMargin/CatalogLayout" unique_id=873496638]
 layout_mode = 2
 theme_type_variation = &"HeadingSmall"
 text = "BLOCK CATALOG"
 
-[node name="CatalogHint" type="Label" parent="Panel/Margin/Layout/Content/CatalogPanel/CatalogMargin/CatalogLayout"]
+[node name="CatalogHint" type="Label" parent="Panel/Margin/Layout/Content/CatalogPanel/CatalogMargin/CatalogLayout" unique_id=878016822]
 layout_mode = 2
 theme_type_variation = &"MutedText"
 text = "Larger and more versatile shapes cost more. Every unlocked shape can be purchased repeatedly."
 autowrap_mode = 2
 
-[node name="Scroll" type="ScrollContainer" parent="Panel/Margin/Layout/Content/CatalogPanel/CatalogMargin/CatalogLayout"]
+[node name="Scroll" type="ScrollContainer" parent="Panel/Margin/Layout/Content/CatalogPanel/CatalogMargin/CatalogLayout" unique_id=600162260]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="Catalog" type="HFlowContainer" parent="Panel/Margin/Layout/Content/CatalogPanel/CatalogMargin/CatalogLayout/Scroll"]
+[node name="Catalog" type="HFlowContainer" parent="Panel/Margin/Layout/Content/CatalogPanel/CatalogMargin/CatalogLayout/Scroll" unique_id=603480660]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 
-[node name="DetailPanel" type="PanelContainer" parent="Panel/Margin/Layout/Content"]
+[node name="DetailPanel" type="PanelContainer" parent="Panel/Margin/Layout/Content" unique_id=269230841]
 custom_minimum_size = Vector2(310, 0)
 layout_mode = 2
 theme_type_variation = &"StandardPanel"
 
-[node name="DetailMargin" type="MarginContainer" parent="Panel/Margin/Layout/Content/DetailPanel"]
+[node name="DetailMargin" type="MarginContainer" parent="Panel/Margin/Layout/Content/DetailPanel" unique_id=2030292549]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 14
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 14
 
-[node name="Details" type="VBoxContainer" parent="Panel/Margin/Layout/Content/DetailPanel/DetailMargin"]
+[node name="Details" type="VBoxContainer" parent="Panel/Margin/Layout/Content/DetailPanel/DetailMargin" unique_id=903998527]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Preview" parent="Panel/Margin/Layout/Content/DetailPanel/DetailMargin/Details" instance=ExtResource("3")]
+[node name="Preview" parent="Panel/Margin/Layout/Content/DetailPanel/DetailMargin/Details" unique_id=1971570965 instance=ExtResource("3")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(104, 104)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="PieceName" type="Label" parent="Panel/Margin/Layout/Content/DetailPanel/DetailMargin/Details"]
+[node name="PieceName" type="Label" parent="Panel/Margin/Layout/Content/DetailPanel/DetailMargin/Details" unique_id=1967601173]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeadingMedium"
@@ -165,14 +161,13 @@ text = "SELECT A BLOCK"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="PieceStats" type="Label" parent="Panel/Margin/Layout/Content/DetailPanel/DetailMargin/Details"]
+[node name="PieceStats" type="Label" parent="Panel/Margin/Layout/Content/DetailPanel/DetailMargin/Details" unique_id=1636229771]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"MutedText"
-text = ""
 horizontal_alignment = 1
 
-[node name="PieceDescription" type="Label" parent="Panel/Margin/Layout/Content/DetailPanel/DetailMargin/Details"]
+[node name="PieceDescription" type="Label" parent="Panel/Margin/Layout/Content/DetailPanel/DetailMargin/Details" unique_id=1992169889]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 76)
 layout_mode = 2
@@ -180,35 +175,31 @@ size_flags_vertical = 3
 text = "Select a Block from the catalog."
 autowrap_mode = 2
 
-[node name="Owned" type="Label" parent="Panel/Margin/Layout/Content/DetailPanel/DetailMargin/Details"]
+[node name="Owned" type="Label" parent="Panel/Margin/Layout/Content/DetailPanel/DetailMargin/Details" unique_id=1861407956]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"MutedText"
-text = ""
 
-[node name="Price" type="Label" parent="Panel/Margin/Layout/Content/DetailPanel/DetailMargin/Details"]
+[node name="Price" type="Label" parent="Panel/Margin/Layout/Content/DetailPanel/DetailMargin/Details" unique_id=2147429831]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"NumericDisplay"
 theme_override_font_sizes/font_size = 19
-text = ""
 
-[node name="Feedback" type="Label" parent="Panel/Margin/Layout/Content/DetailPanel/DetailMargin/Details"]
+[node name="Feedback" type="Label" parent="Panel/Margin/Layout/Content/DetailPanel/DetailMargin/Details" unique_id=856038379]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 38)
 layout_mode = 2
 theme_type_variation = &"MutedText"
-text = ""
 autowrap_mode = 2
 
-[node name="Buy" type="Button" parent="Panel/Margin/Layout/Content/DetailPanel/DetailMargin/Details"]
+[node name="Buy" type="Button" parent="Panel/Margin/Layout/Content/DetailPanel/DetailMargin/Details" unique_id=622105680]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 54)
 layout_mode = 2
+tooltip_text = "Buy Block"
 theme_type_variation = &"PrimaryButton"
 disabled = true
-tooltip_text = "Buy Block"
-icon = ExtResource("4_buy")
-expand_icon = true
-icon_max_width = 40
+text = "BUY BLOCK"
 icon_alignment = 1
+expand_icon = true

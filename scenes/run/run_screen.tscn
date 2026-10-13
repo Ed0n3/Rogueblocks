@@ -17,20 +17,11 @@
 [ext_resource type="PackedScene" path="res://presentation/combat/vault_piece_list.tscn" id="18"]
 [ext_resource type="PackedScene" path="res://presentation/combat/status_effect_info_overlay.tscn" id="19"]
 [ext_resource type="PackedScene" uid="uid://bm6kltjaa1qga" path="res://presentation/board/board_tile_map_renderer.tscn" id="20"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/reroll.png" id="23_reroll_piece"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/emergency.png" id="24_emergency_clear"]
+[ext_resource type="Texture2D" uid="uid://b6so8geqlv26n" path="res://assets/icons/actions/emergency.png" id="24_emergency_clear"]
 [ext_resource type="PackedScene" path="res://presentation/deck/piece_hand_view.tscn" id="25_hand"]
 [ext_resource type="PackedScene" path="res://presentation/deck/piece_pile_view.tscn" id="26_pile"]
 [ext_resource type="PackedScene" path="res://presentation/combat/status_health_bar.tscn" id="27_status_health"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/vault.png" id="28_vault"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/skip.png" id="29_skip"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/log.png" id="30_log"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/pause.png" id="31_pause"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/rotate_left.png" id="32_rotate_left"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/rotate_right.png" id="33_rotate_right"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/place.png" id="34_place"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/end_turn.png" id="35_end_turn"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/close.png" id="36_close"]
+[ext_resource type="Texture2D" uid="uid://dn4clt5llxbq1" path="res://assets/icons/actions/close.png" id="36_close"]
 
 [sub_resource type="StyleBoxFlat" id="DialogPanel"]
 content_margin_left = 20.0
@@ -822,10 +813,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Vault of Shapes"
 theme_type_variation = &"SecondaryButton"
+text = "VAULT"
 icon = ExtResource("4")
 script = ExtResource("17")
 action_icon = 7
-sprite_texture = ExtResource("28_vault")
 icon_size = 42.0
 
 [node name="TwinSkipButton" type="Button" parent="MainMargin/ScreenLayout/TopStatus/StatusRow/ArtifactActions" unique_id=1261944036]
@@ -835,10 +826,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Skip second placement"
 theme_type_variation = &"SecondaryButton"
+text = "SKIP"
 icon = ExtResource("4")
 script = ExtResource("17")
 action_icon = 8
-sprite_texture = ExtResource("29_skip")
 icon_size = 42.0
 
 [node name="Seed" type="Label" parent="MainMargin/ScreenLayout/TopStatus/StatusRow" unique_id=107507767]
@@ -854,10 +845,10 @@ layout_mode = 2
 tooltip_text = "Combat log"
 theme_type_variation = &"CompactButton"
 toggle_mode = true
+text = "LOG"
 icon = ExtResource("4")
 script = ExtResource("17")
 action_icon = 0
-sprite_texture = ExtResource("30_log")
 icon_size = 42.0
 
 [node name="PauseButton" type="Button" parent="MainMargin/ScreenLayout/TopStatus/StatusRow" unique_id=1611907062 groups=["tutorial_input_passthrough"]]
@@ -866,10 +857,10 @@ custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 tooltip_text = "Pause"
 theme_type_variation = &"FlatButton"
+text = "MENU"
 icon = ExtResource("4")
 script = ExtResource("17")
 action_icon = 1
-sprite_texture = ExtResource("31_pause")
 icon_size = 42.0
 
 [node name="MainLayout" type="HBoxContainer" parent="MainMargin/ScreenLayout" unique_id=197450627]
@@ -1175,9 +1166,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Rotate left (Q)"
 theme_type_variation = &"CompactButton"
+text = "ROT. LEFT"
 script = ExtResource("17")
 action_icon = 2
-sprite_texture = ExtResource("32_rotate_left")
 icon_size = 48.0
 
 [node name="TextureRect" type="TextureRect" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel/DraftLayout/Rotation/RotateLeft" unique_id=1209700066]
@@ -1206,7 +1197,6 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 
 [node name="PlaceButton" type="Button" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel/DraftLayout/Rotation" unique_id=2140769270]
 unique_name_in_owner = true
@@ -1216,9 +1206,9 @@ size_flags_horizontal = 3
 tooltip_text = "Place Block"
 theme_type_variation = &"CompactPrimaryButton"
 disabled = true
+text = "PLACE"
 icon = ExtResource("4")
 script = ExtResource("17")
-sprite_texture = ExtResource("34_place")
 icon_size = 64.0
 
 [node name="RotateRight" type="Button" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel/DraftLayout/Rotation" unique_id=661430219]
@@ -1228,10 +1218,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Rotate right (E)"
 theme_type_variation = &"CompactButton"
+text = "ROT. RIGHT"
 icon = ExtResource("4")
 script = ExtResource("17")
 action_icon = 3
-sprite_texture = ExtResource("33_rotate_right")
 icon_size = 48.0
 
 [node name="TextureRect" type="TextureRect" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel/DraftLayout/Rotation/RotateRight" unique_id=1245821919]
@@ -1260,7 +1250,6 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 
 [node name="UtilityActions" type="HBoxContainer" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel/DraftLayout" unique_id=1066423080]
 custom_minimum_size = Vector2(0, 50)
@@ -1275,10 +1264,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Redraw all drawn pieces for 1 PM"
 theme_type_variation = &"SecondaryButton"
+text = "ROLL"
 icon = ExtResource("4")
 script = ExtResource("17")
 action_icon = 5
-sprite_texture = ExtResource("23_reroll_piece")
 icon_size = 44.0
 
 [node name="EndTurnButton" type="Button" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel/DraftLayout/UtilityActions" unique_id=2078872230]
@@ -1288,10 +1277,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "End the turn and discard remaining pieces"
 theme_type_variation = &"SecondaryButton"
+text = "END"
 icon = ExtResource("4")
 script = ExtResource("17")
 action_icon = 9
-sprite_texture = ExtResource("35_end_turn")
 icon_size = 44.0
 
 [node name="EmergencyButton" type="Button" parent="MainMargin/ScreenLayout/MainLayout/RightCombatColumn/DraftPanel/DraftLayout/UtilityActions" unique_id=1071573573]
@@ -1301,6 +1290,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Emergency clear"
 theme_type_variation = &"DangerButton"
+text = "CLEAR"
 icon = ExtResource("4")
 script = ExtResource("17")
 action_icon = 6
@@ -1412,12 +1402,11 @@ text = "ITEM"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(52, 52)
 layout_mode = 2
-theme_type_variation = &"GhostButton"
 tooltip_text = "Close Item Details"
+theme_type_variation = &"GhostButton"
 icon = ExtResource("36_close")
-expand_icon = true
-icon_max_width = 34
 icon_alignment = 1
+expand_icon = true
 
 [node name="ItemInfoMeta" type="Label" parent="ItemInfoOverlay/Center/Panel/Layout" unique_id=1211864066]
 unique_name_in_owner = true

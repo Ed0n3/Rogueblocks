@@ -2,22 +2,29 @@
 
 [ext_resource type="Script" uid="uid://d3h17m3lg2r4i" path="res://core/progression/upgrade_board/upgrade_board_rules.gd" id="1_rules"]
 [ext_resource type="Script" uid="uid://dh83jwkw6cmf1" path="res://core/progression/upgrade_board/upgrade_board_region_slot.gd" id="2_region_slot"]
-[ext_resource type="Script" path="res://core/progression/upgrade_board/configuration/upgrade_matrix_layout_configuration.gd" id="3_layout"]
-[ext_resource type="Script" path="res://core/progression/upgrade_board/configuration/upgrade_matrix_progression_configuration.gd" id="4_progression"]
-[ext_resource type="Script" path="res://core/progression/upgrade_board/configuration/upgrade_matrix_economy_configuration.gd" id="5_economy"]
-[ext_resource type="Script" path="res://core/progression/upgrade_board/configuration/upgrade_matrix_interaction_configuration.gd" id="6_interaction"]
-[ext_resource type="Script" path="res://core/progression/upgrade_board/configuration/upgrade_matrix_presentation_configuration.gd" id="7_presentation"]
-[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/reinforced_core_region.tres" id="region_reinforced_core"]
-[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/field_repair_region.tres" id="region_field_repair"]
-[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/last_reserve_region.tres" id="region_last_reserve"]
-[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/damage_calibration_region.tres" id="region_damage_calibration"]
+[ext_resource type="Script" uid="uid://cws3sk8mfej3g" path="res://core/progression/upgrade_board/configuration/upgrade_matrix_layout_configuration.gd" id="3_layout"]
+[ext_resource type="Script" uid="uid://bkmdt3ue2sisv" path="res://core/progression/upgrade_board/configuration/upgrade_matrix_progression_configuration.gd" id="4_progression"]
+[ext_resource type="Script" uid="uid://b2cqmwkiicxjd" path="res://core/progression/upgrade_board/configuration/upgrade_matrix_economy_configuration.gd" id="5_economy"]
+[ext_resource type="Script" uid="uid://dh6svmfllhhmm" path="res://core/progression/upgrade_board/configuration/upgrade_matrix_interaction_configuration.gd" id="6_interaction"]
+[ext_resource type="Script" uid="uid://syt3ep2fkl68" path="res://core/progression/upgrade_board/configuration/upgrade_matrix_presentation_configuration.gd" id="7_presentation"]
+[ext_resource type="Resource" uid="uid://bbwnxs6kaanum" path="res://content/upgrade_matrix/regions/advanced_routes_region.tres" id="region_advanced_routes"]
+[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/curators_seal_region.tres" id="region_curators_seal"]
+[ext_resource type="Resource" uid="uid://d31ktgmcde7xg" path="res://content/upgrade_matrix/regions/damage_calibration_region.tres" id="region_damage_calibration"]
+[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/deep_pockets_region.tres" id="region_deep_pockets"]
 [ext_resource type="Resource" path="res://content/upgrade_matrix/regions/emergency_clearance_region.tres" id="region_emergency_clearance"]
+[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/encounter_archive_i_region.tres" id="region_encounter_archive_i"]
+[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/expanded_belt_region.tres" id="region_expanded_belt"]
 [ext_resource type="Resource" path="res://content/upgrade_matrix/regions/expanded_selection_region.tres" id="region_expanded_selection"]
-[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/second_look_region.tres" id="region_second_look"]
-[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/salvager_region.tres" id="region_salvager"]
+[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/field_repair_region.tres" id="region_field_repair"]
+[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/larger_showcase_region.tres" id="region_larger_showcase"]
+[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/last_reserve_region.tres" id="region_last_reserve"]
 [ext_resource type="Resource" path="res://content/upgrade_matrix/regions/negotiator_region.tres" id="region_negotiator"]
-[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/starter_cache_region.tres" id="region_starter_cache"]
+[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/prepared_adventurer_region.tres" id="region_prepared_adventurer"]
+[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/reinforced_core_region.tres" id="region_reinforced_core"]
+[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/relic_archive_i_region.tres" id="region_relic_archive_i"]
 [ext_resource type="Resource" path="res://content/upgrade_matrix/regions/reward_insight_region.tres" id="region_reward_insight"]
+[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/salvager_region.tres" id="region_salvager"]
+[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/second_look_region.tres" id="region_second_look"]
 [ext_resource type="Resource" path="res://content/upgrade_matrix/regions/shape_archive_i_region.tres" id="region_shape_archive_i"]
 [ext_resource type="Resource" path="res://content/upgrade_matrix/regions/shape_archive_ii_region.tres" id="region_shape_archive_ii"]
 [ext_resource type="Resource" path="res://content/upgrade_matrix/regions/shape_archive_iii_region.tres" id="region_shape_archive_iii"]
@@ -25,22 +32,8 @@
 [ext_resource type="Resource" path="res://content/upgrade_matrix/regions/shape_archive_v_region.tres" id="region_shape_archive_v"]
 [ext_resource type="Resource" path="res://content/upgrade_matrix/regions/shape_archive_vi_region.tres" id="region_shape_archive_vi"]
 [ext_resource type="Resource" path="res://content/upgrade_matrix/regions/shape_archive_vii_region.tres" id="region_shape_archive_vii"]
-[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/relic_archive_i_region.tres" id="region_relic_archive_i"]
-[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/encounter_archive_i_region.tres" id="region_encounter_archive_i"]
-[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/advanced_routes_region.tres" id="region_advanced_routes"]
 [ext_resource type="Resource" path="res://content/upgrade_matrix/regions/spawn_more_elites_region.tres" id="region_spawn_more_elites"]
-[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/larger_showcase_region.tres" id="region_larger_showcase"]
-[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/curators_seal_region.tres" id="region_curators_seal"]
-[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/expanded_belt_region.tres" id="region_expanded_belt"]
-[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/deep_pockets_region.tres" id="region_deep_pockets"]
-[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/prepared_adventurer_region.tres" id="region_prepared_adventurer"]
-
-[sub_resource type="Resource" id="LayoutConfiguration"]
-script = ExtResource("3_layout")
-region_slots = Array[ExtResource("2_region_slot")]([ExtResource("region_reinforced_core"), ExtResource("region_field_repair"), ExtResource("region_last_reserve"), ExtResource("region_damage_calibration"), ExtResource("region_emergency_clearance"), ExtResource("region_expanded_selection"), ExtResource("region_second_look"), ExtResource("region_salvager"), ExtResource("region_negotiator"), ExtResource("region_starter_cache"), ExtResource("region_reward_insight"), ExtResource("region_shape_archive_i"), ExtResource("region_shape_archive_ii"), ExtResource("region_shape_archive_iii"), ExtResource("region_shape_archive_iv"), ExtResource("region_shape_archive_v"), ExtResource("region_shape_archive_vi"), ExtResource("region_shape_archive_vii"), ExtResource("region_relic_archive_i"), ExtResource("region_encounter_archive_i"), ExtResource("region_advanced_routes"), ExtResource("region_spawn_more_elites"), ExtResource("region_larger_showcase"), ExtResource("region_curators_seal"), ExtResource("region_expanded_belt"), ExtResource("region_deep_pockets"), ExtResource("region_prepared_adventurer")])
-
-[sub_resource type="Resource" id="ProgressionConfiguration"]
-script = ExtResource("4_progression")
+[ext_resource type="Resource" path="res://content/upgrade_matrix/regions/starter_cache_region.tres" id="region_starter_cache"]
 
 [sub_resource type="Resource" id="EconomyConfiguration"]
 script = ExtResource("5_economy")
@@ -48,8 +41,16 @@ script = ExtResource("5_economy")
 [sub_resource type="Resource" id="InteractionConfiguration"]
 script = ExtResource("6_interaction")
 
+[sub_resource type="Resource" id="LayoutConfiguration"]
+script = ExtResource("3_layout")
+region_slots = Array[ExtResource("2_region_slot")]([ExtResource("region_reinforced_core"), ExtResource("region_field_repair"), ExtResource("region_last_reserve"), ExtResource("region_damage_calibration"), ExtResource("region_emergency_clearance"), ExtResource("region_expanded_selection"), ExtResource("region_second_look"), ExtResource("region_salvager"), ExtResource("region_negotiator"), ExtResource("region_starter_cache"), ExtResource("region_reward_insight"), ExtResource("region_shape_archive_i"), ExtResource("region_shape_archive_ii"), ExtResource("region_shape_archive_iii"), ExtResource("region_shape_archive_iv"), ExtResource("region_shape_archive_v"), ExtResource("region_shape_archive_vi"), ExtResource("region_shape_archive_vii"), ExtResource("region_relic_archive_i"), ExtResource("region_encounter_archive_i"), ExtResource("region_advanced_routes"), ExtResource("region_spawn_more_elites"), ExtResource("region_larger_showcase"), ExtResource("region_curators_seal"), ExtResource("region_expanded_belt"), ExtResource("region_deep_pockets"), ExtResource("region_prepared_adventurer")])
+
 [sub_resource type="Resource" id="PresentationConfiguration"]
 script = ExtResource("7_presentation")
+
+[sub_resource type="Resource" id="ProgressionConfiguration"]
+script = ExtResource("4_progression")
+default_level_thresholds = null
 
 [resource]
 script = ExtResource("1_rules")

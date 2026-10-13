@@ -2,15 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cv0j41nfm25nx" path="res://scenes/routes/route_map_screen.gd" id="1"]
 [ext_resource type="Theme" uid="uid://hay1hu5nk5gd" path="res://presentation/theme/game_theme.tres" id="1_y6qlt"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/back.png" id="2_back"]
 [ext_resource type="Texture2D" uid="uid://nerrmcfo2k3l" path="res://assets/icons/empty_texture.tres" id="2"]
 [ext_resource type="Script" uid="uid://b8pgsgs1w1xa1" path="res://ui/route_tree_view.gd" id="3"]
 [ext_resource type="PackedScene" uid="uid://de854ncoangr5" path="res://scenes/routes/run_loadout_drawer.tscn" id="4"]
 [ext_resource type="Script" uid="uid://dhq0uohrtpesg" path="res://ui/loadout_counter_button.gd" id="5"]
-[ext_resource type="Resource" path="res://content/presentation/route_symbol_set.tres" id="6"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/relic.png" id="7_relic"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/blocks.png" id="8_blocks"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/artifact.png" id="9_artifact"]
+[ext_resource type="Resource" uid="uid://cfew5ncwo8ur7" path="res://content/presentation/route_symbol_set.tres" id="6"]
 
 [node name="RouteMapScreen" type="Control" unique_id=1716433697]
 layout_mode = 3
@@ -66,12 +62,11 @@ alignment = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(104, 44)
 layout_mode = 2
-theme_type_variation = &"GhostButton"
 tooltip_text = "Back to Hub"
-icon = ExtResource("2_back")
-expand_icon = true
-icon_max_width = 40
+theme_type_variation = &"GhostButton"
+text = "BACK"
 icon_alignment = 1
+expand_icon = true
 
 [node name="Hint" type="Label" parent="Margin/Layout" unique_id=1753237322]
 visible = false
@@ -131,36 +126,32 @@ text = "SCORE  0"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
-theme_type_variation = &"GhostButton"
 tooltip_text = "Open Relics"
-icon = ExtResource("7_relic")
+theme_type_variation = &"GhostButton"
+text = "RELICS"
 expand_icon = true
-icon_max_width = 36
-icon_alignment = 1
 script = ExtResource("5")
 
 [node name="Pieces" type="Button" parent="Margin/Layout/RunStats/Stats" unique_id=1822143273]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
-theme_type_variation = &"GhostButton"
 tooltip_text = "Open Block Pile"
-icon = ExtResource("8_blocks")
-expand_icon = true
-icon_max_width = 36
+theme_type_variation = &"GhostButton"
+text = "BLOCKS"
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("5")
 
 [node name="Artifacts" type="Button" parent="Margin/Layout/RunStats/Stats" unique_id=1182667353]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
-theme_type_variation = &"GhostButton"
 tooltip_text = "Open Artifacts"
-icon = ExtResource("9_artifact")
-expand_icon = true
-icon_max_width = 36
+theme_type_variation = &"GhostButton"
+text = "ARTIFACTS"
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("5")
 
 [node name="Resources" type="Label" parent="Margin/Layout/RunStats/Stats" unique_id=497019779]

@@ -2,14 +2,10 @@
 
 [ext_resource type="Script" uid="uid://ed05ptt2oyxq" path="res://scenes/hub/hub_screen.gd" id="1"]
 [ext_resource type="Theme" uid="uid://hay1hu5nk5gd" path="res://presentation/theme/game_theme.tres" id="1_3au78"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/settings.png" id="2_settings"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/back.png" id="3_back"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/play.png" id="4_play"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/matrix.png" id="5_matrix"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/daily.png" id="6_daily"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/collection.png" id="7_collection"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/statistics.png" id="8_statistics"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/help.png" id="9_help"]
+[ext_resource type="Texture2D" uid="uid://g2m0truwyjuf" path="res://assets/icons/actions/daily.png" id="6_daily"]
+[ext_resource type="Texture2D" uid="uid://c3irm30uivv7p" path="res://assets/icons/actions/collection.png" id="7_collection"]
+[ext_resource type="Texture2D" uid="uid://d13x48srhc5b0" path="res://assets/icons/actions/statistics.png" id="8_statistics"]
+[ext_resource type="Texture2D" uid="uid://bx3mpmmbh65oo" path="res://assets/icons/actions/help.png" id="9_help"]
 
 [node name="HubScreen" type="Control" unique_id=1345316175]
 layout_mode = 3
@@ -71,10 +67,9 @@ custom_minimum_size = Vector2(104, 44)
 layout_mode = 2
 tooltip_text = "Settings"
 theme_type_variation = &"GhostButton"
-icon = ExtResource("2_settings")
-expand_icon = true
-icon_max_width = 36
+text = "SETTINGS"
 icon_alignment = 1
+expand_icon = true
 
 [node name="Back" type="Button" parent="Margin/Layout/TopBar" unique_id=1460733323]
 unique_name_in_owner = true
@@ -82,10 +77,9 @@ custom_minimum_size = Vector2(104, 44)
 layout_mode = 2
 tooltip_text = "Back to Main Menu"
 theme_type_variation = &"GhostButton"
-icon = ExtResource("3_back")
-expand_icon = true
-icon_max_width = 36
+text = "BACK"
 icon_alignment = 1
+expand_icon = true
 
 [node name="Dashboard" type="GridContainer" parent="Margin/Layout" unique_id=710623777]
 layout_mode = 2
@@ -139,37 +133,33 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 58)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = &"PrimaryButton"
 tooltip_text = "Start New Run"
-icon = ExtResource("4_play")
-expand_icon = true
-icon_max_width = 40
+theme_type_variation = &"PrimaryButton"
+text = "NEW RUN"
 icon_alignment = 1
+expand_icon = true
 
 [node name="ContinueRun" type="Button" parent="Margin/Layout/Dashboard/ExpeditionCard/Expedition/Actions" unique_id=289652426]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 58)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = &"SecondaryButton"
 tooltip_text = "Continue Run"
-icon = ExtResource("4_play")
-expand_icon = true
-icon_max_width = 40
+theme_type_variation = &"SecondaryButton"
+text = "CONTINUE RUN"
 icon_alignment = 1
+expand_icon = true
 
 [node name="ResumeFight" type="Button" parent="Margin/Layout/Dashboard/ExpeditionCard/Expedition/Actions" unique_id=854076985]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(240, 58)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = &"SecondaryButton"
 tooltip_text = "Resume Fight"
-icon = ExtResource("4_play")
-expand_icon = true
-icon_max_width = 40
+theme_type_variation = &"SecondaryButton"
+text = "RESUME FIGHT"
 icon_alignment = 1
+expand_icon = true
 
 [node name="UpgradeCard" type="PanelContainer" parent="Margin/Layout/Dashboard" unique_id=863729679]
 unique_name_in_owner = true
@@ -201,12 +191,11 @@ autowrap_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-theme_type_variation = &"SecondaryButton"
 tooltip_text = "Open Upgrade Matrix"
-icon = ExtResource("5_matrix")
-expand_icon = true
-icon_max_width = 40
+theme_type_variation = &"SecondaryButton"
+text = "OPEN MATRIX"
 icon_alignment = 1
+expand_icon = true
 
 [node name="DailyCard" type="PanelContainer" parent="Margin/Layout/Dashboard" unique_id=1659013295]
 unique_name_in_owner = true
@@ -239,12 +228,13 @@ text = "A fixed seed, fixed difficulty, and no permanent modifiers."
 unique_name_in_owner = true
 custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
-theme_type_variation = &"SecondaryButton"
 tooltip_text = "Enter Daily Challenge"
+theme_type_variation = &"SecondaryButton"
+text = "START
+CHALLENGE"
 icon = ExtResource("6_daily")
+alignment = 0
 expand_icon = true
-icon_max_width = 48
-icon_alignment = 1
 
 [node name="ArchiveCard" type="PanelContainer" parent="Margin/Layout/Dashboard" unique_id=923119921]
 custom_minimum_size = Vector2(380, 190)
@@ -267,35 +257,38 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = &"GhostButton"
 tooltip_text = "Collection"
+theme_type_variation = &"GhostButton"
+text = "COLLECTION"
 icon = ExtResource("7_collection")
-expand_icon = true
-icon_max_width = 48
 icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
 [node name="Statistics" type="Button" parent="Margin/Layout/Dashboard/ArchiveCard/ArchiveLayout/ArchiveActions" unique_id=1308850520]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = &"GhostButton"
 tooltip_text = "Statistics"
+theme_type_variation = &"GhostButton"
+text = "STATISTICS"
 icon = ExtResource("8_statistics")
-expand_icon = true
-icon_max_width = 48
 icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
 [node name="Tutorials" type="Button" parent="Margin/Layout/Dashboard/ArchiveCard/ArchiveLayout/ArchiveActions" unique_id=1085690226]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-theme_type_variation = &"GhostButton"
 tooltip_text = "Help & Tutorials"
+theme_type_variation = &"GhostButton"
+text = "HELP"
 icon = ExtResource("9_help")
-expand_icon = true
-icon_max_width = 48
-icon_alignment = 1
 autowrap_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
 [node name="ConfirmRunReplacement" type="ConfirmationDialog" parent="." unique_id=1268879668]
 unique_name_in_owner = true

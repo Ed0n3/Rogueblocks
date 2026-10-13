@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://c8upmvuekudu5"]
 
 [ext_resource type="Script" uid="uid://b1rdpvwda4j2a" path="res://scenes/settings/settings_screen.gd" id="1"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/restart.png" id="2_restart"]
 [ext_resource type="Texture2D" uid="uid://nerrmcfo2k3l" path="res://assets/icons/empty_texture.tres" id="2"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/undo.png" id="3_reset"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/play.png" id="4_play"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/confirm.png" id="5_confirm"]
+[ext_resource type="Texture2D" uid="uid://8wl23cw0tiyb" path="res://assets/icons/actions/restart.png" id="2_restart"]
+[ext_resource type="Texture2D" uid="uid://jlnx5kbb1vfq" path="res://assets/icons/actions/undo.png" id="3_reset"]
+[ext_resource type="Texture2D" uid="uid://dpuu58iginf1r" path="res://assets/icons/actions/play.png" id="4_play"]
 
 [node name="SettingsScreen" type="Control" unique_id=1357564242]
 layout_mode = 3
@@ -215,22 +214,20 @@ value = 1.0
 [node name="ReplayBasics" type="Button" parent="Center/Panel/Layout/Scroll/Columns/Tutorial" unique_id=138008956]
 unique_name_in_owner = true
 layout_mode = 2
-theme_type_variation = &"SecondaryButton"
 tooltip_text = "Replay Basics Next Run"
+theme_type_variation = &"SecondaryButton"
 icon = ExtResource("2_restart")
-expand_icon = true
-icon_max_width = 36
 icon_alignment = 1
+expand_icon = true
 
 [node name="ResetTutorials" type="Button" parent="Center/Panel/Layout/Scroll/Columns/Tutorial" unique_id=1951853149]
 unique_name_in_owner = true
 layout_mode = 2
-theme_type_variation = &"SecondaryButton"
 tooltip_text = "Reset Tutorial Progress"
+theme_type_variation = &"SecondaryButton"
 icon = ExtResource("3_reset")
-expand_icon = true
-icon_max_width = 36
 icon_alignment = 1
+expand_icon = true
 
 [node name="TutorialFeedback" type="Label" parent="Center/Panel/Layout/Scroll/Columns/Tutorial" unique_id=1381208750]
 unique_name_in_owner = true
@@ -255,23 +252,21 @@ autowrap_mode = 2
 [node name="NewGame" type="Button" parent="Center/Panel/Layout/Scroll/Columns/Data" unique_id=1503137611]
 unique_name_in_owner = true
 layout_mode = 2
-theme_type_variation = &"SecondaryButton"
 tooltip_text = "Start New Game"
+theme_type_variation = &"SecondaryButton"
 icon = ExtResource("4_play")
-expand_icon = true
-icon_max_width = 36
 icon_alignment = 1
+expand_icon = true
 
 [node name="Back" type="Button" parent="Center/Panel/Layout" unique_id=1003470290]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(104, 44)
 layout_mode = 2
-theme_type_variation = &"PrimaryButton"
 tooltip_text = "Apply and Return"
-icon = ExtResource("5_confirm")
-expand_icon = true
-icon_max_width = 36
+theme_type_variation = &"PrimaryButton"
+text = "SAVE"
 icon_alignment = 1
+expand_icon = true
 
 [node name="ConfirmNewGame" type="ConfirmationDialog" parent="." unique_id=1023297762]
 unique_name_in_owner = true

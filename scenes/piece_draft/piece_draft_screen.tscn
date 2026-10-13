@@ -2,9 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dt15mrobngp2k" path="res://scenes/piece_draft/piece_draft_screen.gd" id="1"]
 [ext_resource type="Theme" uid="uid://hay1hu5nk5gd" path="res://presentation/theme/game_theme.tres" id="1_vuhnk"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/back.png" id="2_back"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/reroll.png" id="3_reroll"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/play.png" id="4_play"]
 
 [node name="PieceDraftScreen" type="Control" unique_id=1803828119]
 layout_mode = 3
@@ -110,31 +107,28 @@ theme_override_constants/separation = 10
 unique_name_in_owner = true
 custom_minimum_size = Vector2(104, 44)
 layout_mode = 2
-theme_type_variation = &"GhostButton"
 tooltip_text = "Return to Hub"
-icon = ExtResource("2_back")
-expand_icon = true
-icon_max_width = 36
+theme_type_variation = &"GhostButton"
+text = "HUB"
 icon_alignment = 1
+expand_icon = true
 
 [node name="Randomize" type="Button" parent="Margin/Layout/Actions" unique_id=1087115399]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = &"SecondaryButton"
 tooltip_text = "Randomize Selection"
-icon = ExtResource("3_reroll")
-expand_icon = true
-icon_max_width = 40
+theme_type_variation = &"SecondaryButton"
+text = "RANDOM"
 icon_alignment = 1
+expand_icon = true
 
 [node name="Begin" type="Button" parent="Margin/Layout/Actions" unique_id=1963213875]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = &"PrimaryButton"
 tooltip_text = "Begin Run"
-icon = ExtResource("4_play")
-expand_icon = true
-icon_max_width = 40
+theme_type_variation = &"PrimaryButton"
+text = "START"
 icon_alignment = 1
+expand_icon = true

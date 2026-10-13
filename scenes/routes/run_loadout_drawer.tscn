@@ -4,11 +4,7 @@
 [ext_resource type="Theme" uid="uid://hay1hu5nk5gd" path="res://presentation/theme/game_theme.tres" id="1_4sc0m"]
 [ext_resource type="PackedScene" path="res://ui/piece_pool_view.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://ui/relic_collection_view.tscn" id="3"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/blocks.png" id="4_blocks"]
 [ext_resource type="PackedScene" path="res://ui/artifact_collection_view.tscn" id="5"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/relic.png" id="6_relic"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/artifact.png" id="7_artifact"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/close.png" id="8_close"]
 
 [node name="RunLoadoutDrawer" type="PanelContainer" unique_id=1808938517]
 z_index = 20
@@ -44,45 +40,41 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 44)
 layout_mode = 2
-theme_type_variation = &"SecondaryButton"
 tooltip_text = "Block Pile"
-icon = ExtResource("4_blocks")
-expand_icon = true
-icon_max_width = 34
+theme_type_variation = &"SecondaryButton"
+text = "BLOCKS"
 icon_alignment = 1
+expand_icon = true
 
 [node name="RelicTab" type="Button" parent="Layout/Header" unique_id=1280211668]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 44)
 layout_mode = 2
-theme_type_variation = &"SecondaryButton"
 tooltip_text = "Relics"
-icon = ExtResource("6_relic")
-expand_icon = true
-icon_max_width = 34
+theme_type_variation = &"SecondaryButton"
+text = "RELICS"
 icon_alignment = 1
+expand_icon = true
 
 [node name="ArtifactTab" type="Button" parent="Layout/Header" unique_id=32605710]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 44)
 layout_mode = 2
-theme_type_variation = &"SecondaryButton"
 tooltip_text = "Artifacts"
-icon = ExtResource("7_artifact")
-expand_icon = true
-icon_max_width = 34
+theme_type_variation = &"SecondaryButton"
+text = "ARTIFACTS"
 icon_alignment = 1
+expand_icon = true
 
 [node name="Close" type="Button" parent="Layout/Header" unique_id=1755331813]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 44)
 layout_mode = 2
-theme_type_variation = &"GhostButton"
 tooltip_text = "Close Loadout"
-icon = ExtResource("8_close")
-expand_icon = true
-icon_max_width = 32
+theme_type_variation = &"GhostButton"
+text = "CLOSE"
 icon_alignment = 1
+expand_icon = true
 
 [node name="Content" type="Control" parent="Layout" unique_id=1731162480]
 custom_minimum_size = Vector2(0, 216)

@@ -3,18 +3,9 @@
 [ext_resource type="Script" uid="uid://bh4uo5mabvd6s" path="res://scenes/upgrades/upgrade_tree_screen.gd" id="1"]
 [ext_resource type="Theme" uid="uid://cgawyp4ufchpa" path="res://themes/default_theme.tres" id="1_6m1ar"]
 [ext_resource type="Theme" uid="uid://hay1hu5nk5gd" path="res://presentation/theme/game_theme.tres" id="1_tolmy"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/back.png" id="2_back"]
 [ext_resource type="PackedScene" path="res://presentation/upgrade_board/upgrade_board_view.tscn" id="3"]
 [ext_resource type="Resource" uid="uid://d24mwhiogwe5s" path="res://content/upgrade_matrix/default_upgrade_matrix_configuration.tres" id="4"]
 [ext_resource type="PackedScene" path="res://presentation/upgrade_board/upgrade_board_shop_dialog.tscn" id="5"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/zoom_out.png" id="6_zoom_out"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/focus.png" id="7_focus"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/zoom_in.png" id="8_zoom_in"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/buy.png" id="9_buy"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/place.png" id="10_place"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/undo.png" id="11_undo"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/confirm.png" id="12_confirm"]
-[ext_resource type="Texture2D" path="res://assets/icons/actions/rotate_right.png" id="13_rotate"]
 
 [node name="UpgradeTreeScreen" type="Control" unique_id=1837370371]
 layout_mode = 3
@@ -106,12 +97,11 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(104, 44)
 custom_maximum_size = Vector2(104, -1)
 layout_mode = 2
-theme_type_variation = &"GhostButton"
 tooltip_text = "Back to Hub"
-icon = ExtResource("2_back")
-expand_icon = true
-icon_max_width = 36
+theme_type_variation = &"GhostButton"
+text = "BACK"
 icon_alignment = 1
+expand_icon = true
 
 [node name="Workspace" type="HBoxContainer" parent="Margin/Layout" unique_id=272090146]
 layout_mode = 2
@@ -154,34 +144,33 @@ theme_override_constants/separation = 4
 unique_name_in_owner = true
 custom_minimum_size = Vector2(42, 42)
 layout_mode = 2
-theme_type_variation = &"GhostButton"
 tooltip_text = "Zoom Out"
-icon = ExtResource("6_zoom_out")
-expand_icon = true
-icon_max_width = 30
+theme_type_variation = &"GhostButton"
+theme_override_font_sizes/font_size = 28
+text = "-"
 icon_alignment = 1
+expand_icon = true
 
 [node name="FitBoard" type="Button" parent="Margin/Layout/Workspace/BoardPanel/BoardMargin/BoardLayer/ZoomHud" unique_id=1134557450]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(76, 42)
 layout_mode = 2
-theme_type_variation = &"GhostButton"
 tooltip_text = "Fit Board"
-icon = ExtResource("7_focus")
-expand_icon = true
-icon_max_width = 30
+theme_type_variation = &"GhostButton"
+text = "FIT"
 icon_alignment = 1
+expand_icon = true
 
 [node name="ZoomIn" type="Button" parent="Margin/Layout/Workspace/BoardPanel/BoardMargin/BoardLayer/ZoomHud" unique_id=571053407]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(42, 42)
 layout_mode = 2
-theme_type_variation = &"GhostButton"
 tooltip_text = "Zoom In"
-icon = ExtResource("8_zoom_in")
-expand_icon = true
-icon_max_width = 30
+theme_type_variation = &"GhostButton"
+theme_override_font_sizes/font_size = 25
+text = "+"
 icon_alignment = 1
+expand_icon = true
 
 [node name="ZoomLevel" type="Label" parent="Margin/Layout/Workspace/BoardPanel/BoardMargin/BoardLayer/ZoomHud" unique_id=1934522462]
 unique_name_in_owner = true
@@ -377,12 +366,11 @@ autowrap_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 42)
 layout_mode = 2
-theme_type_variation = &"SecondaryButton"
 tooltip_text = "Focus Area"
-icon = ExtResource("7_focus")
-expand_icon = true
-icon_max_width = 36
+theme_type_variation = &"SecondaryButton"
+text = "FOCUS AREA"
 icon_alignment = 1
+expand_icon = true
 
 [node name="PiecePanel" type="Control" parent="Margin/Layout" unique_id=1663638379]
 visible = false
@@ -479,74 +467,73 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(130, 90)
 layout_mode = 2
 size_flags_vertical = 4
-theme_type_variation = &"SecondaryButton"
 tooltip_text = "Buy Blocks"
-icon = ExtResource("9_buy")
-expand_icon = true
-icon_max_width = 42
+theme_type_variation = &"SecondaryButton"
+text = "SHOP"
 icon_alignment = 1
+expand_icon = true
 
 [node name="Place" type="Button" parent="Margin/Layout/ActionBar/Actions" unique_id=1659717933]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(130, 90)
 layout_mode = 2
 size_flags_vertical = 4
+tooltip_text = "Place Block"
 theme_type_variation = &"PrimaryButton"
 disabled = true
-tooltip_text = "Place Block"
-icon = ExtResource("10_place")
-expand_icon = true
-icon_max_width = 42
+text = "PLACE
+BLOCK"
 icon_alignment = 1
+expand_icon = true
 
 [node name="Undo" type="Button" parent="Margin/Layout/ActionBar/Actions" unique_id=740194283]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(130, 90)
 layout_mode = 2
 size_flags_vertical = 4
-theme_type_variation = &"SecondaryButton"
 tooltip_text = "Undo"
-icon = ExtResource("11_undo")
-expand_icon = true
-icon_max_width = 42
+theme_type_variation = &"SecondaryButton"
+text = "UNDO
+LAST"
 icon_alignment = 1
+expand_icon = true
 
 [node name="Revert" type="Button" parent="Margin/Layout/ActionBar/Actions" unique_id=1658586177]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(130, 90)
 layout_mode = 2
 size_flags_vertical = 4
-theme_type_variation = &"GhostButton"
 tooltip_text = "Revert Pending Changes"
-icon = ExtResource("11_undo")
-expand_icon = true
-icon_max_width = 42
+theme_type_variation = &"GhostButton"
+text = "REVERT
+CHANGES"
 icon_alignment = 1
+expand_icon = true
 
 [node name="Confirm" type="Button" parent="Margin/Layout/ActionBar/Actions" unique_id=708329046]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(130, 90)
 layout_mode = 2
 size_flags_vertical = 4
-theme_type_variation = &"PrimaryButton"
 tooltip_text = "Confirm Changes"
-icon = ExtResource("12_confirm")
-expand_icon = true
-icon_max_width = 42
-icon_alignment = 1
+theme_type_variation = &"PrimaryButton"
+text = "CONFIRM
+CHANGES"
 autowrap_mode = 2
+icon_alignment = 1
+expand_icon = true
 
 [node name="Rotate" type="Button" parent="Margin/Layout/ActionBar/Actions" unique_id=951501824]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(130, 90)
 layout_mode = 2
 size_flags_vertical = 4
-theme_type_variation = &"SecondaryButton"
 tooltip_text = "Rotate Block"
-icon = ExtResource("13_rotate")
-expand_icon = true
-icon_max_width = 42
+theme_type_variation = &"SecondaryButton"
+text = "ROTATE
+BLOCK"
 icon_alignment = 1
+expand_icon = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Margin/Layout/ActionBar/Actions" unique_id=1790142055]
 custom_minimum_size = Vector2(5, 0)
