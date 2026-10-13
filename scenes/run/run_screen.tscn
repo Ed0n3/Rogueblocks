@@ -1207,7 +1207,6 @@ tooltip_text = "Place Block"
 theme_type_variation = &"CompactPrimaryButton"
 disabled = true
 text = "PLACE"
-icon = ExtResource("4")
 script = ExtResource("17")
 icon_size = 64.0
 

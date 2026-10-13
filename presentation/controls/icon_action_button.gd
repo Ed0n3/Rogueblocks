@@ -19,14 +19,20 @@ enum ActionIcon {
 	END_TURN
 }
 
+## Hide the scene label and render only the action icon and badge.
+@export var icon_only: bool = false
+## Fallback symbol used when no sprite texture is assigned.
 @export var action_icon: ActionIcon = ActionIcon.PLACE
+## Optional sprite for icon-only buttons.
 @export var sprite_texture: Texture2D
+## Size of the icon-only sprite or fallback symbol in pixels.
 @export var icon_size: float = 40.0
 
 var badge_text: String
 
 func _ready() -> void:
-	text = ""
+	if icon_only:
+		text = ""
 	queue_redraw()
 
 func set_badge(value: String) -> void:
@@ -34,6 +40,8 @@ func set_badge(value: String) -> void:
 	queue_redraw()
 
 func _draw() -> void:
+	if not icon_only:
+		return
 	var center: Vector2 = size * 0.5
 	var draw_size: Vector2 = Vector2.ONE * icon_size
 	if sprite_texture != null:
